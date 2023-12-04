@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="VisIT-Bench"/>
+  <meta property="og:description" content="VisIT-Bench: A Benchmark for Vision-Language Instruction Following Inspired by Real-World Use"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="VisIT-Bench">
+  <meta name="twitter:description" content="VisIT-Bench: A Benchmark for Vision-Language Instruction Following Inspired by Real-World Use">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>VisIT-Bench</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">-->
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">VisIT-Bench: A Benchmark for Vision-Language Instruction Following Inspired by Real-World Use</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+            <!-- Paper authors -->
+                <span class="author-block">
+                  <a href="https://yonatanbitton.github.io/" target="_blank">Yonatan Bitton<sup>*</sup></a><sup>1,2</sup>,&nbsp;</span>
+                <span class="author-block">
+                  <a href="https://sites.google.com/view/hbansal" target="_blank">Hritik Bansal<sup>*</sup></a><sup>3</sup>,&nbsp;</span>
+                <span class="author-block">
+                  <a href="https://jmhessel.com/" target="_blank">Jack Hessel<sup>*</sup></a><sup>4</sup>,&nbsp;</span>
+                <span class="author-block">
+                  <a href="https://rulinshao.github.io/" target="_blank">Rulin Shao</a><sup>5</sup>,&nbsp;</span>
+                <span class="author-block">
+                  <a href="https://wanrong-zhu.com/" target="_blank">Wanrong Zhu</a><sup>6</sup>,&nbsp;</span><br>
+                <span class="author-block">
+                  <a href="https://anas-awadalla.streamlit.app/" target="_blank">Anas Awadalla</a><sup>5</sup>,&nbsp;</span>
+                <span class="author-block">
+                  <a href="https://homes.cs.washington.edu/~jpgard/" target="_blank">Josh Gardner</a><sup>5</sup>,&nbsp;</span>
+                <span class="author-block">
+                  <a href="https://www.rohantaori.com/" target="_blank">Rohan Taori</a><sup>7</sup>,&nbsp;</span>
+                <span class="author-block">
+                  <a href="https://people.csail.mit.edu/ludwigs/" target="_blank">Ludwig Schmidt</a><sup>4,5,8</sup>&nbsp;</span>
+                </div>
+
+                <div class="is-size-5 publication-authors">
+                  <span class="author-block"><sup>1</sup> The Hebrew University of Jerusalem,&nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>2</sup> Google Research,&nbsp;&nbsp;</span>    
+                  <span class="author-block"><sup>3</sup> University of California Los Angeles,&nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>4</sup> Allen Institute for AI,&nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>5</sup> University of Washington,&nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>6</sup> University of California, Santa Barbara,&nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>7</sup> Stanford University&nbsp;&nbsp;</span>
+                  <span class="author-block"><sup>8</sup> LAION</span>
+                  <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution</small></span>
+                </div>
+
+
+                <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2308.06595" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/mlfoundations/VisIT-Bench/" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+
+                <!-- HuggingFace Link -->
+                <span class="link-block">
+                  <a href=" https://huggingface.co/datasets/mlfoundations/VisIT-Bench" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <p style="font-size:20px">&#x1F917;</p>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+
+              <!-- HuggingFace Link -->
+                <span class="link-block">
+                  <a href=" https://huggingface.co/spaces/mlfoundations/VisIT-Bench-Leaderboard" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <p style="font-size:20px">&#x1F917;</p>
+                  </span>
+                  <span>Leaderboard</span>
+                </a>
+              </span>
+
+              <!-- ArXiv abstract Link -->
+                <span class="link-block">
+                  <a href="https://laion.ai/blog/visit_bench/" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>LAION Blog</span>
+                </a>
+              </span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-small is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="publication-flipped">
+        <div class="content has-text-justified">
+            <p style="text-align:center;">
+               <img src="static/images/1_fig1.png"  style="width: 80%; height: 80%"/>
+               <br>
+            </p>
+
+        </div>
+
+      </div>
+    </div>
+    <h3 class="subtitle is-size-3-tablet has-text-left pb-">
+    <p>VisIT-Bench is a new vision-language instruction following benchmark inspired by real-world use cases. Testing 70 diverse “wish-list” skills with an automated ranking system, it advances the ongoing assessment of multimodal chatbot performance.</p>
+  </div><h3>
+</section>
+
+
+
+<!-- Paper abstract -->
+<section class="section hero is-small">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="publication-flipped">
+        <div class="content has-text-justified">
+            <h3 class="subtitle is-size-3-tablet has-text-left pb-5">
+               <p>
+                   <br>
+                    Why VisIT-Bench 🤔?<br>
+               </p>
+            </h3>
+            <h3 class="subtitle is-size-4-tablet has-text-left pb-5">
+               <p>
+                   Though recent VLMs have shown promise in following instructions, their evaluation for real-world human-chatbot instructions is often limited. Typically, VLMs are evaluated through qualitative comparison of outputs, which makes it challenging to quantify progress and potential shortcomings. VisIT-Bench helps address this problem by offering a comprehensive testbed for measuring model performance across a diverse set of instruction-following tasks, inspired by real world scenarios.🌍
+               </p>
+            </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item">
+         <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+           VisIT-Bench Instance
+           </h2>
+         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+         <p>
+             An example from VisIT-Bench, featuring an image, an instruction, an  “instruction-conditioned caption”, a detailed description allowing a model to follow the instruction using just the text, and a human-verified response from GPT-4. These elements are used for evaluating multimodal chatbots and updating a leaderboard.📊
+
+         </p>
+         <p style="text-align:center;">
+           <br><br>
+           <img src="static/images/2_example.png"  style="width: 100%; height: 100%"/>
+         </p>
+         </h3>
+      </div>
+
+      <div class="item">
+         <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+           Data Collection Framework
+           </h2>
+         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+         <p>
+             1. Creating “wish-list” instructions for desired V&L chatbot capabilities<br>
+             2. Using these as inspiration for instructions annotation<br>
+             3. Collecting instruction-conditioned dense captions<br>
+             4. Generating human-verified chatbot responses from GPT-4 outputs<br>
+         </p>
+         <p style="text-align:center;">
+           <br><br>
+           <img src="static/images/3_dataset_collection.png"  style="width: 80%; height: 80%"/>
+         </p>
+         </h3>
+      </div>
+
+      <div class="item">
+         <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+           Repurposing Existing Datasets
+           </h2>
+         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+         <p>
+            VisIT-Bench repurposes 25 datasets to a chatbot-style, including 10 multi-image datasets.<br>
+             Here, we add an instruction prompt and a chatbot response to an NLVR2 instance.<br>
+             This methodology leverages previous studies, tailoring them to current chatbot requirements.
+         </p>
+         <p style="text-align:center;">
+           <br><br>
+           <img src="static/images/4_nlvr_image.png"  style="width: 100%; height: 100%"/>
+         </p>
+         </h3>
+      </div>
+
+      <div class="item">
+         <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+             Instruction-Conditioned Dense Captions and Data Collection Results
+           </h2>
+         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+         <p>
+             With a 91.5% success rate in single-image scenarios, our data collection demonstrates the effectiveness of instruction-conditioned dense captions.<br>
+             It also showcases the necessity of our dense captions over generated captions from a SoTA BLIP2 captioning model. 📈
+         </p>
+         <p style="text-align:center;">
+           <br><br>
+             <img src="static/images/5_dataset_results_plus_ablation.png"  style="width: 100%; height: 100%"/>
+
+             <!-- <br> -->
+             <!-- <img src="static/images/5_necessity_of_captions.png"  style="width: 90%; height: 90%"/> -->
+
+         </p>
+         </h3>
+      </div>
+
+      <div class="item">
+         <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+           Features of the Dataset
+           </h2>
+         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+           <p>
+               VisIT-Bench emphasizes diverse tasks and human-chatbot interactions.<br>
+               We stand apart with our 'wish-list' instructions, 70 tested skills, and the repurposing of existing datasets, including multi-image tasks, thereby reflecting the dynamic demands of modern chatbots.🎯.
+           </p>
+         <p style="text-align:center;">
+           <br><br>
+           <img src="static/images/7_table_compare.png"  style="width: 100%; height: 100%"/>
+         </p>
+         </h3>
+      </div>
+
+      <div class="item">
+        <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+           Human-Guided Rankings
+           </h2>
+         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+           <p>
+               VisIT-Bench facilitates the comparison of different V&L models.<br>
+               By using human preference annotations, we form a leaderboard, providing insights into the strengths and weaknesses of each model in various tasks.
+           </p>
+         <p style="text-align:center;">
+           <br><br>
+           <img src="static/images/8_human_preferences.png"  style="width: 90%; height: 90%"/>
+         </p>
+         </h3>
+      </div>
+
+      <div class="item">
+        <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+            Automatic Evaluation and Dynamic Leaderboard
+           </h2>
+         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+           <p>
+               Using GPT-4 as a judge, we host head-to-head battles among top vision-and-language models 🥊.<br>
+               Our leaderboard reflects human preferences with high agreement, making it a scalable and reliable assessment tool.⚖️
+           </p>
+         <p style="text-align:center;">
+           <br><br>
+           <img src="static/images/9_auto_eval_expanded.png"  style="width: 85%; height: 85%"/>
+             <!-- <br> -->
+           <!-- <img src="static/images/10_auto_eval_expanded.png"  style="width: 60%; height: 60%"/> -->
+         </p>
+         </h3>
+      </div>
+
+       <div class="item">
+        <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+           Evaluating Evaluation Metrics
+           </h2>
+         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+           <p>
+               How good is our automatic metric? We measure correlations of several automatic metrics vs. human preferences, with our reference free evaluation (GPT-4-no-ref) showing the strongest alignment (top orange line - upper bound, bottom blue line - random chance (50%).📏
+           </p>
+         <p style="text-align:center;">
+           <br><br>
+           <img src="static/images/10_correlation.png"  style="width: 80%; height: 80%"/>
+         </p>
+         </h3>
+      </div>
+
+      <div class="item">
+        <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+           Results by Different Models on Different Instruction Families
+           </h2>
+         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+           <p>
+               VisIT-Bench offers detailed insight into the performance of V&L models.<br>
+               Through our diverse instruction families, you can assess how different models perform on various tasks, providing a thorough understanding of their capabilities.🔍
+           </p>
+         <p style="text-align:center;">
+           <br><br>
+           <img src="static/images/11_res_per_category.png"  style="width: 100%; height: 100%"/>
+         </p>
+         </h3>
+      </div>
+
+  </div>
+</div>
+</div>
+</section>
+<!-- End image carousel -->
+
+<script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.16.2/gradio.js"></script>
+
+<!-- Start explorer embedding -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+       <h3 class="subtitle is-size-1-tablet has-text-weight-bold has-text-centered pr-4 pl-4 pt-3 pb-3">
+            Dataset Viewer
+        </h3>
+      <div class="columns is-centered has-text-centered">
+          <div class="publication-video">
+            <!-- <gradio-app src="https://nlphuji-whoops-dataset-viewer.hf.space"></gradio-app> -->
+            <gradio-app src="https://mlfoundations-visit-bench-dataset-viewer.hf.space"></gradio-app>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- End explorer embedding -->
+
+
+<!-- Start explorer embedding -->
+<script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.35.2/gradio.js"></script>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <!-- Paper video. -->
+        <h3 class="subtitle is-size-1-tablet has-text-weight-bold has-text-centered pr-4 pl-4 pt-3 pb-3">
+            Leaderboard
+        </h3>
+        <h3 class="subtitle is-size-5-tablet has-text-weight-bold">
+            To submit your results to the leaderboard, please add a "predictions" column to <a href="https://huggingface.co/datasets/mlfoundations/VisIT-Bench/blob/main/visit_bench_single_image.csv">this csv</a>, and send to <a href="mailto:yonatanbitton1@gmail.com">this mail</a>.
+        </h3>
+      <div class="columns is-centered has-text-centered">
+          <div class="publication-video">
+            <!-- <gradio-app src="https://mkshing-jp-llm-leaderboard.hf.space"></gradio-app> -->
+            <gradio-app src="https://mlfoundations-visit-bench-leaderboard.hf.space"></gradio-app>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- End explorer embedding -->
+
+<!--<script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.16.2/gradio.js"></script>-->
+<!-- Youtube video -->
+<!--<section class="hero is-small is-light">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      &lt;!&ndash; Paper video. &ndash;&gt;-->
+<!--      <div class="columns is-centered has-text-centered">-->
+<!--          <div class="publication-video">-->
+<!--          <h3 class="subtitle is-size-4-tablet has-text-left">-->
+<!--               <p>-->
+<!--                   q2d's auto-generated dialogs enable query generation models to adapt and improve for specific dialog styles, creating labeled datasets for training and evaluation.-->
+<!--                   <br>T5 model predictions above/below the line show the impact of fine-tuning on MuSiQue dialogs.-->
+<!--               </p>-->
+<!--               <p style="text-align:center;">-->
+<!--                   <br><br>-->
+<!--                   <img src="static/images/q2d_5.png"  style="width: 60%; height: 60%"/>-->
+<!--               </p>-->
+<!--         </h3>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--</section>-->
+<!-- End youtube video-->
+
+<!-- Youtube video -->
+<!--<section class="hero is-small">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      <h3 class="subtitle is-size-4-tablet has-background-info-light has-text-left pr-4 pl-4 pt-3 pb-3">-->
+<!--      We collect <i>normal</i> (synthetic, not weird) and <i>natural</i> (non-synthetic, not weird) images to investigate the main challenge in WHOOPS!. BLIP2 model performs well on <i>non-weird</i> cases but struggles on weird ones, indicating that weirdness is the primary challenge, not synthesis.-->
+<!--      </h3>-->
+<!--      <div class="columns is-centered has-text-centered">-->
+<!--          <div class="publication-video">-->
+<!--            <iframe src="https://nlphuji-wmtis-explorer-identify.hf.space" frameborder="0" width="850" height="450"></iframe>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--</section>-->
+
+
+<!-- Paper poster -->
+<!--<section class="hero is-small is-light">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      <h2 class="title">Paper</h2>-->
+<!--      <iframe  src="static/pdfs/WHOOPS_paper.pdf" width="100%" height="550">-->
+<!--          </iframe>-->
+<!--        -->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--End paper poster -->
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+<div class="container is-max-desktop content">
+<h2 class="title">BibTeX</h2>
+<pre><code>@misc{bitton2023visitbench,
+      title={VisIT-Bench: A Benchmark for Vision-Language Instruction Following Inspired by Real-World Use}, 
+      author={Yonatan Bitton and Hritik Bansal and Jack Hessel and Rulin Shao and Wanrong Zhu and Anas Awadalla and Josh Gardner and Rohan Taori and Ludwig Schmidt},
+      year={2023},
+      eprint={2308.06595},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}</code>
+</div>
+</section>
+<!--End BibTex citation -->
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p style="color:gray;font-size:9.9px;">
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+  </body>
+  </html>
