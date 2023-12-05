@@ -49,16 +49,22 @@ body {
 
 .publication-title {
     font-family: 'Google Sans', sans-serif;
+    padding-left: -10px;
+    padding-right: -10px;
 }
 
 .publication-authors {
     font-family: 'Google Sans', sans-serif;
+    padding-left: -10px;
+    padding-right: -10px;
 }
 
 .publication-venue {
     color: #555;
     width: fit-content;
     font-weight: bold;
+    padding-left: -10px;
+    padding-right: -10px;
 }
 
 .publication-awards {
