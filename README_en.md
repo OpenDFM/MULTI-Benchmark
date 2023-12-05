@@ -5,13 +5,15 @@ MULTI: Multimodal Understanding Leaderboard with Text and Images
 
 ## Authors
 
-Zichen Zhu, Yang Xu, Lu Chen, Jingkai Yang, Yichuan Ma, Yimin Sun, Hailin Wen, Jiaqi Liu, Jinyu Cai, Liangtai Sun, Zihan Zhao, Kai Yu
+Zichen Zhu, Yang Xu, Lu Chen, Jingkai Yang, Yichuan Ma, Yimin Sun, Hailin Wen, Jiaqi Liu, Jinyu Cai, Yingzi Ma, Liangtai Sun, Zihan Zhao, Kai Yu
 
 【1】X-LANCE Lab, Department of Computer Science and Engineering
 
 MoE Key Lab of Artificial Intelligence, SJTU AI Institute
 
 Shanghai Jiao Tong University, Shanghai, China
+
+【2】Sichuan University, Sichuan, China
 
 `{JamesZhutheThird, xuyang0112, chenlusz, kai.yu}@sjtu.edu.cn`
 
