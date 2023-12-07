@@ -14,9 +14,9 @@ We introduce **MULTI**: a multi-level, multi-disciplinary, and multi-type cross-
 
 We manually selected 500 questions to form a difficult subset, which is used to evaluate the model's extreme performance. These questions often contain multiple images and formulas, test the model's comprehensive understanding of multiple images, and require complex and rigorous logical reasoning. The performance of this part of the data will be displayed separately on the leaderboard.
 
-We tested on GPT-3.5 and open-source multimodal large models$^\dagger$, and the results show that even the advanced GPT-3.5 only achieved **43.28%** accuracy, showing a huge room for improvement. We believe that MULTI will motivate the community to build the next generation of multimodal foundation models, to achieve expert-level artificial general intelligence.
+We tested on GPT-3.5 and open-source multimodal large models $^\dagger$ , and the results show that even the advanced GPT-3.5 only achieved **43.28%** accuracy, showing a huge room for improvement. We believe that MULTI will motivate the community to build the next generation of multimodal foundation models, to achieve expert-level artificial general intelligence.
 
-$$^\dagger$$Based on `v0.3.0-20231115` version of the data, tested on SC/MC/FIB three question types.
+$^\dagger$ Based on `v0.3.0-20231115` version of the data, tested on SC/MC/FIB three question types.
 
 ## 🔥 News 
 
