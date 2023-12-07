@@ -16,7 +16,7 @@ We manually selected 500 questions to form a difficult subset, which is used to 
 
 We tested on GPT-3.5 and open-source multimodal large models$^\dagger$, and the results show that even the advanced GPT-3.5 only achieved **43.28%** accuracy, showing a huge room for improvement. We believe that MULTI will motivate the community to build the next generation of multimodal foundation models, to achieve expert-level artificial general intelligence.
 
-$^\dagger$Based on `v0.3.0-20231115` version of the data, tested on SC/MC/FIB three question types.
+$$^\dagger$$Based on `v0.3.0-20231115` version of the data, tested on SC/MC/FIB three question types.
 
 ## 🔥 News 
 
