@@ -16,7 +16,7 @@ We manually selected 500 questions to form a difficult subset, which is used to 
 
 We tested on GPT-3.5 and open-source multimodal large models$^\dagger$, and the results show that even the advanced GPT-3.5 only achieved **43.28%** accuracy, showing a huge room for improvement. We believe that MULTI will motivate the community to build the next generation of multimodal foundation models, to achieve expert-level artificial general intelligence.
 
-$$^\dagger$$Based on `v0.3.0-20231115` version of the data, tested on SC/MC/FIB three question types.
+$^\dagger$ Based on `v0.3.0-20231115` version of the data, tested on SC/MC/FIB three question types.
 
 ## 🔥 News 
 
@@ -28,7 +28,7 @@ $$^\dagger$$Based on `v0.3.0-20231115` version of the data, tested on SC/MC/FIB 
 
 We will release our first official version soon.
 
-Please feel free to contact (`JamesZhutheThird@sjtu.edu.cn`) and keep in touch with us. 
+Please feel free to contact (`JamesZhutheThird@sjtu.edu.cn` and `xuyang0112@sjtu.edu.cn`) and keep in touch with us. 
 
 ## 📑 Citation
 
@@ -36,13 +36,13 @@ If you find our work useful, please consider citing us!
 
 ```
 @misc{zhu2023multibench,
-      title={MULTI: Multimodal Understanding Leaderboard with Text and Images},
-      author={Zichen Zhu, Yang Xu, Lu Chen, Jingkai Yang, Yichuan Ma, Yimin Sun, Hailin Wen, Jiaqi Liu, Jinyu Cai, Yingzi Ma, Liangtai Sun, Zihan Zhao, and Kai Yu},
-      year={2023},
-      howpublished = "\url{https://github.com/X-LANCE/MULTI-Benchmark}",
+  title={MULTI: Multimodal Understanding Leaderboard with Text and Images},
+  author={Zichen Zhu, Yang Xu, Lu Chen, Jingkai Yang, Yichuan Ma, Yimin Sun, Hailin Wen, Jiaqi Liu, Jinyu Cai, Yingzi Ma, Liangtai Sun, Zihan Zhao, and Kai Yu},
+  year={2023},
+  howpublished = "\url{https://github.com/X-LANCE/MULTI-Benchmark}",
 }
 ```
 
 ## 📧 Contact Us
 
-If you would like to early access our benchmark or have any questions, please feel free to contact: `JamesZhutheThird@sjtu.edu.cn`
+If you would like to early access our benchmark or have any questions, please feel free to contact: `JamesZhutheThird@sjtu.edu.cn` and `xuyang0112@sjtu.edu.cn`
