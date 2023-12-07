@@ -1,0 +1,6 @@
+data/knowledge_*.json
+data/problem_*.json
+data/image/
+*.sh
+*.sbatch
+.idea/
