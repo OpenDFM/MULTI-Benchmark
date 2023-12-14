@@ -4,35 +4,24 @@ import re
 from utils import infer_lang_from_question
 from tqdm import tqdm
 
-question_noncot_prompts = {
+question_prompts = {
     "zh": {
-        "单选": "这道题目只有唯一的答案，请只给出唯一一个大写英文字母作为答案，不包含选项后面的描述，也不需要推理过程，如：A，B，C，D，E。",
-        "多选": "这道题目有不小于两个可行的答案，请选出所有的正确选项，格式为连续的多个大写英文字母，不包含选项后面的描述，如：AB，BDE。",
-        "填空": "每一个 [MASK] 对应一个最简且确定的答案，多个 [MASK] 的答案之间换行隔开，如：文艺复兴\n0.5\n$\sqrt{2}$。",
+        "单选": "这道题目只有唯一的正确选项，请只给出唯一一个大写英文字母作为答案，不包含选项后面的描述，如：A，B，E。",
+        "多选": "这道题目有不小于两个可行的答案，请选出所有的正确选项，格式为连续的多个大写英文字母，不包含选项后面的描述，如：AC，BDE。",
+        "填空": "每一个 '[MASK]' 对应一个最简且确定的答案，多个 '[MASK]' 的答案之间换行隔开，如：文艺复兴\n0.5\n①。",
         "解答": "这道题需要你对问题进行详细的分析作答，请以'我的分析如下：'作为开头。",
     },
     "en": {
-        "single_choice": "This question has only one correct choice.",
-        "multiple_choices": "You should choose at least 2 options. Select all the options that can be filled in '[MASK]':",
-        "fill_in_the_blank": "Please just write an answer to fill in the blank '[MASK]', one for each respectively.",
-        "discussion_questions": "This question requires a detailed explanation.",
-    },
+        "single_choice": "This question has only one correct option. Please give only one uppercase letter as the answer, without the description after the option, such as: A, B, E.",
+        "multiple_choices": "This question has no less than two possible answers. Please choose all the correct options, in the format of consecutive uppercase letters, without the description after the options, such as: AC, BDE.",
+        "fill_in_the_blank": "Each '[MASK]' corresponds to a simple and definite answer. The answers for multiple '[MASK]'s are separated by line breaks, such as: Renaissance\n0.5\n①.",
+        "discussion_questions": "This question requires you to analyze the problem in detail. Please start with 'My analysis is as follows:'.",
+    }
 }
 
-question_cot_prompts = {
-    "zh": {
-        "单选": "这道题目只有唯一的答案，为唯一一个大写英文字母，不包含选项后面的描述，如：A，B，C，D，E。",
-        "多选": "这道题目有不小于两个可行的答案，请选出所有的正确选项，格式为连续的多个大写英文字母，如：AB，BDE。",
-        "填空": "每一个 [MASK] 对应一个最简且确定的答案，多个 [MASK] 的答案之间换行隔开，如：文艺复兴\n0.5\n$\sqrt{2}$。",
-        "解答": "这道题需要你对问题进行详细的分析作答，请以'我的分析如下：'作为开头。",
-    },
-    "en": {
-        "single_choice": "The only correct choice to this question is:",
-        "multiple_choices": "You should choose at least 2 options. Select all the options that can be filled in '[MASK]':",
-        "fill_in_the_blank": "Please just write an answer to fill in the blank '[MASK]', one for each respectively.",
-        "discussion_questions": "This question requires a detailed explanation.",
-    },
-}
+# TODO： to be removed
+question_noncot_prompts = question_prompts
+question_cot_prompts = question_prompts
 
 knowledge_prompt = {
     "zh": "\n我们为你提供了一些额外材料，你可以参考这些信息来回答问题，请注意它们并不一定完整，也不一定正确，它们可能有图片输入，也有可能输入图片描述，也有可能只有文字，你需要结合你之前的知识来回答。\n%s",
@@ -74,7 +63,7 @@ image_cot_guide_prompts = {
     },
     "en": {  # TODO: Polish English prompts in future work
         "image": "\nThis question contains image information. Please give your answer directly based on the text and image information.\n",
-        "image_in_turn": '\nThis question contains multiple images. You will receive all the images through multiple rounds of dialogue. Please note that until the prompt "Please give your answer" appears, the question has not been loaded completely. You can give your understanding and thoughts on the current information during each round of dialogue, but we will only adopt the answer you obtained in the last round as the final result. Please give your answer directly based on all the text and image information.\n',
+        "image_in_turn": '\nThis question contains multiple images. You will receive all the images through multiple rounds of dialogue. PPlease note that until you are asked to start answering, the question has not been loaded completely. You can give your understanding and thoughts on the current information during each round of dialogue, but we will only adopt the answer you obtained in the last round as the final result. Please give your answer directly based on all the text and image information.\n',
         "caption": "\nThis question contains image information. We use the generated image description to replace the image. You can refer to these descriptions to answer the questions. If you think that the text information and description information in the question are not enough to determine the correct answer, please answer 'Lack of image information' instead of guessing an answer at will. Otherwise, please give your answer directly based on the text and image information.\n",
         "no_image": "\nThis question contains image information, but we will not provide this part of the information. Please give your answer directly based on the text information in the question. If you think that the text information in the question is not enough to determine the correct answer, please answer 'Lack of image information' instead of guessing an answer at will. Otherwise, please give your answer directly based on the text and image information.\n",
         "pure_text_with_blank_image": "\nThis question does not contain image information. We will input a pure black image. Please give your answer directly based on the text information in the question.\n",
@@ -83,18 +72,18 @@ image_cot_guide_prompts = {
 }
 
 ending_prompt = {
-    "zh": "\n请作答：",
+    "zh": "\n请直接给出你的答案：",
     "en": "\nPlease directly give your answer:",
 }
 
 ending_cot_prompt = {
     "zh": "\n请先在此处，逐步给出你对所给问题的思考过程、推理：",
-    "en": "\nPlease show your reasoning process, and then give your answer:",
+    "en": "\nPlease show your reasoning process step by step:",
 }
 
 ending_cot_doublecheck_prompt = {
     "zh": "\n根据以上思考过程，你的最终答案是：",
-    "en": "\nAccording to the reasoning you have given, the final answer should be:",
+    "en": "\nAccording to the reasoning you have given above, the final answer should be:",
 }
 
 CoT_identifier = "<CoT_no_image>"
