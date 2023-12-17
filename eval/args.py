@@ -115,7 +115,7 @@ def parse_args_for_score():
     parser = argparse.ArgumentParser()
 
     # data setting
-    parser.add_argument('--lable_file', type=str, default=None, help='Specify the label json file.')
+    parser.add_argument('--label_file', type=str, default=None, help='Specify the label json file.')
     parser.add_argument('--prediction_file', type=str, default=None, help='Specify the prediction json file.')
     parser.add_argument('--score_file', type=str, default=None, help='Specify the output detail score file.')
     parser.add_argument('--reference_dir', type=str, default=None, help='Specify the reference directory where all the other score files are stored. By leaving it empty, only absolute score will be calculated.')

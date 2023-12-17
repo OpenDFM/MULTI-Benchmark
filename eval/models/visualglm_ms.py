@@ -9,12 +9,11 @@ from prompts import CoT_identifier
 
 
 class VisualGLMEvaluator():
-    def __init__(self, model_path="ZhipuAI/visualglm-6b", revision="v1.0.3", max_tokens=20, temperature=0.1, top_p=1, device_map="cuda:0"):
+    def __init__(self, model_path="ZhipuAI/visualglm-6b", revision="v1.0.3", max_tokens=20, device_map="cuda:0"):
         self.model_path = model_path
         self.sample_params = {
-            "max_new_tokens": max_tokens,
-            "temperature": temperature,
-            "top_p": top_p,
+            "max_length": max_tokens,
+            "do_sample": False,
         }
 
         model_path = snapshot_download(model_path, revision=revision)
@@ -31,14 +30,14 @@ class VisualGLMEvaluator():
             question = input
             image_path = question.get("image_list", [""])[0]
             message = question["prompted_content"]
-            response, _ = self.model.chat(self.tokenizer, image_path, message, None)
+            response, _ = self.model.chat(self.tokenizer, image_path, message, None, **self.sample_params)
             return response, message
 
         elif isinstance(input, tuple):
             # question with multiple images
             assert len(input) == 3, "Input tuple must have 3 elements. (prompt, image_path, history)"
             message, image_path, history = input
-            response, history = self.model.chat(self.tokenizer, image_path, message, history)
+            response, history = self.model.chat(self.tokenizer, image_path, message, history, **self.sample_params)
             return response, history, message
         else:
             raise ValueError(f"input type not supported: {type(input)}")

@@ -7,15 +7,14 @@ import pdb
 
 class QwenEvaluator:
     def __init__(self, model_path="Qwen/Qwen-VL-Chat-Int4",  # "Qwen/Qwen-VL-Chat"
-                 revision="v1.0.0", max_tokens: int = 20, temperature: float = 0.1, top_p: int = 0.9, dtype=None, device_map="cuda:0"):
+                 revision="v1.0.0", max_tokens: int = 20, dtype=None, device_map="cuda:0"):
         self.model_path = model_path
         self.sample_params = {
             "max_new_tokens": max_tokens,
-            "temperature": temperature,
-            "top_p": top_p,
+            "do_sample": False
         }
 
-        quantized = "Int4" in self.model_dir
+        quantized = "Int4" in self.model_path
 
         dtype_dict = {}
         if dtype in ("bf16", "fp16") and not quantized:
@@ -71,7 +70,7 @@ class QwenEvaluator:
         else:
             raise ValueError(f"input type not supported: {type(input)}")
 
-    def generate_answer(self, question):
+    def generate_answer(self, question: dict):
         if question.get("prompted_content"):
             response, message = self.generate_response(question)
             question["input_message"] = message
@@ -80,13 +79,14 @@ class QwenEvaluator:
             # Processing questions with multiple images in a model of seemingly 1-image support is essential.
             # We consider multiple-rounds chat to send images separately,
             prompted_content_list = question.get("prompted_content_list")
-            image_list = question.get("image_list")
-            # image_list.append("")append
+            image_list = question.get("image_list").copy()
+            # image_list.append("")
             history = None
+            # We have performed merging before feeding the question into LLM, so here they have been aligned
             assert len(prompted_content_list) == len(image_list), f"Length of prompted_content_list and image_list must be the same. \n{question}"
             question["answer_history"] = []
             question["input_message_list"] = []
-            for multi_rounds_prompt, image_path in zip(prompted_content_list[:-2], image_list[:-1]):
+            for multi_rounds_prompt, image_path in zip(prompted_content_list, image_list):
                 response, history, message = self.generate_response((multi_rounds_prompt, image_path, history))
                 question["answer_history"].append(response)
                 question["input_message_list"].append(message)

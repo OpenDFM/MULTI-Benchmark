@@ -5,33 +5,32 @@ import pdb
 
 
 class VisualGLMEvaluator():
-    def __init__(self, model_dir="THUDM/visualglm-6b", max_tokens=20, temperature=0.1, top_p=1, device_map="cuda:0"):
+    def __init__(self, model_dir="THUDM/visualglm-6b", max_tokens=300, device_map="cuda:0"):
         self.model_dir = model_dir
         self.sample_params = {
-            "max_new_tokens": max_tokens,
-            "temperature": temperature,
-            "top_p": top_p,
+            "max_length": max_tokens,
+            "do_sample": False,
         }
 
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_dir, trust_remote_code=True)
 
         self.model = AutoModel.from_pretrained(self.model_dir, device_map=device_map, trust_remote_code=True, ).half().eval()  # 18G VRAM without quantize. May need optimization
 
-        self.model.generation_config.__dict__.update(self.sample_params)
+        # self.model.generation_config.__dict__.update(self.sample_params)
 
     def generate_response(self, input):
         if isinstance(input, dict):
             question = input
             image_path = question.get("image_list", [""])[0]
             message = question["prompted_content"]
-            response, _ = self.model.chat(self.tokenizer, image_path, message, None)
+            response, _ = self.model.chat(self.tokenizer, image_path, message, None, **self.sample_params)
             return response, message
 
         elif isinstance(input, tuple):
             # question with multiple images
             assert len(input) == 3, "Input tuple must have 3 elements. (prompt, image_path, history)"
             message, image_path, history = input
-            response, history = self.model.chat(self.tokenizer, image_path, message, history)
+            response, history = self.model.chat(self.tokenizer, image_path, message, history, **self.sample_params)
             return response, history, message
         else:
             raise ValueError(f"input type not supported: {type(input)}")

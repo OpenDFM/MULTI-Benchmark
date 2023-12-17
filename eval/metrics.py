@@ -17,20 +17,20 @@ from args import parse_args_for_score
 from utils import Education_Level_Dict_zh2en, Question_Type_Dict_zh2en
 
 
-def SingleChoiceEval(pred, lable):
+def SingleChoiceEval(pred, label):
     """
     提取输出中出现的第一个英文字母作为答案
     """
     match = re.search(r'[a-zA-Z]', pred)
     if match:
         answer = match.group(0)
-        score = 1 if answer == lable else 0
+        score = 1 if answer == label else 0
     else:
         score = 0
     return score, 1
 
 
-def MultipleChoicesEval(pred, lable):
+def MultipleChoicesEval(pred, label):
     """
     提取输出中出现的数个连续或使用','和' '间隔的英文字母作为答案，对答案去重并进行排序
     每选择一个正确选项+1分，若选择错误选项则直接得0分
@@ -40,27 +40,27 @@ def MultipleChoicesEval(pred, lable):
     score = 0
     if match:
         answer = match.group(0)
-        answer = answer.replace(' ', '').replace(',', '')
+        answer = answer.replace(' ', '').replace(',', '').replace('、','')
         answer = ''.join(sorted(set(answer), key=answer.index))
         for choice in answer:
-            if choice in lable:
+            if choice in label:
                 score += 1
             else:
                 score = 0
                 break
     else:
         score = 0
-    return score, len(lable)
+    return score, len(label)
 
 
-def FillInTheBlankEval(pred, lable):
+def FillInTheBlankEval(pred, label):
     """
     提取输出每一行作为一个[MASK]的答案
     我们比较答案是否严格一致，部分选项有多重正确答案，使用“或”进行分割
     """
     score = 0
     pred = pred.split('\n')
-    label = lable.split('\n')
+    label = label.split('\n')
     for i in range(min(len(label), len(pred))):
         if pred[i] == label[i]:
             score += 1
@@ -74,15 +74,15 @@ def FillInTheBlankEval(pred, lable):
     return score, len(label)
 
 
-def DisscusionQuestionEval(pred, lable):
+def DiscussionQuestionEval(pred, label):
     """
     使用ROUGE来计算答案与标准答案的相似度
     Please be aware that Evaluation of Discussion Questions is not accurate, and may not reflect the real quality of the answer.
     """
     rouge = Rouge()
     pred_ = ' '.join(jieba.cut(pred))
-    lable_ = ' '.join(jieba.cut(lable))
-    rouge_score = rouge.get_scores(pred_, lable_, avg=True)
+    label_ = ' '.join(jieba.cut(label))
+    rouge_score = rouge.get_scores(pred_, label_, avg=True)
     score = rouge_score['rouge-l']['f']
     return score, 1
 
@@ -91,7 +91,7 @@ EvaluateFuncDict = {
     "单选": SingleChoiceEval,
     "多选": MultipleChoicesEval,
     "填空": FillInTheBlankEval,
-    "解答": DisscusionQuestionEval
+    "解答": DiscussionQuestionEval
 }
 
 
@@ -105,8 +105,8 @@ def evaluate_every_problem(args):
     """
     with open(args.prediction_file, 'r', encoding="utf-8") as f:
         pred_data = json.load(f)
-    with open(args.lable_file, 'r', encoding="utf-8") as f:
-        lable_data = json.load(f)
+    with open(args.label_file, 'r', encoding="utf-8") as f:
+        label_data = json.load(f)
 
     score_data = {}
 
@@ -115,11 +115,11 @@ def evaluate_every_problem(args):
 
     for item in pred_data.values():
         problem_id, sub_id = item['question_id'].rsplit('_', 1)
-        lable = lable_data[problem_id]["problem_answer_list"][int(sub_id)].strip()
-        type = lable_data[problem_id]["problem_type_list"][int(sub_id)]
+        label = label_data[problem_id]["problem_answer_list"][int(sub_id)].strip()
+        type = label_data[problem_id]["problem_type_list"][int(sub_id)]
 
         if type in EvaluateFuncDict:
-            score, total_score = EvaluateFuncDict[type](item['prediction'], lable)
+            score, total_score = EvaluateFuncDict[type](item['prediction'], label)
         else:
             score, total_score = 0, 0
 
@@ -129,12 +129,12 @@ def evaluate_every_problem(args):
             "total_score": total_score
         }
 
-        pred_data[item['question_id']]["answer"] = lable
+        pred_data[item['question_id']]["answer"] = label
         pred_data[item['question_id']]["score"] = score
         pred_data[item['question_id']]["total_score"] = total_score
         pred_data[item['question_id']]["type"] = type
-        pred_data[item['question_id']]["education"] = lable_data[problem_id]["education"]
-        pred_data[item['question_id']]["subject"] = lable_data[problem_id]["subject"][0]
+        pred_data[item['question_id']]["education"] = label_data[problem_id]["education"]
+        pred_data[item['question_id']]["subject"] = label_data[problem_id]["subject"][0]
 
     with open(args.prediction_file.replace('prediction.json', 'score.json'), 'w', encoding="utf-8") as f:
         json.dump(score_data, f, indent=4, ensure_ascii=False)
@@ -183,8 +183,8 @@ def detail_score(args):
     with open(args.detail_file, 'r', encoding="utf-8") as f:
         score_data = json.load(f)
 
-    with open(args.lable_file, 'r', encoding="utf-8") as f:
-        lable_data = json.load(f)
+    with open(args.label_file, 'r', encoding="utf-8") as f:
+        label_data = json.load(f)
 
     detail_file = open(args.prediction_file.replace('prediction.json', 'statistics.csv'), 'w', encoding="utf-8")
 
@@ -205,7 +205,7 @@ def detail_score(args):
             continue
         detail_data = init_dict(detail_data, education, subject)
 
-        image_num = item["question_image_number"]  # get_image_number(question_id,lable_data)
+        image_num = item["question_image_number"]  # get_image_number(question_id,label_data)
         image = "Null" if image_num == 0 else "Single" if image_num == 1 else "Multi"
 
         # update the detail_data
@@ -411,7 +411,7 @@ def generate_summary(args):
 
 
 def main(args):
-    if args.prediction_file and args.lable_file:
+    if args.prediction_file and args.label_file:
         # calculate the absolute score of each problem
         args.score_file = args.prediction_file.replace('prediction.json', 'score.json')
         args.detail_file = args.prediction_file.replace('prediction.json', 'detail.json')

@@ -4,3 +4,7 @@ data/images/
 *.sh
 *.sbatch
 .idea/
+.vscode
+results/
+*.ipynb
+*__pycache__*

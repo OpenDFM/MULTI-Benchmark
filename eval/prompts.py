@@ -40,8 +40,8 @@ knowledge_prompt = {
 }
 
 system_prompt = {
-    "zh": "\n你是一名来自中国的考生，你需要运用你所学的%s知识回答这道%s题。\n%s",
-    "en": "\nYou are a student from China. You need to use your knowledge of %s to answer this %s question.\n%s",
+    "zh": "你是一名来自中国的考生，你需要运用你所学的%s知识回答这道%s题。\n%s",
+    "en": "You are a student from China. You need to use your knowledge of %s to answer this %s question.\n%s",
 }
 
 image_noncot_guide_prompts = {
@@ -99,6 +99,19 @@ ending_cot_doublecheck_prompt = {
 
 CoT_identifier = "<CoT_no_image>"
 
+fs_shot_guide_example = {
+    "zh":{
+        "单选": "\n回答示例：\n若$a=1,b=2$，则$a+b=$[MASK]。\nA. 0\nB. 1\nC. 2\nD. 3\n你的回答：\nD",
+        "多选": "\n回答示例：\n若$a=1,b=2$，则[MASK]。\nA. $a+b=3$\nB. $a-b=1$\nC. $ab=2$\nD. $a/b=4$\n你的回答：\nAC",
+        "填空": "\n回答示例：\n若$a=1,b=2$，则$a+2b=$[MASK]。\n你的回答：\n5"
+    }
+    
+    #TODO: en
+}
+
+fs_end_example={
+    "zh": "\n以下为你需要回答的问题：\n"
+}
 
 def get_prompts(questions, args):
     prompted_questions = {}
@@ -168,15 +181,22 @@ def get_prompt(question, args):
                 prompted += image_guide_prompts[args.lang]["image"]
         elif args.input_type == 3:
             return NotImplementedError
+        
+    if args.few_shot and question_type not in ["解答", "discussion_questions"]:
+        #TODO: Naive 1-shot. need deeper consideration
+        prompted += fs_shot_guide_example[args.lang][question_type]
+        prompted += fs_end_example[args.lang]
+        
 
     if args.model_version is not None:
         prompted_question["prompted_system_content"] = prompted
         prompted = ""  # TODO: Identify GPT in this way seems not so reasonable.
 
+    
     prompted += question_content
 
     if knowledge_content is not None:
-        prompted += knowledge_prompt[args.lang] % knowledge_content
+        prompted += (knowledge_prompt[args.lang] % knowledge_content) #TODO: reduce OOM
 
     if args.cot and question_type not in ["解答", "discussion_questions"]:
         prompted += ending_cot_prompt[args.lang]
