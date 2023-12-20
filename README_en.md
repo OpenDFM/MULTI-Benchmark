@@ -17,9 +17,9 @@ Shanghai Jiao Tong University, Shanghai, China
 
 ## Links
 
-Website `https://x-lance.github.io/MULTI-Benchmark/`
+Website `https://OpenDFM.github.io/MULTI-Benchmark/`
 
-Github `https://github.com/X-LANCE/MULTI-Benchmark`
+Github `https://github.com/OpenDFM/MULTI-Benchmark`
 
 Huggingface Coming soon
 
