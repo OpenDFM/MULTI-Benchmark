@@ -17,7 +17,7 @@ from args import parse_args_for_score
 from utils import Education_Level_Dict_zh2en, Question_Type_Dict_zh2en
 
 
-def SingleChoiceEval(pred, label):
+def SingleAnswerChoiceEval(pred, label):
     """
     提取输出中出现的第一个英文字母作为答案
     """
@@ -30,7 +30,7 @@ def SingleChoiceEval(pred, label):
     return score, 1
 
 
-def MultipleChoicesEval(pred, label):
+def MultipleAnswersChoiceEval(pred, label):
     """
     提取输出中出现的数个连续或使用','和' '间隔的英文字母作为答案，对答案去重并进行排序
     每选择一个正确选项+1分，若选择错误选项则直接得0分
@@ -74,7 +74,7 @@ def FillInTheBlankEval(pred, label):
     return score, len(label)
 
 
-def DiscussionQuestionEval(pred, label):
+def OpenendQuestionEval(pred, label):
     """
     使用ROUGE来计算答案与标准答案的相似度
     Please be aware that Evaluation of Discussion Questions is not accurate, and may not reflect the real quality of the answer.
@@ -88,10 +88,10 @@ def DiscussionQuestionEval(pred, label):
 
 
 EvaluateFuncDict = {
-    "单选": SingleChoiceEval,
-    "多选": MultipleChoicesEval,
+    "单选": SingleAnswerChoiceEval,
+    "多选": MultipleAnswersChoiceEval,
     "填空": FillInTheBlankEval,
-    "解答": DiscussionQuestionEval
+    "解答": OpenendQuestionEval
 }
 
 
@@ -160,8 +160,8 @@ def calculate_score(args):
 
 
 def init_dict(detail_data, education, subject):
-    type_list = [i for i in Question_Type_Dict_zh2en.values() if i != "其他"]
-    image_list = ["Null", "Single", "Multi"]
+    type_list = [i for i in Question_Type_Dict_zh2en.values() if i != "Other"]
+    image_list = ["NI", "SI", "MI"]
     if education not in detail_data:
         detail_data[education] = {}
     if subject not in detail_data[education]:
@@ -206,7 +206,7 @@ def detail_score(args):
         detail_data = init_dict(detail_data, education, subject)
 
         image_num = item["question_image_number"]  # get_image_number(question_id,label_data)
-        image = "Null" if image_num == 0 else "Single" if image_num == 1 else "Multi"
+        image = "NI" if image_num == 0 else "SI" if image_num == 1 else "MI"
 
         # update the detail_data
         detail_data[education][subject][type][image]["count"] += 1
@@ -295,7 +295,7 @@ def generate_summary(args):
 
     # the line is in linear scale on the right
     ax2 = plt.twinx()
-    ax2.plot(summary_data_by_education.keys(), [summary_data_by_education[education]["score"] / summary_data_by_education[education]["total"] * 100 for education in summary_data_by_education], color='blue')
+    ax2.plot(summary_data_by_education.keys(), [summary_data_by_education[education]["score"] / (summary_data_by_education[education]["total"] * 100 + 0.001) for education in summary_data_by_education], color='blue')
     ax2.set_title(f'Score Summary by Education Level\n{args.prediction_file.split("/")[-2].rsplit("_", 2)[0]}')
     plt.tight_layout()
     plt.savefig(args.prediction_file.replace('prediction.json', 'summary_education.png'))
@@ -315,6 +315,8 @@ def generate_summary(args):
                     "score": 0
                 }
             for type in summary_data[education][image]:
+                if type == 'Other':
+                    pdb.set_trace()
                 summary_data_by_image[image]["count"] += summary_data[education][image][type]["count"]
                 summary_data_by_image[image]["correct"] += summary_data[education][image][type]["correct"]
                 summary_data_by_image[image]["total"] += summary_data[education][image][type]["total"]
@@ -340,7 +342,7 @@ def generate_summary(args):
     ax1.set_ylim(5, 20000)
     # the line is in linear scale on the right
     ax2 = plt.twinx()
-    ax2.plot(summary_data_by_image.keys(), [summary_data_by_image[image]["score"] / summary_data_by_image[image]["total"] * 100 for image in summary_data_by_image], color='blue')
+    ax2.plot(summary_data_by_image.keys(), [summary_data_by_image[image]["score"] / (summary_data_by_image[image]["total"] * 100 + 0.001) for image in summary_data_by_image], color='blue')
     ax2.set_title(f'Score Summary by Image Number\n{args.prediction_file.split("/")[-2].rsplit("_", 2)[0]}')
     plt.tight_layout()
     plt.savefig(args.prediction_file.replace('prediction.json', 'summary_image.png'))
@@ -353,7 +355,7 @@ def generate_summary(args):
     for education in summary_data:
         for image in summary_data[education]:
             for type in summary_data[education][image]:
-                if type not in summary_data_by_type:
+                if type != 'Other' and type not in summary_data_by_type:
                     summary_data_by_type[type] = {
                         "count": 0,
                         "correct": 0,
@@ -423,7 +425,6 @@ def main(args):
     if args.detail:
         detail_score(args)
         generate_summary(args)
-
 
 if __name__ == "__main__":
     args = parse_args_for_score()

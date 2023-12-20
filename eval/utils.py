@@ -10,10 +10,10 @@ import pdb
 MD_PIC_PATTERN = r"!\[\]\(.*?\)"
 
 Question_Type_Dict_zh2en = {
-    "单选": "SiC",
-    "多选": "MuC",
-    "填空": "FillB",
-    "解答": "DisQ",
+    "单选": "SA",
+    "多选": "MA",
+    "填空": "FB",
+    "解答": "OP",
     "其他": "Other",
 }
 
@@ -22,9 +22,8 @@ Education_Level_Dict_zh2en = {
     "高中": "SeH",
     "大学": "Uni",
     "社会": "Soc",
-    "其他": "other",
+    "其他": "Other",
 }
-
 
 def extract_image_list_from_md(text: str) -> Tuple[str, List[str]]:
     patterns = re.findall(MD_PIC_PATTERN, text)

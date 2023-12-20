@@ -66,7 +66,7 @@ def get_evaluator(args):
     if args.model_dir:
         evaluator = Evaluator(args.model_dir, device_map=args.cuda_device)
     elif args.model_version:
-        evaluator = Evaluator(api_key=args.api_key, model=args.model_version, device_map=args.cuda_device)
+        evaluator = Evaluator(api_key=args.api_key, model=args.model_version)
     else:
         evaluator = Evaluator(device_map=args.cuda_device)
 

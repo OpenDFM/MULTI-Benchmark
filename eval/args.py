@@ -12,7 +12,7 @@ model_list = {
         "evaluator": "GPTEvaluator",
     },
     "gpt": {
-        "avail_model": ["gpt-3.5-turbo", "gpt-3.5-turbo-0301", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-16k-0613", "gpt-4", "gpt-4-0314", "gpt-4-0613", ],
+        "avail_model": ["gpt-3.5-turbo", "gpt-3.5-turbo-0301", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-16k-0613", "gpt-4", "gpt-4-0314", "gpt-4-0613", ],
         "model_type": "api",
         "support_input": [0, 1],
         "executor": "gpt",
@@ -76,7 +76,7 @@ def parse_args_for_eval():
 
     # model setting
     parser.add_argument('--model', '-m', type=str, default=None, help='Specify the model name.')
-    parser.add_argument('--model_version', '-v', type=str, default=None, help='Specify the model type. You need to fill in this if you want to test specific model version.')
+    parser.add_argument('--model_version', '-v', type=str, default=None, help='Specify the model type. You need to fill in this if you want to test specific model version for GPTs.')
     parser.add_argument('--model_dir', '-d', type=str, default=None, help='Specify the model directory. You need to fill in this if you want to test those models that are deployed locally.')
     parser.add_argument('--cuda_device', '-c', type=str, default='cpu', help='Specify the cuda device. By leaving it empty, it means using cpu. You can specify multiple cuda devices by separating them with commas, i.e. "0,1,2,3".')
     parser.add_argument('--api_key', type=str, default=None, help='Specify the api key. You need to fill in this if you want to test those models that are not deployed locally.')
