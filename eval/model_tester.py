@@ -50,7 +50,7 @@ testcases_for_chinese = [{
 }, {
     "question_type": "单选",
     "question_content": "如图，$AB=AC=BC=2$, 则$BM=$ [MASK] <img_1>\nA. $1$ \nB. $\\sqrt 3$ \nC. $\\frac 12$ \nD. $\\frac {\\sqrt 3}2$",
-    "question_image_list": ["data_sample/sample_pic.png"],
+    "question_image_list": ["data_sample/4.png"],
     "correct_answer": "A"
 }, {
     "question_type": "单选",
@@ -60,45 +60,45 @@ testcases_for_chinese = [{
 }, {
     "question_type": "单选",
     "question_content": "关于以下两张图片，描述正确的是 [MASK].<img_1><img_2>\nA. 这两张图片描述不同的几何形 \nB. 第一张图中，点$C$是线段BM的$中点$ \nC. 第二张图中，点$A,B,M,C$构成平行四边形 \nD. 两张图片完全相同",
-    "question_image_list": ["data_sample/sample_pic.png", "data_sample/sample_pic.png", ],
+    "question_image_list": ["data_sample/4.png", "data_sample/4.png", ],
     "correct_answer": "D"
 }, {
     "question_type": "填空",
     "question_content": "如图，$AB=AC=BC=2$, 则$BM=$ [MASK] <img_1>\n",
-    "question_image_list": ["data_sample/sample_pic.png"],
+    "question_image_list": ["data_sample/4.png"],
     "correct_answer": "1"
 }, {
     "question_type": "多选",
     "question_content": "下图中列出了若干个国家或地区的国旗或区旗，包含的国家或地区有[MASK]。<img_1>\nA. 澳门\nB. 美国\nC. 土耳其\nD. 新加坡\nE. 新西兰",
     "knowledge": ["地理"],
-    "question_image_list": ["data_sample/302_1.png"],
+    "question_image_list": ["data_sample/2.png"],
     "correct_answer": "AC"
 }, {
     "question_type": "单选",
     "question_content": "下图中列出了若干个国家或地区的国旗或区旗，包含的国家或地区有[MASK]。<img_1>\nA. 英国\nB. 美国\nC. 土耳其\nD. 新加坡",
     "knowledge": ["地理"],
-    "question_image_list": ["data_sample/302_1.png"],
+    "question_image_list": ["data_sample/2.png"],
     "correct_answer": "C"
 }, {
     "question_type": "解答",
     "question_content": "<img_1>\n请描述所给图片中包含的形状、特征，给出可能与之有关的话题。[MASK]",
     "knowledge": ["通识"],
-    "question_image_list": ["data_sample/302_1.png"],
+    "question_image_list": ["data_sample/2.png"],
 }, {
     "question_type": "解答",
     "question_content": "请描述所给图片中包含的形状、特征，给出可能与之有关的话题。<img_1>[MASK]",
     "knowledge": ["通识"],
-    "question_image_list": ["data_sample/118_1.png"],
+    "question_image_list": ["data_sample/1.png"],
 }, {
     "question_type": "解答",
     "question_content": "请描述所给图片中包含的形状、特征，给出可能与之有关的话题。<img_1>[MASK]",
     "knowledge": ["通识"],
-    "question_image_list": ["data_sample/400_1.png"],
+    "question_image_list": ["data_sample/3.png"],
 }, {
     "question_type": "解答",
     "question_content": "请描述所有给出图片中包含的形状、特征，给出可能与之有关的话题。<img_1><img_2><img_3>[MASK]",
     "knowledge": ["通识"],
-    "question_image_list": ["data_sample/302_1.png", "data_sample/118_1.png", "data_sample/sample_pic.png", ],
+    "question_image_list": ["data_sample/2.png", "data_sample/1.png", "data_sample/4.png", ],
 }, ]
 
 testcases_for_chinese_puretext = testcases_for_chinese[:3]

@@ -45,13 +45,28 @@ def select_questions(args):
                     if problems[problem_id]["problem_type_list"][i] in type_list:
                         question_list.append(problem_id + "_" + str(i))
 
+    return question_list
+
+def shuffle_questions(args,questions):
+    args.image_type = [int(i) for i in args.image_type.split(",")]
+    question_list = list(questions.keys())
+    questions_tmp = {}
+    question_list_tmp = []
+
+    for question_id in question_list:
+        image_number = questions[question_id]["question_image_number"]
+        if min(image_number,2) in args.image_type:
+            question_list_tmp.append(question_id)
+
     if args.random:
-        random.shuffle(question_list)
+        random.shuffle(question_list_tmp)
 
     if args.eval_num > 0:
-        question_list = question_list[: args.eval_num]
+        question_list_tmp = question_list_tmp[: args.eval_num]
 
-    return question_list
+    for question_id in question_list_tmp:
+        questions_tmp[question_id] = questions[question_id]
+    return questions_tmp
 
 
 def modify_image_content(content, image_list, caption_data=None, caption_in_content=False):
@@ -65,8 +80,6 @@ def modify_image_content(content, image_list, caption_data=None, caption_in_cont
     image_number = len(match)
 
     if match:
-        match = list(set(match))
-
         new_image_index = [int(i.replace("<img_", "").replace(">", "")) - 1 for i in match]
         for i in new_image_index:
             new_image_list.append(image_list[i])
@@ -102,7 +115,7 @@ def prepare_question(question_id, input_data, knowledge_data, caption_data, args
     question_info = {
         "question_id": question_id
     }
-    # if question_id =="gzsx_17_0":
+    # if question_id =="gzsw_26_0":
     #     pdb.set_trace()
     problem_id, sub_id = question_id.rsplit("_", 1)
     question_info["question_content"] = (input_data[problem_id]["problem_content"] + "\n" + input_data[problem_id]["problem_content_list"][int(sub_id)])
@@ -172,5 +185,7 @@ def prepare_questions(args):
 
     for question_id in tqdm(question_list):
         questions[question_id] = prepare_question(question_id, input_data, knowledge_data, caption_data, args)
+
+    questions = shuffle_questions(args, questions)
 
     return questions

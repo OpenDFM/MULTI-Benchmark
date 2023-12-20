@@ -67,7 +67,7 @@ class QwenEvaluator:
         else:
             raise ValueError(f"input type not supported: {type(input)}")
 
-    def generate_answer(self, question: dict):
+    def generate_answer(self, question):
         try:
             if question.get("prompted_content"):
                 response, message = self.generate_response(question)

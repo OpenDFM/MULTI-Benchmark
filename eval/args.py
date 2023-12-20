@@ -6,13 +6,14 @@ import argparse
 
 model_list = {
     "gpt-4v": {
+        "avail_model": ["gpt-4-vision-preview", ],
         "model_type": "api",
-        "support_input": [0, 1, 2, 3],
+        "support_input": [2, 3],
         "executor": "gpt",
         "evaluator": "GPTEvaluator",
     },
     "gpt": {
-        "avail_model": ["gpt-3.5-turbo", "gpt-3.5-turbo-0301", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-16k-0613", "gpt-4", "gpt-4-0314", "gpt-4-0613", ],
+        "avail_model": ["gpt-3.5-turbo", "gpt-3.5-turbo-0301", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-16k-0613", "gpt-4", "gpt-4-0314", "gpt-4-0613","gpt-4-1106-preview", ],
         "model_type": "api",
         "support_input": [0, 1],
         "executor": "gpt",
@@ -81,6 +82,7 @@ def parse_args_for_eval():
     parser.add_argument('--model_dir', '-d', type=str, default=None, help='Specify the model directory. You need to fill in this if you want to test those models that are deployed locally.')
     parser.add_argument('--cuda_device', '-c', type=str, default='cpu', help='Specify the cuda device. By leaving it empty, it means using cpu. You can specify multiple cuda devices by separating them with commas, i.e. "0,1,2,3".')
     parser.add_argument('--api_key', type=str, default=None, help='Specify the api key. You need to fill in this if you want to test those models that are not deployed locally.')
+    parser.add_argument('--api_url', type=str, default="https://api.openai.com/v1/chat/completions", help='Specify the api url. You need to fill in this if you want to test those models that are not deployed locally.')
 
     # whether to use modelscope.
     # Note. In SOME regions where huggingface repos are not easily accessed, modelscope provides an alternative.
@@ -92,6 +94,8 @@ def parse_args_for_eval():
     parser.add_argument('--few_shot', '-k', type=int, default=0, help='Specify the number of few shot samples. By leaving it empty, it means zero-shot k=0.')
     parser.add_argument('--questions_type', type=str, default="0,1,2",
         help='Specify the type of the questions to be tested. 0 - single_choice, 1 - multiple_choices, 2 - fill_in_the_blank, 3 - discussion_questions. By leaving it empty, it means subjective questions [0,1,2].')
+    parser.add_argument('--image_type', type=str, default="0,1,2",
+        help='Specify the number images involved in the questions to be tested. 0 - no_image, 1 - single_image, 2 - multiple_image. By leaving it empty, it means all questions [0,1,2].')
     parser.add_argument('--subset', type=str, default=None, help='A file to the list of the problems to be tested.')
     parser.add_argument('--subject', type=str, default=None, help='Specify the subject of the problems to be tested.')
     parser.add_argument('--input_type', type=int, choices=range(0, 4), default=0, help='Specify the input type. 0 - only_text, 1 - text_with_captions, 2 - text_and_images, 3 - only_images. By leaving it empty, it means only_text.')

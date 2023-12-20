@@ -1,16 +1,17 @@
 """OpenAI GPT Evaluator"""
 
-import openai
+from openai import OpenAI
 import requests
 import json
 from tqdm import tqdm
 import random
 import time
 import pdb
+from utils import encode_image
 
 
 class GPTEvaluator:
-    def __init__(self, api_key, model='gpt-3.5-turbo', api_url="https://api.openai.com/v1/chat/completions", max_tokens=120, temperature=0.1, top_p=1, presence_penalty=0.0, frequency_penalty=0.0):
+    def __init__(self, api_key, model='gpt-3.5-turbo', api_url="https://api.openai.com/v1/chat/completions", max_tokens=500, temperature=0.1, top_p=1, presence_penalty=0.0, frequency_penalty=0.0):
         self.api_key = api_key
         self.api_url = api_url
         self.header = {
@@ -28,13 +29,36 @@ class GPTEvaluator:
         }
 
     def prepare_inputs(self, question):
+        image_list = question.get("question_image_list")
         messages = [{
             "role": "system",
             "content": question["prompted_system_content"]
-        }, {
-            "role": "user",
-            "content": question["prompted_content"]
-        }, ]
+        }]
+
+        if image_list:
+            user_message = {
+                "role": "user",
+                "content": [{
+                    "type": "text",
+                    "text": question["prompted_content"]
+                },]}
+            for image_path in image_list:
+                max_size = 512
+                base64_image, origin_pixels = encode_image(image_path, max_size=max_size)
+                detail = "high" if origin_pixels > max_size * max_size / 2 else "low"
+                user_message["content"].append({
+                    "type": "image_url",
+                    "image_url": {
+                        "url": f"data:image/png;base64,{base64_image}",
+                        "detail": detail,  # "auto"
+                    },},)
+            messages.append(user_message)
+        else:
+            messages.append({
+                "role": "user",
+                "content": question["prompted_content"]
+            }, )
+
         return messages
 
     def generate_response(self, question):
@@ -43,17 +67,15 @@ class GPTEvaluator:
         response = ""
         response_ = None
         i = 0
-        while i < 100:
+        MAX_RETRY = 100
+        while i < MAX_RETRY:
             try:
                 response_ = requests.post(self.api_url, json=self.post_dict, headers=self.header)
                 response_ = response_.json()
                 response = response_["choices"][0]["message"]["content"]
             except KeyboardInterrupt:
                 exit(0)
-            except Exception as e:
-                # print(e)
-                # print(self.post_dict)
-                # print(self.header)
+            except Exception:
                 print(response_)
                 try:
                     print(response_.json())
@@ -65,7 +87,8 @@ class GPTEvaluator:
                     print(f"Retry {i} times...")
             else:
                 break
-        # TODO: add more robust retry mechanism
+        if i >= MAX_RETRY:
+            exit(0)
         return response, message
 
     def generate_answer(self, question):

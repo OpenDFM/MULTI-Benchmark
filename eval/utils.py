@@ -7,6 +7,9 @@ from typing import Tuple, List
 from PIL import Image
 import pdb
 
+import base64
+
+
 MD_PIC_PATTERN = r"!\[\]\(.*?\)"
 
 Question_Type_Dict_zh2en = {
@@ -45,6 +48,16 @@ def open_image(image_path, force_blank_return=True):
         if image_path != "":
             print(f"WARNING: Image path {image_path} not found. Using black placeholder.")
     return image
+
+
+def encode_image(image_path,max_size=0):
+    with open(image_path, "rb") as image_file:
+        if max_size > 0:
+            image = Image.open(image_file)
+            size = image.size
+            image.thumbnail((max_size, max_size))
+            image_file = image
+        return base64.b64encode(image_file.read()).decode('utf-8'),size.width*size.height
 
 
 def infer_lang_from_question(question):

@@ -9,7 +9,7 @@ question_prompts = {
         "单选": "这道题目只有唯一的正确选项，请只给出唯一一个大写英文字母作为答案，不包含选项后面的描述，如：A，B，E。",
         "多选": "这道题目有不小于两个可行的答案，请选出所有的正确选项，格式为连续的多个大写英文字母，不包含选项后面的描述，如：AC，BDE。",
         "填空": "每一个 '[MASK]' 对应一个最简且确定的答案，多个 '[MASK]' 的答案之间换行隔开，如：文艺复兴\n0.5\n①。",
-        "解答": "这道题需要你对问题进行详细的分析作答，请以'我的分析如下：'作为开头。",
+        "解答": "这道题需要你对问题进行分析作答，请覆盖所有要点的基础上尽可能简练的表达，请以'我的分析如下：'作为开头。",
     },
     "en": {
         "single_choice": "This question has only one correct option. Please give only one uppercase letter as the answer, without the description after the option, such as: A, B, E.",
@@ -209,7 +209,7 @@ def get_prompt(question, args):
     return prompted_question
 
 
-def postprocess_prompt(content: str, in_turn=True):
+def postprocess_prompt(content, in_turn=True, remove_image_token=False):
     """
     Split the prompted content into several rounds of prompts.
     """
@@ -221,7 +221,10 @@ def postprocess_prompt(content: str, in_turn=True):
         # Total return len(match)+1 rounds of split prompts
         for img_sub in match:
             img_token_start = content.index(img_sub)
-            prompted_content_list.append(content[:img_token_start].strip())
+            if remove_image_token:
+                prompted_content_list.append(content[:img_token_start].strip())
+            else:
+                prompted_content_list.append(content[:img_token_start].strip() + img_sub.replace("<img", "[IMAGE").replace(">", "]"))
             content = content[img_token_start + len(img_sub):]
         prompted_content_list.append(content.strip())
         prompted_content_list[-2] += '\n' + prompted_content_list[-1]
@@ -229,5 +232,8 @@ def postprocess_prompt(content: str, in_turn=True):
         return prompted_content_list
     else:
         for img_sub in match:
-            content = content.replace(img_sub, "")
+            if remove_image_token:
+                content = content.replace(img_sub, "")
+            else:
+                content = content.replace(img_sub, img_sub.replace("<img", "[IMAGE").replace(">", "]"))
         return content

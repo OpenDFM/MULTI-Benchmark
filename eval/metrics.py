@@ -82,6 +82,8 @@ def OpenendQuestionEval(pred, label):
     rouge = Rouge()
     pred_ = ' '.join(jieba.cut(pred))
     label_ = ' '.join(jieba.cut(label))
+    if label_ == '':
+        return 0, 0
     rouge_score = rouge.get_scores(pred_, label_, avg=True)
     score = rouge_score['rouge-l']['f']
     return score, 1
@@ -154,7 +156,7 @@ def calculate_score(args):
         absolute_score += item['score']
         total_absolute_score += item['total_score']
 
-    print(absolute_score / total_absolute_score * 100)
+    print(absolute_score,total_absolute_score,absolute_score / total_absolute_score * 100)
 
     # TODO: add a relative method to calculate scores, this method should be applied to single calculation as absolute score
 
@@ -400,7 +402,7 @@ def generate_summary(args):
 
     heatmap_data = np.zeros((100, np.ceil(len(detail_data) / 100).astype(int)))
     for i, question_id in enumerate(detail_data):
-        heatmap_data[i % 100, i // 100] = detail_data[question_id]["score"] / detail_data[question_id]["total_score"]
+        heatmap_data[i % 100, i // 100] = detail_data[question_id]["score"] / (detail_data[question_id]["total_score"]+0.001)
 
     plt.imshow(heatmap_data, cmap='RdYlGn', interpolation='nearest', vmin=-0.25, vmax=1.25)
     ax = plt.gca()

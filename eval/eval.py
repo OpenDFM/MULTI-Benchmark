@@ -16,15 +16,9 @@ import json
 from tqdm import tqdm
 from multiprocessing import Pool
 import tiktoken
-import signal
 
 os.environ["PYTHONPATH"] = "."
 
-# def signal_handler(signal,frame):
-#     print("You pressed Ctrl+C!")
-#     return KeyboardInterrupt
-#
-# signal.signal(signal.SIGINT,signal_handler)
 
 def evaluate(args, evaluator, questions):
     questions_with_answers = questions
@@ -96,7 +90,7 @@ def get_evaluator(args):
     if args.model_dir:
         evaluator = Evaluator(args.model_dir, device_map=args.cuda_device)
     elif args.model_version:
-        evaluator = Evaluator(api_key=args.api_key, model=args.model_version)
+        evaluator = Evaluator(api_url=args.api_url,api_key=args.api_key, model=args.model_version)
     else:
         evaluator = Evaluator(device_map=args.cuda_device)
 
@@ -109,6 +103,9 @@ def check_args(args):
     if args.model in ["viscpm", "visualglm"] and args.input_type == 2 and not args.in_turn:
         print("Warning: viscpm model only supports one image at one time. Forced to set --in_turn to True.")
         args.in_turn = True
+    if args.model in ["gpt-4v"] and args.input_type == 2 and args.in_turn:
+        print("Warning: do not support multi-turn input since it's quite expensive and there is rate limit. Forced to set --in_turn to False.")
+        args.in_turn = False
     if args.model in ["viscpm"] and not args.blank_image:
         print("Warning: viscpm model must have a image as input. Forced to set --black_image to True.")
         args.blank_image = True
@@ -155,6 +152,11 @@ def main(args):
                     print(f"Available versions: {versions}")
                     sys.exit(0)
 
+        if args.input_type not in model_list[args.model]["support_input"]:
+            print(f"The input type '{args.input_type}' is not supported by the model '{args.model}'. Please check the input type.")
+            print(f"Supported input types: {model_list[args.model]['support_input']}")
+            sys.exit(0)
+
         print(f"Using model: {args.model}")
         if args.model_dir:
             print(f"Using model directory: {args.model_dir}")
@@ -169,6 +171,7 @@ def main(args):
 
         # debug mode for data generation
         if args.debug:
+            # print(questions)
             exit(0)
 
     print(f"Loading {args.model}...")
