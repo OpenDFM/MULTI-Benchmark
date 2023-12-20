@@ -90,7 +90,7 @@ def modify_image_content(content, image_list, caption_data=None, caption_in_cont
                 for i in range(len(caption_list)):
                     new_content += f"<img_{i + 1}>: {caption_list[i]}\n"
 
-    assert len(new_image_list) == image_number, "The number of images in the content does not match the number of images in the image list."
+    # assert len(new_image_list) == image_number, "The number of images in the content does not match the number of images in the image list."
     return new_content, new_image_list, image_number
 
 

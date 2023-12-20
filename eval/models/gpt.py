@@ -10,7 +10,7 @@ import pdb
 
 
 class GPTEvaluator:
-    def __init__(self, api_key, model='gpt-3.5-turbo', api_url="https://frostsnowjh.com/v1/chat/completions", max_tokens=120, temperature=0.1, top_p=1, presence_penalty=0.0, frequency_penalty=0.0, request_timeout=10.0):
+    def __init__(self, api_key, model='gpt-3.5-turbo', api_url="https://api.openai.com/v1/chat/completions", max_tokens=120, temperature=0.1, top_p=1, presence_penalty=0.0, frequency_penalty=0.0):
         self.api_key = api_key
         self.api_url = api_url
         self.header = {
@@ -25,7 +25,6 @@ class GPTEvaluator:
             "top_p": top_p,
             "presence_penalty": presence_penalty,
             "frequency_penalty": frequency_penalty,
-            "request_timeout": request_timeout,
         }
 
     def prepare_inputs(self, question):

@@ -73,6 +73,7 @@ def parse_args_for_eval():
     parser.add_argument('--output_dir', type=str, default='../results', help='Specify the main output directory.')
     parser.add_argument('--output_name', type=str, default=None, help='Specify the output sub directory name. By leaving it empty, it will be automatically generated.')
     parser.add_argument('--exp_name', type=str, default=None, help='Add the experiment name prefix to the output name.')
+    parser.add_argument('--checkpoint_dir', type=str, default=None, help='Specify the checkpoint directory. You need to fill in this if you want to continue unfinished evaluation.')
 
     # model setting
     parser.add_argument('--model', '-m', type=str, default=None, help='Specify the model name.')
