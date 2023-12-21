@@ -9,3 +9,8 @@ data/images/
 results/
 *.ipynb
 *__pycache__*
+
+data/*.csv
+!data/select_hard_data.ipynb
+data/glm*.json
+data/selected*.json
