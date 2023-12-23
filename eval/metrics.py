@@ -156,7 +156,9 @@ def calculate_score(args):
         absolute_score += item['score']
         total_absolute_score += item['total_score']
 
-    print(absolute_score,total_absolute_score,absolute_score / total_absolute_score * 100)
+    print("Absolute Score: %.2f/%d, %.2f%%" % (absolute_score, total_absolute_score, absolute_score / total_absolute_score * 100))
+
+    return (absolute_score,total_absolute_score,absolute_score / total_absolute_score * 100)
 
     # TODO: add a relative method to calculate scores, this method should be applied to single calculation as absolute score
 
@@ -216,6 +218,9 @@ def detail_score(args):
         detail_data[education][subject][type][image]["total"] += item['total_score']
         detail_data[education][subject][type][image]["score"] += item['score']
 
+    # reorder detail_data[education] by ["JuH","SeH","Uni","Driving","AAT"]
+    detail_data = dict(sorted(detail_data.items(), key=lambda x: (x[0] != "JuH", x[0] != "SeH", x[0] != "Uni", x[0] != "Driving", x[0] != "AAT")))
+
     # write the detail_data into the detail_file
     for education in detail_data:
         for subject in detail_data[education]:
@@ -227,7 +232,7 @@ def detail_score(args):
     detail_file.close()
 
 
-def generate_summary(args):
+def generate_summary(args,result):
     # prepare the data
     # summary_data[education][image][type]
     # read csv file
@@ -236,7 +241,9 @@ def generate_summary(args):
 
     summary_data = {}
 
-    for education in detail_csv['education'].unique():
+    summary_file.write(f'Absolute Score: %.2f/%d, %.2f%%\n' % result)
+
+    for education in detail_csv['education'].unique(): # we asure the order of the education level
         summary_data[education] = {}
         for image in detail_csv['image'].unique():
             summary_data[education][image] = {}
@@ -284,7 +291,7 @@ def generate_summary(args):
     for education in summary_data_by_education:
         if summary_data_by_education[education]["total"] > 0:
             summary_file.write(
-                f'| {education} | {summary_data_by_education[education]["correct"]}/{summary_data_by_education[education]["count"]} | {summary_data_by_education[education]["score"]}/{summary_data_by_education[education]["total"]} | {summary_data_by_education[education]["score"] / summary_data_by_education[education]["total"] * 100:.1f} |\n')
+                f'| {education} | {summary_data_by_education[education]["correct"]}/{summary_data_by_education[education]["count"]} | {summary_data_by_education[education]["score"]:.3f}/{summary_data_by_education[education]["total"]} | {summary_data_by_education[education]["score"] / summary_data_by_education[education]["total"] * 100:.1f} |\n')
 
     # draw bar chart, each bar has a height of the total score in green, and a part of the bar is in red with score, and a line to indicate the correct rate in blue
     plt.figure(figsize=(10, 6))
@@ -332,7 +339,7 @@ def generate_summary(args):
     for image in summary_data_by_image:
         if summary_data_by_image[image]["total"] > 0:
             summary_file.write(
-                f'| {image} | {summary_data_by_image[image]["correct"]}/{summary_data_by_image[image]["count"]} | {summary_data_by_image[image]["score"]}/{summary_data_by_image[image]["total"]} | {summary_data_by_image[image]["score"] / summary_data_by_image[image]["total"] * 100:.1f} |\n')
+                f'| {image} | {summary_data_by_image[image]["correct"]}/{summary_data_by_image[image]["count"]} | {summary_data_by_image[image]["score"]:.3f}/{summary_data_by_image[image]["total"]} | {summary_data_by_image[image]["score"] / summary_data_by_image[image]["total"] * 100:.1f} |\n')
 
     # draw bar chart, each bar has a height of the total score in green, and a part of the bar is in red with score, and a line to indicate the correct rate in blue
     plt.figure(figsize=(10, 6))
@@ -377,7 +384,7 @@ def generate_summary(args):
     for type in summary_data_by_type:
         if summary_data_by_type[type]["total"] > 0:
             summary_file.write(
-                f'| {type} | {summary_data_by_type[type]["correct"]}/{summary_data_by_type[type]["count"]} | {summary_data_by_type[type]["score"]}/{summary_data_by_type[type]["total"]} | {summary_data_by_type[type]["score"] / summary_data_by_type[type]["total"] * 100:.1f} |\n')
+                f'| {type} | {summary_data_by_type[type]["correct"]}/{summary_data_by_type[type]["count"]} | {summary_data_by_type[type]["score"]:.3f}/{summary_data_by_type[type]["total"]} | {summary_data_by_type[type]["score"] / summary_data_by_type[type]["total"] * 100:.1f} |\n')
 
     # draw bar chart, each bar has a height of the total score in green, and a part of the bar is in red with score, and a line to indicate the correct rate in blue
     plt.figure(figsize=(10, 6))
@@ -422,11 +429,11 @@ def main(args):
         print(f"\nCalculating the absolute score of {args.prediction_file.split('/')[-2]}")
         evaluate_every_problem(args)
 
-    calculate_score(args)
+    result=calculate_score(args)
 
     if args.detail:
         detail_score(args)
-        generate_summary(args)
+        generate_summary(args,result)
 
 if __name__ == "__main__":
     args = parse_args_for_score()

@@ -19,6 +19,20 @@ model_list = {
         "executor": "gpt",
         "evaluator": "GPTEvaluator",
     },
+    "geminivision": {
+        "avail_model": ["gemini-pro-vision", ],
+        "model_type": "api",
+        "support_input": [2, 3],
+        "executor": "gemini",
+        "evaluator": "GeminiEvaluator",
+    },
+    "gemini": {
+        "avail_model": ["gemini-pro", ],
+        "model_type": "api",
+        "support_input": [0, 1],
+        "executor": "gemini",
+        "evaluator": "GeminiEvaluator",
+    },
     "moss": {
         "model_type": "local",
         "support_input": [0, 1],
@@ -102,6 +116,7 @@ def parse_args_for_eval():
     parser.add_argument('--eval_num', type=int, default=-1, help='Specify the number of the problems to be tested. By leaving it empty, all the problems available will be evaluated.')
     parser.add_argument('--random', action='store_true', help='Whether to randomly select the problems to be tested.')
     parser.add_argument('--num_workers', '-n', type=int, default=1, help='Specify the number of the threads when using api.')
+    parser.add_argument('--save_every', type=int, default=100, help='Save the results every n questions. Set to -1 to save only at the end.')
 
     # detail eval setting
     parser.add_argument('--cap_in_cnt', action='store_true', help='Whether to include the image caption in the content or list after the problem content.')

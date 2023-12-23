@@ -50,7 +50,7 @@ def open_image(image_path, force_blank_return=True):
     return image
 
 
-def encode_image(image_path,max_size=0):
+def encode_image_base64(image_path,max_size=0):
     with open(image_path, "rb") as image_file:
         if max_size > 0:
             image = Image.open(image_file)
@@ -59,6 +59,15 @@ def encode_image(image_path,max_size=0):
             image_file = image
         return base64.b64encode(image_file.read()).decode('utf-8'),size.width*size.height
 
+
+
+def encode_image_PIL(image_path,max_size=0):
+    with open(image_path, "rb") as image_file:
+        if max_size > 0:
+            image = Image.open(image_file)
+            image.thumbnail((max_size, max_size))
+            image_file = image
+        return image_file.read()
 
 def infer_lang_from_question(question):
     question_type = question["question_type"]
