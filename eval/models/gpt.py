@@ -7,7 +7,7 @@ from tqdm import tqdm
 import random
 import time
 import pdb
-from utils import encode_image
+from utils import encode_image_base64
 
 
 class GPTEvaluator:
@@ -44,7 +44,7 @@ class GPTEvaluator:
                 },]}
             for image_path in image_list:
                 max_size = 512
-                base64_image, origin_pixels = encode_image(image_path, max_size=max_size)
+                base64_image, origin_pixels = encode_image_base64(image_path, max_size=max_size)
                 detail = "high" if origin_pixels > max_size * max_size / 2 else "low"
                 user_message["content"].append({
                     "type": "image_url",
@@ -74,7 +74,7 @@ class GPTEvaluator:
                 response_ = response_.json()
                 response = response_["choices"][0]["message"]["content"]
             except KeyboardInterrupt:
-                exit(0)
+                raise Exception("Terminated by user.")
             except Exception:
                 print(response_)
                 try:
@@ -88,7 +88,7 @@ class GPTEvaluator:
             else:
                 break
         if i >= MAX_RETRY:
-            exit(0)
+            raise Exception("Failed to generate response.")
         return response, message
 
     def generate_answer(self, question):
