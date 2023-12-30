@@ -15,7 +15,7 @@ MOSS_META_INST = """You are an AI assistant whose name is MOSS.
 
 
 class MOSSEvaluator:
-    def __init__(self, model_dir="fnlp/moss-moon-003-sft", max_tokens=300, trust_remote_code=True, device_map="cuda:0"):
+    def __init__(self, model_dir="fnlp/moss-moon-003-sft-int4", max_tokens=300, trust_remote_code=True, device_map="cuda:0"):
         self.model_dir = model_dir
         self.sample_params = {
             "max_new_tokens": max_tokens,

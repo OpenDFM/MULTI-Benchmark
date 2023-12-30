@@ -2,7 +2,7 @@ data/knowledge_*.json
 data/problem_*.json
 data/images/
 *.bat
-*.sh
+# *.sh
 *.sbatch
 .idea/
 .vscode
@@ -14,3 +14,10 @@ data/*.csv
 !data/select_hard_data.ipynb
 data/glm*.json
 data/selected*.json
+
+results
+selected_results
+data/stat*
+data/log*
+*.ttf
+*.zip

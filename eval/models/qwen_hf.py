@@ -8,7 +8,7 @@ import torch
 
 
 class QwenEvaluator:
-    def __init__(self, model_dir="Qwen/Qwen-VL-Chat",  # "Qwen/Qwen-VL-Chat"
+    def __init__(self, model_dir="Qwen/Qwen-VL-Chat-Int4",  # "Qwen/Qwen-VL-Chat"
                  max_tokens=64, dtype=None, device_map="cuda:0"):
         self.model_dir = model_dir
         self.sample_params = {

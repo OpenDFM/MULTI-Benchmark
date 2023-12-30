@@ -84,6 +84,8 @@ def OpenendQuestionEval(pred, label):
     label_ = ' '.join(jieba.cut(label))
     if label_ == '':
         return 0, 0
+    elif pred_ == '':
+        return 0, 1
     rouge_score = rouge.get_scores(pred_, label_, avg=True)
     score = rouge_score['rouge-l']['f']
     return score, 1
