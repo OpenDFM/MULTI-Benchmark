@@ -115,8 +115,7 @@ def prepare_question(question_id, input_data, knowledge_data, caption_data, args
     question_info = {
         "question_id": question_id
     }
-    # if question_id =="gzsw_26_0":
-    #     pdb.set_trace()
+
     problem_id, sub_id = question_id.rsplit("_", 1)
     question_info["question_content"] = (input_data[problem_id]["problem_content"] + "\n" + input_data[problem_id]["problem_content_list"][int(sub_id)])
     question_info["question_type"] = input_data[problem_id]["problem_type_list"][int(sub_id)]

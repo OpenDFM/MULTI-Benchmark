@@ -77,24 +77,33 @@ class GPTEvaluator:
                 raise Exception("Terminated by user.")
             except Exception:
                 print(response_)
+                error=""
                 try:
+                    error=response_["error"]["message"].split("(request id:")[0].strip()
+                    print(error)
                     print(response_.json())
                 except:
                     pass
                 i += 1
                 time.sleep(1 + i / 10)
                 if i == 1 or i % 10 == 0:
+                    if error.startswith("This model's maximum context length"):
+                        response = ""
+                        feedback = error
+                        return response, message,feedback
                     print(f"Retry {i} times...")
             else:
                 break
         if i >= MAX_RETRY:
             raise Exception("Failed to generate response.")
-        return response, message
+        return response, message, None
 
     def generate_answer(self, question):
-        response, message = self.generate_response(question)
+        response, message, feedback = self.generate_response(question)
         question["input_message"] = message
         question["prediction"] = response
+        if feedback:
+            question["feedback"] = feedback
         question.pop("prompted_content")
         question.pop("prompted_system_content")
         return question

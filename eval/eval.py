@@ -158,7 +158,7 @@ def check_args(args):
             args.num_workers = 1
 
     if not args.output_name:
-        args.output_name = f"{args.exp_name + '_' if args.exp_name else ''}{args.model if not args.model_version else args.model_version}_input_{args.input_type}_shot_{args.few_shot}{'_it' if args.in_turn else ''}{'_cot' if args.cot else ''}{'_cic' if args.cap_in_cnt else ''}{'_bi' if args.blank_image else ''}_{time_now}"
+        args.output_name = f"{args.exp_name + '_' if args.exp_name else ''}{args.model if not args.model_version else args.model_version}_input_{args.input_type}_shot_{args.few_shot}{'_it' if args.in_turn else ''}{'_cot' if args.cot else ''}{'_cic' if args.cap_in_cnt else ''}{'_bi' if args.blank_image else ''}{'_kn' if args.knowledge_file else ''}_{time_now}"
     args.prediction_file = os.path.join(args.output_dir, args.output_name, "prediction.json")
     print(args)
 

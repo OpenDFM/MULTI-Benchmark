@@ -13,8 +13,26 @@ from utils import encode_image_PIL
 class GeminiEvaluator:
     def __init__(self, api_key, model='gemini-pro', api_url=None):
         genai.configure(api_key=api_key,transport='rest')
-        self.model_with_vision = genai.GenerativeModel(model_name=model)
-        self.model_without_vision = genai.GenerativeModel(model_name='gemini-pro')
+        block_type = "BLOCK_ONLY_HIGH"
+        self.safety_settings = [{
+            "category": "HARM_CATEGORY_DANGEROUS",
+            "threshold": block_type,
+        }, {
+            "category": "HARM_CATEGORY_HARASSMENT",
+            "threshold": block_type,
+        }, {
+            "category": "HARM_CATEGORY_HATE_SPEECH",
+            "threshold": block_type,
+        }, {
+            "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            "threshold": block_type,
+        }, {
+            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+            "threshold": block_type,
+        }, ]
+
+        self.model_with_vision = genai.GenerativeModel(model_name=model, safety_settings=self.safety_settings)
+        self.model_without_vision = genai.GenerativeModel(model_name='gemini-pro', safety_settings=self.safety_settings)
 
     def prepare_inputs(self, question):
         prompt = question["prompted_system_content"].strip() + "\n" + question["prompted_content"].strip()
@@ -51,7 +69,7 @@ class GeminiEvaluator:
                 i += 1
                 time.sleep(1 + i / 10)
                 if i == 1 or i % 10 == 0:
-                    if str(e).endswith("if the prompt was blocked."):
+                    if str(e).endswith("if the prompt was blocked.") or str(e).endswith("lookup instead."):
                         response = "Gemini refused to answer this question."
                         feedback = str(response_.prompt_feedback)
                         return response, message, feedback

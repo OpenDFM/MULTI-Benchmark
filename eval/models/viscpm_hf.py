@@ -6,7 +6,7 @@ import re
 from VisCPM import VisCPMChat
 from utils import open_image
 
-os.environ["CUDA_MEMORY_CPMBEE_MAX"] = "8g"  # Low VRAM support but slower
+# os.environ["CUDA_MEMORY_CPMBEE_MAX"] = "8g"  # Low VRAM support but slower
 
 
 class VisCPMEvaluator():

@@ -149,7 +149,13 @@ def get_prompt(question, args):
         question_prompts = question_noncot_prompts
         image_guide_prompts = image_noncot_guide_prompts
 
-    prompted = system_prompt[args.lang] % (question_knowledge[0], question_type, question_prompts[args.lang][question_type],)
+    # TODO: fix this in future data release
+    # if question_knowledge[0] is a character, we use question_knowledge
+    # if question_knowledge[0] is a list(i.e. string), we use question_knowledge[0]
+    if len(question_knowledge[0]) == 1 and question["question_id"].startswith("shjk"):
+        prompted = system_prompt[args.lang] % (question_knowledge, question_type, question_prompts[args.lang][question_type],)
+    else:
+        prompted = system_prompt[args.lang] % (question_knowledge[0], question_type, question_prompts[args.lang][question_type],)
 
     if image_number == 0:
         if args.blank_image and args.input_type == 2:
@@ -175,7 +181,6 @@ def get_prompt(question, args):
         #TODO: Naive 1-shot. need deeper consideration
         prompted += fs_shot_guide_example[args.lang][question_type]
         prompted += fs_end_example[args.lang]
-        
 
     if args.model_version is not None:
         prompted_question["prompted_system_content"] = prompted
