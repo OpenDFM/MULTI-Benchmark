@@ -24,7 +24,7 @@ def parse_args():
         "--output_dir",
         "-o",
         type=str,
-        default="../selected_results",
+        default="../results_on_hard",
         help="folder of output, should contain a prediction.json",
     )
     args = parser.parse_args()
