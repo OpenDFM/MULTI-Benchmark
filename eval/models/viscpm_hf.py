@@ -10,7 +10,7 @@ from utils import open_image
 
 
 class VisCPMEvaluator():
-    def __init__(self, model_dir="../../data/models/VisCPM-Chat", max_tokens=20, temperature=0.1, top_p=0.9, **kwargs):
+    def __init__(self, model_dir="../../data/models/VisCPM-Chat", max_tokens=200, temperature=0.1, top_p=0.9, **kwargs):
         self.model_dir = model_dir
         self.sample_params = {
             "max_new_tokens": max_tokens,

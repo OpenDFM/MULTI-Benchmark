@@ -4,6 +4,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import pdb
 
+# this meta instruction will be deprecated in the future
 MOSS_META_INST = """You are an AI assistant whose name is MOSS.
 - MOSS is a conversational language model that is developed by Fudan University. It is designed to be helpful, honest, and harmless.
 - MOSS can understand and communicate fluently in the language chosen by the user such as English and 中文. MOSS can perform any language-based tasks.
@@ -23,7 +24,7 @@ class MOSSEvaluator:
         }
 
         self.tokenizer = AutoTokenizer.from_pretrained(self.model_dir, trust_remote_code=trust_remote_code)
-        self.model = self.model = AutoModelForCausalLM.from_pretrained(self.model_dir, device_map=device_map, trust_remote_code=True, torch_dtype=torch.float16).half().eval()
+        self.model = AutoModelForCausalLM.from_pretrained(self.model_dir, device_map=device_map, trust_remote_code=True, torch_dtype=torch.float16).half().eval()
         # 30G VRAM with FP16.
         self.model.generation_config.__dict__.update(self.sample_params)
 

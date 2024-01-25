@@ -182,11 +182,10 @@ def get_prompt(question, args):
         prompted += fs_shot_guide_example[args.lang][question_type]
         prompted += fs_end_example[args.lang]
 
-    if args.model_version is not None:
+    if args.model in ['gpt','gpt4v','llama2','gemini','geminivision']:
         prompted_question["prompted_system_content"] = prompted
         prompted = ""  # TODO: Identify GPT in this way seems not so reasonable.
 
-    
     prompted += question_content
 
     if knowledge_content is not None:

@@ -51,29 +51,17 @@ model_list = {
         "executor": "qwen",
         "evaluator": "QwenEvaluator",
     },
-    "llava": {
-        "model_type": "local",
-        "support_input": [0, 1, 2, 3],
-        "executor": "llava",
-        "evaluator": "LLaVAEvaluator",
-    },
-    "minigpt-4": {
-        "model_type": "local",
-        "support_input": [0, 1, 2, 3],
-        "executor": "minigpt4",
-        "evaluator": "miniGPT4Evaluator",
-    },
     "visualglm": {
         "model_type": "local",
         "support_input": [0, 1, 2, 3],
         "executor": "visualglm",
         "evaluator": "VisualGLMEvaluator",
     },
-    "visualcla": {
+    "llama2": {
         "model_type": "local",
-        "support_input": [0, 1, 2, 3],
-        "executor": "visualcla",
-        "evaluator": "VisualCLAEvaluator",
+        "support_input": [0, 1],
+        "executor": "llama2",
+        "evaluator": "Llama2Evaluator",
     },
 }
 

@@ -198,7 +198,7 @@ def detail_score(args):
     # store the score in a 5-dimension dict
     detail_data = {}
 
-    for item in tqdm(score_data.values()):
+    for item in score_data.values():
         question_id = item['question_id']
         education = Education_Level_Dict_zh2en[item["education"]]
         subject = item["subject"]
