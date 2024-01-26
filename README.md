@@ -6,7 +6,12 @@
 
 📃 [Paper](https://x-lance.github.io/MULTI-Benchmark/) (Coming Soon) 🤗 [Dataset](https://x-lance.github.io/MULTI-Benchmark/) (Coming Soon) 🎯 [Leaderboard](https://x-lance.github.io/MULTI-Benchmark/) (Coming Soon)
 
+
 </div>
+
+# MULTI-Benchmark
+
+[This](https://OpenDFM.github.io/MULTI-Benchmark/) is our official page.
 
 ## 📖 Overview
 
@@ -46,3 +51,4 @@ If you find our work useful, please consider citing us!
 ## 📧 Contact Us
 
 If you would like to early access our benchmark or have any questions, please feel free to contact: `JamesZhutheThird@sjtu.edu.cn` and `xuyang0112@sjtu.edu.cn`
+
