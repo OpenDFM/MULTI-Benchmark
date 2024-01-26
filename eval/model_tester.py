@@ -99,7 +99,11 @@ testcases_for_chinese = [{
     "question_content": "请描述所有给出图片中包含的形状、特征，给出可能与之有关的话题。<img_1><img_2><img_3>[MASK]",
     "knowledge": ["通识"],
     "question_image_list": ["data_sample/2.png", "data_sample/1.png", "data_sample/4.png", ],
-}, ]
+# }, {
+#     "question_type": "单选",
+#     "question_content": "阅读下列说法，"*3000+"中,正确的是[MASK] \nA. 可能性很大的事情是必然发生的 \nB. 可能性很小的事情是不可能发生的 \nC. 可能性很小的事件在一次实验中有可能发生 \nD. 掷一枚普通的正方体骰子,结果恰好点数“5”朝上是不可能发生的",
+#     "correct_answer": "C"
+}]
 
 testcases_for_chinese_puretext = testcases_for_chinese[:3]
 testcases_for_chinese_pic_descrip = testcases_for_chinese[-5:-1]
@@ -124,7 +128,7 @@ if __name__ == "__main__":
         # else:
     testcases = testcases_for_chinese
     # testcases = testcases_for_chinese_pic_descrip[-1:]
-    # testcases = testcases_for_chinese[-1:]
+    testcases = testcases_for_chinese[-1:]
 
     testcases = dict(zip(range(len(testcases)), testcases))
     for i in testcases:
@@ -148,7 +152,7 @@ if __name__ == "__main__":
         if text is None:
             text = multiple_round_splitter.join(question.get("prompted_content_list"))
         text += "\n"
-        print(text)
+        # print(text)
         print("*" * 25)
         final_answers.append(evaluator.generate_answer(question))
         if testcases[question['question_id']].get("correct_answer"):

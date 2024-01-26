@@ -9,7 +9,7 @@ from prompts import CoT_identifier
 
 
 class VisualGLMEvaluator():
-    def __init__(self, model_path="ZhipuAI/visualglm-6b", revision="v1.0.3", max_tokens=20, device_map="cuda:0"):
+    def __init__(self, model_path="ZhipuAI/visualglm-6b", revision="v1.0.3", max_tokens=8192, device_map="cuda:0"):
         self.model_path = model_path
         self.sample_params = {
             "max_length": max_tokens,

@@ -5,10 +5,11 @@ import pdb
 
 
 class VisualGLMEvaluator():
-    def __init__(self, model_dir="THUDM/visualglm-6b", max_tokens=1024, devicdxe_map="cuda:0"):
+    def __init__(self, model_dir="THUDM/visualglm-6b", max_tokens=8192, device_map="cuda:0"):
         self.model_dir = model_dir
         self.sample_params = {
-            "max_length": max_tokens,
+            # "max_new_tokens": max_tokens,
+            "max_length": 8192,
             "do_sample": False,
         }
 

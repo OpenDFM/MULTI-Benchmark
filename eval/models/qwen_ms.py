@@ -7,7 +7,7 @@ import pdb
 
 class QwenEvaluator:
     def __init__(self, model_path="Qwen/Qwen-VL-Chat-Int4",  # "Qwen/Qwen-VL-Chat"
-                 revision="v1.0.0", max_tokens: int = 20, dtype=None, device_map="cuda:0"):
+                 revision="v1.0.3", max_tokens: int = 20, dtype=None, device_map="cuda:0"):
         self.model_path = model_path
         self.sample_params = {
             "max_new_tokens": max_tokens,
