@@ -6,7 +6,7 @@ import torch
 import pdb
 
 class Llama2Evaluator:
-    def __init__(self, model_dir="Llama-2-13b-chat-hf", max_tokens=200, device_map="cuda:0"):
+    def __init__(self, model_dir="/home/ubuntu/tools/llama2/llama-2-13b-chat-hf", max_tokens=200, device_map="auto"):
         self.model_dir = model_dir
         self.sample_params = {
             "max_new_tokens": max_tokens,
@@ -15,7 +15,7 @@ class Llama2Evaluator:
         self.device_map = device_map
 
         self.model = AutoModelForCausalLM.from_pretrained(self.model_dir, device_map=device_map, torch_dtype=torch.float16, trust_remote_code=True).half().eval()
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model_dir, trust_remote_code=True)
+        self.tokenizer = AutoTokenizer.from_pretrained("hf-internal-testing/llama-tokenizer", trust_remote_code=True)
 
         self.model.generation_config.__dict__.update(self.sample_params)
 
@@ -26,7 +26,7 @@ class Llama2Evaluator:
     def generate_response(self, question):
         message = self.prepare_inputs(question["prompted_system_content"],question["prompted_content"])
         inputs = self.tokenizer([message],add_special_tokens=False, return_tensors="pt")
-        pred = self.model.generate(input_ids=inputs.input_ids[0, :2048].cuda().unsqueeze(0).to(self.device_map), eos_token_id=self.tokenizer.eos_token_id, pad_token_id=self.tokenizer.eos_token_id, **self.sample_params, )
+        pred = self.model.generate(input_ids=inputs.input_ids[0, :2048].cuda().unsqueeze(0), eos_token_id=self.tokenizer.eos_token_id, pad_token_id=self.tokenizer.eos_token_id, **self.sample_params, )
         input_length = inputs.input_ids.size(1)
         response = self.tokenizer.decode(pred[0][input_length:], skip_special_tokens=True).strip()
         return response, message
