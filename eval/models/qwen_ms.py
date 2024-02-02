@@ -38,20 +38,30 @@ class QwenEvaluator:
     def prepare_inputs(self, content, image_list=None, image_path=None):
         if image_list:
             match = re.findall("<img_[0-9]+>", content)
+            content_prefix = ""
             if len(match) > 0:
-                for img_sub, image_path in zip(match, image_list):
-                    content = content.replace(img_sub, "")
-                    content = f"<img>{image_path}</img>" + content
+                if len(image_list) == 1:
+                    content = content.replace(match[0], "")
+                    content_prefix += f"<img>{image_list[0]}</img>\n" # align with previous setting
+                else:
+                    for i, (img_sub, image_path) in enumerate(zip(match, image_list)):
+                        content = content.replace(img_sub, f"[IMAGE_{i+1}]")
+                        content_prefix += f"Picture {i+1}: <img>{image_path}</img>\n"
             elif len(image_list) > 0:
                 # This is the universal setting of parsing one-round dialogue questions.
                 # in `get_prompt` we cleared all img tokens in the question. However that's critically fatal in one-image question
                 # We need to add the image paths back!
-                for image_path in image_list:
-                    content = f"<img>{image_path}</img>" + content
+                if len(image_list) == 1:
+                    content_prefix += f"<img>{image_list[0]}</img>\n" # align with our previous setting
+                else:
+                    for i, image_path in enumerate(image_list):
+                        content_prefix += f"Picture {i+1}: <img>{image_path}</img>\n"
+            content = content_prefix + content
         elif image_path:
             # The reason it literally works is that in multi-round dialogue questions we parse `image_path` and the information doesn't get lost!
-            content = f"<img>{image_path}</img>" + content  # The surprising bug says that qwen read the images at the head of text inputs.
+            content = f"<img>{image_path}</img>\n" + content  # The surprising bug says that qwen read the images at the head of text inputs.
         return content
+
 
     def generate_response(self, input):
         if isinstance(input, dict):

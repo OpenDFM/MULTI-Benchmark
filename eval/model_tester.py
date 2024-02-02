@@ -106,7 +106,7 @@ testcases_for_chinese = [{
 }]
 
 testcases_for_chinese_puretext = testcases_for_chinese[:3]
-testcases_for_chinese_pic_descrip = testcases_for_chinese[-5:-1]
+testcases_for_chinese_pic_descrip = testcases_for_chinese[-5:]
 
 from eval import get_evaluator
 
@@ -126,9 +126,9 @@ if __name__ == "__main__":
         # if test_args.input_type == 0:
         #     testcases = testcases_for_chinese
         # else:
-    testcases = testcases_for_chinese
-    # testcases = testcases_for_chinese_pic_descrip[-1:]
-    testcases = testcases_for_chinese[-1:]
+    # testcases = testcases_for_chinese
+    testcases = testcases_for_chinese_pic_descrip
+    # testcases = testcases_for_chinese[-1:]
 
     testcases = dict(zip(range(len(testcases)), testcases))
     for i in testcases:
