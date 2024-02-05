@@ -5,7 +5,7 @@ MULTI: Multimodal Understanding Leaderboard with Text and Images
 
 ## Authors
 
-Zichen Zhu, Yang Xu, Lu Chen, Jingkai Yang, Yichuan Ma, Yimin Sun, Hailin Wen, Jiaqi Liu, Jinyu Cai, Yingzi Ma, Liangtai Sun, Zihan Zhao, Kai Yu
+Zichen Zhu, Yang Xu, Lu Chen, Jingkai Yang, Yichuan Ma, Yiming Sun, Hailin Wen, Jiaqi Liu, Jinyu Cai, Yingzi Ma, Liangtai Sun, Zihan Zhao, Kai Yu
 
 X-LANCE Lab, Department of Computer Science and Engineering
 

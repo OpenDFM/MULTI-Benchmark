@@ -63,6 +63,12 @@ model_list = {
         "executor": "llama2",
         "evaluator": "Llama2Evaluator",
     },
+    "dfm": {
+        "model_type": "local",
+        "support_input": [0, 1],
+        "executor": "dfm",
+        "evaluator": "DFMEvaluator",
+    },
 }
 
 
