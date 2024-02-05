@@ -1,0 +1,70 @@
+rabbit --verifiable build -c opt research/lux/ibsen/data/tools:flume_materialize_tf_examples_tables \
+--aspects=TemporalMpmAspect && \
+borgcfg research/lux/ibsen/data/tools/flume_materialize_tf_examples_tables.borg reload \
+--skip_confirmation --vars=tag='pali-prompter-merge',\
+config="
+data_filter_config {
+  nsfw_filter {
+    disabled: true
+  }
+  safesearch_filter {
+    disabled: true
+  }
+  watermark_filter{
+    disabled: true
+  }
+  low_res_filter {
+    disabled: true
+  }
+  safety_filter {
+    disabled: true
+  }
+  aesthetics_filter {
+    disabled: true
+  }
+  mandatory_feature_check_filter {
+    disabled: false
+    tf_example_sanity_check_config {
+      compulsory_byte_features: 'pali_prompter/v1'
+    }
+  }
+}
+merge_tf_examples_config {
+  output_sstable: '/cns/ym-d/home/sportstalk-dev/yonatanbitton/imagereward/merged/test_jpg_0@*'
+  output_metadata_filename: 'merge_metadata_test_jpg_0.pbtxt'
+  inputs_to_merge {
+    imagejoin_config {
+      paths: '/cns/ym-d/home/sportstalk-dev/yonatanbitton/imagereward/converted_sstables_fixed/test/test@2'
+    }
+    pali_vqa_bulk_inference_config {
+      paths: '/CNS_FOO_DIR/TABLE_WITH_VQA_OUTPUTS@*'
+      tf_example_to_tf_example_config {
+        feature_delete_config {
+          features: 'image/source'
+          features: 'questions'
+        }
+      }
+    }
+    pali_raid_vqa_bulk_inference_config {
+      paths: '/CNS_FOO_DIR/TABLE_WITH_RAID_VQA_OUTPUTS@*'
+      tf_example_to_tf_example_config {
+        feature_delete_config {
+          features: 'image/source'
+          features: 'questions'
+        }
+      }
+    }
+    pali_captions_bulk_inference_config {
+      paths: '/cns/ym-d/home/sportstalk-dev/yonatanbitton/imagereward/converted_sstables_fixed/train_captions@261'
+      tf_example_to_tf_example_config {
+        feature_delete_config {
+          features: 'jpg_0'
+        }
+      }
+    }
+    pali_prompter_config {
+      paths: '/CNS_FOO_DIR/TABLE_WITH_PROMPTER_OUTPUTS@*'
+    }
+  }
+}
+"
