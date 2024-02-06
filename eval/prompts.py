@@ -3,6 +3,7 @@ import warnings
 import re
 from utils import infer_lang_from_question
 from tqdm import tqdm
+from args import model_list
 
 question_prompts = {
     "zh": {
@@ -89,18 +90,19 @@ ending_cot_doublecheck_prompt = {
 CoT_identifier = "<CoT_no_image>"
 
 fs_shot_guide_example = {
-    "zh":{
+    "zh": {
         "单选": "\n回答示例：\n若$a=1,b=2$，则$a+b=$[MASK]。\nA. 0\nB. 1\nC. 2\nD. 3\n你的回答：\nD",
         "多选": "\n回答示例：\n若$a=1,b=2$，则[MASK]。\nA. $a+b=3$\nB. $a-b=1$\nC. $ab=2$\nD. $a/b=4$\n你的回答：\nAC",
         "填空": "\n回答示例：\n若$a=1,b=2$，则$a+2b=$[MASK]。\n你的回答：\n5"
     }
-    
-    #TODO: en
+
+    # TODO: en
 }
 
-fs_end_example={
+fs_end_example = {
     "zh": "\n以下为你需要回答的问题：\n"
 }
+
 
 def get_prompts(questions, args):
     prompted_questions = {}
@@ -176,20 +178,20 @@ def get_prompt(question, args):
                 prompted += image_guide_prompts[args.lang]["image"]
         elif args.input_type == 3:
             return NotImplementedError
-        
+
     if args.few_shot and question_type not in ["解答", "discussion_questions"]:
-        #TODO: Naive 1-shot. need deeper consideration
+        # TODO: Naive 1-shot. need deeper consideration
         prompted += fs_shot_guide_example[args.lang][question_type]
         prompted += fs_end_example[args.lang]
 
-    if args.model in ['gpt','gpt4v','llama2','gemini','geminivision','dfm']:
+    if model_list[args.model]["split_sys"]:
         prompted_question["prompted_system_content"] = prompted
         prompted = ""  # TODO: Identify GPT in this way seems not so reasonable.
 
     prompted += question_content
 
     if knowledge_content is not None:
-        prompted += (knowledge_prompt[args.lang] % knowledge_content) #TODO: reduce OOM
+        prompted += (knowledge_prompt[args.lang] % knowledge_content)  # TODO: reduce OOM
 
     if args.cot and question_type not in ["解答", "discussion_questions"]:
         prompted += ending_cot_prompt[args.lang]
@@ -218,7 +220,7 @@ def postprocess_prompt(content, in_turn=True, remove_image_token=False):
     Split the prompted content into several rounds of prompts.
     """
     # find all img tokens
-    match = re.findall("<img_[0-9]+>", content)
+    match = re.findall("\[IMAGE_[0-9]+]", content)
     if in_turn:
         # Note we enter here if and only if we want to check the multi-image in_turn setting. Thus perform auto-merging here should be making sense.
         prompted_content_list = []
@@ -227,8 +229,6 @@ def postprocess_prompt(content, in_turn=True, remove_image_token=False):
             img_token_start = content.index(img_sub)
             if remove_image_token:
                 prompted_content_list.append(content[:img_token_start].strip())
-            else:
-                prompted_content_list.append(content[:img_token_start].strip() + img_sub.replace("<img", "[IMAGE").replace(">", "]"))
             content = content[img_token_start + len(img_sub):]
         prompted_content_list.append(content.strip())
         prompted_content_list[-2] += '\n' + prompted_content_list[-1]
@@ -238,6 +238,4 @@ def postprocess_prompt(content, in_turn=True, remove_image_token=False):
         for img_sub in match:
             if remove_image_token:
                 content = content.replace(img_sub, "")
-            else:
-                content = content.replace(img_sub, img_sub.replace("<img", "[IMAGE").replace(">", "]"))
         return content

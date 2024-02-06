@@ -76,11 +76,11 @@ def modify_image_content(content, image_list, caption_data=None, caption_in_cont
 
     new_content, new_image_list = content, []
 
-    match = re.findall(r"<img_[0-9]+>", content)
+    match = re.findall(r"\[IMAGE_[0-9]+]", content)
     image_number = len(match)
 
     if match:
-        new_image_index = [int(i.replace("<img_", "").replace(">", "")) - 1 for i in match]
+        new_image_index = [int(i.replace("[IMAGE_", "").replace("]", "")) - 1 for i in match]
         for i in new_image_index:
             new_image_list.append(image_list[i])
 
@@ -94,14 +94,14 @@ def modify_image_content(content, image_list, caption_data=None, caption_in_cont
 
         for i in range(len(match)):
             if caption_in_content and caption_list:
-                new_content = new_content.replace(match[i], f"<img_{i + 1}:{caption_list[i]}>")
+                new_content = new_content.replace(match[i], f"[IMAGE_{i + 1}:{caption_list[i]}]")
             else:
-                new_content = new_content.replace(match[i], f"<img_{i + 1}>")
+                new_content = new_content.replace(match[i], f"[IMAGE_{i + 1}]")
 
         if caption_data:
             if not caption_in_content:
                 for i in range(len(caption_list)):
-                    new_content += f"<img_{i + 1}>: {caption_list[i]}\n"
+                    new_content += f"[IMAGE_{i + 1}]: {caption_list[i]}\n"
 
     # assert len(new_image_list) == image_number, "The number of images in the content does not match the number of images in the image list."
     return new_content, new_image_list, image_number

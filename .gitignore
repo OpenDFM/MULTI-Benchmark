@@ -2,7 +2,7 @@ data/knowledge_*.json
 data/problem_*.json
 data/images/
 *.bat
-# *.sh
+*.sh
 *.sbatch
 .idea/
 .vscode
@@ -11,7 +11,6 @@ results/
 *__pycache__*
 
 data/*.csv
-!data/select_hard_data.ipynb
 data/glm*.json
 data/selected*.json
 
@@ -21,3 +20,5 @@ data/stat*
 data/log*
 *.ttf
 *.zip
+/results_backup/
+/results_on_hard/

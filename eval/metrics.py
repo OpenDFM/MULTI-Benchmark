@@ -40,7 +40,7 @@ def MultipleAnswersChoiceEval(pred, label):
     score = 0
     if match:
         answer = match.group(0)
-        answer = answer.replace(' ', '').replace(',', '').replace('、','')
+        answer = answer.replace(' ', '').replace(',', '').replace('、', '')
         answer = ''.join(sorted(set(answer), key=answer.index))
         for choice in answer:
             if choice in label:
@@ -160,7 +160,7 @@ def calculate_score(args):
 
     print("Absolute Score: %.2f/%d, %.2f%%" % (absolute_score, total_absolute_score, absolute_score / total_absolute_score * 100))
 
-    return (absolute_score,total_absolute_score,absolute_score / total_absolute_score * 100)
+    return (absolute_score, total_absolute_score, absolute_score / total_absolute_score * 100)
 
     # TODO: add a relative method to calculate scores, this method should be applied to single calculation as absolute score
 
@@ -234,7 +234,7 @@ def detail_score(args):
     detail_file.close()
 
 
-def generate_summary(args,result):
+def generate_summary(args, result):
     # prepare the data
     # summary_data[education][image][type]
     # read csv file
@@ -245,7 +245,7 @@ def generate_summary(args,result):
 
     summary_file.write(f'Absolute Score: %.2f/%d, %.2f%%\n' % result)
 
-    for education in detail_csv['education'].unique(): # we asure the order of the education level
+    for education in detail_csv['education'].unique():  # we asure the order of the education level
         summary_data[education] = {}
         for image in detail_csv['image'].unique():
             summary_data[education][image] = {}
@@ -411,7 +411,7 @@ def generate_summary(args,result):
 
     heatmap_data = np.zeros((100, np.ceil(len(detail_data) / 100).astype(int)))
     for i, question_id in enumerate(detail_data):
-        heatmap_data[i % 100, i // 100] = detail_data[question_id]["score"] / (detail_data[question_id]["total_score"]+0.001)
+        heatmap_data[i % 100, i // 100] = detail_data[question_id]["score"] / (detail_data[question_id]["total_score"] + 0.001)
 
     plt.imshow(heatmap_data, cmap='RdYlGn', interpolation='nearest', vmin=-0.25, vmax=1.25)
     ax = plt.gca()
@@ -431,11 +431,12 @@ def main(args):
         print(f"\nCalculating the absolute score of {args.prediction_file.split('/')[-2]}")
         evaluate_every_problem(args)
 
-    result=calculate_score(args)
+    result = calculate_score(args)
 
     if args.detail:
         detail_score(args)
-        generate_summary(args,result)
+        generate_summary(args, result)
+
 
 if __name__ == "__main__":
     args = parse_args_for_score()

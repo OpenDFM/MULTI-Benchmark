@@ -19,23 +19,23 @@ import tiktoken
 
 os.environ["PYTHONPATH"] = "."
 
-def save_checkpoints(args, questions,i):
+
+def save_checkpoints(args, questions, i):
     os.makedirs(os.path.join(args.output_dir, args.output_name), exist_ok=True)
     os.makedirs(os.path.join(args.output_dir, args.output_name, "checkpoints"), exist_ok=True)
     args_json = vars(args)
     args_json_copy = args_json.copy()
     args_json_copy.pop("api_key")
 
-    if i>=args.save_every:
+    if i >= args.save_every:
         checkpoint_file = os.path.join(args.output_dir, args.output_name, "checkpoints", f"prediction_{i}.json")
-    elif i==-1:
+    elif i == -1:
         checkpoint_file = os.path.join(args.output_dir, args.output_name, "checkpoints", f"prediction_last.json")
-    elif i==0:
+    elif i == 0:
         checkpoint_file = args.prediction_file
     else:
         print(f"Early stopping. No checkpoint saved.")
         sys.exit(0)
-
 
     with open(args.prediction_file.replace("prediction.json", "args.json"), "w", encoding="utf-8") as f:
         json.dump(args_json_copy, f, indent=4, ensure_ascii=False)  # we don't want to save the api key in file
@@ -83,7 +83,7 @@ def evaluate(args, evaluator, questions):
         save_checkpoints(args, questions_with_answers, -1)
         sys.exit(0)
 
-    save_checkpoints(args, questions_with_answers,0)
+    save_checkpoints(args, questions_with_answers, 0)
 
 
 def generate_data(args):
@@ -176,10 +176,10 @@ def main(args):
         with open(os.path.join(args.checkpoint_dir, "args.json"), "r", encoding="utf-8") as f:
             args.__dict__.update(json.load(f))
         print(f"Loading args from checkpoint")
-        args.checkpoint_dir = checkpoint_dir # FIXME: args.checkpoint_dir is missing after update
+        args.checkpoint_dir = checkpoint_dir  # FIXME: args.checkpoint_dir is missing after update
         print(args)
 
-        questions=None
+        questions = None
         try:
             questions = json.load(open(args.prediction_file, "r", encoding="utf-8"))
             print(f"Loaded questions from {args.prediction_file}")

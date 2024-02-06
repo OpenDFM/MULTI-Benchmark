@@ -11,6 +11,7 @@ model_list = {
         "support_input": [2, 3],
         "executor": "gpt",
         "evaluator": "GPTEvaluator",
+        "split_sys": True,
     },
     "gpt": {
         "avail_model": ["gpt-3.5-turbo", "gpt-3.5-turbo-0301", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-16k-0613", "gpt-4", "gpt-4-0314", "gpt-4-0613","gpt-4-1106-preview", ],
@@ -18,6 +19,7 @@ model_list = {
         "support_input": [0, 1],
         "executor": "gpt",
         "evaluator": "GPTEvaluator",
+        "split_sys": True,
     },
     "geminivision": {
         "avail_model": ["gemini-pro-vision", ],
@@ -25,6 +27,7 @@ model_list = {
         "support_input": [2, 3],
         "executor": "gemini",
         "evaluator": "GeminiEvaluator",
+        "split_sys": True,
     },
     "gemini": {
         "avail_model": ["gemini-pro", ],
@@ -32,42 +35,49 @@ model_list = {
         "support_input": [0, 1],
         "executor": "gemini",
         "evaluator": "GeminiEvaluator",
+        "split_sys": True,
     },
     "moss": {
         "model_type": "local",
         "support_input": [0, 1],
         "executor": "moss",
         "evaluator": "MOSSEvaluator",
+        "split_sys": False,
     },
     "viscpm": {
         "model_type": "local",
         "support_input": [0, 1, 2, 3],
         "executor": "viscpm",
         "evaluator": "VisCPMEvaluator",
+        "split_sys": False,
     },
     "qwen-vl": {
         "model_type": "local",
         "support_input": [0, 1, 2, 3],
         "executor": "qwen",
         "evaluator": "QwenEvaluator",
+        "split_sys": False,
     },
     "visualglm": {
         "model_type": "local",
         "support_input": [0, 1, 2, 3],
         "executor": "visualglm",
         "evaluator": "VisualGLMEvaluator",
+        "split_sys": False,
     },
     "llama2": {
         "model_type": "local",
         "support_input": [0, 1],
         "executor": "llama2",
         "evaluator": "Llama2Evaluator",
+        "split_sys": True,
     },
     "dfm": {
         "model_type": "local",
         "support_input": [0, 1],
         "executor": "dfm",
         "evaluator": "DFMEvaluator",
+        "split_sys": True,
     },
 }
 

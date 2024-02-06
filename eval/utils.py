@@ -31,7 +31,7 @@ Education_Level_Dict_zh2en = {
 def extract_image_list_from_md(text: str) -> Tuple[str, List[str]]:
     patterns = re.findall(MD_PIC_PATTERN, text)
     for i, pattern in enumerate(patterns):
-        subs = f"<img_{i}>"
+        subs = f"[IMAGE_{i}]"
         text = text.replace(pattern, subs)
     img_list = list(map(lambda s: s[4:-1], patterns))
     return text, img_list
