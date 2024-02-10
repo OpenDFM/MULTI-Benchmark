@@ -79,6 +79,13 @@ model_list = {
         "evaluator": "DFMEvaluator",
         "split_sys": True,
     },
+    "intern-vl": {
+        "model_type": "local",
+        "support_input": [0, 1, 2, 3],
+        "executor": "internvl",
+        "evaluator": "InternVLEvaluator",
+        "split_sys": False,
+    },
 }
 
 

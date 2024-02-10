@@ -4,7 +4,7 @@
 
 🌐 [Website](https://opendfm.github.io/MULTI-Benchmark/) 
 
-📃 [Paper](https://arxiv.org/abs/2402.03173/) 
+📃 [Paper](https://arxiv.org/abs/2402.03173/)
 
 🤗 [Dataset](https://opendfm.github.io/MULTI-Benchmark/) (Coming Soon) 
 
