@@ -3,7 +3,7 @@
 from transformers import AutoTokenizer, AutoModel, CLIPImageProcessor
 import torch
 from PIL import Image
-
+import pdb
 
 class InternVLEvaluator():
     def __init__(self, model_dir="OpenGVLab/InternVL-Chat-Chinese-V1-1", device_map="auto"):
@@ -24,30 +24,38 @@ class InternVLEvaluator():
         if isinstance(input, dict):
             question = input
             image_path = question.get("image_list", [""])[0]
-            image = Image.open(image_path).convert('RGB')
-            image = image.resize((448, 448))
+            if len(image_path) > 0:
+                image = Image.open(image_path).convert('RGB')
+                image = image.resize((448, 448))
+            else:
+                image = Image.new("RGB", (448,448), (0, 0, 0))
             pixel_values = self.image_processor(images=image, return_tensors='pt').pixel_values
             pixel_values = pixel_values.to(torch.bfloat16).cuda()
             message = question["prompted_content"]
-            response, _ = self.model.chat(self.tokenizer, pixel_values, message, None, **self.sample_params)
+            response = self.model.chat(self.tokenizer, pixel_values, message, self.sample_params)
             return response, message
 
         elif isinstance(input, tuple):
             # question with multiple images
+
             assert len(input) == 3, "Input tuple must have 3 elements. (prompt, image_path, history)"
             message, image_path, history = input
+            '''
             image = Image.open(image_path).convert('RGB')
             image = image.resize((448, 448))
             pixel_values = self.image_processor(images=image, return_tensors='pt').pixel_values
             pixel_values = pixel_values.to(torch.bfloat16).cuda()
-            response, history = self.model.chat(self.tokenizer, pixel_values, message, history, **self.sample_params)
+            response, history = self.model.chat(self.tokenizer, pixel_values, message, self.sample_params)
             return response, history, message
+            '''
+            print(f"multiple image input is not supported")
+            return "", "", message
         else:
             raise ValueError(f"input type not supported: {type(input)}")
 
     def generate_answer(self, question):
         if question.get("prompted_content"):
-            assert len(question.get("image_list", [""])) <= 1, "VisualGLM model only supports one image at one time."
+            # assert len(question.get("image_list", [""])) <= 1, "InternVL model only supports one image at one time."
             response, message = self.generate_response(question)
             question["input_message"] = message
             question.pop("prompted_content")

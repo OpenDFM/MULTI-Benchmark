@@ -229,6 +229,8 @@ def postprocess_prompt(content, in_turn=True, remove_image_token=False):
             img_token_start = content.index(img_sub)
             if remove_image_token:
                 prompted_content_list.append(content[:img_token_start].strip())
+            else:
+                prompted_content_list.append(content[:img_token_start].strip() + img_sub)
             content = content[img_token_start + len(img_sub):]
         prompted_content_list.append(content.strip())
         prompted_content_list[-2] += '\n' + prompted_content_list[-1]
