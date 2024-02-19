@@ -1,3 +1,5 @@
+# this README will be deprecated soon
+
 # Overview
 
 This folder contains all evaluators to support LLM performance test. Each file contains an evaluator specified to one LLM, and implements a `generate_answer` method to receive a question as input and give out the answer of it.

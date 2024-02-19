@@ -1,3 +1,5 @@
+# this README will be deprecated soon
+
 # Overview
 
 This document will guide you to fetch our benchmark.

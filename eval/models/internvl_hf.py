@@ -32,7 +32,7 @@ class InternVLEvaluator():
             pixel_values = self.image_processor(images=image, return_tensors='pt').pixel_values
             pixel_values = pixel_values.to(torch.bfloat16).cuda()
             message = question["prompted_content"]
-            response = self.model.chat(self.tokenizer, pixel_values, message, self.sample_params)
+            response = self.model.chat(self.tokenizer, pixel_values, message[0:768], self.sample_params) # 768 is the max length of the message
             return response, message
 
         elif isinstance(input, tuple):

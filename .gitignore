@@ -22,3 +22,4 @@ data/log*
 *.zip
 /results_backup/
 /results_on_hard/
+/docs/tex/
