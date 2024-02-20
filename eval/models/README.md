@@ -1,4 +1,4 @@
-# this README will be deprecated soon
+# This README will be deprecated soon as we are preparing our official tutorial version.
 
 # Overview
 
@@ -6,66 +6,60 @@ This folder contains all evaluators to support LLM performance test. Each file c
 
 ## Environment preparation before usage
 
-Each evaluator requires its unique environment setting, and a universal environment may not work for all the evaluators.
-
-### Support for MOSS
-
-```
-conda create -n moss python=3.9 -y
-conda activate moss
-pip install transformers==4.32.0 # Too high level of transformer version causes issue
-pip install torch accelerate
-pip install modelscope # to use modelscope
-```
-
-### For Qwen
-```
-conda create -n qwen python=3.9 -y
-conda activate qwen
-pip install torch transformers torchvision accelerate matplotlib tiktoken transformers_stream_generator
-pip install modelscope # to use modelscope
-pip install optimum auto-gptq # for quantize support
-```
-
-### For VisCPM
-
-Follow the official guide. For convenience, set up a new environment.
-```
-git clone https://github.com/OpenBMB/VisCPM.git
-cd VisCPM
-conda create -n viscpm python=3.10 -y
-conda activate viscpm
-pip install -r requirements.txt
-pip install bminf # for quantize support
-```
-
-### For VisualGLM
-Modify on the environment `moss` here for convenience.
-```
-pip install SwissArmyTransformer peft torchvision
-```
-Note [Issue](https://github.com/THUDM/ChatGLM-6B/issues/212) here.
-
+Each evaluator requires its unique environment setting, and a universal environment may not work for all the evaluators. Follow the official guide  If the corresponding model can run well, then so should it fit in our framework.
 
 ### Properties for the implemented models
-| Model | Puretext\* | One-image | Multiple-images-a-time\*\* |
-|:-:|:-:|:-:|:-:|
-| Qwen-VL | ✅ | ✅ | ✅ |
-| VisCPM | ❌ | ✅ | ❌ |
-| VisualGLM | ✅ | ✅ | ❌ |
-| MOSS | ✅ | ❌ | ❌ |
 
-\* If not supported, a black blank image is needed to pass into the image tokenizer when dealing with the pure texts. 
+Refer to our [paper](), section 4.2.
 
-\*\* If not supported, it'll be required to use multiple rounds of dialogue to pass multiple images. Add the argument `--in_turn` when adopting image inputs.
+## How to run a test
 
-**Note. In the current Qwen-VL, multiple images a time actually performs very poor, so we prefer using multiple rounds.**
+### Dataset preparation
+
+First, get our dataset from huggingface at [here](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/). Unzip the files and put them under `data/`.
+
+The structure of `data` should be something like:
+
+```
+data
+|- images
+|- problem_v1.2.2_20240212_release.json
+|- knowledge_v1.2.2_20240212_release.json
+|- hard_list_v1.2.1_20240206.json
+|- captions_v1.2.0_20231217.csv
+
+```
+
+### Arguments for test
+
+`cd eval` at first as the working directory.
+
+We define a lot of arguments in `args.py` and please check there for details. For a quick start, see these examples as reference:
+
+Test Qwen-VL model on the whole dataset, using GPU 0, with images all input, and checkpoint directory specified:
+`python eval.py --problem_file ../data/problem_v1.2.2_20240212_release.json  --questions_type 0,1,2,3 --image_type 2 --input_type 2 --model qwen-vl --cuda_device cuda:0 --model_dir QWen/Qwen-VL-Chat` 
+
+The argument `question_type` controls the type of questions to be tested, with 0 for SA, 1 for MA, 2 for FB and 3 for OP, separated with comma. (Abbreviations are defined in our [paper](), section 3.1)
+
+Test VisCPM model on SA, MA and FB on whole dataset also with corresponding knowledge points attached, using GPU 0, with images all input in multiple rounds, and checkpoint directory specified:
+`python eval.py --problem_file ../data/problem_v1.2.2_20240212_release.json --knowledge_file ../data/knowledge_v1.2.2_20240212_release.json --questions_type 0,1,2 --input_type 2 --in_turn --model viscpm --cuda_device cuda:0 --model_dir /home/ubuntu/tools/VisCPM/checkpoints`
+
+Test VisualGLM model just on SA questions of MULTI-Elite, using GPU 1, just using pure text as input, using the default checkpoint path on huggingface:
+`python eval.py --problem_file ../data/problem_v1.2.2_20240212_release.json --subset ../data/hard_list_v1.2.1_20240206.json --questions_type 0 --input_type 0 --model viscpm --cuda_device cuda:1 --model_dir /home/ubuntu/tools/VisCPM/checkpoints`
+
+Test MOSS model on the whole dataset, using GPU 2, substituting images with corresponding captions, using the defaule checkpoint path on huggingface:
+`python eval.py --problem_file ../data/problem_v1.2.2_20240212_release.json --input_type 1 --caption_file ../data/captions_v1.2.0_20231217.csv --model moss --cuda_device cuda:2`
+
+`input_type` is the argument for giving images, with 0 for discarding them, 1 for substituting them with some captions related to the image, and 2 for image input.
+
+All these arguments are independent with each other and can be randomly selected to give expected combinations.
+
 
 ## Implement support for your own model
 
-It's recommended to read the code of the given evaluators before your implementation, implement `generate_answer(self, question:dict)` to match the design supported in `eval.py` and `eval.sh`, which is anticipated to largely ease the coding process. Remember to add their references into `../args.py` for the convenience of usage.
+It's recommended to read the code of the given evaluators before your implementation, implement `generate_answer(self, question:dict)` to match the design supported in `eval.py` and `eval.sh`, which is anticipated to largely ease the coding process. **No forgetting to add their references into `../args.py` for the convenience of usage.**
 
-**It's recommended to execute `model_tester.py` in the parent folder to check the correctness of you implementation. Various problems including implementation errors, small bugs in code, and even wrong environment setting may cause failure of the evaluation. Feel free to change the code in it to debug your code😊**
+**It's recommended to execute `model_tester.py` in the parent folder to check the correctness of you implementation. Various problems including implementation errors, small bugs in code, and even wrong environment setting may cause failure of the evaluation. The examples provided in the file cover most kinds of cases presented in our benchmark. Feel free to change the code in it to debug your code😊**
 
 ```python
 cd ..

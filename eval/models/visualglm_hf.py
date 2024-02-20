@@ -9,7 +9,7 @@ class VisualGLMEvaluator():
         self.model_dir = model_dir
         self.sample_params = {
             # "max_new_tokens": max_tokens,
-            "max_length": 8192,
+            "max_length": 256,
             "do_sample": False,
         }
 
@@ -24,14 +24,14 @@ class VisualGLMEvaluator():
             question = input
             image_path = question.get("image_list", [""])[0]
             message = question["prompted_content"]
-            response, _ = self.model.chat(self.tokenizer, image_path, message, None, **self.sample_params)
+            response, _ = self.model.chat(self.tokenizer, image_path, message[:128], None, **self.sample_params)
             return response, message
 
         elif isinstance(input, tuple):
             # question with multiple images
             assert len(input) == 3, "Input tuple must have 3 elements. (prompt, image_path, history)"
             message, image_path, history = input
-            response, history = self.model.chat(self.tokenizer, image_path, message, history, **self.sample_params)
+            response, history = self.model.chat(self.tokenizer, image_path, message[:128], history, **self.sample_params)
             return response, history, message
         else:
             raise ValueError(f"input type not supported: {type(input)}")
