@@ -161,6 +161,26 @@ def parse_args_for_score():
     args = parser.parse_args()
     return args
 
+def parse_args_for_score_deploy():
+    parser = argparse.ArgumentParser()
+
+    # data setting
+    parser.add_argument('--label_file', type=str, default=None, help='Specify the label json file.')
+    parser.add_argument('--prediction_dir', type=str, default=None, help='Specify the prediction json files dir.')
+    parser.add_argument('--prediction_file', type=str, default=None, help='Specify the prediction json file.')
+    parser.add_argument('--score_file', type=str, default=None, help='Specify the output detail score file.')
+    parser.add_argument('--reference_dir', type=str, default=None, help='Specify the reference directory where all the other score files are stored. By leaving it empty, only absolute score will be calculated.')
+
+    # score setting
+    parser.add_argument('--detail', action='store_true', help='Whether to print the detail of the score.')
+    parser.add_argument('--only_past', action='store_true', help='Whether to only use the earlier models to calculate the relative score.')
+
+    # other functions
+    parser.add_argument('--model_list', '-l', action='store_true', help='Print the available model list.')
+
+    args = parser.parse_args()
+    return args
+
 
 def print_model_list():
     for model_name in model_list:
