@@ -2,6 +2,22 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.top-bar {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: right;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
 
 .footer .icon-link {
     font-size: 25px;
