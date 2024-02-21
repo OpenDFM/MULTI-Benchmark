@@ -6,7 +6,7 @@ data/images/
 *.sbatch
 .idea/
 .vscode
-results/*
+results/
 *.ipynb
 *__pycache__*
 
@@ -14,7 +14,7 @@ data/*.csv
 data/glm*.json
 data/selected*.json
 
-# results
+results
 selected_results
 data/stat*
 data/log*
