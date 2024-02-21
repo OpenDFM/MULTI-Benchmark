@@ -1,3 +1,4 @@
+import base64
 import copy
 import os
 import uuid
@@ -56,7 +57,7 @@ def zip_dir(directory, zip_filename):
 def generate():
     prediction_json = request.json.get("prediction_json", None)
     if prediction_json is None:
-        return jsonify({"result": "false"})
+        return jsonify({"result": "false", "data": None})
 
     # generate random dir
     random_dir = get_random_dir()
@@ -83,7 +84,23 @@ def generate():
     # zip the dir
     zip_dir(source_dir, random_dir + result_zip_suffix)
 
-    return send_file(random_dir + result_zip_suffix, as_attachment=True)
+    # read the file
+    with open(random_dir + result_zip_suffix, 'rb') as result_zip_file:
+        result_zip_file_blob = result_zip_file.read()
+    result_zip_base64 = base64.b64encode(result_zip_file_blob).decode('utf-8')
+
+    # return the file
+    response_data = {
+        "result": "true",
+        "data": {
+            "zip_file": result_zip_base64,
+            "other": {
+                "somthing": "else"
+            }
+        }
+    }
+
+    return jsonify(response_data)
 
 
 if __name__ == "__main__":

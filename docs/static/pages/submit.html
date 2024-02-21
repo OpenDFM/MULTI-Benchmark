@@ -42,9 +42,24 @@
                             if (!response.ok) {
                                 throw new Error('Network response was not ok');
                             }
-                            return response.blob();
+                            return response.json();
                         })
-                        .then(blob => {
+                        .then(json => {
+                            console.log(json['result']);
+                            if (json['result'] !== 'true') {
+                                return;
+                            }
+                            let base64Data = json['data']['zip_file'];
+                            let binaryData = atob(base64Data);
+                            let arrayBuffer = new ArrayBuffer(binaryData.length);
+                            let uint8Array = new Uint8Array(arrayBuffer);
+
+                            for (let i = 0; i < binaryData.length; i++) {
+                                uint8Array[i] = binaryData.charCodeAt(i);
+                            }
+
+                            let blob = new Blob([arrayBuffer], { type: 'application/octet-stream' });
+
                             document.getElementById('sendButton').disabled = false;
                             const url = window.URL.createObjectURL(blob);
                             const a = document.createElement('a');
