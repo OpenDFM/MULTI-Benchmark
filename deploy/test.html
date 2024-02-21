@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fetch File Example</title>
+</head>
+<body>
+<h1>Upload and Send File Example</h1>
+
+<input type="file" id="fileInput">
+<button id="sendButton">Send File</button>
+
+<script>
+    document.getElementById('sendButton').addEventListener('click', function() {
+        const fileInput = document.getElementById('fileInput');
+        const file = fileInput.files[0];
+      
+        if (file) {
+          const reader = new FileReader();
+      
+          reader.onload = function(event) {
+            const fileContent = event.target.result;
+            const jsonData = { fileContent: fileContent };
+
+            fetch('http://127.0.0.1:5000/generate', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                  // 如果有需要，可以根据后端要求设置其他headers
+                },
+                body: JSON.stringify({
+                  "prediction_json": jsonData
+                })
+              })
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error('Network response was not ok');
+                }
+                return response.blob();
+              })
+              .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'result.zip';  // 下载文件的名称
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+              })
+              .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+              });
+          };
+      
+          reader.readAsText(file);
+        } else {
+          console.log('Please select a file to upload.');
+        }
+      });
+
+
+
+</script>
+</body>
+</html>

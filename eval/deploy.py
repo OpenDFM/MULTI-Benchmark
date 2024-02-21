@@ -3,30 +3,50 @@ import os
 import uuid
 from metrics import *
 from args import parse_args_for_score_deploy
+from flask import Flask, request, jsonify, send_file
+from flask_cors import CORS
+import io
+from contextlib import redirect_stdout
+import zipfile
 
-from flask import Flask, request, jsonify
-
-
+# redirect stdout to string
+output = io.StringIO()
 app = Flask(__name__)
+CORS(app)
+
 
 args = parse_args_for_score_deploy()
-
-
+# args.label_file = "../data/problem_v1.2.2_20240212.json"
+args.label_file = "../data/problem_final.json"
+args.detail = True
+args.prediction_dir = "../results"
+source_suffix = "/source"
 prediction_file_suffix = "/prediction.json"
-result_file_suffix = "/result.json"
+paras_file_suffix = "/paras.json"
+result_zip_suffix = "/result.zip"
 
 
-def save_prediction_json_to_random_dir(json_data):
-    random_dir = os.path.join(args.prediction_dir, str(uuid.uuid4()))
-    os.makedirs(random_dir)
-    with open(random_dir + prediction_file_suffix, "w") as f:
+def get_random_dir():
+    return os.path.join(args.prediction_dir, str(uuid.uuid4()))
+
+
+def save_prediction_json_to_target_dir(json_data, target_dir):
+    os.makedirs(target_dir)
+    with open(target_dir + prediction_file_suffix, "w") as f:
         json.dump(json_data, f)
-    return random_dir
 
 
-def save_result_to_target_dir(result, target_dir):
-    with open(target_dir + result_file_suffix, "w") as f:
-        json.dump(result, f)
+def save_paras_to_target_dir(paras_data, target_dir):
+    with open(target_dir + paras_file_suffix, "w") as f:
+        json.dump(paras_data, f)
+
+
+def zip_dir(directory, zip_filename):
+    with zipfile.ZipFile(zip_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
+        for root, _, files in os.walk(directory):
+            for file in files:
+                file_path = os.path.join(root, file)
+                zipf.write(file_path, os.path.relpath(file_path, directory))
 
 
 # generate all
@@ -34,16 +54,36 @@ def save_result_to_target_dir(result, target_dir):
 
 @app.route("/generate", methods=["POST"])
 def generate():
-    prediction_json = request.json["prediction_json"]
+    prediction_json = request.json.get("prediction_json", None)
     if prediction_json is None:
         return jsonify({"result": "false"})
-    prediction_file = save_prediction_json_to_random_dir(prediction_json)
-    result_json = request.json
-    save_result_to_target_dir(result_json, prediction_file)
+
+    # generate random dir
+    random_dir = get_random_dir()
+    source_dir = random_dir + source_suffix
+
+    # save prediction json to random dir
+    save_prediction_json_to_target_dir(json.loads(
+        prediction_json["fileContent"]), source_dir)
+    prediction_file = source_dir + prediction_file_suffix
+
+    # save request json too
+    paras_json = request.json
+    save_paras_to_target_dir(paras_json, source_dir)
+
+    # change the args
     copy_args = copy.deepcopy(args)
     copy_args.prediction_file = prediction_file
-    main(copy_args)
-    return jsonify({"result": "true"})
+
+    # run the main function
+    with redirect_stdout(output):
+        main(copy_args)
+    app.logger.info(output.getvalue())
+
+    # zip the dir
+    zip_dir(source_dir, random_dir + result_zip_suffix)
+
+    return send_file(random_dir + result_zip_suffix, as_attachment=True)
 
 
 if __name__ == "__main__":

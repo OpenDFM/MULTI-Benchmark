@@ -1,10 +1,13 @@
 FROM ubuntu:20.04
-RUN mkdir /work
-COPY ../eval /work
-WORKDIR /work
+COPY ./ /work
+RUN mkdir -p /work/results
+WORKDIR /work/eval
 RUN apt-get update && apt-get install -y python3 python3-pip python3-dev gcc g++ libffi-dev libssl-dev
 RUN pip install cython
 RUN pip install cryptography
-RUN pip install -r requirements.txt
+RUN pip install gunicorn
+RUN pip install -r /work/deploy/requirements.txt
 
-ENTRYPOINT ["gunicorn", "--workers=4", "--bind=0.0.0.0:5000", "deploy:app"]
+EXPOSE 5000
+
+ENTRYPOINT ["gunicorn", "--workers=4", "--log-level", "debug", "--bind=0.0.0.0:5000", "deploy:app"]
