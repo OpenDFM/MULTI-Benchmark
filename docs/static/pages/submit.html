@@ -28,7 +28,7 @@
                     const fileContent = event.target.result;
                     const jsonData = { fileContent: fileContent };
 
-                    fetch('http://localhost:5000/generate', {
+                    fetch('https://x-lance.sjtu.edu.cn/multimodal-benchmark-qa/', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
