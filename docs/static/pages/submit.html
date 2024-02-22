@@ -28,7 +28,7 @@
                     const fileContent = event.target.result;
                     const jsonData = { fileContent: fileContent };
 
-                    fetch('http://202.120.38.10:10081/generate', {
+                    fetch('http://localhost:5000/generate', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
