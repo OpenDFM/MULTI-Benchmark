@@ -105,7 +105,7 @@ def parse_args_for_eval():
     parser.add_argument('--model', '-m', type=str, default=None, help='Specify the model name.')
     parser.add_argument('--model_version', '-v', type=str, default=None, help='Specify the model type. You need to fill in this if you want to test specific model version for GPTs.')
     parser.add_argument('--model_dir', '-d', type=str, default=None, help='Specify the model directory. You need to fill in this if you want to test those models that are deployed locally.')
-    parser.add_argument('--cuda_device', '-c', type=str, default='cpu', help='Specify the cuda device. By leaving it empty, it means using cpu. You can specify multiple cuda devices by separating them with commas, i.e. "0,1,2,3".')
+    parser.add_argument('--cuda_device', '-c', type=str, default='auto', help='Specify the cuda device. By leaving it empty, it means using auto. You can specify multiple cuda devices by separating them with commas, i.e. "0,1,2,3".')
     parser.add_argument('--api_key', type=str, default=None, help='Specify the api key. You need to fill in this if you want to test those models that are not deployed locally.')
     parser.add_argument('--api_url', type=str, default="https://api.openai.com/v1/chat/completions", help='Specify the api url. You need to fill in this if you want to test those models that are not deployed locally.')
 
@@ -184,11 +184,13 @@ def parse_args_for_score_deploy():
 
 
 def print_model_list():
+    print('='*20)
     for model_name in model_list:
-        print(model_name)
-        print(model_list[model_name])
-        versions = model_list[model_name].get("avail_model", [])
-        if len(versions) > 0:
-            print(f"Available versions: {versions}")
-        print()
-    print(model_list)
+        print(f'[{model_name}]')
+        print('  ',model_list[model_name])
+        # versions = model_list[model_name].get("avail_model", [])
+        # if len(versions) > 0:
+        #     print(f"Available versions: {versions}")
+        # print()
+    # print(model_list)
+    print('=' * 20)
