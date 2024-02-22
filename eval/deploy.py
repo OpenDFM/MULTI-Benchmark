@@ -9,6 +9,7 @@ from flask_cors import CORS
 import io
 from contextlib import redirect_stdout
 import zipfile
+import shutil
 
 # redirect stdout to string
 output = io.StringIO()
@@ -82,17 +83,20 @@ def generate():
             zip_ref.extractall(source_dir)
         os.remove(random_dir + source_zip_suffix)
     except:
-        os.rmdir(random_dir)
+        shutil.rmtree(random_dir)
         return jsonify({"result": "false", "data": None, "message": "unzip error"})
 
     # delete all files except prediction.json and args.json in source dir
     for file in os.listdir(source_dir):
+        if os.path.isdir(os.path.join(source_dir, file)):
+            shutil.rmtree(os.path.join(source_dir, file))
+            continue
         if file != prediction_file_name and file != args_file_name:
             os.remove(os.path.join(source_dir, file))
 
     # check if prediction.json exists
     if not os.path.exists(source_dir + prediction_file_suffix):
-        os.rmdir(random_dir)
+        shutil.rmtree(random_dir)
         return jsonify({"result": "false", "data": None, "message": "prediction.json not exists"})
 
     # save request json to paras dir
@@ -108,7 +112,7 @@ def generate():
         try:
             main(copy_args)
         except Exception as e:
-            os.rmdir(random_dir)
+            shutil.rmtree(random_dir)
             return jsonify({"result": "false", "data": None, "message": str(e)})
     # app.logger.info(output.getvalue())
 

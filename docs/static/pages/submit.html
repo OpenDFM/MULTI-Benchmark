@@ -46,6 +46,7 @@
                         })
                         .then(json => {
                             document.getElementById('result').innerText = json["message"];
+                            document.getElementById('sendButton').disabled = false;
                             if (json['result'] !== 'true') {
                                 return;
                             }
@@ -60,7 +61,6 @@
 
                             let blob = new Blob([arrayBuffer], { type: 'application/octet-stream' });
 
-                            document.getElementById('sendButton').disabled = false;
                             const url = window.URL.createObjectURL(blob);
                             const a = document.createElement('a');
                             a.href = url;
