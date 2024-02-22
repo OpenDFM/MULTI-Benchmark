@@ -44,16 +44,120 @@
 
 ## ⏬ 下载
 
-你可以从[HuggingFace页面](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark)下载数据集。最新[版本](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/blob/main/MULTI_v1.2.2_20240212_release.zip)为`v1.2.2`。
+你可以从[HuggingFace页面](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark)下载数据集。最新[版本](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/blob/main/MULTI_v1.2.2_20240212_release.zip)为`v1.2.2`。解压文件并将它们放置在`data`下。
 
 ```
 wget https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/resolve/main/MULTI_v1.2.2_20240212_release.zip
-unzip MULTI_v1.2.2_20240212_release.zip -d ./data
+unzip MULTI_v1.2.2_20240212_release.zip -d ./data/
 ```
 
-## 📝 如何评估
+`data` 的结构应该如下所示：
 
-此部分即将更新。现在，请参考[历史版本README](./eval/models/README.md)。
+```
+data
+├── images                                       # 包含图片的文件夹
+├── problem_v1.2.2_20240212_release.json         # MULTI
+├── knowledge_v1.2.2_20240212_release.json       # MULTI-Extend
+├── hard_list_v1.2.1_20240206.json               # MULTI-Elite
+└── captions_v1.2.0_20231217.csv                 # 由BLIP-6.7b生成的图片描述
+```
+
+## 📝 如何评测
+
+我们在`eval`中提供了一个统一的评估框架。`eval/models`中的每个文件都包含了一个针对某个M/LLM的评测器，并实现了一个`generate_answer`方法来接收问题输入并输出答案。
+
+```shell
+cd eval
+python eval.py -h # 列出所有支持的参数
+python eval.py -l # 列出所有支持的模型
+```
+
+### 使用前的环境准备
+
+每个模型都需要其独特的环境设置，通用环境可能不适用于所有模型的评测。**按照官方文档操作即可。** 如果相应的模型运行良好，那么它应该也适合我们的框架。
+
+您只需要安装另外两个包来运行评估代码：
+
+```shell
+pip install tiktoken tqdm
+```
+
+如果您只是想为特定设置生成数据（使用`--debug`参数），上面这行代码就是您所需要的一切。
+
+### 运行评测
+
+请参考这些示例以便快速开始：
+
+在MULTI上测试GPT-4V模型，采用多模态输入，并使用MULTI-Extend作为外部知识：
+
+```shell
+python eval.py \
+  --problem_file ../data/problem_v1.2.2_20240212_release.json \
+  --knowledge_file ../data/knowledge_v1.2.2_20240212_release.json \
+  --questions_type 0,1,2,3 \
+  --image_type 0,1,2 \
+  --input_type 2 \
+  --model gpt-4v \
+  --model_version gpt-4-vision-preview \
+  --api_key sk-************************************************
+```
+
+在MULTI-Elite上测试Qwen-VL模型，使用图片描述输入，跳过所有不包含图片的问题，仅评测选择题，自动设置cuda设备：
+
+```shell
+python eval.py \
+  --problem_file ../data/problem_v1.2.2_20240212_release.json \
+  --subset ../data/hard_list_v1.2.1_20240206.json \
+  --caption_file ../data/captions_v1.2.0_20231217.csv \
+  --questions_type 0,1 \
+  --image_type 1,2 \
+  --input_type 1 \
+  --model qwen-vl \
+  --model_dir ../models/Qwen-VL-Chat
+```
+
+测脚本将在根目录下生成`results`文件夹，结果将保存在`../results/EXPERIMENT_NAME`中。评测过程中，脚本将在`../results/EXPERIMENT_NAME/checkpoints`中保存检查点，评测完成后您可以删除它们。如果评测被中断，您可以从最后一个检查点继续：
+
+```shell
+python eval.py \
+  --checkpoint_dir ../results/EXPERIMENT_NAME
+```
+
+大多数参数都保存在`../results/EXPERIMENT_NAME/args.json`中，因此您可以继续评测而无需再次指定所有参数。请注意，出于安全原因，`--api_key`不会保存在`args.json`中，因此您需要再次指定它。
+
+```shell
+python eval.py \
+  --checkpoint_dir ../results/EXPERIMENT_NAME \
+  --api_key sk-************************************************
+```
+
+有关参数的更多详细信息，请使用`python eval.py -h`并参考`args.py`和`eval.py`。
+
+### 为您的模型增加支持
+
+建议在此之前阅读`eval/models`中其他评测器的代码。
+
+创建`class YourModelEvaluator`并实现 `generate_answer(self, question:dict)`以匹配`eval.py`和`eval.sh`中支持的设计，这预计将大大简化代码实现过程。
+
+**不要忘记将它们的调用方式添加到`args.py`中，以方便使用。**
+
+您可以在`eval`文件夹中执行`model_tester.py`来检查您的实现的正确性。各种问题，包括实现错误、代码中的小错误，甚至错误的环境设置都可能导致评测失败。文件中提供的示例覆盖了我们基准测试中呈现的大多数情况类型。随意更改其中的代码以调试您的代码😊
+
+```shell
+python model_tester.py <args> # args 类似于上面的默认设置
+```
+
+### 为图片创建描述和OCR数据
+
+为图片生成描述或OCR数据，并以下面的格式保存在csv中：
+
+```
+../data/images/czls/502_1.png,a cartoon drawing of a man standing in front of a large block
+../data/images/czls/525_1.png,a chinese newspaper with the headline, china's new year
+...
+```
+
+我们提供了两个示例脚本来为图片生成标题（`image_caption.py`）和OCR数据（`image_ocr.py`）。
 
 ## 📮 如何提交
 
@@ -75,9 +179,9 @@ unzip MULTI_v1.2.2_20240212_release.zip -d ./data
 
 然后，你可以将你的结果提交到我们的[评估平台]()（即将推出）。
 
-感谢您对 MULTI 数据集的关注！由于自动评测平台尚未上线，请填写[此问卷](https://wj.sjtu.edu.cn/q/89UmRAJn)以获取评测结果，您的个人信息将被严格保密，请放心填写。🤗
-
 欢迎拉取请求（Pull Request）并贡献你的代码到我们的评估代码中。我们感激不尽！
+
+**[提示]** 感谢您对 MULTI 数据集的关注！由于自动评测平台尚未上线，请填写[此问卷](https://wj.sjtu.edu.cn/q/89UmRAJn)以获取评测结果，您的个人信息将被严格保密，请放心填写。🤗
 
 ## 📑 引用
 
