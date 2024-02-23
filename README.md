@@ -25,20 +25,20 @@ Rapid progress in multimodal large language models (MLLMs) highlights the need t
 ## 🏆 Leaderboard
 
 | Modality |     Model     | Version                    | Overall | MULTI-Elite |
-|:--------:|:-------------:|----------------------------|:-------:|:-----------:|
-|   🖼️    |    GPT-4V     | gpt-4-vision-preview       |  63.7   |    14.0     |
-|   🖼️    |     Yi-VL     | Yi-34B-Chat                |  55.3   |    26.2     |
-|   🖼️    | Gemini Vision | gemini-pro-vision          |  53.7   |    12.4     |
+|:--------:|:-------------:| -------------------------- |:-------:|:-----------:|
+|    🖼️    |    GPT-4V     | gpt-4-vision-preview       |  63.7   |    14.0     |
+|    🖼️    |     Yi-VL     | Yi-34B-Chat                |  55.3   |    26.2     |
+|    🖼️    | Gemini Vision | gemini-pro-vision          |  53.7   |    12.4     |
 |    📃    |    Gemini     | gemini-pro                 |  52.2   |    10.5     |
 |    📃    |     GPT-4     | gpt-4-1106-preview         |  50.2   |     5.8     |
 |    📃    |    DFM-2.0    | dfm-2.0-70b-preview        |  49.7   |    18.0     |
-|   🖼️    |   InternVL    | InternVL-Chat-Chinese-V1.1 |  44.9   |    20.7     |
-|   🖼️    |    Qwen-VL    | Qwen-VL-Chat               |  39.0   |    10.5     |
+|    🖼️    |   InternVL    | InternVL-Chat-Chinese-V1.1 |  44.9   |    20.7     |
+|    🖼️    |    Qwen-VL    | Qwen-VL-Chat               |  39.0   |    10.5     |
 |    📃    |    ChatGPT    | gpt-3.5-turbo-1106         |  35.9   |     4.7     |
-|   🖼️    |    VisCPM     | VisCPM-Chat                |  33.4   |    13.0     |
+|    🖼️    |    VisCPM     | VisCPM-Chat                |  33.4   |    13.0     |
 |    📃    |     MOSS      | moss-moon-003-sft          |  32.6   |    13.1     |
-|   🖼️    |   VisualGLM   | visualglm-6b               |  31.1   |    12.8     |
-|   🖼️    | Chinese-LLaVA | Chinese-LLaVA-Cllama2      |  28.5   |    12.3     |
+|    🖼️    |   VisualGLM   | visualglm-6b               |  31.1   |    12.8     |
+|    🖼️    | Chinese-LLaVA | Chinese-LLaVA-Cllama2      |  28.5   |    12.3     |
 
 For more details, please visit our [leaderboard]() (Coming Soon).
 
