@@ -12,15 +12,15 @@
 
 ## 🔥 新闻
 
-- **[即将上线]** 我们将发布官方评估平台。
+- **[即将上线]** 我们将发布官方评测平台。
 - **[2024.2.19]** 我们发布了[HuggingFace页面](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/)。
 - **[2024.2.6]** 我们在arXiv上发布了我们的[论文](https://arxiv.org/abs/2402.03173/)。
-- **[2023.12.7]** 我们发布了我们的基准评估[代码](./eval)。
+- **[2023.12.7]** 我们发布了我们的基准评测[代码](./eval)。
 - **[2023.12.5]** 我们发布了[GitHub页面](https://OpenDFM.github.io/MULTI-Benchmark/)。
 
 ## 📖 介绍
 
-在多模态大型语言模型（MLLMs）迅速进步的背景下，提出具有挑战性且符合现实场景的基准测试变得尤为重要，而现有的基准测试主要关注于理解简单的自然图像和短文本。在本文中，我们介绍了***MULTI***，作为一个前沿的基准测试，用于评估MLLMs在理解复杂的表格和图像、以及进行长文本推理的能力。**MULTI**提供多模态输入，并要求回答是精确的或开放式的，反映了现实生活中的考试风格。**MULTI**包括超过 18,000 个问题，挑战MLLMs进行多种任务，从公式推导到图像细节分析和跨模态推理。我们还引入了***MULTI-Elite***，一个精心挑选的包含500个问题的难题子集，以及***MULTI-Extend***，包含超过 4,500 个外部知识上下文。我们的评估显示了MLLMs进步的巨大潜力，GPT-4V在**MULTI**上的准确率达到了 **63.7%**，而其他MLLMs的得分介于 **28.5%** 和 **55.3%** 之间。**MULTI**不仅作为一个稳健的评估平台，也为专家级AI的发展指明了道路。
+在多模态大型语言模型（MLLMs）迅速进步的背景下，提出具有挑战性且符合现实场景的基准测试变得尤为重要，而现有的基准测试主要关注于理解简单的自然图像和短文本。在本文中，我们介绍了***MULTI***，作为一个前沿的基准测试，用于评测MLLMs在理解复杂的表格和图像、以及进行长文本推理的能力。**MULTI**提供多模态输入，并要求回答是精确的或开放式的，反映了现实生活中的考试风格。**MULTI**包括超过 18,000 个问题，挑战MLLMs进行多种任务，从公式推导到图像细节分析和跨模态推理。我们还引入了***MULTI-Elite***，一个精心挑选的包含500个问题的难题子集，以及***MULTI-Extend***，包含超过 4,500 个外部知识上下文。我们的评测显示了MLLMs进步的巨大潜力，GPT-4V在**MULTI**上的准确率达到了 **63.7%**，而其他MLLMs的得分介于 **28.5%** 和 **55.3%** 之间。**MULTI**不仅作为一个稳健的评测平台，也为专家级AI的发展指明了道路。
 
 ## 🏆 Leaderboard
 
@@ -44,7 +44,7 @@
 
 ## ⏬ 下载
 
-你可以从[HuggingFace页面](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark)下载数据集。最新[版本](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/blob/main/MULTI_v1.2.2_20240212_release.zip)为`v1.2.2`。解压文件并将它们放置在`data`下。
+您可以从[HuggingFace页面](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark)下载数据集。最新[版本](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/blob/main/MULTI_v1.2.2_20240212_release.zip)为`v1.2.2`。解压文件并将它们放置在`data`下。
 
 ```
 wget https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/resolve/main/MULTI_v1.2.2_20240212_release.zip
@@ -64,7 +64,7 @@ data
 
 ## 📝 如何评测
 
-我们在`eval`中提供了一个统一的评估框架。`eval/models`中的每个文件都包含了一个针对某个M/LLM的评测器，并实现了一个`generate_answer`方法来接收问题输入并输出答案。
+我们在`eval`中提供了一个统一的评测框架。`eval/models`中的每个文件都包含了一个针对某个M/LLM的评测器，并实现了一个`generate_answer`方法来接收问题输入并输出答案。
 
 ```shell
 cd eval
@@ -76,7 +76,7 @@ python eval.py -l # 列出所有支持的模型
 
 每个模型都需要其独特的环境设置，通用环境可能不适用于所有模型的评测。**按照官方文档操作即可。** 如果相应的模型运行良好，那么它应该也适合我们的框架。
 
-您只需要安装另外两个包来运行评估代码：
+您只需要安装另外两个包来运行评测代码：
 
 ```shell
 pip install tiktoken tqdm
@@ -161,7 +161,7 @@ python model_tester.py <args> # args 类似于上面的默认设置
 
 ## 📮 如何提交
 
-你需要首先准备一个UTF-8编码的JSON文件，格式如下：
+您需要首先准备一个UTF-8编码的JSON文件，格式如下：
 
 ```
 {
@@ -175,17 +175,17 @@ python model_tester.py <args> # args 类似于上面的默认设置
     ...
 }
 ```
-如果你使用我们的官方代码评估模型，你可以直接压缩实验结果文件夹`./results/EXPERIMENT_NAME`。
+如果您使用我们的官方代码评测模型，可以直接压缩实验结果文件夹`./results/EXPERIMENT_NAME`。
 
-然后，你可以将你的结果提交到我们的[评估平台]()（即将推出）。
+然后，您可以将你的结果提交到我们的[评测平台]()（即将推出）。
 
-欢迎拉取请求（Pull Request）并贡献你的代码到我们的评估代码中。我们感激不尽！
+欢迎拉取请求（Pull Request）并贡献您的代码到我们的评测代码中。我们感激不尽！
 
 **[提示]** 感谢您对 MULTI 数据集的关注！由于自动评测平台尚未上线，请填写[此问卷](https://wj.sjtu.edu.cn/q/89UmRAJn)以获取评测结果，您的个人信息将被严格保密，请放心填写。🤗
 
 ## 📑 引用
 
-如果你觉得我们的工作有用，请引用我们！
+如果您觉得我们的工作有用，请引用我们！
 
 ```
 @misc{zhu2024multi,
