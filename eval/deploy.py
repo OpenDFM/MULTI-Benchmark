@@ -10,6 +10,7 @@ import io
 from contextlib import redirect_stdout
 import zipfile
 import shutil
+import time
 
 # redirect stdout to string
 output = io.StringIO()
@@ -20,9 +21,10 @@ CORS(app)
 
 args = parse_args_for_score_deploy()
 # args.label_file = "../data/problem_v1.2.2_20240212.json"
-args.label_file = "../data/problem_final.json"
+# args.label_file = "../data/problem_final.json"
 args.detail = True
 args.prediction_dir = "../results"
+args.label_dir = "../data"
 source_suffix = "/source"
 paras_suffix = "/paras"
 prediction_file_suffix = "/prediction.json"
@@ -31,10 +33,12 @@ args_file_name = "args.json"
 paras_file_suffix = "/paras.json"
 source_zip_suffix = "/source.zip"
 result_zip_suffix = "/result.zip"
+label_file_prefix = "problem"
 
 
-def get_random_dir():
-    random_dir = os.path.join(args.prediction_dir, str(uuid.uuid4()))
+def get_random_dir(email):
+    random_dir = os.path.join(args.prediction_dir, email, str(
+        uuid.uuid4()) + '-' + str(int(time.time())))
     os.makedirs(random_dir)
     return random_dir
 
@@ -69,8 +73,28 @@ def generate():
     if zip_file_base64 is None:
         return jsonify({"result": "false", "data": None, "message": "zip_file is None"})
 
+    # get version from request
+    version = request.json.get("version", None)
+    if version is None:
+        return jsonify({"result": "false", "data": None, "message": "version is None"})
+
+    email = request.json.get("email", None)
+    if email is None:
+        return jsonify({"result": "false", "data": None, "message": "email is None"})
+
+    # check if version is valid
+    valid_version = False
+    for _, _, files in os.walk(args.label_dir):
+        for file in files:
+            if version in file:
+                valid_version = True
+                break
+
+    if not valid_version:
+        return jsonify({"result": "false", "data": None, "message": "version is invalid"})
+
     # generate random dir
-    random_dir = get_random_dir()
+    random_dir = get_random_dir(email)
     source_dir = random_dir + source_suffix
     paras_dir = random_dir + paras_suffix
 
@@ -105,6 +129,7 @@ def generate():
 
     # change the args
     copy_args = copy.deepcopy(args)
+    copy_args.label_file = os.path.join(args.label_dir, version)
     copy_args.prediction_file = source_dir + prediction_file_suffix
 
     # run the main function
@@ -137,6 +162,16 @@ def generate():
     }
 
     return jsonify(response_data)
+
+
+@app.route("/get_version", methods=["POST"])
+def get_version():
+    versions = []
+    for _, _, files in os.walk(args.label_dir):
+        for file in files:
+            if file.startswith(label_file_prefix):
+                versions.append(file)
+    return jsonify({"result": "true", "data": {"versions": versions}, "message": "success"})
 
 
 if __name__ == "__main__":

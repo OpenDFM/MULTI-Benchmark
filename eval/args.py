@@ -169,6 +169,7 @@ def parse_args_for_score_deploy():
     args = Args()
     args.label_file = None
     args.prediction_dir = None
+    args.label_dir = None
     args.prediction_file = None
     args.score_file = None
     args.reference_dir = None

@@ -10,12 +10,53 @@
 <body>
     <h1>Upload and Send File</h1>
 
+    <select id="select">
+        <option value="" id="version">请选择</option>
+    </select>
+    <input type="text" id="email">
+
     <input type="file" id="fileInput">
     <button id="sendButton">Send File</button>
 
     <div id="result"></div>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('https://x-lance.sjtu.edu.cn/multimodal-benchmark-qa/get_version', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(json => {
+                    if (json['result'] !== 'true') {
+                        return;
+                    }
+                    let versions = json['data']['versions'];
+
+                    var select = document.getElementById('select');
+
+                    versions.forEach(function(option) {
+                        var opt = document.createElement('option');
+                        opt.value = option;
+                        opt.text = option;
+                        select.add(opt);
+                    });
+                })
+                .catch(error => {
+                    console.error('There has been a problem with your fetch operation:', error);
+                });
+        });
+
+
+
+
         document.getElementById('sendButton').addEventListener('click', function () {
             const fileInput = document.getElementById('fileInput');
             const file = fileInput.files[0];
@@ -25,6 +66,9 @@
             if (file) {
                 const reader = new FileReader();
                 document.getElementById('sendButton').disabled = true;
+                var select = document.getElementById('select');
+                var version = select.options[select.selectedIndex].value;
+                var email = document.getElementById('email').value;
 
                 reader.onload = function (event) {
                     const fileContent = event.target.result;
@@ -35,7 +79,9 @@
                             // 如果有需要，可以根据后端要求设置其他headers
                         },
                         body: JSON.stringify({
-                            "zip_file": btoa(fileContent)
+                            "zip_file": btoa(fileContent),
+                            "version": version,
+                            "email": email
                         })
                     })
                         .then(response => {
