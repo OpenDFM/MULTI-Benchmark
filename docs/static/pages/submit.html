@@ -72,7 +72,7 @@
 
                 reader.onload = function (event) {
                     const fileContent = event.target.result;
-                    fetch('https://x-lance.sjtu.edu.cn/multimodal-benchmark-qa/', {
+                    fetch('https://x-lance.sjtu.edu.cn/multimodal-benchmark-qa/generate', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
