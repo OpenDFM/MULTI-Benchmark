@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 COPY ./ /work
+COPY ./deploy/sources.list /etc/apt/sources.list
 RUN mkdir -p /work/results
 RUN mkdir -p /work/certs
 WORKDIR /work/eval
