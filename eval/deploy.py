@@ -86,7 +86,7 @@ def generate():
     valid_version = False
     for _, _, files in os.walk(args.label_dir):
         for file in files:
-            if version in file:
+            if version == file:
                 valid_version = True
                 break
 

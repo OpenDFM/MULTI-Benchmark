@@ -60,6 +60,7 @@
         document.getElementById('sendButton').addEventListener('click', function () {
             const fileInput = document.getElementById('fileInput');
             const file = fileInput.files[0];
+            const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
 
@@ -69,6 +70,11 @@
                 var select = document.getElementById('select');
                 var version = select.options[select.selectedIndex].value;
                 var email = document.getElementById('email').value;
+                if (!re.test(email)) {
+                    document.getElementById('result').innerText = "Please enter a valid email address";
+                    document.getElementById('sendButton').disabled = false;
+                    return;
+                }
 
                 reader.onload = function (event) {
                     const fileContent = event.target.result;
