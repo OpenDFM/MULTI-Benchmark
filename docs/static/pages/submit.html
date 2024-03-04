@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -8,17 +8,44 @@
 </head>
 
 <body>
-    <h1>Upload and Send File</h1>
+<div style="width: 100%; background-color: #c3d4e0; text-align: center;">
+    <br><h1> <b>MULTI</b>: Multimodal Understanding
+    Leaderboard with Text and Images </h1><br>
+</div>
+
+
+<h3>Upload and Submit Your Results
+    <br>上传并提交你的结果</h3>
+
+<ul>
+    <li>Upload a zip file containing your results. The zip file should contain at least "prediction.json" and may also contain "args.json". The zip file should not exceed 25MB.</li>
+    <li>上传一个包含您的结果的zip文件。zip文件至少应包含"prediction.json"，可同时包含"args.json"。zip文件不应超过25MB。</li>
+    <br>
+    <li>After submitting, you will receive a message indicating whether the submission was successful. If successful, you will also automatically download a zip file containing the evaluation results.</li>
+    <li>提交后，您将收到一条消息，指示提交是否成功。如果成功，您还将自动下载一个包含评估结果的zip文件。</li>
+    <br>
+    <li>If you want to add your model in our leaderboard, please fill in this <a href="https://wj.sjtu.edu.cn/q/89UmRAJn">questionnaire</a>.</li>
+    <li>如果您想将您的模型添加到我们的排行榜中，请填写这个<a href="https://wj.sjtu.edu.cn/q/89UmRAJn">问卷</a>。</li>
+    <br>
+    <li>If you have any questions, please feel free to contact us via email <a href="mailto:JamesZhutheThird@sjtu.edu.cn">JamesZhutheThird@sjtu.edu.cn</a> and <a href="mailto:xuyang0112@sjtu.edu.cn">xuyang0112@sjtu.edu.cn</a>.</li>
+    <li>如果您有任何问题，请随时通过电子邮件与我们联系：<a href="mailto:JamesZhutheThird@sjtu.edu.cn">JamesZhutheThird@sjtu.edu.cn</a> 和 <a href="mailto:xuyang0112@sjtu.edu.cn">xuyang0112@sjtu.edu.cn</a>。</li>
+</ul>
 
     <select id="select">
-        <option value="" id="version">请选择</option>
+        <option value="" id="version">Please select version of evaluation data/请选择评测数据版本</option>
     </select>
-    <input type="text" id="email">
-
+    <br>
+    <br>
     <input type="file" id="fileInput">
-    <button id="sendButton">Send File</button>
+    <br>
+    <br>
+    <label for="email">Your Email/你的邮箱</label>
+    <input type="text" id="email">
+    <br>
+    <br>
+    <button id="sendButton">Submit/提交</button>
 
-    <div id="result"></div>
+<div id="result"></div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -30,7 +57,7 @@
             })
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error('Network response was not ok');
+                        throw new Error('Network response was not ok. 网络响应异常。');
                     }
                     return response.json();
                 })
@@ -50,19 +77,15 @@
                     });
                 })
                 .catch(error => {
-                    console.error('There has been a problem with your fetch operation:', error);
+                    console.error('There has been a problem with your fetch operation\n出现了错误:', error);
                 });
         });
-
-
 
 
         document.getElementById('sendButton').addEventListener('click', function () {
             const fileInput = document.getElementById('fileInput');
             const file = fileInput.files[0];
             const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-
 
             if (file) {
                 const reader = new FileReader();
@@ -92,7 +115,7 @@
                     })
                         .then(response => {
                             if (!response.ok) {
-                                throw new Error('Network response was not ok');
+                                throw new Error('Network response was not ok. 网络响应异常。');
                             }
                             return response.json();
                         })
@@ -107,35 +130,39 @@
                             let arrayBuffer = new ArrayBuffer(binaryData.length);
                             let uint8Array = new Uint8Array(arrayBuffer);
 
-                            for (let i = 0; i < binaryData.length; i++) {
-                                uint8Array[i] = binaryData.charCodeAt(i);
-                            }
+                        for (let i = 0; i < binaryData.length; i++) {
+                            uint8Array[i] = binaryData.charCodeAt(i);
+                        }
 
-                            let blob = new Blob([arrayBuffer], { type: 'application/octet-stream' });
+                        let blob = new Blob([arrayBuffer], {type: 'application/octet-stream'});
 
-                            const url = window.URL.createObjectURL(blob);
-                            const a = document.createElement('a');
-                            a.href = url;
-                            a.download = 'result.zip';
-                            document.body.appendChild(a);
-                            a.click();
-                            window.URL.revokeObjectURL(url);
-                        })
-                        .catch(error => {
-                            document.getElementById('sendButton').disabled = false;
-                            console.error('There has been a problem with your fetch operation:', error);
-                        });
-                };
+                        const url = window.URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'result.zip';
+                        document.body.appendChild(a);
+                        a.click();
+                        window.URL.revokeObjectURL(url);
+                    })
+                    .catch(error => {
+                        document.getElementById('sendButton').disabled = false;
+                        console.error('There has been a problem with your fetch operation\n出现了错误:', error);
+                    });
+            };
 
-                reader.readAsBinaryString(file);
-            } else {
-                console.log('Please select a file to upload.');
-            }
-        });
+            reader.readAsBinaryString(file);
+        } else {
+            console.log('Please select a zip file to upload. 请选择你要提交的zip文件。');
+        }
+    });
+
+</script>
 
 
+<div style="position: fixed; bottom: 0; width: 100%; background-color: #f8f9fa; text-align: center;">
+    <p>© 2012-2024 X-LANCE Lab, Shanghai Jiao Tong University. All rights reserved.</p>
+</div>
 
-    </script>
 </body>
 
 </html>

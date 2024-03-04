@@ -4,7 +4,7 @@
 
 ![MULTI](./docs/static/images/overview.png)
 
-🌐 [Website](https://OpenDFM.github.io/MULTI-Benchmark/) | 📃 [Paper](https://arxiv.org/abs/2402.03173/) | 🤗 [Dataset](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark) | 🎯 [Leaderboard]() (Coming Soon)
+🌐 [Website](https://OpenDFM.github.io/MULTI-Benchmark/) | 📃 [Paper](https://arxiv.org/abs/2402.03173/) | 🤗 [Dataset](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark) | 📮 [Submit](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)
 
 [简体中文](./README_zh.md) | English
 
@@ -12,11 +12,11 @@
 
 ## 🔥 News
 
-- **[Cooming Soon]** We will release the official evaluation platform.
-- **[2024.2.19]** We release the [HuggingFace Page](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/).
-- **[2024.2.6]** We publish our [paper](https://arxiv.org/abs/2402.03173/) on arXiv.
-- **[2023.12.7]** We release the [code](./eval) of our benchmark evaluation.
-- **[2023.12.5]** We release the [GitHub Page](https://OpenDFM.github.io/MULTI-Benchmark/).
+- **[2024.3.4]** We have released the [evaluation page](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html).
+- **[2024.2.19]** We have released the [HuggingFace Page](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/).
+- **[2024.2.6]** We have published our [paper](https://arxiv.org/abs/2402.03173/) on arXiv.
+- **[2023.12.7]** We have released the [code](./eval) of our benchmark evaluation.
+- **[2023.12.5]** We have released the [GitHub Page](https://OpenDFM.github.io/MULTI-Benchmark/).
 
 ## 📖 Overview
 
@@ -176,13 +176,13 @@ You need to first prepare a UTF-8 encoded JSON file with the following format:
 }
 ```
 
-If you evaluate the model with our official code, you can simply zip the experiment result folder `results/EXPERIMENT_NAME`.
+If you evaluate the model with our official code, you can simply zip the prediction file `prediction.json` and the configuration file `args.json` in the experiment results folder `. /results/EXPERIMENT_NAME` in `.zip` format.
 
-Then, you can submit your result to our [evaluation platform](https://wj.sjtu.edu.cn/q/89UmRAJn) (Coming Soon).
+Then, you can submit your result to our [evaluation page](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html).
 
 You are also welcome to pull a request and contribute your code to our evaluation code. We will be very grateful for your contribution!
 
-**[Notice]** Thank you for being so interested in the **MULTI** dataset! As the automated evaluation platform is not yet online, please fill in [this questionnaire](https://wj.sjtu.edu.cn/q/89UmRAJn) to get the evaluation results, your information will be kept strictly confidential, so please feel free to fill it out. 🤗
+**[Notice]** Thank you for being so interested in the **MULTI** dataset! If you want to add your model in our leaderboard, please fill in [this questionnaire](https://wj.sjtu.edu.cn/q/89UmRAJn), your information will be kept strictly confidential, so please feel free to fill it out. 🤗
 
 
 ## 📑 Citation

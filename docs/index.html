@@ -44,6 +44,12 @@
     <script src="static/js/bulma-slider.min.js"></script>
     <script src="static/js/sort-table.js" defer></script>
     <script src="static/js/index.js"></script>
+
+    <style>
+        code {
+            font-family: 'Consolas', monospace;
+        }
+    </style>
 </head>
 
 <body>
@@ -59,7 +65,8 @@
         <div class="container is-max-desktop">
             <div class="columns is-centered">
                 <div class="column has-text-centered">
-                    <h1 class="title is-1 publication-title"><b>MULTI</b>: Multimodal Understanding
+                    <h1 class="title is-1 publication-title">
+                       <b>MULTI</b>: Multimodal Understanding
                         Leaderboard with Text and Images</h1>
                     <div class="is-size-5 publication-authors">
                         <!-- Paper authors -->
@@ -161,11 +168,11 @@
                                         <!-- HuggingFace Link -->
                     <span class="link-block">
                             <a href="./static/pages/submit.html" target="_blank"
-                               class="external-link button is-normal is-rounded">
+                               class="external-link button is-normal is-rounded is-dark">
                                 <span class="icon">
                                     <p style="font-size:20px">&#x1F4EE;</p>
                                 </span>
-                                <span>Submit (Under Construction)</span>
+                                <span>Submit</span>
                             </a>
                         </span>
 
@@ -187,10 +194,11 @@
                 <img src="static/images/overview.png"/>
 
                 <br><br>
-                Rapid progress in multimodal large language models (MLLMs) highlights the need to introduce challenging yet realistic benchmarks to the academic community, while existing benchmarks primarily focus on understanding simple natural images and short context. In this paper, we present <i><b>MULTI</b></i>, as a cutting-edge benchmark for evaluating MLLMs on understanding complex tables and images, and reasoning with long context. <b>MULTI</b> provides multimodal inputs and requires responses that are either precise or open-ended, reflecting real-life examination styles. <b>MULTI</b> includes over 18,000 questions and challenges MLLMs with a variety of tasks, ranging from formula derivation to image detail analysis and cross-modality reasoning. We also introduce <i><b>MULTI-Elite</b></i>, a 500-question selected hard subset, and <i><b>MULTI-Extend</b></i>, with more than 4,500 external knowledge context pieces. Our evaluation indicates significant potential for MLLM advancement, with GPT-4V achieving a <b>63.7%</b> accuracy rate on <b>MULTI</b>, in contrast to other MLLMs scoring between <b>28.5%</b> and <b>55.3%</b>. <b>MULTI</b> serves not only as a robust evaluation platform but also paves the way for the development of expert-level AI.
+               Rapid progress in multimodal large language models (MLLMs) highlights the need to introduce challenging yet realistic benchmarks to the academic community, while existing benchmarks primarily focus on understanding simple natural images and short context. In this paper, we present <i><b>MULTI</b></i>, as a cutting-edge benchmark for evaluating MLLMs on understanding complex tables and images, and reasoning with long context. <b>MULTI</b> provides multimodal inputs and requires responses that are either precise or open-ended, reflecting real-life examination styles. <b>MULTI</b> includes over 18,000 questions and challenges MLLMs with a variety of tasks, ranging from formula derivation to image detail analysis and cross-modality reasoning. We also introduce <i><b>MULTI-Elite</b></i>, a 500-question selected hard subset, and <i><b>MULTI-Extend</b></i>, with more than 4,500 external knowledge context pieces. Our evaluation indicates significant potential for MLLM advancement, with GPT-4V achieving a <b>63.7%</b> accuracy rate on <b>MULTI</b>, in contrast to other MLLMs scoring between <b>28.5%</b> and <b>55.3%</b>. <b>MULTI</b> serves not only as a robust evaluation platform but also paves the way for the development of expert-level AI.
             </p>
+            </h3>
     </div>
-    <h3>
+
 </section>
 
 
@@ -434,10 +442,10 @@
 
 
 <!-- Paper abstract -->
-<section class="section hero is-small">
+<section class="section hero  is-small">
     <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
-            <div class="publication-flipped">
+<!--            <div class="publication-flipped">-->
                 <div class="content has-text-justified">
                     <h3 class="subtitle is-size-3-tablet has-text-left pb-5">
                         <p>
@@ -447,16 +455,14 @@
                     </h3>
                     <h3 class="subtitle is-size-4-tablet has-text-left pb-5">
                         <p>
-                            Please visit our <a href="https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/">HuggingFace</a> page to access <b>MULTI</b> dataset. Our code is available on <a href="https://github.com/OpenDFM/MULTI-Benchmark">GitHub</a>.<br>
+                            Please visit our <a href="https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/">HuggingFace</a> page to access <b>MULTI</b> dataset. Our code is available on <a href="https://github.com/OpenDFM/MULTI-Benchmark">GitHub</a>. You can get detailed scores through <a href="./static/pages/submit.html">evaluation page</a>. If you want to add your model in our leaderboard, please fill in this <a href="./static/pages/submit.html">questionnaire</a>.<br>
                         </p>
                     </h3>
                 </div>
-            </div>
+<!--            </div>-->
         </div>
     </div>
 </section>
-
-
 
 
 
@@ -471,8 +477,7 @@
       eprint={2402.03173},
       archivePrefix={arXiv},
       primaryClass={cs.CL}
-}</code>
-    </div>
+}</code></pre></div>
 </section>
 
 <!-- <div class="columns is-centered m-6">

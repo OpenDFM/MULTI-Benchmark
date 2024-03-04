@@ -4,7 +4,7 @@
 
 ![MULTI](./docs/static/images/overview.png)
 
-🌐 [网站](https://OpenDFM.github.io/MULTI-Benchmark/) | 📃 [论文](https://arxiv.org/abs/2402.03173/) | 🤗 [数据](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark) | 🎯 [榜单]() (即将上线) 
+🌐 [网站](https://OpenDFM.github.io/MULTI-Benchmark/) | 📃 [论文](https://arxiv.org/abs/2402.03173/) | 🤗 [数据](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark) | 📮 [提交](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)
 
 简体中文 | [English](./README.md) 
 
@@ -12,7 +12,7 @@
 
 ## 🔥 新闻
 
-- **[即将上线]** 我们将发布官方评测平台。
+- **[2024.3.4]** 我们发布了[评测页面](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)。
 - **[2024.2.19]** 我们发布了[HuggingFace页面](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/)。
 - **[2024.2.6]** 我们在arXiv上发布了我们的[论文](https://arxiv.org/abs/2402.03173/)。
 - **[2023.12.7]** 我们发布了我们的基准评测[代码](./eval)。
@@ -175,13 +175,13 @@ python model_tester.py <args> # args 类似于上面的默认设置
     ...
 }
 ```
-如果您使用我们的官方代码评测模型，可以直接压缩实验结果文件夹`./results/EXPERIMENT_NAME`。
+如果您使用我们的官方代码评测模型，可以直接压缩实验结果文件夹`./results/EXPERIMENT_NAME`中的预测文件`prediction.json`和配置文件`args.json`为`.zip`格式。
 
-然后，您可以将你的结果提交到我们的[评测平台]()（即将推出）。
+然后，您可以将你的结果提交到我们的[评测页面](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)。
 
 欢迎拉取请求（Pull Request）并贡献您的代码到我们的评测代码中。我们感激不尽！
 
-**[提示]** 感谢您对 MULTI 数据集的关注！由于自动评测平台尚未上线，请填写[此问卷](https://wj.sjtu.edu.cn/q/89UmRAJn)以获取评测结果，您的个人信息将被严格保密，请放心填写。🤗
+**[提示]** 感谢您对 MULTI 数据集的关注！如果您希望将您的模型结果添加至榜单，请填写[此问卷](https://wj.sjtu.edu.cn/q/89UmRAJn)，您的个人信息将被严格保密，请放心填写。🤗
 
 ## 📑 引用
 
@@ -200,4 +200,4 @@ python model_tester.py <args> # args 类似于上面的默认设置
 
 ## 📧 联系我们
 
-如果你有任何问题，请随时通过电子邮件联系我们 `JamesZhutheThird@sjtu.edu.cn` 和 `xuyang0112@sjtu.edu.cn`
+如果您有任何问题，请随时通过电子邮件与我们联系： `JamesZhutheThird@sjtu.edu.cn` 和 `xuyang0112@sjtu.edu.cn`
