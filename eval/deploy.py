@@ -139,9 +139,13 @@ def generate():
         try:
             main(copy_args)
         except Exception as e:
+            output.flush()
             shutil.rmtree(random_dir)
             return jsonify({"result": "false", "data": None, "message": str(e)})
     # app.logger.info(output.getvalue())
+
+    # flush the output
+    output.flush()
 
     # rm score.json and detail.json
     for remove_file in remove_files:
