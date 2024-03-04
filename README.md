@@ -44,17 +44,17 @@ For more details, please visit our [leaderboard]() (Coming Soon).
 
 ## ⏬ Download
 
-You can download the dataset from the [HuggingFace Page](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark). Current [version](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/blob/main/MULTI_v1.2.2_20240212_release.zip) is `v1.2.2`. Unzip the files and put them under `data`.
+You can simply download data using the following command:
+
+```shell
+cd eval
+python download_data.py
+```
+
+The structure of `./data` should be something like:
 
 ```
-wget https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/resolve/main/MULTI_v1.2.2_20240212_release.zip
-unzip MULTI_v1.2.2_20240212_release.zip -d ./data/
-```
-
-The structure of `data` should be something like:
-
-```
-data
+./data
 ├── images                                       # folder containing images
 ├── problem_v1.2.2_20240212_release.json         # MULTI
 ├── knowledge_v1.2.2_20240212_release.json       # MULTI-Extend

@@ -44,17 +44,17 @@
 
 ## ⏬ 下载
 
-您可以从[HuggingFace页面](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark)下载数据集。最新[版本](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/blob/main/MULTI_v1.2.2_20240212_release.zip)为`v1.2.2`。解压文件并将它们放置在`data`下。
+您只需使用以下命令即可下载数据：
+
+```shell
+cd eval
+python download_data.py
+```
+
+`./data` 的结构应该如下所示：
 
 ```
-wget https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/resolve/main/MULTI_v1.2.2_20240212_release.zip
-unzip MULTI_v1.2.2_20240212_release.zip -d ./data/
-```
-
-`data` 的结构应该如下所示：
-
-```
-data
+./data
 ├── images                                       # 包含图片的文件夹
 ├── problem_v1.2.2_20240212_release.json         # MULTI
 ├── knowledge_v1.2.2_20240212_release.json       # MULTI-Extend
