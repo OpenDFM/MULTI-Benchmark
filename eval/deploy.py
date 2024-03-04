@@ -35,6 +35,8 @@ source_zip_suffix = "/source.zip"
 result_zip_suffix = "/result.zip"
 label_file_prefix = "problem"
 
+remove_files = ["/score.json", "/detail.json"]
+
 
 def get_random_dir(email):
     random_dir = os.path.join(args.prediction_dir, email, str(
@@ -140,6 +142,11 @@ def generate():
             shutil.rmtree(random_dir)
             return jsonify({"result": "false", "data": None, "message": str(e)})
     # app.logger.info(output.getvalue())
+
+    # rm score.json and detail.json
+    for remove_file in remove_files:
+        if os.path.exists(source_dir + remove_file):
+            os.remove(source_dir + remove_file)
 
     # zip the dir
     zip_dir(source_dir, random_dir + result_zip_suffix)
