@@ -83,6 +83,8 @@ def generate():
     email = request.json.get("email", None)
     if email is None:
         return jsonify({"result": "false", "data": None, "message": "email is None"})
+    # change to samll case
+    email = email.lower()
 
     # check if version is valid
     valid_version = False
