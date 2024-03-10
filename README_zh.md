@@ -15,7 +15,7 @@
 - **[2024.3.4]** 我们发布了[评测页面](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)。
 - **[2024.2.19]** 我们发布了[HuggingFace页面](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/)。
 - **[2024.2.6]** 我们在arXiv上发布了我们的[论文](https://arxiv.org/abs/2402.03173/)。
-- **[2023.12.7]** 我们发布了我们的基准评测[代码](./eval)。
+- **[2023.12.7]** 我们发布了我们的基准评测[代码](https://github.com/OpenDFM/MULTI-Benchmark/tree/main/eval)。
 - **[2023.12.5]** 我们发布了[GitHub页面](https://OpenDFM.github.io/MULTI-Benchmark/)。
 
 ## 📖 介绍
@@ -39,8 +39,6 @@
 |  📃  |     MOSS      | moss-moon-003-sft          | 32.6 |    13.1     |
 |  🖼️  |   VisualGLM   | visualglm-6b               | 31.1 |    12.8     |
 |  🖼️  | Chinese-LLaVA | Chinese-LLaVA-Cllama2      | 28.5 |    12.3     |
-
-更多详情，请访问我们的[排行榜]()（即将推出）。
 
 ## ⏬ 下载
 

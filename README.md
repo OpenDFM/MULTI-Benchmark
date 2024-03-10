@@ -12,10 +12,10 @@
 
 ## 🔥 News
 
-- **[2024.3.4]** We have released the [evaluation page](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html).
+- **[2024.3.4]** We have released the [evaluation page](https://OpenDFM.github.io/MULTI-Benchmark/static/pages/submit.html).
 - **[2024.2.19]** We have released the [HuggingFace Page](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/).
 - **[2024.2.6]** We have published our [paper](https://arxiv.org/abs/2402.03173/) on arXiv.
-- **[2023.12.7]** We have released the [code](./eval) of our benchmark evaluation.
+- **[2023.12.7]** We have released the [code](https://github.com/OpenDFM/MULTI-Benchmark/tree/main/eval) of our benchmark evaluation.
 - **[2023.12.5]** We have released the [GitHub Page](https://OpenDFM.github.io/MULTI-Benchmark/).
 
 ## 📖 Overview
@@ -39,8 +39,6 @@ Rapid progress in multimodal large language models (MLLMs) highlights the need t
 |    📃    |     MOSS      | moss-moon-003-sft          |  32.6   |    13.1     |
 |    🖼️    |   VisualGLM   | visualglm-6b               |  31.1   |    12.8     |
 |    🖼️    | Chinese-LLaVA | Chinese-LLaVA-Cllama2      |  28.5   |    12.3     |
-
-For more details, please visit our [leaderboard]() (Coming Soon).
 
 ## ⏬ Download
 
@@ -180,7 +178,7 @@ If you evaluate the model with our official code, you can simply zip the predict
 
 Then, you can submit your result to our [evaluation page](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html).
 
-You are also welcome to pull a request and contribute your code to our evaluation code. We will be very grateful for your contribution!
+You are also welcomed to pull a request and contribute your code to our evaluation code. We will be very grateful for your contribution!
 
 **[Notice]** Thank you for being so interested in the **MULTI** dataset! If you want to add your model in our leaderboard, please fill in [this questionnaire](https://wj.sjtu.edu.cn/q/89UmRAJn), your information will be kept strictly confidential, so please feel free to fill it out. 🤗
 
