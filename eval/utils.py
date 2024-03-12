@@ -6,6 +6,7 @@ import re
 from typing import Tuple, List
 from PIL import Image
 import pdb
+import io
 
 import base64
 
@@ -50,24 +51,26 @@ def open_image(image_path, force_blank_return=True):
     return image
 
 
-def encode_image_base64(image_path,max_size=0):
-    with open(image_path, "rb") as image_file:
-        if max_size > 0:
-            image = Image.open(image_file)
-            size = image.size
-            image.thumbnail((max_size, max_size))
-            image_file = image
-        return base64.b64encode(image_file.read()).decode('utf-8'),size.width*size.height
-
-
-
-def encode_image_PIL(image_path,max_size=0):
+def encode_image_base64(image_path,max_size=-1):
     with open(image_path, "rb") as image_file:
         if max_size > 0:
             image = Image.open(image_file)
             image.thumbnail((max_size, max_size))
-            image_file = image
-        return image_file.read()
+            output_buffer = io.BytesIO()
+            image.save(output_buffer, format='png')
+            image_bytes = output_buffer.getvalue()
+        else:
+            image_bytes = image_file.read()
+        return base64.b64encode(image_bytes).decode('utf-8')
+
+def encode_image_PIL(image_path,max_size=-1):
+    if max_size > 0:
+        image = Image.open(image_path)
+        image.thumbnail((max_size, max_size))
+    else:
+        image = Image.open(image_path)
+    return image
+
 
 def infer_lang_from_question(question):
     question_type = question["question_type"]

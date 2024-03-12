@@ -38,11 +38,10 @@ class GeminiEvaluator:
         prompt = question["prompted_system_content"].strip() + "\n" + question["prompted_content"].strip()
         content = [prompt,]
 
-        image_list = question.get("question_image_list")
+        image_list = question.get("image_list")
         if image_list:
             for image_path in image_list:
-                max_size = 512
-                image = encode_image_PIL(image_path, max_size=max_size)
+                image = encode_image_PIL(image_path)  # max_size = 512
                 content.append(image)
         return content
 
@@ -57,7 +56,8 @@ class GeminiEvaluator:
                 if len(content) > 1:
                     response_ = self.model_with_vision.generate_content(content)
                     message = [content[0], ]
-                    message.append(f"image no.{i+1}" for i in range(len(content) - 1))
+                    for i in range(len(content) - 1):
+                        message.append(str(content[i+1]))
                 else:
                     response_ = self.model_without_vision.generate_content(content)
                     message = content
@@ -70,7 +70,7 @@ class GeminiEvaluator:
                 time.sleep(1 + i / 10)
                 if i == 1 or i % 10 == 0:
                     if str(e).endswith("if the prompt was blocked.") or str(e).endswith("lookup instead."):
-                        response = "Gemini refused to answer this question."
+                        response = ""
                         feedback = str(response_.prompt_feedback)
                         return response, message, feedback
                     print(f"Retry {i} times...")

@@ -29,7 +29,7 @@ class GPTEvaluator:
         }
 
     def prepare_inputs(self, question):
-        image_list = question.get("question_image_list")
+        image_list = question.get("image_list")
         messages = [{
             "role": "system",
             "content": question["prompted_system_content"]
@@ -43,14 +43,12 @@ class GPTEvaluator:
                     "text": question["prompted_content"]
                 },]}
             for image_path in image_list:
-                max_size = 512
-                base64_image, origin_pixels = encode_image_base64(image_path, max_size=max_size)
-                detail = "high" if origin_pixels > max_size * max_size / 2 else "low"
+                base64_image = encode_image_base64(image_path) # max_size = 512
                 user_message["content"].append({
                     "type": "image_url",
                     "image_url": {
                         "url": f"data:image/png;base64,{base64_image}",
-                        "detail": detail,  # "auto"
+                        "detail": "auto"
                     },},)
             messages.append(user_message)
         else:
@@ -87,10 +85,10 @@ class GPTEvaluator:
                 i += 1
                 time.sleep(1 + i / 10)
                 if i == 1 or i % 10 == 0:
-                    if error.startswith("This model's maximum context length"):
+                    if error.startswith("This model's maximum context length") or error.startswith("Your input image may contain"):
                         response = ""
                         feedback = error
-                        return response, message,feedback
+                        return response, message, feedback
                     print(f"Retry {i} times...")
             else:
                 break
@@ -100,6 +98,10 @@ class GPTEvaluator:
 
     def generate_answer(self, question):
         response, message, feedback = self.generate_response(question)
+        if not isinstance(message[1]["content"], str):
+            for i in range(len(message[1]["content"])):
+                if message[1]["content"][i]["type"] == "image_url":
+                    message[1]["content"][i]["image_url"]["url"] = message[1]["content"][i]["image_url"]["url"][:64]+"..."
         question["input_message"] = message
         question["prediction"] = response
         if feedback:

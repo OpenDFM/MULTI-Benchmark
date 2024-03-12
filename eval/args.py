@@ -21,6 +21,14 @@ model_list = {
         "evaluator": "GPTEvaluator",
         "split_sys": True,
     },
+    "claude": {
+        "avail_model": ["claude-3-opus-20240229", "claude-3-sonnet-20240229"],
+        "model_type": "api",
+        "support_input": [0, 1,2,3],
+        "executor": "claude",
+        "evaluator": "ClaudeEvaluator",
+        "split_sys": True,
+    },
     "geminivision": {
         "avail_model": ["gemini-pro-vision", ],
         "model_type": "api",
