@@ -19,11 +19,11 @@ from utils import Education_Level_Dict_zh2en, Question_Type_Dict_zh2en
 
 def SingleAnswerChoiceEval(pred, label):
     """
-    提取输出中出现的第一个英文字母作为答案
+    提取输出中出现的最后一个英文字母作为答案
     """
-    match = re.search(r'[a-zA-Z]', pred)
-    if match:
-        answer = match.group(0)
+    matches = re.findall(r'[a-zA-Z]', pred)
+    if matches:
+        answer = matches[0].upper()
         score = 1 if answer == label else 0
     else:
         score = 0
@@ -36,10 +36,10 @@ def MultipleAnswersChoiceEval(pred, label):
     每选择一个正确选项+1分，若选择错误选项则直接得0分
     分数不进行归一化处理
     """
-    match = re.search(r'[a-zA-Z ,]+', pred)
+    matches = re.findall(r'[a-zA-Z ,]+[a-zA-Z]*[a-zA-Z ,]+', pred)
     score = 0
-    if match:
-        answer = match.group(0)
+    if matches:
+        answer = matches[0].upper()
         answer = answer.replace(' ', '').replace(',', '').replace('、', '')
         answer = ''.join(sorted(set(answer), key=answer.index))
         for choice in answer:
@@ -121,9 +121,13 @@ def evaluate_every_problem(args):
         problem_id, sub_id = item['question_id'].rsplit('_', 1)
         label = label_data[problem_id]["problem_answer_list"][int(sub_id)].strip()
         type = label_data[problem_id]["problem_type_list"][int(sub_id)]
+        prediction=item['prediction']
+
+        if re.findall(r'Thought，持续 [0-9]+ 秒', prediction):
+            prediction = re.split(r'Thought，持续 [0-9]+ 秒', prediction)[-1].strip()
 
         if type in EvaluateFuncDict:
-            score, total_score = EvaluateFuncDict[type](item['prediction'], label)
+            score, total_score = EvaluateFuncDict[type](prediction, label)
         else:
             score, total_score = 0, 0
 
@@ -139,6 +143,7 @@ def evaluate_every_problem(args):
         pred_data[item['question_id']]["type"] = type
         pred_data[item['question_id']]["education"] = label_data[problem_id]["education"]
         pred_data[item['question_id']]["subject"] = label_data[problem_id]["subject"][0]
+
 
     with open(args.prediction_file.replace('prediction.json', 'score.json'), 'w', encoding="utf-8") as f:
         json.dump(score_data, f, indent=4, ensure_ascii=False)
@@ -162,7 +167,6 @@ def calculate_score(args):
 
     return (absolute_score, total_absolute_score, absolute_score / total_absolute_score * 100)
 
-    # TODO: add a relative method to calculate scores, this method should be applied to single calculation as absolute score
 
 
 def init_dict(detail_data, education, subject):

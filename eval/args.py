@@ -5,8 +5,16 @@ Argparsers for eval and score.
 import argparse
 
 model_list = {
+    "gpt-4o": {
+        "avail_model": ["gpt-4o-2024-08-06","gpt-4o-2024-05-13", "gpt-4o","gpt-4o-mini","gpt-4o-mini-2024-07-18","o1-preview-2024-09-12","o1-mini-2024-09-12"],
+        "model_type": "api",
+        "support_input": [0, 1, 2, 3],
+        "executor": "gpt",
+        "evaluator": "GPTEvaluator",
+        "split_sys": True,
+    },
     "gpt-4v": {
-        "avail_model": ["gpt-4-vision-preview", ],
+        "avail_model": ["gpt-4-vision-preview"],
         "model_type": "api",
         "support_input": [2, 3],
         "executor": "gpt",
@@ -14,7 +22,7 @@ model_list = {
         "split_sys": True,
     },
     "gpt": {
-        "avail_model": ["gpt-3.5-turbo", "gpt-3.5-turbo-0301", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-16k-0613", "gpt-4", "gpt-4-0314", "gpt-4-0613","gpt-4-1106-preview", ],
+        "avail_model": ["gpt-3.5-turbo", "gpt-3.5-turbo-0301", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-16k-0613", "gpt-4", "gpt-4-0314", "gpt-4-0613", "gpt-4-1106-preview"],
         "model_type": "api",
         "support_input": [0, 1],
         "executor": "gpt",
@@ -22,9 +30,9 @@ model_list = {
         "split_sys": True,
     },
     "claude": {
-        "avail_model": ["claude-3-opus-20240229", "claude-3-sonnet-20240229"],
+        "avail_model": ["claude-3-opus-20240229", "claude-3-sonnet-20240229","claude-3-5-sonnet-20241022"],
         "model_type": "api",
-        "support_input": [0, 1,2,3],
+        "support_input": [0, 1, 2, 3],
         "executor": "claude",
         "evaluator": "ClaudeEvaluator",
         "split_sys": True,
@@ -57,6 +65,13 @@ model_list = {
         "support_input": [0, 1, 2, 3],
         "executor": "viscpm",
         "evaluator": "VisCPMEvaluator",
+        "split_sys": False,
+    },
+    "minicpmv": {
+        "model_type": "local",
+        "support_input": [0, 1, 2, 3],
+        "executor": "minicpmv",
+        "evaluator": "MiniCPMEvaluator",
         "split_sys": False,
     },
     "qwen-vl": {
@@ -97,6 +112,21 @@ model_list = {
 }
 
 
+api_price= { # The price of the model per 1k tokens, [input, output], USD
+    "gpt-4-vision-preview": [0.01,0.03],
+    "gpt-3.5-turbo-0125":[0.0005,0.0015],
+    "gpt-4o": [0.005,0.015],
+    "gpt-4o-2024-08-06": [0.005,0.015],
+    "gpt-4o-mini": [0.00015,0.0006],
+    "gpt-4o-mini-2024-07-18": [0.00015,0.0006],
+    "o1-mini-2024-09-12": [0.006,0.018],
+    "o1-preview-2024-09-12": [0.03,0.09],
+    "gemini-1.5-pro-latest": [0.00125,0.005],
+    "glm-4v-plus": [0.01,0.01], # CNY
+    "glm-4v": [0.05,0.05], # CNY
+    "claude-3-5-sonnet-20241022": [0.005,0.015],
+}
+
 def parse_args_for_eval():
     parser = argparse.ArgumentParser()
 
@@ -126,9 +156,9 @@ def parse_args_for_eval():
     parser.add_argument('--cot', action='store_true', help='Whether to use chain-of-thought. The performance using chain-of-thought is not guaranteed.')
     parser.add_argument('--few_shot', '-k', type=int, default=0, help='Specify the number of few shot samples. By leaving it empty, it means zero-shot k=0. The performance using few-shot is not guaranteed.')
     parser.add_argument('--questions_type', type=str, default="0,1,2",
-        help='Specify the type of the questions to be tested. 0 - single-answer choosing (SA), 1 - multiple-answer choosing (MA), 2 - fill-in-the-blank (FB), 3 - discussion-questions (OP). By leaving it empty, it means subjective questions [0,1,2].')
+                        help='Specify the type of the questions to be tested. 0 - single-answer choosing (SA), 1 - multiple-answer choosing (MA), 2 - fill-in-the-blank (FB), 3 - discussion-questions (OP). By leaving it empty, it means subjective questions [0,1,2].')
     parser.add_argument('--image_type', type=str, default="0,1,2",
-        help='Specify the number images involved in the questions to be tested. 0 - no-image (NI), 1 - single-image (SI), 2 - multiple-image (MI). By leaving it empty, it means all questions [0,1,2].')
+                        help='Specify the number images involved in the questions to be tested. 0 - no-image (NI), 1 - single-image (SI), 2 - multiple-image (MI). By leaving it empty, it means all questions [0,1,2].')
     parser.add_argument('--subset', type=str, default=None, help='The path to the list of the problems to be tested. Use "../data/hard_list_v1.2.1_20240206.json" to test on MULTI-Elite.')
     parser.add_argument('--subject', type=str, default=None, help='Specify the subject of the problems to be tested.')
     parser.add_argument('--input_type', type=int, choices=range(0, 4), default=0, help='Specify the input type. 0 - pure-text, 1 - text-with-captions/ocr, 2 - text-and-images, 3 - only-images. By leaving it empty, it means pure_text.')
@@ -145,6 +175,18 @@ def parse_args_for_eval():
     # other functions
     parser.add_argument('--model_list', '-l', action='store_true', help='Print the available model list.')
     parser.add_argument('--debug', action='store_true', help='If you only want to test data generation.')
+
+    args = parser.parse_args()
+    return args
+
+
+def parse_args_for_answer_extractor():
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('--prediction_file', type=str, default=None, help='Specify the prediction json file.')
+    parser.add_argument('--model_version', '-v', type=str, default="gpt-4o-mini", help='Specify the model type. You need to fill in this if you want to test specific model version for GPTs.')
+    parser.add_argument('--api_key', type=str, default=None, help='Specify the api key. You need to fill in this if you want to test those models that are not deployed locally.')
+    parser.add_argument('--api_url', type=str, default="https://api.openai.com/v1/chat/completions", help='Specify the api url. You need to fill in this if you want to test those models that are not deployed locally.')
 
     args = parser.parse_args()
     return args
@@ -169,6 +211,7 @@ def parse_args_for_score():
     args = parser.parse_args()
     return args
 
+
 def parse_args_for_score_deploy():
     class Args:
         pass
@@ -181,22 +224,22 @@ def parse_args_for_score_deploy():
     args.prediction_file = None
     args.score_file = None
     args.reference_dir = None
-    
+
     # score setting
     args.detail = False
     args.only_past = False
-    
+
     # other functions
     args.model_list = False
-    
+
     return args
 
 
 def print_model_list():
-    print('='*20)
+    print('=' * 20)
     for model_name in model_list:
         print(f'[{model_name}]')
-        print('  ',model_list[model_name])
+        print('  ', model_list[model_name])
         # versions = model_list[model_name].get("avail_model", [])
         # if len(versions) > 0:
         #     print(f"Available versions: {versions}")

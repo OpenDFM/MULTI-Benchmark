@@ -1,7 +1,6 @@
 """Anthropic Claude Evaluator"""
 
 import httpx
-from anthropic import Anthropic
 import requests
 import json
 from tqdm import tqdm
@@ -10,6 +9,7 @@ import time
 import pdb
 from utils import encode_image_base64
 import re
+from args import api_price
 
 
 class ClaudeEvaluator:
@@ -18,6 +18,7 @@ class ClaudeEvaluator:
         self.api_key = api_key
         self.api_url = api_url
         if self.use_client:
+            from anthropic import Anthropic
             self.client = Anthropic(api_key=self.api_key ,base_url=self.api_url) # http_client=httpx.Client(proxies=api_url, transport=httpx.HTTPTransport(local_address="0.0.0.0"))
         else:
             self.header = {
@@ -35,6 +36,28 @@ class ClaudeEvaluator:
                 "frequency_penalty": frequency_penalty,
             }
         self.model = model
+        self.tokens = {
+            "prompt_tokens": 0,
+            "completion_tokens": 0
+        }
+        self.tokens_this_run = {
+            "prompt_tokens": 0,
+            "completion_tokens": 0
+        }
+        self.price = api_price.get(model, [0.005, 0.015])
+
+    def calculate_usage(self, response):
+        prompt_tokens = response["usage"]["prompt_tokens"]
+        completion_tokens = response["usage"].get("completion_tokens", 0)
+        self.tokens["prompt_tokens"] += prompt_tokens
+        self.tokens["completion_tokens"] += completion_tokens
+        self.tokens_this_run["prompt_tokens"] += prompt_tokens
+        self.tokens_this_run["completion_tokens"] += completion_tokens
+        print(f"Prompt tokens: {prompt_tokens}, Completion tokens: {completion_tokens}, Cost: ${'{0:.5f}'.format(prompt_tokens / 1000 * self.price[0] + completion_tokens / 1000 * self.price[1])}")
+        return prompt_tokens, completion_tokens
+
+    def calculate_usage_total(self):
+        print(f"Total prompt tokens: {self.tokens['prompt_tokens']}, Total completion tokens: {self.tokens['completion_tokens']}, Total cost: ${'{0:.5f}'.format(self.tokens['prompt_tokens'] / 1000 * self.price[0] + self.tokens['completion_tokens'] / 1000 * self.price[1])}")
 
     def prepare_inputs(self, question):
         image_list = question.get("image_list")
@@ -98,6 +121,8 @@ class ClaudeEvaluator:
                     response_ = requests.post(self.api_url, json=self.post_dict, headers=self.header)
                     response_ = response_.json()
                     response = response_["choices"][0]["message"]["content"]
+                    print(response_)
+                    self.calculate_usage(response_)
             except KeyboardInterrupt:
                 raise Exception("Terminated by user.")
             except Exception as e:

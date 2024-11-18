@@ -6,7 +6,7 @@ import os
 import glob
 import pdb
 import sys
-from args import print_model_list, parse_args_for_eval, model_list
+from args import print_model_list, parse_args_for_eval, model_list, api_price
 import time
 import importlib
 import importlib.util
@@ -85,28 +85,46 @@ def evaluate(args, evaluator, questions):
 
     save_checkpoints(args, questions_with_answers, 0)
 
+    if args.model_version in api_price.keys():
+        tokens_calculate = {
+            "prompt_tokens": 0,
+            "completion_tokens": 0
+        }
+        for question_id, question in questions_with_answers.items():
+            tokens_calculate["prompt_tokens"] += question.get(["prompt_tokens"],0)
+            tokens_calculate["completion_tokens"] += question.get(["completion_tokens"],0)
+
+        price = api_price.get(args.model_version, [0.005, 0.015])
+        print(f"Total prompt tokens: {tokens_calculate['prompt_tokens']}, Total completion tokens: {tokens_calculate['completion_tokens']}, Total cost: ${'{0:.5f}'.format(tokens_calculate['prompt_tokens'] / 1000 * price[0] + tokens_calculate['completion_tokens'] / 1000 * price[1])}")
+
+
+
 
 def generate_data(args):
     questions = prepare_questions(args)
     prompted_questions = get_prompts(questions, args)
 
-    # calculate the number of tokens
-    if args.model_version:
-        try:
-            encoding = tiktoken.encoding_for_model(args.model_version)
-        except:
+    try:
+        # calculate the number of tokens
+        if args.model_version:
+            try:
+                encoding = tiktoken.encoding_for_model(args.model_version)
+            except:
+                encoding = tiktoken.encoding_for_model('gpt-3.5-turbo-0613')
+        else:
             encoding = tiktoken.encoding_for_model('gpt-3.5-turbo-0613')
-    else:
-        encoding = tiktoken.encoding_for_model('gpt-3.5-turbo-0613')
-    input_token_num = 0
-    input_image_num = 0
-    for question_id, question in tqdm(prompted_questions.items()):
-        input_token_num += len(encoding.encode(question.get("prompted_system_content", ""))) + len(encoding.encode(question.get("prompted_user_content", ""))) + len(encoding.encode(question.get("prompted_content", ""))) + len(
-            encoding.encode(" ".join(question.get("prompted_content_list", []))))
-        input_image_num += question["question_image_number"]
+        input_token_num = 0
+        input_image_num = 0
+        for question_id, question in tqdm(prompted_questions.items()):
+            input_token_num += len(encoding.encode(question.get("prompted_system_content", ""))) + len(encoding.encode(question.get("prompted_user_content", ""))) + len(encoding.encode(question.get("prompted_content", ""))) + len(
+                encoding.encode(" ".join(question.get("prompted_content_list", []))))
+            input_image_num += question["question_image_number"]
 
-    print(f"Total number of tokens: {input_token_num}")
-    print(f"Total number of images: {input_image_num}")
+        print(f"Total number of tokens: {input_token_num}")
+        print(f"Total number of images: {input_image_num}")
+    except Exception as e:
+        print(f"Error {e} occurred during token calculation.")
+
     return prompted_questions
 
 
@@ -120,7 +138,8 @@ def get_evaluator(args):
         evaluator_module = importlib.import_module(module_pos)
         Evaluator = getattr(evaluator_module, model_list[args.model]["evaluator"])
         print(f"Using evaluator {model_list[args.model]['evaluator']} from {module_pos}")
-    except:
+    except Exception as e:
+        print(e)
         print(f"Module \"{model_list[args.model]['evaluator']}\" for evaluation not found in {module_pos}. Please check your implementation.")
         sys.exit(0)
 
