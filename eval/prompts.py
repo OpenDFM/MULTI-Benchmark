@@ -13,10 +13,10 @@ question_prompts = {
         "解答": "这道题需要你对问题进行分析作答，请覆盖所有要点的基础上尽可能简练的表达，请以'我的分析如下：'作为开头。",
     },
     "en": {
-        "single_choice": "This question has only one correct option. Please give only one uppercase letter as the answer, without the description after the option, such as: A, B, E.",
-        "multiple_choices": "This question has no less than two possible answers. Please choose all the correct options, in the format of consecutive uppercase letters, without the description after the options, such as: AC, BDE.",
-        "fill_in_the_blank": "Each '[MASK]' corresponds to a simple and definite answer. The answers for multiple '[MASK]'s are separated by line breaks, such as: Renaissance\n0.5\n①.",
-        "discussion_questions": "This question requires you to analyze the problem in detail. Please start with 'My analysis is as follows:'.",
+        "单选": "This question has only one correct option. Please give only one uppercase letter as the answer, without the description after the option, such as: A, B, E.",
+        "多选": "This question has no less than two possible answers. Please choose all the correct options, in the format of consecutive uppercase letters, without the description after the options, such as: AC, BDE.",
+        "填空": "Each '[MASK]' corresponds to a simple and definite answer. The answers for multiple '[MASK]'s are separated by line breaks, such as: Renaissance\n0.5\n①.",
+        "解答": "This question requires you to analyze the problem in detail. Please start with 'My analysis is as follows:'.",
     }
 }
 
@@ -78,9 +78,22 @@ ending_prompt = {
 }
 
 ending_cot_prompt = {
-    "zh": "\n请先在此处，逐步给出你对所给问题的思考过程、推理：",
-    "en": "\nPlease show your reasoning process step by step:",
+    "zh": "\n请先逐步给出你对所给问题的思考和推理过程，并以“所以这道题的答案为：{你的最终答案}”结尾：",
+    "en": "\nPlease show your reasoning process step by step, and end with 'So the answer to this question is: {your final answer}':",
 }
+ending_cot_prompt = {
+    "zh": "\n请先详细描述你的思考和推理过程，然后给出最终答案，以“所以这道题的答案为：{你的最终答案}”结尾：",
+    "en": "\nPlease show your reasoning process step by step, and end with 'So the answer to this question is: {your final answer}':",
+}
+ending_cot_prompt = {
+    "zh": "\n请一步一步进行思考和推理，然后以“所以这道题的答案为：{你的最终答案}”结尾并给出答案：",
+    "en": "\nPlease show your reasoning process step by step, and end with 'So the answer to this question is: {your final answer}':",
+}
+
+# ending_cot_prompt = {
+#     "zh": "\n请先在此处，逐步给出你对所给问题的思考过程、推理：",
+#     "en": "\nPlease show your reasoning process step by step:",
+# }
 
 ending_cot_doublecheck_prompt = {
     "zh": "\n根据以上思考过程，你的最终答案是：",
@@ -131,7 +144,7 @@ def get_prompt(question, args):
     if args.lang is None:
         args.lang = infer_lang_from_question(question)
 
-    question_type = question["question_type"]
+    question_type = question["question_type"].replace("其他","解答")
     question_content = question["question_content"]
     question_image_list = question.get("question_image_list", [])
     question_knowledge = question.get("knowledge", [""])
@@ -152,15 +165,18 @@ def get_prompt(question, args):
 
     if args.cot:
         question_prompts = question_cot_prompts
-        image_guide_prompts = image_cot_guide_prompts
+        image_guide_prompts = image_noncot_guide_prompts
     else:
         question_prompts = question_noncot_prompts
         image_guide_prompts = image_noncot_guide_prompts
 
     # TODO: fix this in future data release
+    # if no_background
     # if question_knowledge[0] is a character, we use question_knowledge
     # if question_knowledge[0] is a list(i.e. string), we use question_knowledge[0]
-    if len(question_knowledge[0]) == 1 and question["question_id"].startswith("shjk"):
+    if args.no_background:
+        prompted = question_prompts[args.lang][question_type]
+    elif len(question_knowledge[0]) == 1 and question["question_id"].startswith("shjk"):
         prompted = system_prompt[args.lang] % (question_knowledge, question_type, question_prompts[args.lang][question_type],)
     else:
         prompted = system_prompt[args.lang] % (question_knowledge[0], question_type, question_prompts[args.lang][question_type],)
@@ -190,6 +206,9 @@ def get_prompt(question, args):
         prompted += fs_shot_guide_example[args.lang][question_type]
         prompted += fs_end_example[args.lang]
 
+    if args.no_sys:
+        prompted = ""
+
     if model_list[args.model]["split_sys"]:
         prompted_question["prompted_system_content"] = prompted
         prompted = ""  # TODO: Identify GPT in this way seems not so reasonable.
@@ -209,7 +228,7 @@ def get_prompt(question, args):
     else:
         prompted_question["prompted_content"] = postprocess_prompt(prompted, in_turn=False)
 
-    if args.cot:
+    if args.cot and in_turn:
         if prompted_question.get("prompted_content"):
             prompted_question["prompted_content_list"] = [prompted_question.pop("prompted_content"), ending_cot_doublecheck_prompt[args.lang], ]
         else:

@@ -22,24 +22,6 @@
 
 在多模态大型语言模型（MLLMs）迅速进步的背景下，提出具有挑战性且符合现实场景的基准测试变得尤为重要，而现有的基准测试主要关注于理解简单的自然图像和短文本。在本文中，我们介绍了***MULTI***，作为一个前沿的基准测试，用于评测MLLMs在理解复杂的表格和图像、以及进行长文本推理的能力。**MULTI**提供多模态输入，并要求回答是精确的或开放式的，反映了现实生活中的考试风格。**MULTI**包括超过 18,000 个问题，挑战MLLMs进行多种任务，从公式推导到图像细节分析和跨模态推理。我们还引入了***MULTI-Elite***，一个精心挑选的包含500个问题的难题子集，以及***MULTI-Extend***，包含超过 4,500 个外部知识上下文。我们的评测显示了MLLMs进步的巨大潜力，GPT-4V在**MULTI**上的准确率达到了 **63.7%**，而其他MLLMs的得分介于 **28.5%** 和 **55.3%** 之间。**MULTI**不仅作为一个稳健的评测平台，也为专家级AI的发展指明了道路。
 
-## 🏆 Leaderboard
-
-| 模态 |     模型      | 版本                       | 总体 | MULTI-Elite |
-|:----:|:-------------:| -------------------------- |:----:|:-----------:|
-|  🖼️  |    GPT-4V     | gpt-4-vision-preview       | 63.7 |    14.0     |
-|  🖼️  |     Yi-VL     | Yi-34B-Chat                | 55.3 |    26.2     |
-|  🖼️  | Gemini Vision | gemini-pro-vision          | 53.7 |    12.4     |
-|  📃  |    Gemini     | gemini-pro                 | 52.2 |    10.5     |
-|  📃  |     GPT-4     | gpt-4-1106-preview         | 50.2 |     5.8     |
-|  📃  |    DFM-2.0    | dfm-2.0-70b-preview        | 49.7 |    18.0     |
-|  🖼️  |   InternVL    | InternVL-Chat-Chinese-V1.1 | 44.9 |    20.7     |
-|  🖼️  |    Qwen-VL    | Qwen-VL-Chat               | 39.0 |    10.5     |
-|  📃  |    ChatGPT    | gpt-3.5-turbo-1106         | 35.9 |     4.7     |
-|  🖼️  |    VisCPM     | VisCPM-Chat                | 33.4 |    13.0     |
-|  📃  |     MOSS      | moss-moon-003-sft          | 32.6 |    13.1     |
-|  🖼️  |   VisualGLM   | visualglm-6b               | 31.1 |    12.8     |
-|  🖼️  | Chinese-LLaVA | Chinese-LLaVA-Cllama2      | 28.5 |    12.3     |
-
 ## ⏬ 下载
 
 您只需使用以下命令即可下载数据：
@@ -52,12 +34,15 @@ python download_data.py
 `./data` 的结构应该如下所示：
 
 ```
-./data
+./data   
 ├── images                                       # 包含图片的文件夹
-├── problem_v1.2.2_20240212_release.json         # MULTI
+├── problem_v1.3.1_20241210_release.json         # MULTI
 ├── knowledge_v1.2.2_20240212_release.json       # MULTI-Extend
-├── hard_list_v1.2.1_20240206.json               # MULTI-Elite
-└── captions_v1.2.0_20231217.csv                 # 由BLIP-6.7b生成的图片描述
+├── hard_list_v1.3.0_20241203.json               # MULTI-Elite
+├── captions_v1.3.1_20241210_blip.csv            # 由BLIP-6.7b生成的图片描述
+├── captions_v1.3.1_20241210_points.csv          # 由POINTS-1-5生成的图片描述
+├── ocr_v1.3.1_20241210_easyocr.csv              # 由EasyOCR生成的OCR数据
+└── ocr_v1.3.1_20241210_points.csv               # 由POINTS-1-5生成的OCR数据
 ```
 
 ## 📝 如何评测
@@ -86,17 +71,17 @@ pip install tiktoken tqdm
 
 请参考这些示例以便快速开始：
 
-在MULTI上测试GPT-4V模型，采用多模态输入，并使用MULTI-Extend作为外部知识：
+在MULTI上测试GPT-4o模型，采用多模态输入，并使用MULTI-Extend作为外部知识：
 
 ```shell
 python eval.py \
-  --problem_file ../data/problem_v1.2.2_20240212_release.json \
-  --knowledge_file ../data/knowledge_v1.2.2_20240212_release.json \
+  --problem_file ../data/problem_{version}.json \
+  --knowledge_file ../data/knowledge_{version}.json \
   --questions_type 0,1,2,3 \
   --image_type 0,1,2 \
   --input_type 2 \
-  --model gpt-4v \
-  --model_version gpt-4-vision-preview \
+  --model gpt-4o \
+  --model_version gpt-4o-latest \
   --api_key sk-************************************************
 ```
 
@@ -104,9 +89,9 @@ python eval.py \
 
 ```shell
 python eval.py \
-  --problem_file ../data/problem_v1.2.2_20240212_release.json \
-  --subset ../data/hard_list_v1.2.1_20240206.json \
-  --caption_file ../data/captions_v1.2.0_20231217.csv \
+  --problem_file ../data/problem_{version}.json \
+  --subset ../data/hard_list_{version}.json \
+  --caption_file ../data/captions_{version}.csv \
   --questions_type 0,1 \
   --image_type 1,2 \
   --input_type 1 \

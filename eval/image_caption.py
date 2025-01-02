@@ -34,7 +34,7 @@ class ImageCaptioner:
 
 if __name__ == '__main__':
     image_dir = '../data/images'
-    caption_path = '../data/captions_v1.2.0_20231217.csv'
+    caption_path = '../data/captions_v1.3.1_20241210.csv'
     caption_data = open(caption_path, 'w', encoding='utf-8')
 
     prompt = None # 'Question: Please describe the image as detailed as possible. Answer:'

@@ -11,7 +11,7 @@ from transformers import AutoModel, AutoTokenizer
 
 
 class MiniCPMEvaluator():
-    def __init__(self, model_dir='../../models/MiniCPM-V-2_6', max_tokens=200, temperature=0.1, top_p=0.9,device_map="auto", **kwargs):
+    def __init__(self, model_dir='../../models/MiniCPM-V-2_6', max_tokens=2000, temperature=0.1, top_p=0.9,device_map="auto", **kwargs):
         self.model_dir = model_dir
         self.sample_params = {
             "max_new_tokens": max_tokens,
