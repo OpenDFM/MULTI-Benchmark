@@ -6,7 +6,7 @@ import argparse
 
 model_list = {
     "gpt-4o": {
-        "avail_model": ["gpt-4o-2024-08-06","gpt-4o-2024-05-13", "gpt-4o","gpt-4o-mini","gpt-4o-mini-2024-07-18","o1-preview-2024-09-12","o1-mini-2024-09-12"],
+        "avail_model": ["gpt-4o-2024-08-06","gpt-4o-2024-05-13", "gpt-4o","gpt-4o-mini","gpt-4o-mini-2024-07-18","o1-preview-2024-09-12","o1-mini-2024-09-12","gpt-4o-2024-11-20"],
         "model_type": "api",
         "support_input": [0, 1, 2, 3],
         "executor": "gpt",
@@ -25,6 +25,30 @@ model_list = {
         "avail_model": ["gpt-3.5-turbo", "gpt-3.5-turbo-0301", "gpt-3.5-turbo-0613", "gpt-3.5-turbo-1106", "gpt-3.5-turbo-16k", "gpt-3.5-turbo-16k-0613", "gpt-4", "gpt-4-0314", "gpt-4-0613", "gpt-4-1106-preview"],
         "model_type": "api",
         "support_input": [0, 1],
+        "executor": "gpt",
+        "evaluator": "GPTEvaluator",
+        "split_sys": True,
+    },
+    "claude-api": {
+        "avail_model": ["claude-3-opus-20240229", "claude-3-sonnet-20240229", "claude-3-5-sonnet-20241022"],
+        "model_type": "api",
+        "support_input": [0, 1, 2, 3],
+        "executor": "gpt",
+        "evaluator": "GPTEvaluator",
+        "split_sys": True,
+    },
+    "gemini-api": {
+        "avail_model": ["gemini-1.5-pro-latest","gemini-1.5-flash-latest"],
+        "model_type": "api",
+        "support_input": [0, 1, 2, 3],
+        "executor": "gpt",
+        "evaluator": "GPTEvaluator",
+        "split_sys": True,
+    },
+    "step-api": {
+        "avail_model": ["step-1v-8k","step-1v-32k"],
+        "model_type": "api",
+        "support_input": [0, 1, 2, 3],
         "executor": "gpt",
         "evaluator": "GPTEvaluator",
         "split_sys": True,
@@ -77,8 +101,29 @@ model_list = {
     "qwen-vl": {
         "model_type": "local",
         "support_input": [0, 1, 2, 3],
-        "executor": "qwen",
-        "evaluator": "QwenEvaluator",
+        "executor": "qwenvl",
+        "evaluator": "QwenVLEvaluator",
+        "split_sys": False,
+    },
+    "qwen2-vl": {
+        "model_type": "local",
+        "support_input": [0, 1, 2, 3],
+        "executor": "qwen2vl",
+        "evaluator": "Qwen2VLEvaluator",
+        "split_sys": True,
+    },
+    "qwen2": {
+        "model_type": "local",
+        "support_input": [0, 1],
+        "executor": "qwen2",
+        "evaluator": "Qwen2Evaluator",
+        "split_sys": True,
+    },
+    "points": {
+        "model_type": "local",
+        "support_input": [0, 1, 2, 3],
+        "executor": "points",
+        "evaluator": "POINTSEvaluator",
         "split_sys": False,
     },
     "visualglm": {
@@ -109,6 +154,34 @@ model_list = {
         "evaluator": "InternVLEvaluator",
         "split_sys": False,
     },
+    "intern-vl-2": {
+        "model_type": "local",
+        "support_input": [0, 1, 2, 3],
+        "executor": "internvl2",
+        "evaluator": "InternVLEvaluator",
+        "split_sys": False,
+    },
+    "intern-vl-2.5": {
+        "model_type": "local",
+        "support_input": [0, 1, 2, 3],
+        "executor": "internvl2",
+        "evaluator": "InternVLEvaluator",
+        "split_sys": False,
+    },
+    "internlm": {
+        "model_type": "local",
+        "support_input": [0, 1],
+        "executor": "internlm",
+        "evaluator": "InternLMEvaluator",
+        "split_sys": False,
+    },
+    "human": {
+        "model_type": "local",
+        "support_input": [0, 1, 2, 3],
+        "executor": "human",
+        "evaluator": "HumanEvaluator",
+        "split_sys": True,
+    },
 }
 
 
@@ -116,15 +189,20 @@ api_price= { # The price of the model per 1k tokens, [input, output], USD
     "gpt-4-vision-preview": [0.01,0.03],
     "gpt-3.5-turbo-0125":[0.0005,0.0015],
     "gpt-4o": [0.005,0.015],
-    "gpt-4o-2024-08-06": [0.005,0.015],
+    "gpt-4o-2024-11-20": [0.0025,0.01],
+    "gpt-4o-2024-08-06": [0.0025,0.01],
     "gpt-4o-mini": [0.00015,0.0006],
     "gpt-4o-mini-2024-07-18": [0.00015,0.0006],
     "o1-mini-2024-09-12": [0.006,0.018],
     "o1-preview-2024-09-12": [0.03,0.09],
     "gemini-1.5-pro-latest": [0.00125,0.005],
+    "gemini-1.5-flash-latest": [0.000075,0.00025],
+    "gemini-1.5-flash-exp-0827": [0.000075,0.00025],
     "glm-4v-plus": [0.01,0.01], # CNY
     "glm-4v": [0.05,0.05], # CNY
-    "claude-3-5-sonnet-20241022": [0.005,0.015],
+    "claude-3-5-sonnet-20241022": [0.005,0.010],
+    "step-1v-8k": [0.000667,0.0033], # CNY
+    "step-1v-32k": [0.002,0.010], # CNY
 }
 
 def parse_args_for_eval():
@@ -154,6 +232,8 @@ def parse_args_for_eval():
     # eval setting
     parser.add_argument('--in_turn', action="store_true", help='Whether to use in-turn input for multi-image questions. If not, the model will receive all the images at once. This argument is only valid to the models that support multi-image input.')
     parser.add_argument('--cot', action='store_true', help='Whether to use chain-of-thought. The performance using chain-of-thought is not guaranteed.')
+    parser.add_argument('--no_background', action='store_true', help='Whether to add the background information to the prompt.')
+    parser.add_argument('--no_sys', action='store_true', help='Whether to use system prompt.')
     parser.add_argument('--few_shot', '-k', type=int, default=0, help='Specify the number of few shot samples. By leaving it empty, it means zero-shot k=0. The performance using few-shot is not guaranteed.')
     parser.add_argument('--questions_type', type=str, default="0,1,2",
                         help='Specify the type of the questions to be tested. 0 - single-answer choosing (SA), 1 - multiple-answer choosing (MA), 2 - fill-in-the-blank (FB), 3 - discussion-questions (OP). By leaving it empty, it means subjective questions [0,1,2].')
@@ -199,10 +279,12 @@ def parse_args_for_score():
     parser.add_argument('--label_file', type=str, default=None, help='Specify the label json file.')
     parser.add_argument('--prediction_file', type=str, default=None, help='Specify the prediction json file.')
     parser.add_argument('--score_file', type=str, default=None, help='Specify the output detail score file.')
+    parser.add_argument('--reference_file', type=str, default=None, help='Specify the reference prediction json file.')
     parser.add_argument('--reference_dir', type=str, default=None, help='Specify the reference directory where all the other score files are stored. By leaving it empty, only absolute score will be calculated.')
 
     # score setting
     parser.add_argument('--detail', action='store_true', help='Whether to print the detail of the score.')
+    parser.add_argument('--answer_position',type=str,choices=['start','end'],default='start',help='Specify the position of the answer to be evaluated. If you are evaluating o1 models or CoT setting, you should set this to "end".')
     parser.add_argument('--only_past', action='store_true', help='Whether to only use the earlier models to calculate the relative score.')
 
     # other functions

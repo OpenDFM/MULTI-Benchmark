@@ -3,6 +3,7 @@ Calculate the score and generate the summary
 """
 
 import json
+import os
 import re
 import pdb
 
@@ -16,30 +17,40 @@ from tqdm import tqdm
 from args import parse_args_for_score
 from utils import Education_Level_Dict_zh2en, Question_Type_Dict_zh2en
 
+def check_rejection(pred):
+    if "缺少图片信息" in pred:
+        return True
+    return False
 
-def SingleAnswerChoiceEval(pred, label):
+def SingleAnswerChoiceEval(pred, label,args):
     """
-    提取输出中出现的最后一个英文字母作为答案
+    提取输出中出现的第一个或最后一个英文字母作为答案
     """
     matches = re.findall(r'[a-zA-Z]', pred)
     if matches:
-        answer = matches[0].upper()
+        if args.answer_position == "start":
+            answer = matches[0].upper()
+        elif args.answer_position == "end":
+            answer = matches[-1].upper()
         score = 1 if answer == label else 0
     else:
         score = 0
     return score, 1
 
 
-def MultipleAnswersChoiceEval(pred, label):
+def MultipleAnswersChoiceEval(pred, label,args):
     """
     提取输出中出现的数个连续或使用','和' '间隔的英文字母作为答案，对答案去重并进行排序
     每选择一个正确选项+1分，若选择错误选项则直接得0分
     分数不进行归一化处理
     """
-    matches = re.findall(r'[a-zA-Z ,]+[a-zA-Z]*[a-zA-Z ,]+', pred)
+    matches = re.findall(r'[a-zA-Z ,]*[a-zA-Z]+[a-zA-Z ,]*', pred)
     score = 0
     if matches:
-        answer = matches[0].upper()
+        if args.answer_position == "start":
+            answer = matches[0].upper()
+        elif args.answer_position == "end":
+            answer = matches[-1].upper()
         answer = answer.replace(' ', '').replace(',', '').replace('、', '')
         answer = ''.join(sorted(set(answer), key=answer.index))
         for choice in answer:
@@ -53,28 +64,30 @@ def MultipleAnswersChoiceEval(pred, label):
     return score, len(label)
 
 
-def FillInTheBlankEval(pred, label):
+def FillInTheBlankEval(pred, label,args):
     """
     提取输出每一行作为一个[MASK]的答案
     我们比较答案是否严格一致，部分选项有多重正确答案，使用“或”进行分割
     """
     score = 0
-    pred = pred.split('\n')
-    label = label.split('\n')
+    # use re to replace the '\n\n...' to '\n'
+    pred = re.sub(r'\n\n+', '\n', pred)
+    pred = pred.replace("$","").replace(" ","").replace(";","\n").replace("；","\n").split('\n')
+    label = label.replace("$","").replace(" ","").split('\n')
     for i in range(min(len(label), len(pred))):
-        if pred[i] == label[i]:
+        if pred[i].strip() == label[i].strip():
             score += 1
         else:
             alternatives = label[i].split('或')
+            alternatives = [alt.strip() for alt in alternatives]
             if len(alternatives) > 1:
-                if pred[i] in alternatives:
+                if pred[i].strip() in alternatives:
                     score += 1
-                    continue
 
     return score, len(label)
 
 
-def OpenendQuestionEval(pred, label):
+def OpenendQuestionEval(pred, label,args):
     """
     使用ROUGE来计算答案与标准答案的相似度
     Please be aware that Evaluation of Discussion Questions is not accurate, and may not reflect the real quality of the answer.
@@ -83,6 +96,7 @@ def OpenendQuestionEval(pred, label):
     pred_ = ' '.join(jieba.cut(pred))
     label_ = ' '.join(jieba.cut(label))
     if label_ == '':
+        print(pred)
         return 0, 0
     elif pred_ == '':
         return 0, 1
@@ -98,6 +112,12 @@ EvaluateFuncDict = {
     "解答": OpenendQuestionEval
 }
 
+rejection_number ={
+    "SI": 0,
+    "MI": 0,
+}
+
+ref_score_total = 0
 
 def evaluate_every_problem(args):
     """
@@ -107,8 +127,18 @@ def evaluate_every_problem(args):
     score:
     {question_id,score,total_score}
     """
+    
+    global ref_score_total
+    
     with open(args.prediction_file, 'r', encoding="utf-8") as f:
         pred_data = json.load(f)
+     
+    if args.reference_file:
+        with open(args.reference_file, 'r', encoding="utf-8") as f:
+            ref_data = json.load(f)
+    else:
+        ref_data = {}
+
     with open(args.label_file, 'r', encoding="utf-8") as f:
         label_data = json.load(f)
 
@@ -116,27 +146,66 @@ def evaluate_every_problem(args):
 
     # sort by question_id, be aware of the numbers in the question_id course_number1_number2
     pred_data = dict(sorted(pred_data.items(), key=lambda x: (x[0].split('_')[0])))
+    
+    pred_data_keys = list(pred_data.keys())
+    for key in pred_data_keys:
+        if key.rsplit('_',1)[0] not in label_data:
+            pred_data.pop(key)
 
     for item in pred_data.values():
         problem_id, sub_id = item['question_id'].rsplit('_', 1)
-        label = label_data[problem_id]["problem_answer_list"][int(sub_id)].strip()
-        type = label_data[problem_id]["problem_type_list"][int(sub_id)]
+        
+        # if "题目有错误/缺少数据/缺少图片" in item["detail"]:
+        #     continue
+        
+        try:
+            label = label_data[problem_id]["problem_answer_list"][int(sub_id)].strip()
+            type = label_data[problem_id]["problem_type_list"][int(sub_id)]
+        except:
+            label = ""
+            type = "其他"
+        
         prediction=item['prediction']
 
         if re.findall(r'Thought，持续 [0-9]+ 秒', prediction):
             prediction = re.split(r'Thought，持续 [0-9]+ 秒', prediction)[-1].strip()
+        if re.findall(r'答案', prediction):
+            prediction = re.split(r'答案', prediction)[-1].strip()
+        prediction=prediction.replace("Assistant:","").replace("assistant:","").replace("answer:","").replace("答案：","").replace("user\n","").replace("我的分析如下：","").strip()
 
         if type in EvaluateFuncDict:
-            score, total_score = EvaluateFuncDict[type](prediction, label)
+            score, total_score = EvaluateFuncDict[type](prediction, label,args)
         else:
             score, total_score = 0, 0
+        
+        if item['question_id'] in ref_data:
+            ref = ref_data.get(item['question_id'], "")['prediction']
+            if ref != "":
+                # for some o1-like models, the ref may contain the prompt, we need to remove it
+                if re.findall(r'Thought，持续 [0-9]+ 秒', ref):
+                    ref = re.split(r'Thought，持续 [0-9]+ 秒', ref)[-1].strip()
+                if re.findall(r'答案为：', ref):
+                    ref = re.split(r'答案为：', ref)[-1].strip()
+                ref = ref.replace("Assistant:","").replace("assistant:","").replace("answer:","").replace("答案：","").replace("user\n","").strip()
+                if type in EvaluateFuncDict:
+                    score_ref, _ = EvaluateFuncDict[type](ref, label)
+                    if score_ref > score:
+                        ref_score_total += score_ref-score
+
+        if check_rejection(prediction):
+            score = 0
+            image_num = item["question_image_number"]
+            image = "NI" if image_num == 0 else "SI" if image_num == 1 else "MI"
+            if image in rejection_number:
+                rejection_number[image] += total_score
 
         score_data[item['question_id']] = {
             "question_id": item['question_id'],
             "score": score,
             "total_score": total_score
         }
-
+        
+        pred_data[item['question_id']]["analysis"] = label_data[problem_id]["problem_analysis_list"][int(sub_id)]
         pred_data[item['question_id']]["answer"] = label
         pred_data[item['question_id']]["score"] = score
         pred_data[item['question_id']]["total_score"] = total_score
@@ -164,6 +233,12 @@ def calculate_score(args):
         total_absolute_score += item['total_score']
 
     print("Absolute Score: %.2f/%d, %.2f%%" % (absolute_score, total_absolute_score, absolute_score / total_absolute_score * 100))
+    
+    if ref_score_total>0:
+        print("Improvement Score: %.2f/%d, %.2f%%" % (ref_score_total, total_absolute_score, ref_score_total / total_absolute_score * 100))
+
+    if rejection_number["SI"] + rejection_number["MI"] != 0:
+        print("Rejection Number: (SI) %.2f/%d, %.1f%% (MI) %.2f/%d, %.1f%%" % (rejection_number["SI"], 8540, rejection_number["SI"] / 8540 * 100, rejection_number["MI"], 255, rejection_number["MI"] / 255 * 100))
 
     return (absolute_score, total_absolute_score, absolute_score / total_absolute_score * 100)
 
@@ -204,15 +279,15 @@ def detail_score(args):
 
     for item in score_data.values():
         question_id = item['question_id']
+        type = Question_Type_Dict_zh2en[item["type"]]
+        if type == "其他" or type == "Other":
+            type = "OP"
         education = Education_Level_Dict_zh2en[item["education"]]
         subject = item["subject"]
         if subject == "驾考":
             education = "Driving"
         elif subject == "行测":
             education = "AAT"
-        type = Question_Type_Dict_zh2en[item["type"]]
-        if type == "其他":
-            continue
         detail_data = init_dict(detail_data, education, subject)
 
         image_num = item["question_image_number"]  # get_image_number(question_id,label_data)
@@ -444,4 +519,5 @@ def main(args):
 
 if __name__ == "__main__":
     args = parse_args_for_score()
+    args.prediction_file=os.path.normpath(args.prediction_file).replace("\\","/")
     main(args)

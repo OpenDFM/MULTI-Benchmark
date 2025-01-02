@@ -1,5 +1,6 @@
-"""Gemini Pro 1.5 Evaluator"""
+"""Gemini Pro 1.0 Evaluator"""
 
+import google.generativeai as genai
 import requests
 import json
 from tqdm import tqdm
@@ -7,58 +8,31 @@ import random
 import time
 import pdb
 from utils import encode_image_PIL
-from args import api_price
-
 
 
 class GeminiEvaluator:
-    def __init__(self, api_key, model='gemini-1.5-pro-latest', api_url=None,use_client=False):
-        self.use_client = use_client
-        self.api_key = api_key
-        self.api_url = api_url
-        if self.use_client:
-            import google.generativeai as genai
-            genai.configure(api_key=api_key, transport='rest')
-            block_type = "BLOCK_ONLY_HIGH"
-            self.safety_settings = [{
-                "category": "HARM_CATEGORY_DANGEROUS",
-                "threshold": block_type,
-            }, {
-                "category": "HARM_CATEGORY_HARASSMENT",
-                "threshold": block_type,
-            }, {
-                "category": "HARM_CATEGORY_HATE_SPEECH",
-                "threshold": block_type,
-            }, {
-                "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-                "threshold": block_type,
-            }, {
-                "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-                "threshold": block_type,
-            }, ]
-            
-            self.client = genai.GenerativeModel(model_name=model, safety_settings=self.safety_settings)
-        else:
-            self.header = {
-                "Content-Type": "application/json",
-                "Authorization": f"Bearer {self.api_key}",
-            }
-            self.post_dict = {
-                "model": model,
-                "system": None,
-                "messages": None
-            }
-        self.model = model
-        self.tokens = {
-            "prompt_tokens": 0,
-            "completion_tokens": 0
-        }
-        self.tokens_this_run = {
-            "prompt_tokens": 0,
-            "completion_tokens": 0
-        }
-        self.price = api_price.get(model, [0.00125, 0.005])
-
+    def __init__(self, api_key, model='gemini-pro', api_url=None):
+        genai.configure(api_key=api_key, transport='rest')
+        block_type = "BLOCK_ONLY_HIGH"
+        self.safety_settings = [{
+            "category": "HARM_CATEGORY_DANGEROUS",
+            "threshold": block_type,
+        }, {
+            "category": "HARM_CATEGORY_HARASSMENT",
+            "threshold": block_type,
+        }, {
+            "category": "HARM_CATEGORY_HATE_SPEECH",
+            "threshold": block_type,
+        }, {
+            "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            "threshold": block_type,
+        }, {
+            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+            "threshold": block_type,
+        }, ]
+        
+        self.model_with_vision = genai.GenerativeModel(model_name=model, safety_settings=self.safety_settings)
+        self.model_without_vision = genai.GenerativeModel(model_name='gemini-pro', safety_settings=self.safety_settings)
 
     def prepare_inputs(self, question):
         prompt = question["prompted_system_content"].strip() + "\n" + question["prompted_content"].strip()

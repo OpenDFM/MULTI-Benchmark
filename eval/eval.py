@@ -51,7 +51,7 @@ def evaluate(args, evaluator, questions):
 
     i = 0
     for question_id, question in questions.items():
-        if not question.get("prediction"):
+        if "prediction" not in question:
             questions_with_no_answers[question_id] = question
         else:
             i += 1
@@ -91,8 +91,8 @@ def evaluate(args, evaluator, questions):
             "completion_tokens": 0
         }
         for question_id, question in questions_with_answers.items():
-            tokens_calculate["prompt_tokens"] += question.get(["prompt_tokens"],0)
-            tokens_calculate["completion_tokens"] += question.get(["completion_tokens"],0)
+            tokens_calculate["prompt_tokens"] += question.get("prompt_tokens",0)
+            tokens_calculate["completion_tokens"] += question.get("completion_tokens",0)
 
         price = api_price.get(args.model_version, [0.005, 0.015])
         print(f"Total prompt tokens: {tokens_calculate['prompt_tokens']}, Total completion tokens: {tokens_calculate['completion_tokens']}, Total cost: ${'{0:.5f}'.format(tokens_calculate['prompt_tokens'] / 1000 * price[0] + tokens_calculate['completion_tokens'] / 1000 * price[1])}")

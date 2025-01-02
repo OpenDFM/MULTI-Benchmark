@@ -44,7 +44,7 @@ class ClaudeEvaluator:
             "prompt_tokens": 0,
             "completion_tokens": 0
         }
-        self.price = api_price.get(model, [0.005, 0.015])
+        self.price = api_price.get(model, [0.005, 0.025])
 
     def calculate_usage(self, response):
         prompt_tokens = response["usage"]["prompt_tokens"]
