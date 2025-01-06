@@ -297,3 +297,129 @@ body {
 /*  text-align: center;*/
 /*  !*border-radius: 10px !important;*!*/
 /*}*/
+
+.overall-class {
+  background-color: rgba(239, 166, 137, 0.15);
+}
+
+.education-class {
+  background-color: rgba(237, 205, 107, 0.15);
+}
+
+.image-class {
+  background-color: rgb(239, 251, 228);
+}
+
+.type-class {
+  background-color: rgba(117, 209, 215, 0.1);
+}
+
+#multi-table {
+  table-layout: auto;
+  width: 100%;
+}
+
+#multi-table th:not(:first-child),
+#multi-table td:not(:first-child) {
+  width: auto;
+}
+
+#multi-table tbody td:first-child {
+  text-align: left !important;
+}
+
+.table-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+     max-width: 100vw;
+  }
+.table-container {
+    justify-content: center;
+    align-items: center;
+    max-width: 90vw;
+  }
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  background-color: #d9d9d9;
+}
+
+.hidden {
+  display: none;
+}
+
+
+#toggleButton {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  color: #555555;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition-duration: 0.4s;
+}
+
+#toggleButton:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.leaderboard-label {
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+th {
+  background-color: #f2f2f2;
+  border-bottom: 2px solid #ddd;
+}
+
+td:hover {
+  background-color: #ffffff;
+}
+
+.main-header {
+  background-color: #e6e6e6;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sub-header {
+  background-color: #f2f2f2;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+
+.has-background-info-yellow {
+    background-color: #e9efcf !important
+}
+
+.has-background-info-blue {
+    background-color: #b7cedc !important
+}

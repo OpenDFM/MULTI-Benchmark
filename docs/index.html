@@ -54,11 +54,49 @@
 
 <body>
 
-<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">-->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <!-- 左侧 GitHub 主页按钮 -->
+    <a href="https://github.com/OpenDFM" class="navbar-item">
+      <strong><i class="fab fa-github"></i> X-LANCE</strong>
+    </a>
+    <a href="https://github.com/OpenDFM" class="navbar-item">
+      <strong><i class="fab fa-github"></i> OpenDFM</strong>
+    </a>
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
 
-<!--<div class="top-bar">-->
-<!--    <a href="./static/pages/submit.html" class="btn">Submit</a>-->
-<!--</div>-->
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <div class="navbar-item has-dropdown is-hoverable">
+        <!-- 中间的“More Research”下拉菜单 -->
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/OpenDFM/MobA">
+            🎮MobA
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 右侧 Hugging Face 主页按钮 -->
+    <div class="navbar-end">
+      <a href="https://huggingface.co/OpenDFM" class="navbar-item">
+        <strong>OpenDFM🤗</strong>
+      </a>
+        <a href="https://huggingface.co/OpenDFM" class="navbar-item">
+        <strong>X-LANCE🤗</strong>
+      </a>
+    </div>
+  </div>
+</nav>
+
 
 <section class="hero">
     <div class="hero-body">
@@ -66,7 +104,7 @@
             <div class="columns is-centered">
                 <div class="column has-text-centered">
                     <h1 class="title is-1 publication-title">
-                       <b>MULTI</b>: Multimodal Understanding
+                        <b>MULTI</b>: Multimodal Understanding
                         Leaderboard with Text and Images</h1>
                     <div class="is-size-5 publication-authors">
                         <!-- Paper authors -->
@@ -165,7 +203,7 @@
                             </a>
                         </span>
 
-                                        <!-- HuggingFace Link -->
+                    <!-- HuggingFace Link -->
                     <span class="link-block">
                             <a href="./static/pages/submit.html" target="_blank"
                                class="external-link button is-normal is-rounded is-dark">
@@ -194,276 +232,348 @@
                 <img src="static/images/overview.png"/>
 
                 <br><br>
-               Rapid progress in multimodal large language models (MLLMs) highlights the need to introduce challenging yet realistic benchmarks to the academic community, while existing benchmarks primarily focus on understanding simple natural images and short context. In this paper, we present <i><b>MULTI</b></i>, as a cutting-edge benchmark for evaluating MLLMs on understanding complex tables and images, and reasoning with long context. <b>MULTI</b> provides multimodal inputs and requires responses that are either precise or open-ended, reflecting real-life examination styles. <b>MULTI</b> includes over 18,000 questions and challenges MLLMs with a variety of tasks, ranging from formula derivation to image detail analysis and cross-modality reasoning. We also introduce <i><b>MULTI-Elite</b></i>, a 500-question selected hard subset, and <i><b>MULTI-Extend</b></i>, with more than 4,500 external knowledge context pieces. Our evaluation indicates significant potential for MLLM advancement, with GPT-4V achieving a <b>63.7%</b> accuracy rate on <b>MULTI</b>, in contrast to other MLLMs scoring between <b>28.5%</b> and <b>55.3%</b>. <b>MULTI</b> serves not only as a robust evaluation platform but also paves the way for the development of expert-level AI.
+                Rapid progress in multimodal large language models (MLLMs) highlights the need to introduce challenging yet realistic benchmarks to the academic community, while existing benchmarks
+                primarily focus on understanding simple natural images and short context. In this paper, we present <i><b>MULTI</b></i>, as a cutting-edge benchmark for evaluating MLLMs on
+                understanding complex tables and images, and reasoning with long context. <b>MULTI</b> provides multimodal inputs and requires responses that are either precise or open-ended,
+                reflecting real-life examination styles. <b>MULTI</b> includes over 18,000 questions and challenges MLLMs with a variety of tasks, ranging from formula derivation to image detail
+                analysis and cross-modality reasoning. We also introduce <i><b>MULTI-Elite</b></i>, a 500-question selected hard subset, and <i><b>MULTI-Extend</b></i>, with more than 4,500 external
+                knowledge context pieces. Our evaluation indicates significant potential for MLLM advancement, with GPT-4V achieving a <b>63.7%</b> accuracy rate on <b>MULTI</b>, in contrast to other
+                MLLMs scoring between <b>28.5%</b> and <b>55.3%</b>. <b>MULTI</b> serves not only as a robust evaluation platform but also paves the way for the development of expert-level AI.
             </p>
-            </h3>
+        </h3>
     </div>
 
 </section>
 
 
-<!-- Image carousel -->
 <section class="hero is-small">
-    <div class="hero-body">
-        <div class="container">
-            <div id="results-carousel" class="carousel results-carousel">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <div class="item">
+                <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-yellow mr-0 pt-3 pb-3 ">
+                    Statistics </h2>
 
-                <div class="item">
-                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-                        Statistics </h2>
-
-                 <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-                        <p style="text-align:center;">
-                            <img src="static/images/stat.png" style="width: 60%; height: 100%"/>
-                        </p>
-                        <p>
-                            <br>
-                            <b>MULTI</b> consist of more than 18K questions and 8K images, covering
-                                    23 subjects and 4 educational levels. <b>MULTI</b> is one of the largest
-                                    Chinese multimodal datasets in complex scientific reasoning and image understanding.
-                        </p>
-                    </h3>
-                </div>
-
-
-
-                <div class="item">
-                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-                        Annotation Platform
-                    </h2>
-                    <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-                        <p style="text-align:center;">
-                            <img src="static/images/platform.png" style="width: 80%; height: 100%"/>
-                        </p>
-
-                        <p>
-                            <br>
-                            Our annotation platform is designed to support editing and rendering complex MarkDown
-                            formats, and it's easy to check and update question property in detail.
-                        </p>
-                    </h3>
-                </div>
-
-
-
-                <div class="item">
-                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-                        Annotation Pipeline
-                    </h2>
-                    <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-                        <p style="text-align:center;">
-                            <br><br><br><br>
-                            <img src="static/images/pipeline.png" style="width: 100%; height: 100%"/>
-                        </p>
-
-<!--                        <p>-->
-<!--                            Our annotation pipeline.-->
-<!--                        </p>-->
-                    </h3>
-                </div>
-
-
-
-                <div class="item">
-                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-                        Annotation Examples
-                    </h2>
-                    <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-                        <p style="text-align:center;">
-                            <br>
-                            <img src="static/images/data_anno.png" style="width: 80%; height: 100%"/>
-                        </p>
-
-<!--                        <p>-->
-<!--                            Our annotation pipeline.-->
-<!--                        </p>-->
-                    </h3>
-                </div>
-
-
-
-
-
-                <div class="item">
-                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-                        Post-procession Examples
-                    </h2>
-                    <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-                        <p style="text-align:center;">
-                            <br><br>
-                            <img src="static/images/data_aug.png" style="width: 80%; height: 100%"/>
-                        </p>
-
-<!--                        <p>-->
-<!--                            Our annotation pipeline.-->
-<!--                        </p>-->
-                    </h3>
-                </div>
-
-
-
-
-                <div class="item">
-                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-                        Question Examples
-                    </h2>
-                    <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-                        <p style="text-align:center;">
-                            <img src="static/images/examples.png" style="width: 80%; height: 100%"/>
-                        </p>
-
-<!--                        <p>-->
-<!--                            Our annotation pipeline.-->
-<!--                        </p>-->
-                    </h3>
-                </div>
-
-
-                <div class="item">
-                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-                        Prompts
-                    </h2>
-                    <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-                        <p style="text-align:center;">
-                            <img src="static/images/prompts_all.png" style="width: 80%; height: 100%"/>
-                        </p>
-
-<!--                        <p>-->
-<!--                            Our annotation pipeline.-->
-<!--                        </p>-->
-                    </h3>
-                </div>
-
+                <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                    <p style="text-align:center;">
+                        <img src="static/images/stat.png" style="width: 60%; height: 100%"/>
+                        <br>
+                        <b>MULTI</b> consist of more than 18K questions and 8K images, covering
+                        23 subjects and 4 educational levels. <b>MULTI</b> is one of the largest
+                        Chinese multimodal datasets in complex scientific reasoning and image understanding.
+                    </p>
+                </h3>
             </div>
         </div>
     </div>
 </section>
-<!-- End image carousel -->
-
-<!--&lt;!&ndash; Start explorer embedding &ndash;&gt;-->
-<!--<section class="hero is-small is-light">-->
-<!--  <div class="hero-body">-->
-<!--    <div class="container">-->
-<!--      &lt;!&ndash; Paper video. &ndash;&gt;-->
-<!--       <h3 class="subtitle is-size-1-tablet has-text-weight-bold has-text-centered pr-4 pl-4 pt-3 pb-3">-->
-<!--            Dataset Viewer-->
-<!--        </h3>-->
-<!--      <div class="columns is-centered has-text-centered">-->
-<!--          <div class="publication-video">-->
-<!--            &lt;!&ndash; <gradio-app src="https://nlphuji-whoops-dataset-viewer.hf.space"></gradio-app> &ndash;&gt;-->
-<!--            <gradio-app src="https://mlfoundations-visit-bench-dataset-viewer.hf.space"></gradio-app>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!--&lt;!&ndash; End explorer embedding &ndash;&gt;-->
 
 
-<!--&lt;!&ndash; Start explorer embedding &ndash;&gt;-->
-<!--<script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.35.2/gradio.js"></script>-->
-<!--<section class="hero is-small">-->
-<!--  <div class="hero-body">-->
-<!--    <div class="container">-->
-<!--      &lt;!&ndash; Paper video. &ndash;&gt;-->
-<!--        <h3 class="subtitle is-size-1-tablet has-text-weight-bold has-text-centered pr-4 pl-4 pt-3 pb-3">-->
-<!--            Leaderboard-->
-<!--        </h3>-->
-<!--        <h3 class="subtitle is-size-5-tablet has-text-weight-bold">-->
-<!--            To submit your results to the leaderboard, please add a "predictions" column to <a href="https://huggingface.co/datasets/mlfoundations/VisIT-Bench/blob/main/visit_bench_single_image.csv">this csv</a>, and send to <a href="mailto:yonatanbitton1@gmail.com">this mail</a>.-->
-<!--        </h3>-->
-<!--      <div class="columns is-centered has-text-centered">-->
-<!--          <div class="publication-video">-->
-<!--            &lt;!&ndash; <gradio-app src="https://mkshing-jp-llm-leaderboard.hf.space"></gradio-app> &ndash;&gt;-->
-<!--            <gradio-app src="https://mlfoundations-visit-bench-leaderboard.hf.space"></gradio-app>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!--&lt;!&ndash; End explorer embedding &ndash;&gt;-->
-
-<!--<script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/3.16.2/gradio.js"></script>-->
-<!-- Youtube video -->
-<!--<section class="hero is-small is-light">-->
-<!--  <div class="hero-body">-->
-<!--    <div class="container">-->
-<!--      &lt;!&ndash; Paper video. &ndash;&gt;-->
-<!--      <div class="columns is-centered has-text-centered">-->
-<!--          <div class="publication-video">-->
-<!--          <h3 class="subtitle is-size-4-tablet has-text-left">-->
-<!--               <p>-->
-<!--                   q2d's auto-generated dialogs enable query generation models to adapt and improve for specific dialog styles, creating labeled datasets for training and evaluation.-->
-<!--                   <br>T5 model predictions above/below the line show the impact of fine-tuning on MuSiQue dialogs.-->
-<!--               </p>-->
-<!--               <p style="text-align:center;">-->
-<!--                   <br><br>-->
-<!--                   <img src="static/images/q2d_5.png"  style="width: 60%; height: 60%"/>-->
-<!--               </p>-->
-<!--         </h3>-->
-<!--          </div>-->
-<!--        </div>-->
-
-<!--      </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!-- End youtube video-->
-
-<!-- Youtube video -->
-<!--<section class="hero is-small">-->
-<!--  <div class="hero-body">-->
-<!--    <div class="container">-->
-<!--      <h3 class="subtitle is-size-4-tablet has-background-info-light has-text-left pr-4 pl-4 pt-3 pb-3">-->
-<!--      We collect <i>normal</i> (synthetic, not weird) and <i>natural</i> (non-synthetic, not weird) images to investigate the main challenge in WHOOPS!. BLIP2 model performs well on <i>non-weird</i> cases but struggles on weird ones, indicating that weirdness is the primary challenge, not synthesis.-->
-<!--      </h3>-->
-<!--      <div class="columns is-centered has-text-centered">-->
-<!--          <div class="publication-video">-->
-<!--            <iframe src="https://nlphuji-wmtis-explorer-identify.hf.space" frameborder="0" width="850" height="450"></iframe>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--</section>-->
-
-
-<!-- Paper poster -->
-<!--<section class="hero is-small is-light">-->
-<!--  <div class="hero-body">-->
-<!--    <div class="container">-->
-<!--      <h2 class="title">Paper</h2>-->
-<!--      <iframe  src="static/pdfs/WHOOPS_paper.pdf" width="100%" height="550">-->
-<!--          </iframe>-->
-<!--        -->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </section>-->
-<!--End paper poster -->
-
-
-
-<!-- Paper abstract -->
-<section class="section hero  is-small">
+<section class="hero is-small">
     <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-<!--            <div class="publication-flipped">-->
-                <div class="content has-text-justified">
-                    <h3 class="subtitle is-size-3-tablet has-text-left pb-5">
-                        <p>
-                            <br>
-                            How can I access <b>MULTI</b> 🤔?<br>
-                        </p>
-                    </h3>
-                    <h3 class="subtitle is-size-4-tablet has-text-left pb-5">
-                        <p>
-                            Please visit our <a href="https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/">HuggingFace</a> page to access <b>MULTI</b> dataset. Our code is available on <a href="https://github.com/OpenDFM/MULTI-Benchmark">GitHub</a>. You can get detailed scores through <a href="./static/pages/submit.html">evaluation page</a>. If you want to add your model in our leaderboard, please fill in this <a href="./static/pages/submit.html">questionnaire</a>.<br>
-                        </p>
-                    </h3>
-                </div>
-<!--            </div>-->
+        <div class="hero-body">
+            <div class="item">
+                <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3 ">
+                    Data Annotation
+                </h2>
+
+                <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                    <p style="text-align:center;">
+                        <img src="static/images/pipeline.png" style="width: 100%; height: 100%"/>
+                        <br>
+                        Annotation Pipeline
+                    </p>
+
+                </h3>
+
+                <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                    <p style="text-align:center;">
+                        <img src="static/images/platform.png" style="width: 80%; height: 100%"/>
+                        <br>
+                        Annotation Platform
+                    </p>
+                </h3>
+
+                <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                    <p style="text-align:center;">
+                        <img src="static/images/data_anno.png" style="width: 80%; height: 100%"/>
+                        <br>
+                        Annotation Examples
+                    </p>
+                </h3>
+
+                <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                    <p style="text-align:center;">
+                        <img src="static/images/data_aug.png" style="width: 80%; height: 100%"/>
+                        <br>
+                        Post-procession Examples
+                    </p>
+                </h3>
+
+                <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                    <p style="text-align:center;">
+                        <img src="static/images/examples.png" style="width: 80%; height: 100%"/>
+                        <br>
+                        Question Examples
+                    </p>
+                </h3>
+            </div>
         </div>
     </div>
 </section>
 
+
+<section class="hero is-small">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <div class="item">
+                <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-yellow mr-0 pt-3 pb-3 ">
+                    Prompts </h2>
+                <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                    <p style="text-align:center;">
+                        <img src="static/images/prompts_all.png" style="width: 80%; height: 100%"/>
+                        <br>
+                        We provide a variety of prompts for different settings for models with different image input requirements.
+                    </p>
+                </h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- End image carousel -->
+
+
+<section class="section hero is-light">
+    <div class="columns is-centered m-6">
+        <div class="column is-full has-text-centered content">
+            <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
+            <div class="content has-text-justified">
+                <p>
+                    For most of the models we provide detailed categorised results on the <b>MULTI</b> and <b>MULTI-Elite</b> subsets. For o1-like models, we only provide results on the <b>MULTI-Elite</b> considering the cost.
+                </p>
+            </div>
+            <br>
+            <div class="model-labels-container">
+                <span class="leaderboard-label education-class">Classify by Education Level</span>
+                <span class="leaderboard-label image-class">Classify by Image Number</span>
+                <span class="leaderboard-label type-class">Classify by Question Type</span>
+
+            </div>
+            <br>
+            <div class="content has-text-centered">
+                <p>
+                    Click on Info to expand model details. Click on MULTI or MULTI-Elite to expand detailed results.
+                </p>
+            </div>
+            <div class="table-wrapper">
+                <div class="table-container">
+                    <table id="multi-table">
+                        <thead>
+                        <tr>
+                            <th class="info-details-cell clickable main-header" colspan="2">Info</th>
+                            <th class="multi-details-cell clickable main-header" colspan="1">MULTI</th>
+                            <th class="hard-details-cell clickable main-header" colspan="1">MULTI-Elite</th>
+                        </tr>
+                        <tr>
+                            <th class="sortable clickable info-overall sub-header" data-sort="string">Name</th>
+                            <th class="hidden sortable clickable info-details sub-header" data-sort="string">Creator</th>
+                            <th class="hidden sortable clickable info-details sub-header" data-sort="date">Date</th>
+                            <th class="hidden sortable clickable info-details sub-header" data-sort="string"># Paras</th>
+                            <th class="hidden sortable clickable info-details sub-header" data-sort="string">Version</th>
+                            <th class="hidden sortable clickable info-details sub-header" data-sort="string">Form</th>
+                            <th class="sortable clickable info-overall sub-header" data-sort="string">Modality</th>
+
+                            <th class="sortable clickable multi-overall sub-header" data-sort="number">Overall</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">JuH</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">SeH</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">Uni</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">Driv</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">AAT</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">NI</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">SI</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">MI</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">SA</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">MA</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">MA Acc.</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">FB</th>
+                            <th class="hidden multi-details sortable clickable sub-header" data-sort="number">OP</th>
+
+                            <th class="sortable clickable hard-overall sub-header" data-sort="number">Overall</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">JuH</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">SeH</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">Uni</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">Driv</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">AAT</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">NI</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">SI</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">MI</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">SA</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">MA</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">MA Acc.</th>
+                            <th class="hidden hard-details sortable clickable sub-header" data-sort="number">FB</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Table body will be populated dynamically -->
+                        </tbody>
+                    </table>
+                    <p class="test-desc">Results of different models on the MULTI and MULTI-Elite.
+                        <br>T: Pure-text LLM, One: Only one image in the first turn, SI: Single image in each turn, MI: Multiple images in one turn. The <u>underline</u> means the model must have an
+                        image as input.
+                        <br>JuH: Level of Junior High School, SeH: Level of Senior High School, Uni: Level of University, Driv: Chinese Driving Test, AAT: Chinese Administrative Aptitude Test.
+                        <br>NI: the question with pure text, SI: the question with a single image, MI: the question with multiple images.
+                        <br>SA: multiple-choice question with single correct answer, MA: multiple-choice question with multiple correct answers (MA Acc.: Accuracy of MA questions.), FB:
+                        fill-in-the-blank question (no more than 10 words), OP: open-ended writing question (more than 10 words).
+                        <br>The best-performing models are marked with 🥇(1st), 🥈(2nd), 🥉(3rd), and 🏅(Top 5). Several anchoring models (Marked with ⚓) were chosen to guide the selection process of MULTI-Elite, thus the performance of these models are relatively lower.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-small">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div id="results-carousel" class="carousel results-carousel">
+                <div class="item">
+                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+                        Cases and Error Analysis </h2>
+
+                    <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                        <p style="text-align:center;">
+                            <img src="static/images/case_1.png" style="width: 80%; height: 100%"/>
+                        </p>
+                        <p>
+
+                        </p>
+                    </h3>
+                </div>
+
+                <div class="item">
+                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+                        Cases and Error Analysis </h2>
+
+                    <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                        <p style="text-align:center;">
+                            <img src="static/images/case_2.png" style="width: 80%; height: 100%"/>
+                        </p>
+                        <p>
+
+                        </p>
+                    </h3>
+                </div>
+
+                <div class="item">
+                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+                        Cases and Error Analysis </h2>
+
+                    <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                        <p style="text-align:center;">
+                            <img src="static/images/case_3.png" style="width: 80%; height: 100%"/>
+                        </p>
+                        <p>
+
+                        </p>
+                    </h3>
+                </div>
+
+                <div class="item">
+                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+                        Cases and Error Analysis </h2>
+
+                    <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                        <p style="text-align:center;">
+                            <img src="static/images/case_4.png" style="width: 80%; height: 100%"/>
+                        </p>
+                        <p>
+
+                        </p>
+                    </h3>
+                </div>
+
+                <div class="item">
+                    <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
+                        Cases and Error Analysis </h2>
+
+                    <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                        <p style="text-align:center;">
+                            <img src="static/images/case_5.png" style="width: 80%; height: 100%"/>
+                        </p>
+                        <p>
+
+                        </p>
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-small">
+    <div class="container is-max-desktop">
+        <div class="hero-body">
+            <div class="item">
+                <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-yellow mr-0 pt-3 pb-3 ">
+                    Error Distribution </h2>
+
+                <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
+                    <p style="text-align:center;">
+                        <img src="static/images/error_types.png" style="width: 100%; height: 100%"/>
+
+                        <br>
+                        To explore the primary causes of errors, we analyzed 165 questions (one-third of MULTI-Elite), using predictions generated by the 8 models evaluated with CoT prompt setting.
+
+                    </p>
+                </h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Paper abstract -->
+<section class="section hero  is-small is-light">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <!--            <div class="publication-flipped">-->
+            <div class="content has-text-justified">
+                <h3 class="subtitle is-size-3-tablet has-text-left pb-5">
+                    <p>
+                        <br>
+                        How can I access <b>MULTI</b> 🤔?<br>
+                    </p>
+                </h3>
+                <h3 class="subtitle is-size-4-tablet has-text-left pb-5">
+                    <p>
+                        Please visit our <a href="https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/">HuggingFace</a> page to access <b>MULTI</b> dataset. Our code is available on <a
+                            href="https://github.com/OpenDFM/MULTI-Benchmark">GitHub</a>. You can get detailed scores through <a href="./static/pages/submit.html">evaluation page</a>. If you want to
+                        add your model in our leaderboard, please fill in this <a href="./static/pages/submit.html">questionnaire</a>.<br>
+                    </p>
+                </h3>
+            </div>
+            <!--            </div>-->
+        </div>
+    </div>
+</section>
 
 
 <!--BibTex citation -->
@@ -477,71 +587,22 @@
       eprint={2402.03173},
       archivePrefix={arXiv},
       primaryClass={cs.CL}
-}</code></pre></div>
+}</code></pre>
+    </div>
 </section>
 
-<!-- <div class="columns is-centered m-6">
-    <div class="column is-full has-text-centered content">
-      <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
-      <div class="content">
-        <table id="table1" class="js-sort-table">
-            <tr>
-            <td class="js-sort-number"><strong>Reset</strong></td>
-            <td class="js-sort-number"><strong>Test Overall</strong></td>
-            <td class="js-sort-number"><strong>Validation Overall</strong></td>
-            <td class="js-sort-number"><strong>Art & Design</strong></td>
-            <td class="js-sort-number"><strong>Business</strong></td>
-            <td class="js-sort-number"><strong>Science</strong></td>
-            <td class="js-sort-number"><strong>Health & Medicine</strong></td>
-            <td class="js-sort-number"><strong>Human & Social Sci.</strong></td>
-            <td class="js-sort-number"><strong>Tech & Eng.</strong></td>
-            </tr>
-            <tr style="background-color: #def9cb;">
-                <td style="text-align: left;">
-                    <b> GPT-4V </b>
-                </td>
-                <td> <b>43.7</b> </td>
-                <td> <b>42.5</b> </td>
 
-                <td> 61.0 </td>
-                <td> <b>36.3</b> </td>
-                <td> <b>40.9</b> </td>
-                <td> <b>46.8</b> </td>
-                <td> <b>44.2</b> </td>
-                <td> <b>41.5</b> </td>
-            </tr>
-            <tr style="background-color: #def9cb;">
-                <td style="text-align: left;">
-                        <b>Qwen-VL-Plus </b>
-                </td>
-                <td> 36.8 </td>
-                <td> 39.5 </td>
-
-                <td> 61.5 </td>
-                <td> 23.2 </td>
-                <td> 32.8 </td>
-                <td> 40.5 </td>
-                <td> 43.4 </td>
-                <td> 33.3 </td>
-            </tr>
-        </table>
-    </div>
-  </div>
-</div> -->
-
-<!--End BibTex citation -->
-
-<!--      eprint={2308.06595},-->
-<!--      archivePrefix={arXiv},-->
-<!--      primaryClass={cs.CL}-->
 <footer class="footer">
     <div class="container">
         <div class="columns is-centered">
             <div class="column is-8">
                 <div class="content">
-
-                    <p style="color:gray;font-size:9.9px;">
-                        This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+                    <p style="color:gray;font-size:14px;">
+                        This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>. It was adapted from
+                        <a href="https://mmmu-benchmark.github.io/">MMMU</a>, <a href="https://nerfies.github.io/">Nerfies</a> and <a href="https://mathvista.github.io/">MathVista</a>, licensed under
+                        a <a rel="license"
+                             href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                        Commons Attribution-ShareAlike 4.0 International License</a>.
                     </p>
                 </div>
             </div>
@@ -549,10 +610,6 @@
     </div>
 </footer>
 
-<!-- Statcounter tracking code -->
 
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-<!-- End of Statcounter Code -->
 </body>
 </html>
