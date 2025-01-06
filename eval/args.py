@@ -297,19 +297,20 @@ def parse_args_for_score():
 def parse_args_for_score_deploy():
     class Args:
         pass
-
+    
     # data setting
     args = Args()
+    
     args.label_file = None
-    args.prediction_dir = None
-    args.label_dir = None
     args.prediction_file = None
     args.score_file = None
+    args.reference_file = None
     args.reference_dir = None
 
     # score setting
     args.detail = False
     args.only_past = False
+    args.answer_position = 'start'
 
     # other functions
     args.model_list = False
