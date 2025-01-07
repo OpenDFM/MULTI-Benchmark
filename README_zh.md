@@ -4,7 +4,7 @@
 
 ![MULTI](./docs/static/images/overview.png)
 
-🌐 [网站](https://OpenDFM.github.io/MULTI-Benchmark/) | 📃 [论文](https://arxiv.org/abs/2402.03173/) | 🤗 [数据](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark) | 📮 [提交](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)
+🌐 [网站](https://OpenDFM.github.io/MULTI-Benchmark/) | 📃 [论文](https://arxiv.org/abs/2402.03173/) | 🤗 [数据](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark) | 🏆 [榜单](https://opendfm.github.io/MULTI-Benchmark/#leaderboard) | 📮 [提交](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)
 
 简体中文 | [English](./README.md) 
 
@@ -12,6 +12,8 @@
 
 ## 🔥 新闻
 
+- **[2025.1.7]** 我们更新了最新的[榜单](https://opendfm.github.io/MULTI-Benchmark/#leaderboard)。
+- **[2025.1.2]** 我们更新了MULTI到v1.3.1。
 - **[2024.3.4]** 我们发布了[评测页面](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)。
 - **[2024.2.19]** 我们发布了[HuggingFace页面](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/)。
 - **[2024.2.6]** 我们在arXiv上发布了我们的[论文](https://arxiv.org/abs/2402.03173/)。
@@ -20,7 +22,7 @@
 
 ## 📖 介绍
 
-在多模态大型语言模型（MLLMs）迅速进步的背景下，提出具有挑战性且符合现实场景的基准测试变得尤为重要，而现有的基准测试主要关注于理解简单的自然图像和短文本。在本文中，我们介绍了***MULTI***，作为一个前沿的基准测试，用于评测MLLMs在理解复杂的表格和图像、以及进行长文本推理的能力。**MULTI**提供多模态输入，并要求回答是精确的或开放式的，反映了现实生活中的考试风格。**MULTI**包括超过 18,000 个问题，挑战MLLMs进行多种任务，从公式推导到图像细节分析和跨模态推理。我们还引入了***MULTI-Elite***，一个精心挑选的包含500个问题的难题子集，以及***MULTI-Extend***，包含超过 4,500 个外部知识上下文。我们的评测显示了MLLMs进步的巨大潜力，GPT-4V在**MULTI**上的准确率达到了 **63.7%**，而其他MLLMs的得分介于 **28.5%** 和 **55.3%** 之间。**MULTI**不仅作为一个稳健的评测平台，也为专家级AI的发展指明了道路。
+在多模态大型语言模型（MLLMs）快速发展的背景下，如何与人类表现进行比较成为一个重要问题。现有的数据集通常涉及合成的数据或过于简单的任务，而一些模型已经超越了人类专家的基准。本文介绍了**MULTI**，一个源自真实考试问题的中文多模态数据集。**MULTI**包含超过18,000个精心挑选和优化的问题，评估模型在中国现实考试标准下的表现，涵盖了图像-文本理解、复杂推理和知识回忆等方面。此外，我们还引入了**MULTI-Elite**，一个由500个难题组成的精选子集，以及**MULTI-Extend**，一个包含超过4,500个外部知识上下文的数据集，用于测试模型的上下文学习能力。**MULTI**不仅作为一个稳健的评测平台，也为专家级AI的发展指明了道路。
 
 ## ⏬ 下载
 

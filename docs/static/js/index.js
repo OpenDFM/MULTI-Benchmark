@@ -41,10 +41,10 @@ function loadTableData() {
                 // tr.classList.add(row.info.type);
 
                 const nameCell = row.Url && row.Url.trim() !== '' ?
-                    `<a href="${row.Url}"><b>${row.Model}</b>🔗</a>` :
+                    `<a href="${row.Url}" target="_blank"><b>${row.Model}</b>🔗</a>` :
                     `<b>${row.Model}</b>`;
                 const versionCell = row.VersionUrl && row.VersionUrl.trim() !== '' ?
-                    `<a href="${row.VersionUrl}"><b>${row.Version}</b>🤗</a>` :
+                    `<a href="${row.VersionUrl}" target="_blank"><b>${row.Version}</b>🤗</a>` :
                     `<b>${row.Version}</b>`;
 
                 const safeGet = (obj, path, defaultValue = '-') => {
