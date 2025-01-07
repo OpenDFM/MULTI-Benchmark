@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function loadTableData() {
     console.log('Starting to load table data...');
-    fetch('./leaderboard.json')
+    fetch('https://raw.githubusercontent.com/OpenDFM/MULTI-Benchmark/refs/heads/main/docs/leaderboard.json')
         .then(response => {
             console.log('Response status:', response.status);
             if (!response.ok) {
