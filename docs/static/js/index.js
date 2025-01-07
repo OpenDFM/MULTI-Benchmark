@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function loadTableData() {
     console.log('Starting to load table data...');
-    fetch('https://raw.githubusercontent.com/OpenDFM/MULTI-Benchmark/refs/heads/main/docs/leaderboard.json')
+    fetch('./leaderboard.json')
         .then(response => {
             console.log('Response status:', response.status);
             if (!response.ok) {
@@ -101,7 +101,7 @@ function loadTableData() {
                 tbody.appendChild(tr);
             });
             setTimeout(adjustNameColumnWidth, 0);
-            initializeSorting();
+            // initializeSorting();
 
         })
         .catch(error => {
