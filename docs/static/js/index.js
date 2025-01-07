@@ -101,7 +101,7 @@ function loadTableData() {
                 tbody.appendChild(tr);
             });
             setTimeout(adjustNameColumnWidth, 0);
-            // initializeSorting();
+            initializeSorting();
 
         })
         .catch(error => {
@@ -129,7 +129,7 @@ function setupEventListeners() {
     var headers = document.querySelectorAll('#multi-table thead tr:last-child th.sortable');
     headers.forEach(function (header) {
         header.addEventListener('click', function () {
-            sortTable(this);
+            sortMultiTable(this);
         });
     });
 }
@@ -179,12 +179,12 @@ function resetTable() {
     document.querySelector('.hard-details-cell').setAttribute('colspan', '1');
 
     var multiOverallHeader = document.querySelector('#multi-table thead tr:last-child th.multi-overall');
-    sortTable(multiOverallHeader, true);
+    sortMultiTable(multiOverallHeader, true);
 
     setTimeout(adjustNameColumnWidth, 0);
 }
 
-function sortTable(header, forceDescending = false, maintainOrder = false) {
+function sortMultiTable(header, forceDescending = false, maintainOrder = false) {
     var table = document.getElementById('multi-table');
     var tbody = table.querySelector('tbody');
     var rows = Array.from(tbody.querySelectorAll('tr'));
@@ -245,7 +245,7 @@ function getCellValue(row, index) {
 function initializeSorting() {
     var multiOverallHeader = document.querySelector('#multi-table thead tr:last-child th.multi-overall');
     console.log('Initializing sorting...', multiOverallHeader);
-    sortTable(multiOverallHeader, true);
+    sortMultiTable(multiOverallHeader, true);
 }
 
 function adjustNameColumnWidth() {
