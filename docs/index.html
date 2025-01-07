@@ -55,46 +55,46 @@
 <body>
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <!-- 左侧 GitHub 主页按钮 -->
-    <a href="https://github.com/OpenDFM" class="navbar-item">
-      <strong><i class="fab fa-github"></i> X-LANCE</strong>
-    </a>
-    <a href="https://github.com/OpenDFM" class="navbar-item">
-      <strong><i class="fab fa-github"></i> OpenDFM</strong>
-    </a>
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <div class="navbar-item has-dropdown is-hoverable">
-        <!-- 中间的“More Research”下拉菜单 -->
-        <a class="navbar-link">
-          More Research
+    <div class="navbar-brand">
+        <!-- 左侧 GitHub 主页按钮 -->
+        <a href="https://github.com/OpenDFM" class="navbar-item">
+            <strong><i class="fab fa-github"></i> X-LANCE</strong>
         </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://github.com/OpenDFM/MobA">
-            🎮MobA
-          </a>
-        </div>
-      </div>
+        <a href="https://github.com/OpenDFM" class="navbar-item">
+            <strong><i class="fab fa-github"></i> OpenDFM</strong>
+        </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
     </div>
 
-    <!-- 右侧 Hugging Face 主页按钮 -->
-    <div class="navbar-end">
-      <a href="https://huggingface.co/OpenDFM" class="navbar-item">
-        <strong>OpenDFM🤗</strong>
-      </a>
-        <a href="https://huggingface.co/OpenDFM" class="navbar-item">
-        <strong>X-LANCE🤗</strong>
-      </a>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <div class="navbar-item has-dropdown is-hoverable">
+                <!-- 中间的“More Research”下拉菜单 -->
+                <a class="navbar-link">
+                    More Research
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="https://github.com/OpenDFM/MobA">
+                        🎮MobA
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 右侧 Hugging Face 主页按钮 -->
+        <div class="navbar-end">
+            <a href="https://huggingface.co/OpenDFM" class="navbar-item">
+                <strong>OpenDFM🤗</strong>
+            </a>
+            <a href="https://huggingface.co/OpenDFM" class="navbar-item">
+                <strong>X-LANCE🤗</strong>
+            </a>
+        </div>
     </div>
-  </div>
 </nav>
 
 
@@ -232,13 +232,13 @@
                 <img src="static/images/overview.png"/>
 
                 <br><br>
-                Rapid progress in multimodal large language models (MLLMs) highlights the need to introduce challenging yet realistic benchmarks to the academic community, while existing benchmarks
-                primarily focus on understanding simple natural images and short context. In this paper, we present <i><b>MULTI</b></i>, as a cutting-edge benchmark for evaluating MLLMs on
-                understanding complex tables and images, and reasoning with long context. <b>MULTI</b> provides multimodal inputs and requires responses that are either precise or open-ended,
-                reflecting real-life examination styles. <b>MULTI</b> includes over 18,000 questions and challenges MLLMs with a variety of tasks, ranging from formula derivation to image detail
-                analysis and cross-modality reasoning. We also introduce <i><b>MULTI-Elite</b></i>, a 500-question selected hard subset, and <i><b>MULTI-Extend</b></i>, with more than 4,500 external
-                knowledge context pieces. Our evaluation indicates significant potential for MLLM advancement, with GPT-4V achieving a <b>63.7%</b> accuracy rate on <b>MULTI</b>, in contrast to other
-                MLLMs scoring between <b>28.5%</b> and <b>55.3%</b>. <b>MULTI</b> serves not only as a robust evaluation platform but also paves the way for the development of expert-level AI.
+                The rapid development of multimodal large language models (MLLMs) raises the question of how they compare to human performance. While existing datasets often feature synthetic or
+                overly simplistic tasks, some models have already surpassed human expert baselines. In this paper, we present <b>MULTI</b>, a Chinese multimodal dataset derived from authentic examination
+                questions. Comprising over 18,000 carefully selected and refined questions, <b>MULTI</b> evaluates models using real-world examination standards, encompassing image-text comprehension,
+                complex reasoning, and knowledge recall. Additionally, We also introduce <b>MULTI-Elite</b>, a 500-question selected hard subset, and <b>MULTI-Extend</b> with more than 4,500 external knowledge
+                context pieces for testing in-context learning capabilities. Our evaluation highlights substantial room for MLLM advancement, with Qwen2-VL-72B achieving a <b>76.9%</b> accuracy on <b>MULTI</b> and
+                <b>53.1%</b> on <b>MULTI-Elite</b> leading 25 evaluated models, compared to human expert baselines of <b>86.1%</b> and <b>73.1%</b>. <b>MULTI</b> serves not only as a robust evaluation platform but also paves the way
+                for the development of expert-level AI.
             </p>
         </h3>
     </div>
@@ -350,7 +350,8 @@
             <h2 class="title is-3" id="leaderboard">Leaderboard</h2>
             <div class="content has-text-centered">
                 <p>
-                    For most of the models we provide detailed categorised results on the <b>MULTI</b> and <b>MULTI-Elite</b> subsets. For o1-like models, we only provide results on the <b>MULTI-Elite</b> considering the cost.
+                    For most of the models we provide detailed categorised results on the <b>MULTI</b> and <b>MULTI-Elite</b> subsets. For o1-like models, we only provide results on the
+                    <b>MULTI-Elite</b> considering the cost.
                 </p>
             </div>
             <br>
@@ -425,7 +426,8 @@
                         <br>NI: the question with pure text, SI: the question with a single image, MI: the question with multiple images.
                         <br>SA: multiple-choice question with single correct answer, MA: multiple-choice question with multiple correct answers (MA Acc.: Accuracy of MA questions.), FB:
                         fill-in-the-blank question (no more than 10 words), OP: open-ended writing question (more than 10 words).
-                        <br>The best-performing models are marked with 🥇(1st), 🥈(2nd), 🥉(3rd), and 🏅(Top 5). Several anchoring models (Marked with ⚓) were chosen to guide the selection process of MULTI-Elite, thus the performance of these models are relatively lower.
+                        <br>The best-performing models are marked with 🥇(1st), 🥈(2nd), 🥉(3rd), and 🏅(Top 5). Several anchoring models (Marked with ⚓) were chosen to guide the selection process of
+                        MULTI-Elite, thus the performance of these models are relatively lower.
                     </p>
                 </div>
             </div>
@@ -533,21 +535,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!-- Paper abstract -->
