@@ -1835,6 +1835,277 @@
                     "FB": 5.0
                 }
             }
+        },
+        {
+            "Model": "Qwen2.5-VL-7B",
+            "Creator": "Alibaba",
+            "Version": "Qwen2.5-VL-7B-Instruct",
+            "Url": "https://github.com/QwenLM/Qwen2.5-VL",
+            "VersionUrl": "https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct",
+            "Date": "2025-01-26",
+            "# Paras": "7B",
+            "Form": "Weight",
+            "Modality": "MI",
+            "MULTI": {
+                "Overall": 73,
+                "Education": {
+                    "JuH": 70.5,
+                    "SeH": 67.9,
+                    "Uni": 48.5,
+                    "Driv": 85.9,
+                    "AAT": 30.7
+                },
+                "Image": {
+                    "NI": 79.6,
+                    "SI": 62.9,
+                    "MI": 48.2
+                },
+                "Type": {
+                    "SA": 78.1,
+                    "MA": 74.7,
+                    "MAAcc": 67,
+                    "FB": 54.1,
+                    "OP": 22
+                }
+            },
+            "MULTI-Elite": {
+                "Overall": 46.2,
+                "Education": {
+                    "JuH": 46.0,
+                    "SeH": 46.3,
+                    "Uni": 35.3,
+                    "Driv": 68.3,
+                    "AAT": 18.2
+                },
+                "Image": {
+                    "NI": 43.9,
+                    "SI": 46.0,
+                    "MI": 56.2
+                },
+                "Type": {
+                    "SA": 48.8,
+                    "MA": 49.0,
+                    "MAAcc": 41,
+                    "FB": 33.3
+                }
+            }
+        },
+        {
+            "Model": "Qwen2.5-VL-72B",
+            "Creator": "Alibaba",
+            "Version": "Qwen2.5-VL-72B-Instruct",
+            "Url": "https://github.com/QwenLM/Qwen2.5-VL",
+            "VersionUrl": "https://huggingface.co/Qwen/Qwen2.5-VL-72B-Instruct",
+            "Date": "2025-01-26",
+            "# Paras": "72B",
+            "Form": "Weight",
+            "Modality": "MI",
+            "MULTI": {
+                "Overall": 81.9,
+                "Education": {
+                    "JuH": 79.9,
+                    "SeH": 79.4,
+                    "Uni": 70.5,
+                    "Driv": 92.8,
+                    "AAT": 32.7
+                },
+                "Image": {
+                    "NI": 88.3,
+                    "SI": 72.2,
+                    "MI": 57.1
+                },
+                "Type": {
+                    "SA": 84.6,
+                    "MA": 87.5,
+                    "MAAcc": 81,
+                    "FB": 69.9,
+                    "OP": 25.5
+                }
+            },
+            "MULTI-Elite": {
+                "Overall": 61.9,
+                "Education": {
+                    "JuH": 61.9,
+                    "SeH": 66.3,
+                    "Uni": 35.3,
+                    "Driv": 78.3,
+                    "AAT": 9.1
+                },
+                "Image": {
+                    "NI": 55.3,
+                    "SI": 65.2,
+                    "MI": 64.1
+                },
+                "Type": {
+                    "SA": 61.8,
+                    "MA": 69.0,
+                    "MAAcc": 60,
+                    "FB": 46.7
+                }
+            }
+        },
+        {
+            "Model": "Qwen2.5-VL-3B",
+            "Creator": "Alibaba",
+            "Version": "Qwen2.5-VL-3B-Instruct",
+            "Url": "https://github.com/QwenLM/Qwen2.5-VL",
+            "VersionUrl": "https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct",
+            "Date": "2025-01-26",
+            "# Paras": "3B",
+            "Form": "Weight",
+            "Modality": "MI",
+            "MULTI": {
+                "Overall": 70.7,
+                "Education": {
+                    "JuH": 68.7,
+                    "SeH": 63.9,
+                    "Uni": 47.2,
+                    "Driv": 84.4,
+                    "AAT": 30.2
+                },
+                "Image": {
+                    "NI": 78.8,
+                    "SI": 58.6,
+                    "MI": 35.9
+                },
+                "Type": {
+                    "SA": 75.3,
+                    "MA": 74.1,
+                    "MAAcc": 64.7,
+                    "FB": 49.4,
+                    "OP": 26.2
+                }
+            },
+            "MULTI-Elite": {
+                "Overall": 45.0,
+                "Education": {
+                    "JuH": 43.6,
+                    "SeH": 45.7,
+                    "Uni": 20.6,
+                    "Driv": 65.0,
+                    "AAT": 33.3
+                },
+                "Image": {
+                    "NI": 45.2,
+                    "SI": 45.3,
+                    "MI": 42.2
+                },
+                "Type": {
+                    "SA": 46.9,
+                    "MA": 52.5,
+                    "MAAcc": 42.9,
+                    "FB": 23.3
+                }
+            }
+        },
+        {
+            "Model": "Janus-Pro-1B",
+            "Creator": "DeepSeek",
+            "Version": "Janus-Pro-1B",
+            "Url": "https://github.com/deepseek-ai/Janus",
+            "VersionUrl": "https://huggingface.co/deepseek-ai/Janus-Pro-1B",
+            "Date": "2025-01-27",
+            "# Paras": "1B",
+            "Form": "Weight",
+            "Modality": "<u>MI</u>",
+            "MULTI": {
+                "Overall": 32.3,
+                "Education": {
+                    "JuH": 23,
+                    "SeH": 24.8,
+                    "Uni": 19.9,
+                    "Driv": 44.4,
+                    "AAT": 24.2
+                },
+                "Image": {
+                    "NI": 35.1,
+                    "SI": 28.1,
+                    "MI": 22.4
+                },
+                "Type": {
+                    "SA": 40.8,
+                    "MA": 26.7,
+                    "MAAcc": 0.7,
+                    "FB": 1.9,
+                    "OP": 11.4
+                }
+            },
+            "MULTI-Elite": {
+                "Overall": 17.4,
+                "Education": {
+                    "JuH": 12.9,
+                    "SeH": 16.8,
+                    "Uni": 17.6,
+                    "Driv": 30.0,
+                    "AAT": 27.3
+                },
+                "Image": {
+                    "NI": 15.8,
+                    "SI": 17.3,
+                    "MI": 23.4
+                },
+                "Type": {
+                    "SA": 18.9,
+                    "MA": 21.8,
+                    "MAAcc": 0,
+                    "FB": 3.3
+                }
+            }
+        },
+        {
+            "Model": "Janus-Pro-7B",
+            "Creator": "DeepSeek",
+            "Version": "Janus-Pro-7B",
+            "Url": "https://github.com/deepseek-ai/Janus",
+            "VersionUrl": "https://huggingface.co/deepseek-ai/Janus-Pro-7B",
+            "Date": "2025-01-27",
+            "# Paras": "7B",
+            "Form": "Weight",
+            "Modality": "<u>MI</u>",
+            "MULTI": {
+                "Overall": 37.5,
+                "Education": {
+                    "JuH": 29.9,
+                    "SeH": 31.2,
+                    "Uni": 20.3,
+                    "Driv": 49,
+                    "AAT": 24.3
+                },
+                "Image": {
+                    "NI": 41.3,
+                    "SI": 31.9,
+                    "MI": 21.1
+                },
+                "Type": {
+                    "SA": 47.6,
+                    "MA": 29.6,
+                    "MAAcc": 0.5,
+                    "FB": 4.4,
+                    "OP": 12.4
+                }
+            },
+            "MULTI-Elite": {
+                "Overall": 18.8,
+                "Education": {
+                    "JuH": 14.4,
+                    "SeH": 17.1,
+                    "Uni": 26.5,
+                    "Driv": 35.0,
+                    "AAT": 27.3
+                },
+                "Image": {
+                    "NI": 20.2,
+                    "SI": 18.5,
+                    "MI": 15.6
+                },
+                "Type": {
+                    "SA": 23.9,
+                    "MA": 21.2,
+                    "MAAcc": 0,
+                    "FB": 0.0
+                }
+            }
         }
+
     ]
 }

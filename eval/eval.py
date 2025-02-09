@@ -162,7 +162,7 @@ def check_args(args):
     if args.model in ["gpt-4v", "geminivision"] and args.input_type == 2 and args.in_turn:
         print("Warning: do not support multi-turn input since it's quite expensive and there is rate limit. Forced to set --in_turn to False.")
         args.in_turn = False
-    if args.model in ["viscpm"] and not args.blank_image:
+    if args.model in ["viscpm","deepseekvl2"] and not args.blank_image:
         print("Warning: viscpm model must have a image as input. Forced to set --black_image to True.")
         args.blank_image = True
     if args.input_type == 1 and args.caption_file is None:

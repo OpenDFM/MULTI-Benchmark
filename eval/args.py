@@ -112,6 +112,13 @@ model_list = {
         "evaluator": "Qwen2VLEvaluator",
         "split_sys": True,
     },
+    "qwen2.5-vl": {
+        "model_type": "local",
+        "support_input": [0, 1, 2, 3],
+        "executor": "qwen25vl",
+        "evaluator": "Qwen2_5VLEvaluator",
+        "split_sys": True,
+    },
     "qwen2": {
         "model_type": "local",
         "support_input": [0, 1],
@@ -181,6 +188,20 @@ model_list = {
         "executor": "human",
         "evaluator": "HumanEvaluator",
         "split_sys": True,
+    },
+    "deepseek-vl2": {
+        "model_type": "local",
+        "support_input": [0, 1, 2, 3],
+        "executor": "deepseekvl2",
+        "evaluator": "DeepSeekVL2Evaluator",
+        "split_sys": False,
+    },
+    "deepseek-janus": {
+        "model_type": "local",
+        "support_input": [0, 1, 2, 3],
+        "executor": "deepseekjanus",
+        "evaluator": "DeepSeekJanusEvaluator",
+        "split_sys": False,
     },
 }
 

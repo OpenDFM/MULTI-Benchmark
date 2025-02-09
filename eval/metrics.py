@@ -463,9 +463,14 @@ def generate_summary(args, result):
     summary_file.write('\n\n| Type | Correct  | Score | Ratio |\n')
     summary_file.write('| ---- | ---------- | --------- | ------ |\n')
     for type in summary_data_by_type:
-        if summary_data_by_type[type]["total"] > 0:
-            summary_file.write(
+        if summary_data_by_type[type]["total"] > 0 :
+            if type!="MA":
+                summary_file.write(
                 f'| {type} | {summary_data_by_type[type]["correct"]}/{summary_data_by_type[type]["count"]} | {summary_data_by_type[type]["score"]:.3f}/{summary_data_by_type[type]["total"]} | {summary_data_by_type[type]["score"] / summary_data_by_type[type]["total"] * 100:.1f} |\n')
+            else:
+                summary_file.write(
+                    f'| {type} | {summary_data_by_type[type]["correct"]}/{summary_data_by_type[type]["count"]} | {summary_data_by_type[type]["score"]:.3f}/{summary_data_by_type[type]["total"]} | {summary_data_by_type[type]["score"] / summary_data_by_type[type]["total"] * 100:.1f} (Acc. {summary_data_by_type[type]["correct"]/summary_data_by_type[type]["count"] * 100:.1f}) |\n')
+                
 
     # draw bar chart, each bar has a height of the total score in green, and a part of the bar is in red with score, and a line to indicate the correct rate in blue
     plt.figure(figsize=(10, 6))
@@ -518,6 +523,7 @@ def main(args):
 
 
 if __name__ == "__main__":
+    print("Start to calculate the score")
     args = parse_args_for_score()
     args.prediction_file=os.path.normpath(args.prediction_file).replace("\\","/")
     main(args)
