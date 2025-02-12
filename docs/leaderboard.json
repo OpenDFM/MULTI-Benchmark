@@ -2105,6 +2105,168 @@
                     "FB": 0.0
                 }
             }
+        },
+        {
+            "Model": "DeepSeek-VL2-tiny",
+            "Creator": "DeepSeek",
+            "Version": "deepseek-vl2-tiny",
+            "Url": "https://github.com/deepseek-ai/DeepSeek-VL2",
+            "VersionUrl": "https://huggingface.co/deepseek-ai/deepseek-vl2-tiny",
+            "Date": "2024-12-13",
+            "# Paras": "3B(1B)",
+            "Form": "Weight",
+            "Modality": "<u>MI</u>",
+            "MULTI": {
+                "Overall": 27.5,
+                "Education": {
+                    "JuH": 18.3,
+                    "SeH": 22.9,
+                    "Uni": 20,
+                    "Driv": 37.5,
+                    "AAT": 16.4
+                },
+                "Image": {
+                    "NI": 26.3,
+                    "SI": 30,
+                    "MI": 16.1
+                },
+                "Type": {
+                    "SA": 34.8,
+                    "MA": 23.2,
+                    "MAAcc": 0.8,
+                    "FB": 1.5,
+                    "OP": 4.9
+                }
+            },
+            "MULTI-Elite": {
+                "Overall": 18.5,
+                "Education": {
+                    "JuH": 16.8,
+                    "SeH": 16.6,
+                    "Uni": 11.8,
+                    "Driv": 38.3,
+                    "AAT": 21.2
+                },
+                "Image": {
+                    "NI": 14.9,
+                    "SI": 21.7,
+                    "MI": 10.9
+                },
+                "Type": {
+                    "SA": 22.4,
+                    "MA": 21.5,
+                    "MAAcc": 2.9,
+                    "FB": 1.7
+                }
+            }
+        },
+        {
+            "Model": "DeepSeek-VL2-small",
+            "Creator": "DeepSeek",
+            "Version": "deepseek-vl2-small",
+            "Url": "https://github.com/deepseek-ai/DeepSeek-VL2",
+            "VersionUrl": "https://huggingface.co/deepseek-ai/deepseek-vl2-small",
+            "Date": "2024-12-13",
+            "# Paras": "16B(2.8B)",
+            "Form": "Weight",
+            "Modality": "<u>MI</u>",
+            "MULTI": {
+                "Overall": 34.6,
+                "Education": {
+                    "JuH": 25.6,
+                    "SeH": 28.2,
+                    "Uni": 24.5,
+                    "Driv": 45.2,
+                    "AAT": 25.1
+                },
+                "Image": {
+                    "NI": 36.8,
+                    "SI": 31.3,
+                    "MI": 23.2
+                },
+                "Type": {
+                    "SA": 43.8,
+                    "MA": 28,
+                    "MAAcc": 2.4,
+                    "FB": 2.2,
+                    "OP": 11.3
+                }
+            },
+            "MULTI-Elite": {
+                "Overall": 18.9,
+                "Education": {
+                    "JuH": 16.3,
+                    "SeH": 19.3,
+                    "Uni": 14.7,
+                    "Driv": 31.7,
+                    "AAT": 12.1
+                },
+                "Image": {
+                    "NI": 19.3,
+                    "SI": 19.5,
+                    "MI": 14.1
+                },
+                "Type": {
+                    "SA": 20.8,
+                    "MA": 23.8,
+                    "MAAcc": 4.8,
+                    "FB": 3.3
+                }
+            }
+        },
+        {
+            "Model": "DeepSeek-VL2",
+            "Creator": "DeepSeek",
+            "Version": "deepseek-vl2",
+            "Url": "https://github.com/deepseek-ai/DeepSeek-VL2",
+            "VersionUrl": "https://huggingface.co/deepseek-ai/deepseek-vl2",
+            "Date": "2024-12-13",
+            "# Paras": "27B(4.5B)",
+            "Form": "Weight",
+            "Modality": "<u>MI</u>",
+            "MULTI": {
+                "Overall": 43.7,
+                "Education": {
+                    "JuH": 22,
+                    "SeH": 38.8,
+                    "Uni": 24.9,
+                    "Driv": 61.1,
+                    "AAT": 28.5
+                },
+                "Image": {
+                    "NI": 45.5,
+                    "SI": 41.2,
+                    "MI": 25.3
+                },
+                "Type": {
+                    "SA": 56.3,
+                    "MA": 32.6,
+                    "MAAcc": 5.4,
+                    "FB": 5.2,
+                    "OP": 12.3
+                }
+            },
+            "MULTI-Elite": {
+                "Overall": 19.6,
+                "Education": {
+                    "JuH": 15.8,
+                    "SeH": 19.3,
+                    "Uni": 17.6,
+                    "Driv": 40.0,
+                    "AAT": 12.1
+                },
+                "Image": {
+                    "NI": 15.8,
+                    "SI": 22.4,
+                    "MI": 15.6
+                },
+                "Type": {
+                    "SA": 28.3,
+                    "MA": 17.6,
+                    "MAAcc": 1.9,
+                    "FB": 0.8
+                }
+            }
         }
 
     ]

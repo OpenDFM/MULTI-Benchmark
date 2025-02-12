@@ -9,6 +9,36 @@ from deepseek_vl2.utils.io import load_pil_images
 
 class DeepSeekVL2Evaluator:
     def __init__(self, model_dir="deepseek-ai/deepseek-vl2-tiny", max_tokens=2000, device_map="auto", use_flash_attention=True):
+        
+        def split_model(model_name):
+            model_name = model_name.split("/")[-1]
+            device_map = {}
+            model_splits = {
+                'deepseek-vl2-small': [6,7,7,7],
+                'deepseek-vl2': [6,8,8,8],
+            }
+            if model_name not in model_splits:
+                print(f"Model {model_name} not found in the splits, using default")
+                return "auto"
+            else:
+                print(f"Splitting model {model_name} into {model_splits[model_name]} layers per GPU")
+            num_layers_per_gpu = model_splits[model_name]
+            num_layers = sum(num_layers_per_gpu)
+            layer_cnt = 0
+            for i, num_layer in enumerate(num_layers_per_gpu):
+                for j in range(num_layer):
+                    device_map[f'language.model.layers.{layer_cnt}'] = i
+                    layer_cnt += 1
+            device_map['vision'] = 0
+            device_map['projector'] = 0
+            device_map['image_newline'] = 0
+            device_map['view_seperator'] = 0
+            device_map['language.model.embed_tokens'] = 0
+            device_map['language.model.norm'] = 0
+            device_map['language.lm_head'] = 0
+            device_map[f'language.model.layers.{num_layers - 1}'] = 0
+            return device_map
+        
         self.model_dir = model_dir
         self.sample_params = {
             "max_new_tokens": max_tokens,
@@ -19,8 +49,8 @@ class DeepSeekVL2Evaluator:
         self.processor = vl_chat_processor
         self.tokenizer = vl_chat_processor.tokenizer
         
-        vl_gpt: DeepseekVLV2ForCausalLM = AutoModelForCausalLM.from_pretrained(self.model_dir, trust_remote_code=True)
-        self.model = vl_gpt.to(torch.bfloat16).cuda().eval()
+        vl_gpt: DeepseekVLV2ForCausalLM = AutoModelForCausalLM.from_pretrained(self.model_dir, trust_remote_code=True,torch_dtype=torch.bfloat16, device_map=split_model(model_dir))
+        self.model = vl_gpt.eval()
     
     def prepare_inputs(self, question):
         image_list = question.get("image_list")
