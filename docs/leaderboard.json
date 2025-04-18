@@ -1,2273 +1,2434 @@
 {
-    "data": [
-        {
-            "Model": "random",
-            "Creator": "-",
-            "Version": "-",
-            "Url":"",
-            "VersionUrl":"",
-            "Date": "-",
-            "# Paras": "-",
-            "Form": "-",
-            "Modality": "-",
-            "MULTI": {
-                "Overall": 24.8,
-                "Education": {
-                    "JuH": 14.0,
-                    "SeH": 17.2,
-                    "Uni": 20.4,
-                    "Driv": 35.8,
-                    "AAT": 24.6
-                },
-                "Image": {
-                    "NI": 27.2,
-                    "SI": 21.0,
-                    "MI": 16.9
-                },
-                "Type": {
-                    "SA": 30.8,
-                    "MA": 22.5,
-                    "MAAcc": "-",
-                    "FB": 0.9,
-                    "OP": 3.4
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 17.7,
-                "Education": {
-                    "JuH": 10.8,
-                    "SeH": 16.5,
-                    "Uni": 17.3,
-                    "Driv": 32.7,
-                    "AAT": 45.8
-                },
-                "Image": {
-                    "NI": 14.6,
-                    "SI": 19.7,
-                    "MI": 16.0
-                },
-                "Type": {
-                    "SA": 28.0,
-                    "MA": 13.3,
-                    "MAAcc": "-",
-                    "FB": 0.5
-                }
-            }
+  "data": [
+    {
+      "Model": "random",
+      "Creator": "-",
+      "Version": "-",
+      "Url": "",
+      "VersionUrl": "",
+      "Date": "-",
+      "# Paras": "-",
+      "Form": "-",
+      "Modality": "-",
+      "MULTI": {
+        "Overall": 24.8,
+        "Education": {
+          "JuH": 14.0,
+          "SeH": 17.2,
+          "Uni": 20.4,
+          "Driv": 35.8,
+          "AAT": 24.6
         },
-        {
-            "Model": "most",
-            "Creator": "-",
-            "Version": "-",
-            "Url":"",
-            "VersionUrl":"",
-            "Date": "-",
-            "# Paras": "-",
-            "Form": "-",
-            "Modality": "-",
-            "MULTI": {
-                "Overall": 28.4,
-                "Education": {
-                    "JuH": 14.2,
-                    "SeH": 19.7,
-                    "Uni": 20.5,
-                    "Driv": 42.8,
-                    "AAT": 23.3
-                },
-                "Image": {
-                    "NI": 32.5,
-                    "SI": 22.0,
-                    "MI": 17.7
-                },
-                "Type": {
-                    "SA": 30.7,
-                    "MA": 36.3,
-                    "MAAcc": 21,
-                    "FB": 1.6,
-                    "OP": 3.4
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 24.5,
-                "Education": {
-                    "JuH": 14.5,
-                    "SeH": 25.6,
-                    "Uni": 23.5,
-                    "Driv": 45.0,
-                    "AAT": 36.4
-                },
-                "Image": {
-                    "NI": 22.2,
-                    "SI": 26.4,
-                    "MI": 20.3
-                },
-                "Type": {
-                    "SA": 26.4,
-                    "MA": 33.2,
-                    "MAAcc": 16.3,
-                    "FB": 1.6
-                }
-            }
+        "Image": {
+          "NI": 27.2,
+          "SI": 21.0,
+          "MI": 16.9
         },
-        {
-            "Model": "expert",
-            "Creator": "-",
-            "Version": "-",
-            "Url":"",
-            "VersionUrl":"",
-            "Date": "-",
-            "# Paras": "-",
-            "Form": "-",
-            "Modality": "-",
-            "MULTI": {
-                "Overall": 86.1,
-                "Education": {
-                    "JuH": 87.8,
-                    "SeH": 82.9,
-                    "Uni": 88.2,
-                    "Driv": 91.7,
-                    "AAT": 76.7
-                },
-                "Image": {
-                    "NI": 86.6,
-                    "SI": 85.3,
-                    "MI": 81.8
-                },
-                "Type": {
-                    "SA": 91.4,
-                    "MA": 81.1,
-                    "MAAcc": 70.3,
-                    "FB": 83.4,
-                    "OP": 46.4
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 73.1,
-                "Education": {
-                    "JuH": 77.3,
-                    "SeH": 68.4,
-                    "Uni": 79.4,
-                    "Driv": 85.85,
-                    "AAT": 71.25
-                },
-                "Image": {
-                    "NI": 69.5,
-                    "SI": 76.2,
-                    "MI": 66.1
-                },
-                "Type": {
-                    "SA": 78.4,
-                    "MA": 67.8,
-                    "MAAcc": 54.8,
-                    "FB": 70.8
-                }
-            }
-        },
-        {
-            "Model": "VisualGLM",
-            "Creator": "THU",
-            "Version": "visualglm-6b",
-            "Url":"https://github.com/THUDM/VisualGLM-6B",
-            "VersionUrl":"https://huggingface.co/THUDM/visualglm-6b",
-            "Date": "2023-05-17",
-            "# Paras": "6B",
-            "Form": "Weight",
-            "Modality": "SI",
-            "MULTI": {
-                "Overall": 31.1,
-                "Education": {
-                    "JuH": 22.2,
-                    "SeH": 25.6,
-                    "Uni": 23.6,
-                    "Driv": 40.9,
-                    "AAT": 24.9
-                },
-                "Image": {
-                    "NI": 35.1,
-                    "SI": 25.2,
-                    "MI": 9.7
-                },
-                "Type": {
-                    "SA": 37.9,
-                    "MA": 30.2,
-                    "MAAcc": 1.9,
-                    "FB": 0.7,
-                    "OP": 3.6
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 12.8,
-                "Education": {
-                    "JuH": 15.0,
-                    "SeH": 13.3,
-                    "Uni": 8.8,
-                    "Driv": 11.7,
-                    "AAT": 0.0
-                },
-                "Image": {
-                    "NI": 16.2,
-                    "SI": 11.7,
-                    "MI": 6.8
-                },
-                "Type": {
-                    "SA": 14.5,
-                    "MA": 16.6,
-                    "MAAcc": 0,
-                    "FB": 0.8
-                }
-            }
-        },
-        {
-            "Model": "VisCPM",
-            "Creator": "OpenBMB",
-            "Version": "VisCPM-Chat",
-            "Url":"https://github.com/OpenBMB/VisCPM",
-            "VersionUrl":"https://huggingface.co/openbmb/VisCPM-Chat",
-            "Date": "2023-06-28",
-            "# Paras": "10B",
-            "Form": "Weight",
-            "Modality": "<u>SI</u>",
-            "MULTI": {
-                "Overall": 33.4,
-                "Education": {
-                    "JuH": 25.2,
-                    "SeH": 28.1,
-                    "Uni": 23.0,
-                    "Driv": 43.4,
-                    "AAT": 23.7
-                },
-                "Image": {
-                    "NI": 36.8,
-                    "SI": 28.4,
-                    "MI": 16.6
-                },
-                "Type": {
-                    "SA": 41.7,
-                    "MA": 27.7,
-                    "MAAcc": 0,
-                    "FB": 3.8,
-                    "OP": 14.1
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 13.0,
-                "Education": {
-                    "JuH": 9.5,
-                    "SeH": 14.9,
-                    "Uni": 20.6,
-                    "Driv": 15.0,
-                    "AAT": 0.0
-                },
-                "Image": {
-                    "NI": 10.3,
-                    "SI": 14.2,
-                    "MI": 15.3
-                },
-                "Type": {
-                    "SA": 10.4,
-                    "MA": 22.0,
-                    "MAAcc": 0,
-                    "FB": 0.8
-                }
-            }
-        },
-        {
-            "Model": "Chinese-LLaVA",
-            "Creator": "LinkSoul-AI",
-            "Version": "Chinese-LLaVA-Cllama2",
-            "Url":"https://github.com/LinkSoul-AI/Chinese-LLaVA",
-            "VersionUrl":"https://huggingface.co/LinkSoul/Chinese-LLaVA-Cllama2",
-            "Date": "2023-06-30",
-            "# Paras": "7B",
-            "Form": "Weight",
-            "Modality": "One",
-            "MULTI": {
-                "Overall": 28.5,
-                "Education": {
-                    "JuH": 21.1,
-                    "SeH": 25.4,
-                    "Uni": 20.7,
-                    "Driv": 35.8,
-                    "AAT": 21.8
-                },
-                "Image": {
-                    "NI": 32.3,
-                    "SI": 22.6,
-                    "MI": 17.8
-                },
-                "Type": {
-                    "SA": 34.5,
-                    "MA": 26.9,
-                    "MAAcc": 3.9,
-                    "FB": 2.4,
-                    "OP": 8.4
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 12.3,
-                "Education": {
-                    "JuH": "-",
-                    "SeH": "-",
-                    "Uni": "-",
-                    "Driv": "-",
-                    "AAT": "-"
-                },
-                "Image": {
-                    "NI": 13.7,
-                    "SI": 11.0,
-                    "MI": 15.3
-                },
-                "Type": {
-                    "SA": 15.7,
-                    "MA": 13.1,
-                    "MAAcc": 1,
-                    "FB": 1.6
-                }
-            }
-        },
-        {
-            "Model": "Qwen-VL",
-            "Creator": "Alibaba",
-            "Version": "Qwen-VL-Chat",
-            "Url":"https://github.com/QwenLM/Qwen-VL",
-            "VersionUrl":"https://huggingface.co/Qwen/Qwen-VL-Chat",
-            "Date": "2023-09-25",
-            "# Paras": "7B",
-            "Form": "Weight",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 39.0,
-                "Education": {
-                    "JuH": 32.6,
-                    "SeH": 32.9,
-                    "Uni": 27.2,
-                    "Driv": 49.3,
-                    "AAT": 26.4
-                },
-                "Image": {
-                    "NI": 43.2,
-                    "SI": 32.7,
-                    "MI": 20.7
-                },
-                "Type": {
-                    "SA": 49.8,
-                    "MA": 29.4,
-                    "MAAcc": 2.8,
-                    "FB": 5.8,
-                    "OP": 13.7
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 10.5,
-                "Education": {
-                    "JuH": 9.0,
-                    "SeH": 10.7,
-                    "Uni": 8.8,
-                    "Driv": 18.3,
-                    "AAT": 0.0
-                },
-                "Image": {
-                    "NI": 8.5,
-                    "SI": 10.8,
-                    "MI": 16.9
-                },
-                "Type": {
-                    "SA": 7.2,
-                    "MA": 19.3,
-                    "MAAcc": 1.9,
-                    "FB": 0.8
-                }
-            }
-        },
-        {
-            "Model": "Yi-VL-34B",
-            "Creator": "01-ai",
-            "Version": "Yi-VL-34B",
-            "Url":"https://github.com/01-ai/Yi",
-            "VersionUrl":"https://huggingface.co/01-ai/Yi-VL-34B",
-            "Date": "2023-11-22",
-            "# Paras": "34B",
-            "Form": "Weight",
-            "Modality": "<u>One</u>",
-            "MULTI": {
-                "Overall": 55.3,
-                "Education": {
-                    "JuH": 46.6,
-                    "SeH": 46.0,
-                    "Uni": 45.4,
-                    "Driv": 71.1,
-                    "AAT": 26.5
-                },
-                "Image": {
-                    "NI": 63.8,
-                    "SI": 42.0,
-                    "MI": 24.5
-                },
-                "Type": {
-                    "SA": 61.3,
-                    "MA": 42.0,
-                    "MAAcc": 36.4,
-                    "FB": 14.6,
-                    "OP": 8.9
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 26.2,
-                "Education": {
-                    "JuH": "-",
-                    "SeH": "-",
-                    "Uni": "-",
-                    "Driv": "-",
-                    "AAT": "-"
-                },
-                "Image": {
-                    "NI": 32.5,
-                    "SI": 22.7,
-                    "MI": 25.4
-                },
-                "Type": {
-                    "SA": 33.0,
-                    "MA": 29.0,
-                    "MAAcc": 8.7,
-                    "FB": 3.2
-                }
-            }
-        },
-        {
-            "Model": "InternVL-1.1",
-            "Creator": "OpenGVLab",
-            "Version": "InternVL-Chat-V1-1",
-            "Url":"https://github.com/OpenGVLab/InternVL",
-            "VersionUrl":"https://huggingface.co/OpenGVLab/InternVL-Chat-V1-1",
-            "Date": "2024-01-24",
-            "# Paras": "19B",
-            "Form": "Weight",
-            "Modality": "<u>One</u>",
-            "MULTI": {
-                "Overall": 44.9,
-                "Education": {
-                    "JuH": 39.3,
-                    "SeH": 36.5,
-                    "Uni": 30.6,
-                    "Driv": 57.7,
-                    "AAT": 24.8
-                },
-                "Image": {
-                    "NI": 50.9,
-                    "SI": 35.5,
-                    "MI": 25.1
-                },
-                "Type": {
-                    "SA": 56.4,
-                    "MA": 33.4,
-                    "MAAcc": 2.1,
-                    "FB": 14.2,
-                    "OP": 13.1
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 20.7,
-                "Education": {
-                    "JuH": 15.0,
-                    "SeH": 20.8,
-                    "Uni": 20.6,
-                    "Driv": 30.0,
-                    "AAT": 36.4
-                },
-                "Image": {
-                    "NI": 17.9,
-                    "SI": 21.0,
-                    "MI": 28.8
-                },
-                "Type": {
-                    "SA": 24.8,
-                    "MA": 23.2,
-                    "MAAcc": 0,
-                    "FB": 4.8
-                }
-            }
-        },
-        {
-            "Model": "InternVL2-8B",
-            "Creator": "OpenGVLab",
-            "Version": "InternVL2-8B",
-            "Url":"https://github.com/OpenGVLab/InternVL",
-            "VersionUrl":"https://huggingface.co/OpenGVLab/InternVL2-8B",
-            "Date": "2024-07-03",
-            "# Paras": "8B",
-            "Form": "Weight",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 67.9,
-                "Education": {
-                    "JuH": 63.7,
-                    "SeH": 58.9,
-                    "Uni": 59.6,
-                    "Driv": 83.8,
-                    "AAT": 26.0
-                },
-                "Image": {
-                    "NI": 78.7,
-                    "SI": 51.6,
-                    "MI": 28.7
-                },
-                "Type": {
-                    "SA": 72.6,
-                    "MA": 74.2,
-                    "MAAcc": 64,
-                    "FB": 40.9,
-                    "OP": 17.5
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 35.6,
-                "Education": {
-                    "JuH": 33.2,
-                    "SeH": 36.1,
-                    "Uni": 26.5,
-                    "Driv": 50.0,
-                    "AAT": 27.3
-                },
-                "Image": {
-                    "NI": 37.3,
-                    "SI": 35.5,
-                    "MI": 29.7
-                },
-                "Type": {
-                    "SA": 37.9,
-                    "MA": 40.2,
-                    "MAAcc": 26.7,
-                    "FB": 19.2
-                }
-            }
-        },
-        {
-            "Model": "MiniCPM-V-2.6",
-            "Creator": "OpenBMB",
-            "Version": "MiniCPM-V-2_6",
-            "Url":"github.com/OpenBMB/MiniCPM-V",
-            "VersionUrl":"https://huggingface.co/openbmb/MiniCPM-V-2_6",
-            "Date": "2024-08-05",
-            "# Paras": "8B",
-            "Form": "Weight",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 55.1,
-                "Education": {
-                    "JuH": 46.3,
-                    "SeH": 42.8,
-                    "Uni": 38.0,
-                    "Driv": 73.7,
-                    "AAT": 27.4
-                },
-                "Image": {
-                    "NI": 63.8,
-                    "SI": 41.8,
-                    "MI": 24.0
-                },
-                "Type": {
-                    "SA": 64.7,
-                    "MA": 53.2,
-                    "MAAcc": 31.3,
-                    "FB": 15.2,
-                    "OP": 12.3
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 21.3,
-                "Education": {
-                    "JuH": 22.8,
-                    "SeH": 19.8,
-                    "Uni": 2.9,
-                    "Driv": 40.0,
-                    "AAT": 15.2
-                },
-                "Image": {
-                    "NI": 18.4,
-                    "SI": 22.6,
-                    "MI": 23.4
-                },
-                "Type": {
-                    "SA": 23.3,
-                    "MA": 26.1,
-                    "MAAcc": 7.6,
-                    "FB": 5.8
-                }
-            }
-        },
-        {
-            "Model": "Qwen2-VL-7B",
-            "Creator": "Alibaba",
-            "Version": "Qwen2-VL-7B-Instruct",
-            "Url":"github.com/QwenLM/Qwen2-VL",
-            "VersionUrl":"https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct",
-            "Date": "2024-08-28",
-            "# Paras": "7B",
-            "Form": "Weight",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 68.6,
-                "Education": {
-                    "JuH": 60.4,
-                    "SeH": 57.8,
-                    "Uni": 50.8,
-                    "Driv": 87.5,
-                    "AAT": 28.7
-                },
-                "Image": {
-                    "NI": 78.1,
-                    "SI": 53.7,
-                    "MI": 34.2
-                },
-                "Type": {
-                    "SA": 75.0,
-                    "MA": 72.7,
-                    "MAAcc": 62.1,
-                    "FB": 35.0,
-                    "OP": 18.5
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 40.0,
-                "Education": {
-                    "JuH": 39.6,
-                    "SeH": 37.2,
-                    "Uni": 26.5,
-                    "Driv": 65.0,
-                    "AAT": 42.4
-                },
-                "Image": {
-                    "NI": 39.9,
-                    "SI": 38.4,
-                    "MI": 50.0
-                },
-                "Type": {
-                    "SA": 43.5,
-                    "MA": 43.3,
-                    "MAAcc": 32.4,
-                    "FB": 23.3
-                }
-            }
-        },
-        {
-            "Model": "Qwen2-VL-72B",
-            "Creator": "Alibaba",
-            "Version": "Qwen2-VL-72B-Instruct",
-            "Url":"github.com/QwenLM/Qwen2-VL",
-            "VersionUrl":"https://huggingface.co/Qwen/Qwen2-VL-72B-Instruct",
-            "Date": "2024-08-28",
-            "# Paras": "72B",
-            "Form": "Weight",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 76.9,
-                "Education": {
-                    "JuH": 66.3,
-                    "SeH": 69.5,
-                    "Uni": 69.9,
-                    "Driv": 94.3,
-                    "AAT": 34.0
-                },
-                "Image": {
-                    "NI": 86.9,
-                    "SI": 61.5,
-                    "MI": 41.1
-                },
-                "Type": {
-                    "SA": 83.5,
-                    "MA": 84.7,
-                    "MAAcc": 78.1,
-                    "FB": 35.1,
-                    "OP": 19.5
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 53.1,
-                "Education": {
-                    "JuH": 50.0,
-                    "SeH": 56.7,
-                    "Uni": 32.4,
-                    "Driv": 70.0,
-                    "AAT": 21.2
-                },
-                "Image": {
-                    "NI": 63.6,
-                    "SI": 49.6,
-                    "MI": 37.5
-                },
-                "Type": {
-                    "SA": 55.3,
-                    "MA": 62.8,
-                    "MAAcc": 54.3,
-                    "FB": 25.8
-                }
-            }
-        },
-        {
-            "Model": "GPT-4V",
-            "Creator": "OpenAI",
-            "Version": "gpt-4-1106-vision-preview",
-            "Url":"https://openai.com/index/gpt-4v-system-card/",
-            "VersionUrl":"",
-            "Date": "2023-11-06",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 63.7,
-                "Education": {
-                    "JuH": 58.5,
-                    "SeH": 52.9,
-                    "Uni": 59.0,
-                    "Driv": 80.1,
-                    "AAT": 26.2
-                },
-                "Image": {
-                    "NI": 74.5,
-                    "SI": 46.9,
-                    "MI": 28.1
-                },
-                "Type": {
-                    "SA": 67.1,
-                    "MA": 70.6,
-                    "MAAcc": 58.2,
-                    "FB": 42.4,
-                    "OP": 11.7
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 14.0,
-                "Education": {
-                    "JuH": 10.5,
-                    "SeH": 14.7,
-                    "Uni": 5.9,
-                    "Driv": 33.3,
-                    "AAT": 0.0
-                },
-                "Image": {
-                    "NI": 7.3,
-                    "SI": 14.9,
-                    "MI": 33.9
-                },
-                "Type": {
-                    "SA": 5.3,
-                    "MA": 25.5,
-                    "MAAcc": 15.4,
-                    "FB": 12.0
-                }
-            }
-        },
-        {
-            "Model": "Gemini Vision Pro",
-            "Creator": "Google",
-            "Version": "gemini-1.0-pro-vision",
-            "Url":"https://arxiv.org/abs/2312.11805",
-            "VersionUrl":"",
-            "Date": "2023-12-07",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "<u>MI</u>",
-            "MULTI": {
-                "Overall": 53.7,
-                "Education": {
-                    "JuH": 48.2,
-                    "SeH": 45.2,
-                    "Uni": 41.7,
-                    "Driv": 67.4,
-                    "AAT": 27.0
-                },
-                "Image": {
-                    "NI": 62.5,
-                    "SI": 40.0,
-                    "MI": 24.5
-                },
-                "Type": {
-                    "SA": 59.4,
-                    "MA": 54.4,
-                    "MAAcc": 24.3,
-                    "FB": 30.5,
-                    "OP": 12.5
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 12.4,
-                "Education": {
-                    "JuH": 12.5,
-                    "SeH": 11.5,
-                    "Uni": 5.9,
-                    "Driv": 28.3,
-                    "AAT": 0.0
-                },
-                "Image": {
-                    "NI": 6.8,
-                    "SI": 12.0,
-                    "MI": 37.3
-                },
-                "Type": {
-                    "SA": 5.3,
-                    "MA": 21.2,
-                    "MAAcc": 5.8,
-                    "FB": 12.0
-                }
-            }
-        },
-        {
-            "Model": "GPT-4o-mini (0718)",
-            "Creator": "OpenAI",
-            "Version": "gpt-4o-mini-2024-07-18",
-            "Url":"https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
-            "VersionUrl":"",
-            "Date": "2024-07-18",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 58.2,
-                "Education": {
-                    "JuH": 51.7,
-                    "SeH": 43.9,
-                    "Uni": 49.6,
-                    "Driv": 77.1,
-                    "AAT": 25.8
-                },
-                "Image": {
-                    "NI": 67.7,
-                    "SI": 43.0,
-                    "MI": 30.4
-                },
-                "Type": {
-                    "SA": 65.8,
-                    "MA": 56.6,
-                    "MAAcc": 46.3,
-                    "FB": 30.3,
-                    "OP": 12.4
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 18.2,
-                "Education": {
-                    "JuH": 18.5,
-                    "SeH": 13.3,
-                    "Uni": 11.8,
-                    "Driv": 48.3,
-                    "AAT": 24.2
-                },
-                "Image": {
-                    "NI": 17.1,
-                    "SI": 17.4,
-                    "MI": 28.8
-                },
-                "Type": {
-                    "SA": 22.3,
-                    "MA": 18.5,
-                    "MAAcc": 11.5,
-                    "FB": 7.2
-                }
-            }
-        },
-        {
-            "Model": "GPT-4o (0806)",
-            "Creator": "OpenAI",
-            "Version": "gpt-4o-2024-08-06",
-            "Url":"https://openai.com/index/hello-gpt-4o/",
-            "VersionUrl":"",
-            "Date": "2024-08-06",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 69.9,
-                "Education": {
-                    "JuH": 65.6,
-                    "SeH": 58.6,
-                    "Uni": 62.2,
-                    "Driv": 87.1,
-                    "AAT": 28.0
-                },
-                "Image": {
-                    "NI": 80.0,
-                    "SI": 54.1,
-                    "MI": 40.9
-                },
-                "Type": {
-                    "SA": 74.5,
-                    "MA": 74.6,
-                    "MAAcc": 63.1,
-                    "FB": 47.6,
-                    "OP": 17.2
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 36.0,
-                "Education": {
-                    "JuH": 30.5,
-                    "SeH": 35.5,
-                    "Uni": 29.4,
-                    "Driv": 60.0,
-                    "AAT": 39.4
-                },
-                "Image": {
-                    "NI": 34.2,
-                    "SI": 35.9,
-                    "MI": 44.1
-                },
-                "Type": {
-                    "SA": 43.1,
-                    "MA": 37.5,
-                    "MAAcc": 24,
-                    "FB": 15.2
-                }
-            }
-        },
-        {
-            "Model": "Gemini 1.5 Flash (0827)",
-            "Creator": "Google",
-            "Version": "gemini-1.5-flash-exp-0827",
-            "Url":"https://deepmind.google/technologies/gemini/flash/",
-            "VersionUrl":"",
-            "Date": "2024-08-27",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 64.9,
-                "Education": {
-                    "JuH": 63.2,
-                    "SeH": 56.0,
-                    "Uni": 52.6,
-                    "Driv": 78.7,
-                    "AAT": 26.7
-                },
-                "Image": {
-                    "NI": 73.8,
-                    "SI": 50.9,
-                    "MI": 40.0
-                },
-                "Type": {
-                    "SA": 68.4,
-                    "MA": 68.5,
-                    "MAAcc": 52.1,
-                    "FB": 50.9,
-                    "OP": 14.1
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 33.4,
-                "Education": {
-                    "JuH": 32.7,
-                    "SeH": 31.0,
-                    "Uni": 26.5,
-                    "Driv": 65.0,
-                    "AAT": 15.2
-                },
-                "Image": {
-                    "NI": 33.8,
-                    "SI": 30.7,
-                    "MI": 50.0
-                },
-                "Type": {
-                    "SA": 32.3,
-                    "MA": 38.3,
-                    "MAAcc": 21.9,
-                    "FB": 25.8
-                }
-            }
-        },
-        {
-            "Model": "Claude 3.5 Sonnet",
-            "Creator": "Anthropic",
-            "Version": "claude-3-5-sonnet-20241022",
-            "Url":"https://www.anthropic.com/news/claude-3-5-sonnet",
-            "VersionUrl":"",
-            "Date": "2024-10-22",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 57.2,
-                "Education": {
-                    "JuH": 38.7,
-                    "SeH": 42.3,
-                    "Uni": 26.1,
-                    "Driv": 83.3,
-                    "AAT": 28.9
-                },
-                "Image": {
-                    "NI": 68.3,
-                    "SI": 39.7,
-                    "MI": 23.1
-                },
-                "Type": {
-                    "SA": 63.0,
-                    "MA": 64.9,
-                    "MAAcc": 52.9,
-                    "FB": 16.6,
-                    "OP": 9.4
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 34.3,
-                "Education": {
-                    "JuH": 25.0,
-                    "SeH": 33.9,
-                    "Uni": 29.4,
-                    "Driv": 75.0,
-                    "AAT": 27.3
-                },
-                "Image": {
-                    "NI": 33.3,
-                    "SI": 33.3,
-                    "MI": 45.8
-                },
-                "Type": {
-                    "SA": 38.1,
-                    "MA": 38.6,
-                    "MAAcc": 30.8,
-                    "FB": 16.0
-                }
-            }
-        },
-        {
-            "Model": "GPT-4o (1120)",
-            "Creator": "OpenAI",
-            "Version": "gpt-4o-2024-11-20",
-            "Url":"https://openai.com/index/hello-gpt-4o/",
-            "VersionUrl":"",
-            "Date": "2024-11-20",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 70.0,
-                "Education": {
-                    "JuH": 65.9,
-                    "SeH": 59.0,
-                    "Uni": 60.2,
-                    "Driv": 86.9,
-                    "AAT": 28.2
-                },
-                "Image": {
-                    "NI": 79.6,
-                    "SI": 54.9,
-                    "MI": 40.9
-                },
-                "Type": {
-                    "SA": 74.4,
-                    "MA": 74.2,
-                    "MAAcc": 63,
-                    "FB": 49.4,
-                    "OP": 17.7
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 36.3,
-                "Education": {
-                    "JuH": 34.2,
-                    "SeH": 33.2,
-                    "Uni": 23.5,
-                    "Driv": 66.7,
-                    "AAT": 42.4
-                },
-                "Image": {
-                    "NI": 36.0,
-                    "SI": 36.3,
-                    "MI": 56.2
-                },
-                "Type": {
-                    "SA": 42.2,
-                    "MA": 42.1,
-                    "MAAcc": 25.7,
-                    "FB": 17.5
-                }
-            }
-        },
-        {
-            "Model": "Gemini 1.5 Pro (1121)",
-            "Creator": "Google",
-            "Version": "gemini-exp-1121",
-            "Url":"https://deepmind.google/technologies/gemini/pro/",
-            "VersionUrl":"",
-            "Date": "2024-11-21",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 71.8,
-                "Education": {
-                    "JuH": 71.6,
-                    "SeH": 64.3,
-                    "Uni": 65.3,
-                    "Driv": 84.2,
-                    "AAT": 29.3
-                },
-                "Image": {
-                    "NI": 80.2,
-                    "SI": 58.5,
-                    "MI": 50.0
-                },
-                "Type": {
-                    "SA": 74.3,
-                    "MA": 76.8,
-                    "MAAcc": 64.9,
-                    "FB": 62.6,
-                    "OP": 14.6
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 46.9,
-                "Education": {
-                    "JuH": 50.0,
-                    "SeH": 43.3,
-                    "Uni": 32.4,
-                    "Driv": 78.3,
-                    "AAT": 27.3
-                },
-                "Image": {
-                    "NI": 43.4,
-                    "SI": 46.0,
-                    "MI": 65.6
-                },
-                "Type": {
-                    "SA": 47.8,
-                    "MA": 47.9,
-                    "MAAcc": 33.3,
-                    "FB": 42.5
-                }
-            }
-        },
-        {
-            "Model": "MOSS",
-            "Creator": "FDU",
-            "Version": "moss-moon-003-sft",
-            "Url":"https://github.com/OpenMOSS/MOSS",
-            "VersionUrl":"https://huggingface.co/fnlp/moss-moon-003-sft",
-            "Date": "2023-04-19",
-            "# Paras": "16B",
-            "Form": "Weight",
-            "Modality": "T",
-            "MULTI": {
-                "Overall": 32.6,
-                "Education": {
-                    "JuH": 21.2,
-                    "SeH": 26.7,
-                    "Uni": 23.8,
-                    "Driv": 44.1,
-                    "AAT": 25.5
-                },
-                "Image": {
-                    "NI": 36.1,
-                    "SI": 27.3,
-                    "MI": 17.1
-                },
-                "Type": {
-                    "SA": 38.5,
-                    "MA": 33.1,
-                    "MAAcc": 6.8,
-                    "FB": 2.7,
-                    "OP": 8.7
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 13.1,
-                "Education": {
-                    "JuH": 13.5,
-                    "SeH": 12.8,
-                    "Uni": 8.8,
-                    "Driv": 21.7,
-                    "AAT": 3.0
-                },
-                "Image": {
-                    "NI": 9.4,
-                    "SI": 14.7,
-                    "MI": 16.9
-                },
-                "Type": {
-                    "SA": 14.8,
-                    "MA": 17.0,
-                    "MAAcc": 5.8,
-                    "FB": 0.8
-                }
-            }
-        },
-        {
-            "Model": "DFM-2.0",
-            "Creator": "AISpeech",
-            "Version": "dfm-2.0-70b-preview",
-            "Url":"https://dongfeng.duiopen.com/",
-            "VersionUrl":"",
-            "Date": "2024-01-16",
-            "# Paras": "70B",
-            "Form": "Weight",
-            "Modality": "T",
-            "MULTI": {
-                "Overall": 49.7,
-                "Education": {
-                    "JuH": 42.3,
-                    "SeH": 42.5,
-                    "Uni": 35.7,
-                    "Driv": 66.3,
-                    "AAT": 3.9
-                },
-                "Image": {
-                    "NI": 63.0,
-                    "SI": 28.7,
-                    "MI": 11.3
-                },
-                "Type": {
-                    "SA": 55.8,
-                    "MA": 53.9,
-                    "MAAcc": 29.7,
-                    "FB": 13.3,
-                    "OP": 10.3
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 18.0,
-                "Education": {
-                    "JuH": 16.5,
-                    "SeH": 19.5,
-                    "Uni": 14.7,
-                    "Driv": 23.3,
-                    "AAT": 3.0
-                },
-                "Image": {
-                    "NI": 26.9,
-                    "SI": 12.7,
-                    "MI": 18.6
-                },
-                "Type": {
-                    "SA": 19.8,
-                    "MA": 21.2,
-                    "MAAcc": 9.6,
-                    "FB": 6.4
-                }
-            }
-        },
-        {
-            "Model": "Qwen2-7B",
-            "Creator": "Alibaba",
-            "Version": "Qwen2-7B-Instruct",
-            "Url":"https://github.com/QwenLM/Qwen2.5",
-            "VersionUrl":"https://huggingface.co/Qwen/Qwen2-7B-Instruct",
-            "Date": "2024-06-04",
-            "# Paras": "7B",
-            "Form": "Weight",
-            "Modality": "T",
-            "MULTI": {
-                "Overall": 51.3,
-                "Education": {
-                    "JuH": 43.0,
-                    "SeH": 41.4,
-                    "Uni": 39.8,
-                    "Driv": 69.7,
-                    "AAT": 9.4
-                },
-                "Image": {
-                    "NI": 61.6,
-                    "SI": 35.3,
-                    "MI": 18.0
-                },
-                "Type": {
-                    "SA": 58.4,
-                    "MA": 53.3,
-                    "MAAcc": 43.9,
-                    "FB": 16.8,
-                    "OP": 7.6
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 13.3,
-                "Education": {
-                    "JuH": 9.5,
-                    "SeH": 15.2,
-                    "Uni": 11.8,
-                    "Driv": 8.3,
-                    "AAT": 24.2
-                },
-                "Image": {
-                    "NI": 18.8,
-                    "SI": 10.0,
-                    "MI": 13.6
-                },
-                "Type": {
-                    "SA": 21.4,
-                    "MA": 8.9,
-                    "MAAcc": 8.7,
-                    "FB": 1.6
-                }
-            }
-        },
-        {
-            "Model": "InternLM2.5-7B",
-            "Creator": "PJLab",
-            "Version": "internlm2_5-7b-chat",
-            "Url":"https://github.com/InternLM/InternLM",
-            "VersionUrl":"https://huggingface.co/internlm/internlm2_5-7b-chat",
-            "Date": "2024-06-27",
-            "# Paras": "7B",
-            "Form": "Weight",
-            "Modality": "T",
-            "MULTI": {
-                "Overall": 58.2,
-                "Education": {
-                    "JuH": 48.9,
-                    "SeH": 48.3,
-                    "Uni": 49.4,
-                    "Driv": 76.0,
-                    "AAT": 22.3
-                },
-                "Image": {
-                    "NI": 70.3,
-                    "SI": 39.2,
-                    "MI": 24.5
-                },
-                "Type": {
-                    "SA": 66.5,
-                    "MA": 60.8,
-                    "MAAcc": 43.3,
-                    "FB": 17.3,
-                    "OP": 7.3
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 17.4,
-                "Education": {
-                    "JuH": 15.0,
-                    "SeH": 18.9,
-                    "Uni": 14.7,
-                    "Driv": 23.3,
-                    "AAT": 6.1
-                },
-                "Image": {
-                    "NI": 22.2,
-                    "SI": 13.2,
-                    "MI": 27.1
-                },
-                "Type": {
-                    "SA": 18.9,
-                    "MA": 18.5,
-                    "MAAcc": 8.7,
-                    "FB": 11.2
-                }
-            }
-        },
-        {
-            "Model": "ChatGPT",
-            "Creator": "OpenAI",
-            "Version": "gpt-3.5-turbo-1106",
-            "Url":"https://openai.com/index/chatgpt/",
-            "VersionUrl":"",
-            "Date": "2023-11-06",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "T",
-            "MULTI": {
-                "Overall": 35.9,
-                "Education": {
-                    "JuH": 31.6,
-                    "SeH": 23.7,
-                    "Uni": 34.9,
-                    "Driv": 52.1,
-                    "AAT": 1.3
-                },
-                "Image": {
-                    "NI": 54.0,
-                    "SI": 6.8,
-                    "MI": 5.1
-                },
-                "Type": {
-                    "SA": 40.0,
-                    "MA": 39.4,
-                    "MAAcc": 17.9,
-                    "FB": 10.5,
-                    "OP": 7.7
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 4.7,
-                "Education": {
-                    "JuH": 6.0,
-                    "SeH": 4.3,
-                    "Uni": 14.7,
-                    "Driv": 0.0,
-                    "AAT": 0.0
-                },
-                "Image": {
-                    "NI": 8.5,
-                    "SI": 2.2,
-                    "MI": 6.8
-                },
-                "Type": {
-                    "SA": 5.3,
-                    "MA": 4.2,
-                    "MAAcc": 1.9,
-                    "FB": 4.0
-                }
-            }
-        },
-        {
-            "Model": "GPT-4",
-            "Creator": "OpenAI",
-            "Version": "gpt-4-1106-preview",
-            "Url":"https://arxiv.org/abs/2303.08774",
-            "VersionUrl":"",
-            "Date": "2023-11-06",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "T",
-            "MULTI": {
-                "Overall": 50.2,
-                "Education": {
-                    "JuH": 49.2,
-                    "SeH": 33.7,
-                    "Uni": 55.1,
-                    "Driv": 69.9,
-                    "AAT": 0.9
-                },
-                "Image": {
-                    "NI": 74.5,
-                    "SI": 11.3,
-                    "MI": 8.8
-                },
-                "Type": {
-                    "SA": 51.3,
-                    "MA": 60.0,
-                    "MAAcc": 53.1,
-                    "FB": 32.9,
-                    "OP": 6.8
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 5.8,
-                "Education": {
-                    "JuH": 6.0,
-                    "SeH": 7.2,
-                    "Uni": 0.0,
-                    "Driv": 3.3,
-                    "AAT": 0.0
-                },
-                "Image": {
-                    "NI": 7.3,
-                    "SI": 2.7,
-                    "MI": 22.0
-                },
-                "Type": {
-                    "SA": 3.8,
-                    "MA": 7.3,
-                    "MAAcc": 5.8,
-                    "FB": 8.0
-                }
-            }
-        },
-        {
-            "Model": "Gemini Pro",
-            "Creator": "Google",
-            "Version": "gemini-1.0-pro-001",
-            "Url":"https://arxiv.org/abs/2312.11805",
-            "VersionUrl":"",
-            "Date": "2023-12-07",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "T",
-            "MULTI": {
-                "Overall": 52.2,
-                "Education": {
-                    "JuH": 47.7,
-                    "SeH": 42.3,
-                    "Uni": 41.4,
-                    "Driv": 66.9,
-                    "AAT": 22.5
-                },
-                "Image": {
-                    "NI": 62.5,
-                    "SI": 36.2,
-                    "MI": 18.3
-                },
-                "Type": {
-                    "SA": 58.2,
-                    "MA": 52.7,
-                    "MAAcc": 22.8,
-                    "FB": 29.1,
-                    "OP": 7.9
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 10.5,
-                "Education": {
-                    "JuH": 10.5,
-                    "SeH": 9.3,
-                    "Uni": 14.7,
-                    "Driv": 20.0,
-                    "AAT": 3.0
-                },
-                "Image": {
-                    "NI": 6.8,
-                    "SI": 9.0,
-                    "MI": 35.6
-                },
-                "Type": {
-                    "SA": 6.3,
-                    "MA": 16.6,
-                    "MAAcc": 3.8,
-                    "FB": 8.8
-                }
-            }
-        },
-        {
-            "Model": "o1-preview",
-            "Creator": "OpenAI",
-            "Version": "o1-preview-2024-09-12",
-            "Url":"https://openai.com/index/introducing-openai-o1-preview/",
-            "VersionUrl":"",
-            "Date": "2024-09-12",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "T",
-            "MULTI": {
-                "Overall": "-",
-                "Education": {
-                    "JuH": "-",
-                    "SeH": "-",
-                    "Uni": "-",
-                    "Driv": "-",
-                    "AAT": "-"
-                },
-                "Image": {
-                    "NI": "-",
-                    "SI": "-",
-                    "MI": "-"
-                },
-                "Type": {
-                    "SA": "-",
-                    "MA": "-",
-                    "MAAcc": "-",
-                    "FB": "-",
-                    "OP": "-"
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 38.0,
-                "Education": {
-                    "JuH": 34.5,
-                    "SeH": 40.3,
-                    "Uni": 32.4,
-                    "Driv": 51.7,
-                    "AAT": 15.2
-                },
-                "Image": {
-                    "NI": 45.7,
-                    "SI": 33.3,
-                    "MI": 40.7
-                },
-                "Type": {
-                    "SA": 41.5,
-                    "MA": 43.6,
-                    "MAAcc": 32.7,
-                    "FB": 17.6
-                }
-            }
-        },
-        {
-            "Model": "o1-mini",
-            "Creator": "OpenAI",
-            "Version": "o1-mini-2024-09-12",
-            "Url":"https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/",
-            "VersionUrl":"",
-            "Date": "2024-09-12",
-            "# Paras": "-",
-            "Form": "API",
-            "Modality": "T",
-            "MULTI": {
-                "Overall": "-",
-                "Education": {
-                    "JuH": "-",
-                    "SeH": "-",
-                    "Uni": "-",
-                    "Driv": "-",
-                    "AAT": "-"
-                },
-                "Image": {
-                    "NI": "-",
-                    "SI": "-",
-                    "MI": "-"
-                },
-                "Type": {
-                    "SA": "-",
-                    "MA": "-",
-                    "MAAcc": "-",
-                    "FB": "-",
-                    "OP": "-"
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 22.1,
-                "Education": {
-                    "JuH": 16.5,
-                    "SeH": 24.3,
-                    "Uni": 17.6,
-                    "Driv": 38.3,
-                    "AAT": 6.1
-                },
-                "Image": {
-                    "NI": 25.2,
-                    "SI": 19.3,
-                    "MI": 28.8
-                },
-                "Type": {
-                    "SA": 21.4,
-                    "MA": 24.3,
-                    "MAAcc": 14.4,
-                    "FB": 19.2
-                }
-            }
-        },
-        {
-            "Model": "InternVL2.5-8B",
-            "Creator": "OpenGVLab",
-            "Version": "InternVL2_5-8B",
-            "Url":"https://github.com/OpenGVLab/InternVL",
-            "VersionUrl":"https://huggingface.co/OpenGVLab/InternVL2_5-8B",
-            "Date": "2024-12-05",
-            "# Paras": "8B",
-            "Form": "Weight",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 68.7,
-                "Education": {
-                    "JuH": 65.4,
-                    "SeH": 60.6,
-                    "Uni": 53.9,
-                    "Driv": 83.4,
-                    "AAT": 27.8
-                },
-                "Image": {
-                    "NI": 78.3,
-                    "SI": 54.1,
-                    "MI": 35.3
-                },
-                "Type": {
-                    "SA": 72.8,
-                    "MA": 75.7,
-                    "MAAcc": 61.7,
-                    "FB": 45.6,
-                    "OP": 10.0
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 38.1,
-                "Education": {
-                    "JuH": 39.6,
-                    "SeH": 35.6,
-                    "Uni": 23.5,
-                    "Driv": 61.7,
-                    "AAT": 30.3
-                },
-                "Image": {
-                    "NI": 36.4,
-                    "SI": 37.0,
-                    "MI": 51.6
-                },
-                "Type": {
-                    "SA": 43.5,
-                    "MA": 37.5,
-                    "MAAcc": 22.9,
-                    "FB": 25.0
-                }
-            }
-        },
-        {
-            "Model": "InternVL2.5-78B",
-            "Creator": "OpenGVLab",
-            "Version": "InternVL2_5-78B",
-            "Url":"https://github.com/OpenGVLab/InternVL",
-            "VersionUrl":"https://huggingface.co/OpenGVLab/InternVL2_5-78B",
-            "Date": "2024-12-05",
-            "# Paras": "78B",
-            "Form": "Weight",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 79.4,
-                "Education": {
-                    "JuH": 76.3,
-                    "SeH": 74.5,
-                    "Uni": 73.7,
-                    "Driv": 92.3,
-                    "AAT": 29.9
-                },
-                "Image": {
-                    "NI": 88.6,
-                    "SI": 65.2,
-                    "MI": 50.7
-                },
-                "Type": {
-                    "SA": 82.4,
-                    "MA": 86.8,
-                    "MAAcc": 78.9,
-                    "FB": 64.1,
-                    "OP": 13.3
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 58.6,
-                "Education": {
-                    "JuH": 62.4,
-                    "SeH": 58.6,
-                    "Uni": 47.1,
-                    "Driv": 71.7,
-                    "AAT": 24.2
-                },
-                "Image": {
-                    "NI": 64.9,
-                    "SI": 55.0,
-                    "MI": 59.4
-                },
-                "Type": {
-                    "SA": 59.3,
-                    "MA": 65.1,
-                    "MAAcc": 53.3,
-                    "FB": 42.5
-                }
-            }
-        },
-        {
-            "Model": "QVQ",
-            "Creator": "Alibaba",
-            "Version": "QVQ-72B-Preview",
-            "Url":"https://qwenlm.github.io/zh/blog/qvq-72b-preview/",
-            "VersionUrl":"https://huggingface.co/Qwen/QVQ-72B-Preview",
-            "Date": "2024-12-25",
-            "# Paras": "72B",
-            "Form": "Weight",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": "-",
-                "Education": {
-                    "JuH": "-",
-                    "SeH": "-",
-                    "Uni": "-",
-                    "Driv": "-",
-                    "AAT": "-"
-                },
-                "Image": {
-                    "NI": "-",
-                    "SI": "-",
-                    "MI": "-"
-                },
-                "Type": {
-                    "SA": "-",
-                    "MA": "-",
-                    "MAAcc": "-",
-                    "FB": "-",
-                    "OP": "-"
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 45.2,
-                "Education": {
-                    "JuH": 38.6,
-                    "SeH": 47.3,
-                    "Uni": 44.1,
-                    "Driv": 65.0,
-                    "AAT": 27.3
-                },
-                "Image": {
-                    "NI": 53.1,
-                    "SI": 43.1,
-                    "MI": 31.2
-                },
-                "Type": {
-                    "SA": 56.5,
-                    "MA": 51.3,
-                    "MAAcc": 35.2,
-                    "FB": 1.7
-                }
-            }
-        },
-        {
-            "Model": "POINTS-1-5",
-            "Creator": "Tencent",
-            "Version": "POINTS-1-5-Qwen-2-5-7B-Chat",
-            "Url":"https://github.com/WePOINTS/WePOINTS",
-            "VersionUrl":"https://huggingface.co/WePOINTS/POINTS-1-5-Qwen-2-5-7B-Chat",
-            "Date": "2024-12-06",
-            "# Paras": "7B",
-            "Form": "Weight",
-            "Modality": "<u>MI</u>",
-            "MULTI": {
-                "Overall": 65.3,
-                "Education": {
-                    "JuH": 51.8,
-                    "SeH": 55.9,
-                    "Uni": 52.6,
-                    "Driv": 85.6,
-                    "AAT": 25.9
-                },
-                "Image": {
-                    "NI": 77.0,
-                    "SI": 47.3,
-                    "MI": 30.3
-                },
-                "Type": {
-                    "SA": 72.5,
-                    "MA": 74.1,
-                    "MAAcc": 59,
-                    "FB": 16.3,
-                    "OP": 11.7
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 32.3,
-                "Education": {
-                    "JuH": 26.7,
-                    "SeH": 34.0,
-                    "Uni": 20.6,
-                    "Driv": 60.0,
-                    "AAT": 9.1
-                },
-                "Image": {
-                    "NI": 36.8,
-                    "SI": 30.4,
-                    "MI": 28.1
-                },
-                "Type": {
-                    "SA": 33.2,
-                    "MA": 43.7,
-                    "MAAcc": 27.6,
-                    "FB": 5.0
-                }
-            }
-        },
-        {
-            "Model": "Qwen2.5-VL-7B",
-            "Creator": "Alibaba",
-            "Version": "Qwen2.5-VL-7B-Instruct",
-            "Url": "https://github.com/QwenLM/Qwen2.5-VL",
-            "VersionUrl": "https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct",
-            "Date": "2025-01-26",
-            "# Paras": "7B",
-            "Form": "Weight",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 73,
-                "Education": {
-                    "JuH": 70.5,
-                    "SeH": 67.9,
-                    "Uni": 48.5,
-                    "Driv": 85.9,
-                    "AAT": 30.7
-                },
-                "Image": {
-                    "NI": 79.6,
-                    "SI": 62.9,
-                    "MI": 48.2
-                },
-                "Type": {
-                    "SA": 78.1,
-                    "MA": 74.7,
-                    "MAAcc": 67,
-                    "FB": 54.1,
-                    "OP": 22
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 46.2,
-                "Education": {
-                    "JuH": 46.0,
-                    "SeH": 46.3,
-                    "Uni": 35.3,
-                    "Driv": 68.3,
-                    "AAT": 18.2
-                },
-                "Image": {
-                    "NI": 43.9,
-                    "SI": 46.0,
-                    "MI": 56.2
-                },
-                "Type": {
-                    "SA": 48.8,
-                    "MA": 49.0,
-                    "MAAcc": 41,
-                    "FB": 33.3
-                }
-            }
-        },
-        {
-            "Model": "Qwen2.5-VL-72B",
-            "Creator": "Alibaba",
-            "Version": "Qwen2.5-VL-72B-Instruct",
-            "Url": "https://github.com/QwenLM/Qwen2.5-VL",
-            "VersionUrl": "https://huggingface.co/Qwen/Qwen2.5-VL-72B-Instruct",
-            "Date": "2025-01-26",
-            "# Paras": "72B",
-            "Form": "Weight",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 81.9,
-                "Education": {
-                    "JuH": 79.9,
-                    "SeH": 79.4,
-                    "Uni": 70.5,
-                    "Driv": 92.8,
-                    "AAT": 32.7
-                },
-                "Image": {
-                    "NI": 88.3,
-                    "SI": 72.2,
-                    "MI": 57.1
-                },
-                "Type": {
-                    "SA": 84.6,
-                    "MA": 87.5,
-                    "MAAcc": 81,
-                    "FB": 69.9,
-                    "OP": 25.5
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 61.9,
-                "Education": {
-                    "JuH": 61.9,
-                    "SeH": 66.3,
-                    "Uni": 35.3,
-                    "Driv": 78.3,
-                    "AAT": 9.1
-                },
-                "Image": {
-                    "NI": 55.3,
-                    "SI": 65.2,
-                    "MI": 64.1
-                },
-                "Type": {
-                    "SA": 61.8,
-                    "MA": 69.0,
-                    "MAAcc": 60,
-                    "FB": 46.7
-                }
-            }
-        },
-        {
-            "Model": "Qwen2.5-VL-3B",
-            "Creator": "Alibaba",
-            "Version": "Qwen2.5-VL-3B-Instruct",
-            "Url": "https://github.com/QwenLM/Qwen2.5-VL",
-            "VersionUrl": "https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct",
-            "Date": "2025-01-26",
-            "# Paras": "3B",
-            "Form": "Weight",
-            "Modality": "MI",
-            "MULTI": {
-                "Overall": 70.7,
-                "Education": {
-                    "JuH": 68.7,
-                    "SeH": 63.9,
-                    "Uni": 47.2,
-                    "Driv": 84.4,
-                    "AAT": 30.2
-                },
-                "Image": {
-                    "NI": 78.8,
-                    "SI": 58.6,
-                    "MI": 35.9
-                },
-                "Type": {
-                    "SA": 75.3,
-                    "MA": 74.1,
-                    "MAAcc": 64.7,
-                    "FB": 49.4,
-                    "OP": 26.2
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 45.0,
-                "Education": {
-                    "JuH": 43.6,
-                    "SeH": 45.7,
-                    "Uni": 20.6,
-                    "Driv": 65.0,
-                    "AAT": 33.3
-                },
-                "Image": {
-                    "NI": 45.2,
-                    "SI": 45.3,
-                    "MI": 42.2
-                },
-                "Type": {
-                    "SA": 46.9,
-                    "MA": 52.5,
-                    "MAAcc": 42.9,
-                    "FB": 23.3
-                }
-            }
-        },
-        {
-            "Model": "Janus-Pro-1B",
-            "Creator": "DeepSeek",
-            "Version": "Janus-Pro-1B",
-            "Url": "https://github.com/deepseek-ai/Janus",
-            "VersionUrl": "https://huggingface.co/deepseek-ai/Janus-Pro-1B",
-            "Date": "2025-01-27",
-            "# Paras": "1B",
-            "Form": "Weight",
-            "Modality": "<u>MI</u>",
-            "MULTI": {
-                "Overall": 32.3,
-                "Education": {
-                    "JuH": 23,
-                    "SeH": 24.8,
-                    "Uni": 19.9,
-                    "Driv": 44.4,
-                    "AAT": 24.2
-                },
-                "Image": {
-                    "NI": 35.1,
-                    "SI": 28.1,
-                    "MI": 22.4
-                },
-                "Type": {
-                    "SA": 40.8,
-                    "MA": 26.7,
-                    "MAAcc": 0.7,
-                    "FB": 1.9,
-                    "OP": 11.4
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 17.4,
-                "Education": {
-                    "JuH": 12.9,
-                    "SeH": 16.8,
-                    "Uni": 17.6,
-                    "Driv": 30.0,
-                    "AAT": 27.3
-                },
-                "Image": {
-                    "NI": 15.8,
-                    "SI": 17.3,
-                    "MI": 23.4
-                },
-                "Type": {
-                    "SA": 18.9,
-                    "MA": 21.8,
-                    "MAAcc": 0,
-                    "FB": 3.3
-                }
-            }
-        },
-        {
-            "Model": "Janus-Pro-7B",
-            "Creator": "DeepSeek",
-            "Version": "Janus-Pro-7B",
-            "Url": "https://github.com/deepseek-ai/Janus",
-            "VersionUrl": "https://huggingface.co/deepseek-ai/Janus-Pro-7B",
-            "Date": "2025-01-27",
-            "# Paras": "7B",
-            "Form": "Weight",
-            "Modality": "<u>MI</u>",
-            "MULTI": {
-                "Overall": 37.5,
-                "Education": {
-                    "JuH": 29.9,
-                    "SeH": 31.2,
-                    "Uni": 20.3,
-                    "Driv": 49,
-                    "AAT": 24.3
-                },
-                "Image": {
-                    "NI": 41.3,
-                    "SI": 31.9,
-                    "MI": 21.1
-                },
-                "Type": {
-                    "SA": 47.6,
-                    "MA": 29.6,
-                    "MAAcc": 0.5,
-                    "FB": 4.4,
-                    "OP": 12.4
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 18.8,
-                "Education": {
-                    "JuH": 14.4,
-                    "SeH": 17.1,
-                    "Uni": 26.5,
-                    "Driv": 35.0,
-                    "AAT": 27.3
-                },
-                "Image": {
-                    "NI": 20.2,
-                    "SI": 18.5,
-                    "MI": 15.6
-                },
-                "Type": {
-                    "SA": 23.9,
-                    "MA": 21.2,
-                    "MAAcc": 0,
-                    "FB": 0.0
-                }
-            }
-        },
-        {
-            "Model": "DeepSeek-VL2-tiny",
-            "Creator": "DeepSeek",
-            "Version": "deepseek-vl2-tiny",
-            "Url": "https://github.com/deepseek-ai/DeepSeek-VL2",
-            "VersionUrl": "https://huggingface.co/deepseek-ai/deepseek-vl2-tiny",
-            "Date": "2024-12-13",
-            "# Paras": "3B(1B)",
-            "Form": "Weight",
-            "Modality": "<u>MI</u>",
-            "MULTI": {
-                "Overall": 27.5,
-                "Education": {
-                    "JuH": 18.3,
-                    "SeH": 22.9,
-                    "Uni": 20,
-                    "Driv": 37.5,
-                    "AAT": 16.4
-                },
-                "Image": {
-                    "NI": 26.3,
-                    "SI": 30,
-                    "MI": 16.1
-                },
-                "Type": {
-                    "SA": 34.8,
-                    "MA": 23.2,
-                    "MAAcc": 0.8,
-                    "FB": 1.5,
-                    "OP": 4.9
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 18.5,
-                "Education": {
-                    "JuH": 16.8,
-                    "SeH": 16.6,
-                    "Uni": 11.8,
-                    "Driv": 38.3,
-                    "AAT": 21.2
-                },
-                "Image": {
-                    "NI": 14.9,
-                    "SI": 21.7,
-                    "MI": 10.9
-                },
-                "Type": {
-                    "SA": 22.4,
-                    "MA": 21.5,
-                    "MAAcc": 2.9,
-                    "FB": 1.7
-                }
-            }
-        },
-        {
-            "Model": "DeepSeek-VL2-small",
-            "Creator": "DeepSeek",
-            "Version": "deepseek-vl2-small",
-            "Url": "https://github.com/deepseek-ai/DeepSeek-VL2",
-            "VersionUrl": "https://huggingface.co/deepseek-ai/deepseek-vl2-small",
-            "Date": "2024-12-13",
-            "# Paras": "16B(2.8B)",
-            "Form": "Weight",
-            "Modality": "<u>MI</u>",
-            "MULTI": {
-                "Overall": 34.6,
-                "Education": {
-                    "JuH": 25.6,
-                    "SeH": 28.2,
-                    "Uni": 24.5,
-                    "Driv": 45.2,
-                    "AAT": 25.1
-                },
-                "Image": {
-                    "NI": 36.8,
-                    "SI": 31.3,
-                    "MI": 23.2
-                },
-                "Type": {
-                    "SA": 43.8,
-                    "MA": 28,
-                    "MAAcc": 2.4,
-                    "FB": 2.2,
-                    "OP": 11.3
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 18.9,
-                "Education": {
-                    "JuH": 16.3,
-                    "SeH": 19.3,
-                    "Uni": 14.7,
-                    "Driv": 31.7,
-                    "AAT": 12.1
-                },
-                "Image": {
-                    "NI": 19.3,
-                    "SI": 19.5,
-                    "MI": 14.1
-                },
-                "Type": {
-                    "SA": 20.8,
-                    "MA": 23.8,
-                    "MAAcc": 4.8,
-                    "FB": 3.3
-                }
-            }
-        },
-        {
-            "Model": "DeepSeek-VL2",
-            "Creator": "DeepSeek",
-            "Version": "deepseek-vl2",
-            "Url": "https://github.com/deepseek-ai/DeepSeek-VL2",
-            "VersionUrl": "https://huggingface.co/deepseek-ai/deepseek-vl2",
-            "Date": "2024-12-13",
-            "# Paras": "27B(4.5B)",
-            "Form": "Weight",
-            "Modality": "<u>MI</u>",
-            "MULTI": {
-                "Overall": 43.7,
-                "Education": {
-                    "JuH": 22,
-                    "SeH": 38.8,
-                    "Uni": 24.9,
-                    "Driv": 61.1,
-                    "AAT": 28.5
-                },
-                "Image": {
-                    "NI": 45.5,
-                    "SI": 41.2,
-                    "MI": 25.3
-                },
-                "Type": {
-                    "SA": 56.3,
-                    "MA": 32.6,
-                    "MAAcc": 5.4,
-                    "FB": 5.2,
-                    "OP": 12.3
-                }
-            },
-            "MULTI-Elite": {
-                "Overall": 19.6,
-                "Education": {
-                    "JuH": 15.8,
-                    "SeH": 19.3,
-                    "Uni": 17.6,
-                    "Driv": 40.0,
-                    "AAT": 12.1
-                },
-                "Image": {
-                    "NI": 15.8,
-                    "SI": 22.4,
-                    "MI": 15.6
-                },
-                "Type": {
-                    "SA": 28.3,
-                    "MA": 17.6,
-                    "MAAcc": 1.9,
-                    "FB": 0.8
-                }
-            }
+        "Type": {
+          "SA": 30.8,
+          "MA": 22.5,
+          "MAAcc": "-",
+          "FB": 0.9,
+          "OP": 3.4
         }
-
-    ]
+      },
+      "MULTI-Elite": {
+        "Overall": 17.7,
+        "Education": {
+          "JuH": 10.8,
+          "SeH": 16.5,
+          "Uni": 17.3,
+          "Driv": 32.7,
+          "AAT": 45.8
+        },
+        "Image": {
+          "NI": 14.6,
+          "SI": 19.7,
+          "MI": 16.0
+        },
+        "Type": {
+          "SA": 28.0,
+          "MA": 13.3,
+          "MAAcc": "-",
+          "FB": 0.5
+        }
+      }
+    },
+    {
+      "Model": "most",
+      "Creator": "-",
+      "Version": "-",
+      "Url": "",
+      "VersionUrl": "",
+      "Date": "-",
+      "# Paras": "-",
+      "Form": "-",
+      "Modality": "-",
+      "MULTI": {
+        "Overall": 28.4,
+        "Education": {
+          "JuH": 14.2,
+          "SeH": 19.7,
+          "Uni": 20.5,
+          "Driv": 42.8,
+          "AAT": 23.3
+        },
+        "Image": {
+          "NI": 32.5,
+          "SI": 22.0,
+          "MI": 17.7
+        },
+        "Type": {
+          "SA": 30.7,
+          "MA": 36.3,
+          "MAAcc": 21,
+          "FB": 1.6,
+          "OP": 3.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 24.5,
+        "Education": {
+          "JuH": 14.5,
+          "SeH": 25.6,
+          "Uni": 23.5,
+          "Driv": 45.0,
+          "AAT": 36.4
+        },
+        "Image": {
+          "NI": 22.2,
+          "SI": 26.4,
+          "MI": 20.3
+        },
+        "Type": {
+          "SA": 26.4,
+          "MA": 33.2,
+          "MAAcc": 16.3,
+          "FB": 1.6
+        }
+      }
+    },
+    {
+      "Model": "expert",
+      "Creator": "-",
+      "Version": "-",
+      "Url": "",
+      "VersionUrl": "",
+      "Date": "-",
+      "# Paras": "-",
+      "Form": "-",
+      "Modality": "-",
+      "MULTI": {
+        "Overall": 86.1,
+        "Education": {
+          "JuH": 87.8,
+          "SeH": 82.9,
+          "Uni": 88.2,
+          "Driv": 91.7,
+          "AAT": 76.7
+        },
+        "Image": {
+          "NI": 86.6,
+          "SI": 85.3,
+          "MI": 81.8
+        },
+        "Type": {
+          "SA": 91.4,
+          "MA": 81.1,
+          "MAAcc": 70.3,
+          "FB": 83.4,
+          "OP": 46.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 73.1,
+        "Education": {
+          "JuH": 77.3,
+          "SeH": 68.4,
+          "Uni": 79.4,
+          "Driv": 85.85,
+          "AAT": 71.25
+        },
+        "Image": {
+          "NI": 69.5,
+          "SI": 76.2,
+          "MI": 66.1
+        },
+        "Type": {
+          "SA": 78.4,
+          "MA": 67.8,
+          "MAAcc": 54.8,
+          "FB": 70.8
+        }
+      }
+    },
+    {
+      "Model": "VisualGLM",
+      "Creator": "THU",
+      "Version": "visualglm-6b",
+      "Url": "https://github.com/THUDM/VisualGLM-6B",
+      "VersionUrl": "https://huggingface.co/THUDM/visualglm-6b",
+      "Date": "2023-05-17",
+      "# Paras": "6B",
+      "Form": "Weight",
+      "Modality": "SI",
+      "MULTI": {
+        "Overall": 31.1,
+        "Education": {
+          "JuH": 22.2,
+          "SeH": 25.6,
+          "Uni": 23.6,
+          "Driv": 40.9,
+          "AAT": 24.9
+        },
+        "Image": {
+          "NI": 35.1,
+          "SI": 25.2,
+          "MI": 9.7
+        },
+        "Type": {
+          "SA": 37.9,
+          "MA": 30.2,
+          "MAAcc": 1.9,
+          "FB": 0.7,
+          "OP": 3.6
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 12.8,
+        "Education": {
+          "JuH": 15.0,
+          "SeH": 13.3,
+          "Uni": 8.8,
+          "Driv": 11.7,
+          "AAT": 0.0
+        },
+        "Image": {
+          "NI": 16.2,
+          "SI": 11.7,
+          "MI": 6.8
+        },
+        "Type": {
+          "SA": 14.5,
+          "MA": 16.6,
+          "MAAcc": 0,
+          "FB": 0.8
+        }
+      }
+    },
+    {
+      "Model": "VisCPM",
+      "Creator": "OpenBMB",
+      "Version": "VisCPM-Chat",
+      "Url": "https://github.com/OpenBMB/VisCPM",
+      "VersionUrl": "https://huggingface.co/openbmb/VisCPM-Chat",
+      "Date": "2023-06-28",
+      "# Paras": "10B",
+      "Form": "Weight",
+      "Modality": "<u>SI</u>",
+      "MULTI": {
+        "Overall": 33.4,
+        "Education": {
+          "JuH": 25.2,
+          "SeH": 28.1,
+          "Uni": 23.0,
+          "Driv": 43.4,
+          "AAT": 23.7
+        },
+        "Image": {
+          "NI": 36.8,
+          "SI": 28.4,
+          "MI": 16.6
+        },
+        "Type": {
+          "SA": 41.7,
+          "MA": 27.7,
+          "MAAcc": 0,
+          "FB": 3.8,
+          "OP": 14.1
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 13.0,
+        "Education": {
+          "JuH": 9.5,
+          "SeH": 14.9,
+          "Uni": 20.6,
+          "Driv": 15.0,
+          "AAT": 0.0
+        },
+        "Image": {
+          "NI": 10.3,
+          "SI": 14.2,
+          "MI": 15.3
+        },
+        "Type": {
+          "SA": 10.4,
+          "MA": 22.0,
+          "MAAcc": 0,
+          "FB": 0.8
+        }
+      }
+    },
+    {
+      "Model": "Chinese-LLaVA",
+      "Creator": "LinkSoul-AI",
+      "Version": "Chinese-LLaVA-Cllama2",
+      "Url": "https://github.com/LinkSoul-AI/Chinese-LLaVA",
+      "VersionUrl": "https://huggingface.co/LinkSoul/Chinese-LLaVA-Cllama2",
+      "Date": "2023-06-30",
+      "# Paras": "7B",
+      "Form": "Weight",
+      "Modality": "One",
+      "MULTI": {
+        "Overall": 28.5,
+        "Education": {
+          "JuH": 21.1,
+          "SeH": 25.4,
+          "Uni": 20.7,
+          "Driv": 35.8,
+          "AAT": 21.8
+        },
+        "Image": {
+          "NI": 32.3,
+          "SI": 22.6,
+          "MI": 17.8
+        },
+        "Type": {
+          "SA": 34.5,
+          "MA": 26.9,
+          "MAAcc": 3.9,
+          "FB": 2.4,
+          "OP": 8.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 12.3,
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": 13.7,
+          "SI": 11.0,
+          "MI": 15.3
+        },
+        "Type": {
+          "SA": 15.7,
+          "MA": 13.1,
+          "MAAcc": 1,
+          "FB": 1.6
+        }
+      }
+    },
+    {
+      "Model": "Qwen-VL",
+      "Creator": "Alibaba",
+      "Version": "Qwen-VL-Chat",
+      "Url": "https://github.com/QwenLM/Qwen-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen-VL-Chat",
+      "Date": "2023-09-25",
+      "# Paras": "7B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 39.0,
+        "Education": {
+          "JuH": 32.6,
+          "SeH": 32.9,
+          "Uni": 27.2,
+          "Driv": 49.3,
+          "AAT": 26.4
+        },
+        "Image": {
+          "NI": 43.2,
+          "SI": 32.7,
+          "MI": 20.7
+        },
+        "Type": {
+          "SA": 49.8,
+          "MA": 29.4,
+          "MAAcc": 2.8,
+          "FB": 5.8,
+          "OP": 13.7
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 10.5,
+        "Education": {
+          "JuH": 9.0,
+          "SeH": 10.7,
+          "Uni": 8.8,
+          "Driv": 18.3,
+          "AAT": 0.0
+        },
+        "Image": {
+          "NI": 8.5,
+          "SI": 10.8,
+          "MI": 16.9
+        },
+        "Type": {
+          "SA": 7.2,
+          "MA": 19.3,
+          "MAAcc": 1.9,
+          "FB": 0.8
+        }
+      }
+    },
+    {
+      "Model": "Yi-VL-34B",
+      "Creator": "01-ai",
+      "Version": "Yi-VL-34B",
+      "Url": "https://github.com/01-ai/Yi",
+      "VersionUrl": "https://huggingface.co/01-ai/Yi-VL-34B",
+      "Date": "2023-11-22",
+      "# Paras": "34B",
+      "Form": "Weight",
+      "Modality": "<u>One</u>",
+      "MULTI": {
+        "Overall": 55.3,
+        "Education": {
+          "JuH": 46.6,
+          "SeH": 46.0,
+          "Uni": 45.4,
+          "Driv": 71.1,
+          "AAT": 26.5
+        },
+        "Image": {
+          "NI": 63.8,
+          "SI": 42.0,
+          "MI": 24.5
+        },
+        "Type": {
+          "SA": 61.3,
+          "MA": 42.0,
+          "MAAcc": 36.4,
+          "FB": 14.6,
+          "OP": 8.9
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 26.2,
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": 32.5,
+          "SI": 22.7,
+          "MI": 25.4
+        },
+        "Type": {
+          "SA": 33.0,
+          "MA": 29.0,
+          "MAAcc": 8.7,
+          "FB": 3.2
+        }
+      }
+    },
+    {
+      "Model": "InternVL-1.1",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL-Chat-V1-1",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL-Chat-V1-1",
+      "Date": "2024-01-24",
+      "# Paras": "19B",
+      "Form": "Weight",
+      "Modality": "<u>One</u>",
+      "MULTI": {
+        "Overall": 44.9,
+        "Education": {
+          "JuH": 39.3,
+          "SeH": 36.5,
+          "Uni": 30.6,
+          "Driv": 57.7,
+          "AAT": 24.8
+        },
+        "Image": {
+          "NI": 50.9,
+          "SI": 35.5,
+          "MI": 25.1
+        },
+        "Type": {
+          "SA": 56.4,
+          "MA": 33.4,
+          "MAAcc": 2.1,
+          "FB": 14.2,
+          "OP": 13.1
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 20.7,
+        "Education": {
+          "JuH": 15.0,
+          "SeH": 20.8,
+          "Uni": 20.6,
+          "Driv": 30.0,
+          "AAT": 36.4
+        },
+        "Image": {
+          "NI": 17.9,
+          "SI": 21.0,
+          "MI": 28.8
+        },
+        "Type": {
+          "SA": 24.8,
+          "MA": 23.2,
+          "MAAcc": 0,
+          "FB": 4.8
+        }
+      }
+    },
+    {
+      "Model": "InternVL2-8B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL2-8B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL2-8B",
+      "Date": "2024-07-03",
+      "# Paras": "8B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 67.9,
+        "Education": {
+          "JuH": 63.7,
+          "SeH": 58.9,
+          "Uni": 59.6,
+          "Driv": 83.8,
+          "AAT": 26.0
+        },
+        "Image": {
+          "NI": 78.7,
+          "SI": 51.6,
+          "MI": 28.7
+        },
+        "Type": {
+          "SA": 72.6,
+          "MA": 74.2,
+          "MAAcc": 64,
+          "FB": 40.9,
+          "OP": 17.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 35.6,
+        "Education": {
+          "JuH": 33.2,
+          "SeH": 36.1,
+          "Uni": 26.5,
+          "Driv": 50.0,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 37.3,
+          "SI": 35.5,
+          "MI": 29.7
+        },
+        "Type": {
+          "SA": 37.9,
+          "MA": 40.2,
+          "MAAcc": 26.7,
+          "FB": 19.2
+        }
+      }
+    },
+    {
+      "Model": "MiniCPM-V-2.6",
+      "Creator": "OpenBMB",
+      "Version": "MiniCPM-V-2_6",
+      "Url": "github.com/OpenBMB/MiniCPM-V",
+      "VersionUrl": "https://huggingface.co/openbmb/MiniCPM-V-2_6",
+      "Date": "2024-08-05",
+      "# Paras": "8B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 55.1,
+        "Education": {
+          "JuH": 46.3,
+          "SeH": 42.8,
+          "Uni": 38.0,
+          "Driv": 73.7,
+          "AAT": 27.4
+        },
+        "Image": {
+          "NI": 63.8,
+          "SI": 41.8,
+          "MI": 24.0
+        },
+        "Type": {
+          "SA": 64.7,
+          "MA": 53.2,
+          "MAAcc": 31.3,
+          "FB": 15.2,
+          "OP": 12.3
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 21.3,
+        "Education": {
+          "JuH": 22.8,
+          "SeH": 19.8,
+          "Uni": 2.9,
+          "Driv": 40.0,
+          "AAT": 15.2
+        },
+        "Image": {
+          "NI": 18.4,
+          "SI": 22.6,
+          "MI": 23.4
+        },
+        "Type": {
+          "SA": 23.3,
+          "MA": 26.1,
+          "MAAcc": 7.6,
+          "FB": 5.8
+        }
+      }
+    },
+    {
+      "Model": "Qwen2-VL-7B",
+      "Creator": "Alibaba",
+      "Version": "Qwen2-VL-7B-Instruct",
+      "Url": "github.com/QwenLM/Qwen2-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct",
+      "Date": "2024-08-28",
+      "# Paras": "7B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 68.6,
+        "Education": {
+          "JuH": 60.4,
+          "SeH": 57.8,
+          "Uni": 50.8,
+          "Driv": 87.5,
+          "AAT": 28.7
+        },
+        "Image": {
+          "NI": 78.1,
+          "SI": 53.7,
+          "MI": 34.2
+        },
+        "Type": {
+          "SA": 75.0,
+          "MA": 72.7,
+          "MAAcc": 62.1,
+          "FB": 35.0,
+          "OP": 18.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 40.0,
+        "Education": {
+          "JuH": 39.6,
+          "SeH": 37.2,
+          "Uni": 26.5,
+          "Driv": 65.0,
+          "AAT": 42.4
+        },
+        "Image": {
+          "NI": 39.9,
+          "SI": 38.4,
+          "MI": 50.0
+        },
+        "Type": {
+          "SA": 43.5,
+          "MA": 43.3,
+          "MAAcc": 32.4,
+          "FB": 23.3
+        }
+      }
+    },
+    {
+      "Model": "Qwen2-VL-72B",
+      "Creator": "Alibaba",
+      "Version": "Qwen2-VL-72B-Instruct",
+      "Url": "github.com/QwenLM/Qwen2-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen2-VL-72B-Instruct",
+      "Date": "2024-08-28",
+      "# Paras": "72B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 76.9,
+        "Education": {
+          "JuH": 66.3,
+          "SeH": 69.5,
+          "Uni": 69.9,
+          "Driv": 94.3,
+          "AAT": 34.0
+        },
+        "Image": {
+          "NI": 86.9,
+          "SI": 61.5,
+          "MI": 41.1
+        },
+        "Type": {
+          "SA": 83.5,
+          "MA": 84.7,
+          "MAAcc": 78.1,
+          "FB": 35.1,
+          "OP": 19.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 53.1,
+        "Education": {
+          "JuH": 50.0,
+          "SeH": 56.7,
+          "Uni": 32.4,
+          "Driv": 70.0,
+          "AAT": 21.2
+        },
+        "Image": {
+          "NI": 63.6,
+          "SI": 49.6,
+          "MI": 37.5
+        },
+        "Type": {
+          "SA": 55.3,
+          "MA": 62.8,
+          "MAAcc": 54.3,
+          "FB": 25.8
+        }
+      }
+    },
+    {
+      "Model": "GPT-4V",
+      "Creator": "OpenAI",
+      "Version": "gpt-4-1106-vision-preview",
+      "Url": "https://openai.com/index/gpt-4v-system-card/",
+      "VersionUrl": "",
+      "Date": "2023-11-06",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 63.7,
+        "Education": {
+          "JuH": 58.5,
+          "SeH": 52.9,
+          "Uni": 59.0,
+          "Driv": 80.1,
+          "AAT": 26.2
+        },
+        "Image": {
+          "NI": 74.5,
+          "SI": 46.9,
+          "MI": 28.1
+        },
+        "Type": {
+          "SA": 67.1,
+          "MA": 70.6,
+          "MAAcc": 58.2,
+          "FB": 42.4,
+          "OP": 11.7
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 14.0,
+        "Education": {
+          "JuH": 10.5,
+          "SeH": 14.7,
+          "Uni": 5.9,
+          "Driv": 33.3,
+          "AAT": 0.0
+        },
+        "Image": {
+          "NI": 7.3,
+          "SI": 14.9,
+          "MI": 33.9
+        },
+        "Type": {
+          "SA": 5.3,
+          "MA": 25.5,
+          "MAAcc": 15.4,
+          "FB": 12.0
+        }
+      }
+    },
+    {
+      "Model": "Gemini Vision Pro",
+      "Creator": "Google",
+      "Version": "gemini-1.0-pro-vision",
+      "Url": "https://arxiv.org/abs/2312.11805",
+      "VersionUrl": "",
+      "Date": "2023-12-07",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "<u>MI</u>",
+      "MULTI": {
+        "Overall": 53.7,
+        "Education": {
+          "JuH": 48.2,
+          "SeH": 45.2,
+          "Uni": 41.7,
+          "Driv": 67.4,
+          "AAT": 27.0
+        },
+        "Image": {
+          "NI": 62.5,
+          "SI": 40.0,
+          "MI": 24.5
+        },
+        "Type": {
+          "SA": 59.4,
+          "MA": 54.4,
+          "MAAcc": 24.3,
+          "FB": 30.5,
+          "OP": 12.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 12.4,
+        "Education": {
+          "JuH": 12.5,
+          "SeH": 11.5,
+          "Uni": 5.9,
+          "Driv": 28.3,
+          "AAT": 0.0
+        },
+        "Image": {
+          "NI": 6.8,
+          "SI": 12.0,
+          "MI": 37.3
+        },
+        "Type": {
+          "SA": 5.3,
+          "MA": 21.2,
+          "MAAcc": 5.8,
+          "FB": 12.0
+        }
+      }
+    },
+    {
+      "Model": "GPT-4o-mini (0718)",
+      "Creator": "OpenAI",
+      "Version": "gpt-4o-mini-2024-07-18",
+      "Url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
+      "VersionUrl": "",
+      "Date": "2024-07-18",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 58.2,
+        "Education": {
+          "JuH": 51.7,
+          "SeH": 43.9,
+          "Uni": 49.6,
+          "Driv": 77.1,
+          "AAT": 25.8
+        },
+        "Image": {
+          "NI": 67.7,
+          "SI": 43.0,
+          "MI": 30.4
+        },
+        "Type": {
+          "SA": 65.8,
+          "MA": 56.6,
+          "MAAcc": 46.3,
+          "FB": 30.3,
+          "OP": 12.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 18.2,
+        "Education": {
+          "JuH": 18.5,
+          "SeH": 13.3,
+          "Uni": 11.8,
+          "Driv": 48.3,
+          "AAT": 24.2
+        },
+        "Image": {
+          "NI": 17.1,
+          "SI": 17.4,
+          "MI": 28.8
+        },
+        "Type": {
+          "SA": 22.3,
+          "MA": 18.5,
+          "MAAcc": 11.5,
+          "FB": 7.2
+        }
+      }
+    },
+    {
+      "Model": "GPT-4o (0806)",
+      "Creator": "OpenAI",
+      "Version": "gpt-4o-2024-08-06",
+      "Url": "https://openai.com/index/hello-gpt-4o/",
+      "VersionUrl": "",
+      "Date": "2024-08-06",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 69.9,
+        "Education": {
+          "JuH": 65.6,
+          "SeH": 58.6,
+          "Uni": 62.2,
+          "Driv": 87.1,
+          "AAT": 28.0
+        },
+        "Image": {
+          "NI": 80.0,
+          "SI": 54.1,
+          "MI": 40.9
+        },
+        "Type": {
+          "SA": 74.5,
+          "MA": 74.6,
+          "MAAcc": 63.1,
+          "FB": 47.6,
+          "OP": 17.2
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 36.0,
+        "Education": {
+          "JuH": 30.5,
+          "SeH": 35.5,
+          "Uni": 29.4,
+          "Driv": 60.0,
+          "AAT": 39.4
+        },
+        "Image": {
+          "NI": 34.2,
+          "SI": 35.9,
+          "MI": 44.1
+        },
+        "Type": {
+          "SA": 43.1,
+          "MA": 37.5,
+          "MAAcc": 24,
+          "FB": 15.2
+        }
+      }
+    },
+    {
+      "Model": "Gemini 1.5 Flash (0827)",
+      "Creator": "Google",
+      "Version": "gemini-1.5-flash-exp-0827",
+      "Url": "https://deepmind.google/technologies/gemini/flash/",
+      "VersionUrl": "",
+      "Date": "2024-08-27",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 64.9,
+        "Education": {
+          "JuH": 63.2,
+          "SeH": 56.0,
+          "Uni": 52.6,
+          "Driv": 78.7,
+          "AAT": 26.7
+        },
+        "Image": {
+          "NI": 73.8,
+          "SI": 50.9,
+          "MI": 40.0
+        },
+        "Type": {
+          "SA": 68.4,
+          "MA": 68.5,
+          "MAAcc": 52.1,
+          "FB": 50.9,
+          "OP": 14.1
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 33.4,
+        "Education": {
+          "JuH": 32.7,
+          "SeH": 31.0,
+          "Uni": 26.5,
+          "Driv": 65.0,
+          "AAT": 15.2
+        },
+        "Image": {
+          "NI": 33.8,
+          "SI": 30.7,
+          "MI": 50.0
+        },
+        "Type": {
+          "SA": 32.3,
+          "MA": 38.3,
+          "MAAcc": 21.9,
+          "FB": 25.8
+        }
+      }
+    },
+    {
+      "Model": "Claude 3.5 Sonnet",
+      "Creator": "Anthropic",
+      "Version": "claude-3-5-sonnet-20241022",
+      "Url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+      "VersionUrl": "",
+      "Date": "2024-10-22",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 57.2,
+        "Education": {
+          "JuH": 38.7,
+          "SeH": 42.3,
+          "Uni": 26.1,
+          "Driv": 83.3,
+          "AAT": 28.9
+        },
+        "Image": {
+          "NI": 68.3,
+          "SI": 39.7,
+          "MI": 23.1
+        },
+        "Type": {
+          "SA": 63.0,
+          "MA": 64.9,
+          "MAAcc": 52.9,
+          "FB": 16.6,
+          "OP": 9.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 34.3,
+        "Education": {
+          "JuH": 25.0,
+          "SeH": 33.9,
+          "Uni": 29.4,
+          "Driv": 75.0,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 33.3,
+          "SI": 33.3,
+          "MI": 45.8
+        },
+        "Type": {
+          "SA": 38.1,
+          "MA": 38.6,
+          "MAAcc": 30.8,
+          "FB": 16.0
+        }
+      }
+    },
+    {
+      "Model": "GPT-4o (1120)",
+      "Creator": "OpenAI",
+      "Version": "gpt-4o-2024-11-20",
+      "Url": "https://openai.com/index/hello-gpt-4o/",
+      "VersionUrl": "",
+      "Date": "2024-11-20",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 70.0,
+        "Education": {
+          "JuH": 65.9,
+          "SeH": 59.0,
+          "Uni": 60.2,
+          "Driv": 86.9,
+          "AAT": 28.2
+        },
+        "Image": {
+          "NI": 79.6,
+          "SI": 54.9,
+          "MI": 40.9
+        },
+        "Type": {
+          "SA": 74.4,
+          "MA": 74.2,
+          "MAAcc": 63,
+          "FB": 49.4,
+          "OP": 17.7
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 36.3,
+        "Education": {
+          "JuH": 34.2,
+          "SeH": 33.2,
+          "Uni": 23.5,
+          "Driv": 66.7,
+          "AAT": 42.4
+        },
+        "Image": {
+          "NI": 36.0,
+          "SI": 36.3,
+          "MI": 56.2
+        },
+        "Type": {
+          "SA": 42.2,
+          "MA": 42.1,
+          "MAAcc": 25.7,
+          "FB": 17.5
+        }
+      }
+    },
+    {
+      "Model": "Gemini 1.5 Pro (1121)",
+      "Creator": "Google",
+      "Version": "gemini-exp-1121",
+      "Url": "https://deepmind.google/technologies/gemini/pro/",
+      "VersionUrl": "",
+      "Date": "2024-11-21",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 71.8,
+        "Education": {
+          "JuH": 71.6,
+          "SeH": 64.3,
+          "Uni": 65.3,
+          "Driv": 84.2,
+          "AAT": 29.3
+        },
+        "Image": {
+          "NI": 80.2,
+          "SI": 58.5,
+          "MI": 50.0
+        },
+        "Type": {
+          "SA": 74.3,
+          "MA": 76.8,
+          "MAAcc": 64.9,
+          "FB": 62.6,
+          "OP": 14.6
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 46.9,
+        "Education": {
+          "JuH": 50.0,
+          "SeH": 43.3,
+          "Uni": 32.4,
+          "Driv": 78.3,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 43.4,
+          "SI": 46.0,
+          "MI": 65.6
+        },
+        "Type": {
+          "SA": 47.8,
+          "MA": 47.9,
+          "MAAcc": 33.3,
+          "FB": 42.5
+        }
+      }
+    },
+    {
+      "Model": "MOSS",
+      "Creator": "FDU",
+      "Version": "moss-moon-003-sft",
+      "Url": "https://github.com/OpenMOSS/MOSS",
+      "VersionUrl": "https://huggingface.co/fnlp/moss-moon-003-sft",
+      "Date": "2023-04-19",
+      "# Paras": "16B",
+      "Form": "Weight",
+      "Modality": "T",
+      "MULTI": {
+        "Overall": 32.6,
+        "Education": {
+          "JuH": 21.2,
+          "SeH": 26.7,
+          "Uni": 23.8,
+          "Driv": 44.1,
+          "AAT": 25.5
+        },
+        "Image": {
+          "NI": 36.1,
+          "SI": 27.3,
+          "MI": 17.1
+        },
+        "Type": {
+          "SA": 38.5,
+          "MA": 33.1,
+          "MAAcc": 6.8,
+          "FB": 2.7,
+          "OP": 8.7
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 13.1,
+        "Education": {
+          "JuH": 13.5,
+          "SeH": 12.8,
+          "Uni": 8.8,
+          "Driv": 21.7,
+          "AAT": 3.0
+        },
+        "Image": {
+          "NI": 9.4,
+          "SI": 14.7,
+          "MI": 16.9
+        },
+        "Type": {
+          "SA": 14.8,
+          "MA": 17.0,
+          "MAAcc": 5.8,
+          "FB": 0.8
+        }
+      }
+    },
+    {
+      "Model": "DFM-2.0",
+      "Creator": "AISpeech",
+      "Version": "dfm-2.0-70b-preview",
+      "Url": "https://dongfeng.duiopen.com/",
+      "VersionUrl": "",
+      "Date": "2024-01-16",
+      "# Paras": "70B",
+      "Form": "Weight",
+      "Modality": "T",
+      "MULTI": {
+        "Overall": 49.7,
+        "Education": {
+          "JuH": 42.3,
+          "SeH": 42.5,
+          "Uni": 35.7,
+          "Driv": 66.3,
+          "AAT": 3.9
+        },
+        "Image": {
+          "NI": 63.0,
+          "SI": 28.7,
+          "MI": 11.3
+        },
+        "Type": {
+          "SA": 55.8,
+          "MA": 53.9,
+          "MAAcc": 29.7,
+          "FB": 13.3,
+          "OP": 10.3
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 18.0,
+        "Education": {
+          "JuH": 16.5,
+          "SeH": 19.5,
+          "Uni": 14.7,
+          "Driv": 23.3,
+          "AAT": 3.0
+        },
+        "Image": {
+          "NI": 26.9,
+          "SI": 12.7,
+          "MI": 18.6
+        },
+        "Type": {
+          "SA": 19.8,
+          "MA": 21.2,
+          "MAAcc": 9.6,
+          "FB": 6.4
+        }
+      }
+    },
+    {
+      "Model": "Qwen2-7B",
+      "Creator": "Alibaba",
+      "Version": "Qwen2-7B-Instruct",
+      "Url": "https://github.com/QwenLM/Qwen2.5",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen2-7B-Instruct",
+      "Date": "2024-06-04",
+      "# Paras": "7B",
+      "Form": "Weight",
+      "Modality": "T",
+      "MULTI": {
+        "Overall": 51.3,
+        "Education": {
+          "JuH": 43.0,
+          "SeH": 41.4,
+          "Uni": 39.8,
+          "Driv": 69.7,
+          "AAT": 9.4
+        },
+        "Image": {
+          "NI": 61.6,
+          "SI": 35.3,
+          "MI": 18.0
+        },
+        "Type": {
+          "SA": 58.4,
+          "MA": 53.3,
+          "MAAcc": 43.9,
+          "FB": 16.8,
+          "OP": 7.6
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 13.3,
+        "Education": {
+          "JuH": 9.5,
+          "SeH": 15.2,
+          "Uni": 11.8,
+          "Driv": 8.3,
+          "AAT": 24.2
+        },
+        "Image": {
+          "NI": 18.8,
+          "SI": 10.0,
+          "MI": 13.6
+        },
+        "Type": {
+          "SA": 21.4,
+          "MA": 8.9,
+          "MAAcc": 8.7,
+          "FB": 1.6
+        }
+      }
+    },
+    {
+      "Model": "InternLM2.5-7B",
+      "Creator": "PJLab",
+      "Version": "internlm2_5-7b-chat",
+      "Url": "https://github.com/InternLM/InternLM",
+      "VersionUrl": "https://huggingface.co/internlm/internlm2_5-7b-chat",
+      "Date": "2024-06-27",
+      "# Paras": "7B",
+      "Form": "Weight",
+      "Modality": "T",
+      "MULTI": {
+        "Overall": 58.2,
+        "Education": {
+          "JuH": 48.9,
+          "SeH": 48.3,
+          "Uni": 49.4,
+          "Driv": 76.0,
+          "AAT": 22.3
+        },
+        "Image": {
+          "NI": 70.3,
+          "SI": 39.2,
+          "MI": 24.5
+        },
+        "Type": {
+          "SA": 66.5,
+          "MA": 60.8,
+          "MAAcc": 43.3,
+          "FB": 17.3,
+          "OP": 7.3
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 17.4,
+        "Education": {
+          "JuH": 15.0,
+          "SeH": 18.9,
+          "Uni": 14.7,
+          "Driv": 23.3,
+          "AAT": 6.1
+        },
+        "Image": {
+          "NI": 22.2,
+          "SI": 13.2,
+          "MI": 27.1
+        },
+        "Type": {
+          "SA": 18.9,
+          "MA": 18.5,
+          "MAAcc": 8.7,
+          "FB": 11.2
+        }
+      }
+    },
+    {
+      "Model": "ChatGPT",
+      "Creator": "OpenAI",
+      "Version": "gpt-3.5-turbo-1106",
+      "Url": "https://openai.com/index/chatgpt/",
+      "VersionUrl": "",
+      "Date": "2023-11-06",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "T",
+      "MULTI": {
+        "Overall": 35.9,
+        "Education": {
+          "JuH": 31.6,
+          "SeH": 23.7,
+          "Uni": 34.9,
+          "Driv": 52.1,
+          "AAT": 1.3
+        },
+        "Image": {
+          "NI": 54.0,
+          "SI": 6.8,
+          "MI": 5.1
+        },
+        "Type": {
+          "SA": 40.0,
+          "MA": 39.4,
+          "MAAcc": 17.9,
+          "FB": 10.5,
+          "OP": 7.7
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 4.7,
+        "Education": {
+          "JuH": 6.0,
+          "SeH": 4.3,
+          "Uni": 14.7,
+          "Driv": 0.0,
+          "AAT": 0.0
+        },
+        "Image": {
+          "NI": 8.5,
+          "SI": 2.2,
+          "MI": 6.8
+        },
+        "Type": {
+          "SA": 5.3,
+          "MA": 4.2,
+          "MAAcc": 1.9,
+          "FB": 4.0
+        }
+      }
+    },
+    {
+      "Model": "GPT-4",
+      "Creator": "OpenAI",
+      "Version": "gpt-4-1106-preview",
+      "Url": "https://arxiv.org/abs/2303.08774",
+      "VersionUrl": "",
+      "Date": "2023-11-06",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "T",
+      "MULTI": {
+        "Overall": 50.2,
+        "Education": {
+          "JuH": 49.2,
+          "SeH": 33.7,
+          "Uni": 55.1,
+          "Driv": 69.9,
+          "AAT": 0.9
+        },
+        "Image": {
+          "NI": 74.5,
+          "SI": 11.3,
+          "MI": 8.8
+        },
+        "Type": {
+          "SA": 51.3,
+          "MA": 60.0,
+          "MAAcc": 53.1,
+          "FB": 32.9,
+          "OP": 6.8
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 5.8,
+        "Education": {
+          "JuH": 6.0,
+          "SeH": 7.2,
+          "Uni": 0.0,
+          "Driv": 3.3,
+          "AAT": 0.0
+        },
+        "Image": {
+          "NI": 7.3,
+          "SI": 2.7,
+          "MI": 22.0
+        },
+        "Type": {
+          "SA": 3.8,
+          "MA": 7.3,
+          "MAAcc": 5.8,
+          "FB": 8.0
+        }
+      }
+    },
+    {
+      "Model": "Gemini Pro",
+      "Creator": "Google",
+      "Version": "gemini-1.0-pro-001",
+      "Url": "https://arxiv.org/abs/2312.11805",
+      "VersionUrl": "",
+      "Date": "2023-12-07",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "T",
+      "MULTI": {
+        "Overall": 52.2,
+        "Education": {
+          "JuH": 47.7,
+          "SeH": 42.3,
+          "Uni": 41.4,
+          "Driv": 66.9,
+          "AAT": 22.5
+        },
+        "Image": {
+          "NI": 62.5,
+          "SI": 36.2,
+          "MI": 18.3
+        },
+        "Type": {
+          "SA": 58.2,
+          "MA": 52.7,
+          "MAAcc": 22.8,
+          "FB": 29.1,
+          "OP": 7.9
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 10.5,
+        "Education": {
+          "JuH": 10.5,
+          "SeH": 9.3,
+          "Uni": 14.7,
+          "Driv": 20.0,
+          "AAT": 3.0
+        },
+        "Image": {
+          "NI": 6.8,
+          "SI": 9.0,
+          "MI": 35.6
+        },
+        "Type": {
+          "SA": 6.3,
+          "MA": 16.6,
+          "MAAcc": 3.8,
+          "FB": 8.8
+        }
+      }
+    },
+    {
+      "Model": "o1-preview",
+      "Creator": "OpenAI",
+      "Version": "o1-preview-2024-09-12",
+      "Url": "https://openai.com/index/introducing-openai-o1-preview/",
+      "VersionUrl": "",
+      "Date": "2024-09-12",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "T",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 38.0,
+        "Education": {
+          "JuH": 34.5,
+          "SeH": 40.3,
+          "Uni": 32.4,
+          "Driv": 51.7,
+          "AAT": 15.2
+        },
+        "Image": {
+          "NI": 45.7,
+          "SI": 33.3,
+          "MI": 40.7
+        },
+        "Type": {
+          "SA": 41.5,
+          "MA": 43.6,
+          "MAAcc": 32.7,
+          "FB": 17.6
+        }
+      }
+    },
+    {
+      "Model": "o1-mini",
+      "Creator": "OpenAI",
+      "Version": "o1-mini-2024-09-12",
+      "Url": "https://openai.com/index/openai-o1-mini-advancing-cost-efficient-reasoning/",
+      "VersionUrl": "",
+      "Date": "2024-09-12",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "T",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 22.1,
+        "Education": {
+          "JuH": 16.5,
+          "SeH": 24.3,
+          "Uni": 17.6,
+          "Driv": 38.3,
+          "AAT": 6.1
+        },
+        "Image": {
+          "NI": 25.2,
+          "SI": 19.3,
+          "MI": 28.8
+        },
+        "Type": {
+          "SA": 21.4,
+          "MA": 24.3,
+          "MAAcc": 14.4,
+          "FB": 19.2
+        }
+      }
+    },
+    {
+      "Model": "InternVL2.5-8B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL2_5-8B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL2_5-8B",
+      "Date": "2024-12-05",
+      "# Paras": "8B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 68.7,
+        "Education": {
+          "JuH": 65.4,
+          "SeH": 60.6,
+          "Uni": 53.9,
+          "Driv": 83.4,
+          "AAT": 27.8
+        },
+        "Image": {
+          "NI": 78.3,
+          "SI": 54.1,
+          "MI": 35.3
+        },
+        "Type": {
+          "SA": 72.8,
+          "MA": 75.7,
+          "MAAcc": 61.7,
+          "FB": 45.6,
+          "OP": 10.0
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 38.1,
+        "Education": {
+          "JuH": 39.6,
+          "SeH": 35.6,
+          "Uni": 23.5,
+          "Driv": 61.7,
+          "AAT": 30.3
+        },
+        "Image": {
+          "NI": 36.4,
+          "SI": 37.0,
+          "MI": 51.6
+        },
+        "Type": {
+          "SA": 43.5,
+          "MA": 37.5,
+          "MAAcc": 22.9,
+          "FB": 25.0
+        }
+      }
+    },
+    {
+      "Model": "InternVL2.5-78B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL2_5-78B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL2_5-78B",
+      "Date": "2024-12-05",
+      "# Paras": "78B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 79.4,
+        "Education": {
+          "JuH": 76.3,
+          "SeH": 74.5,
+          "Uni": 73.7,
+          "Driv": 92.3,
+          "AAT": 29.9
+        },
+        "Image": {
+          "NI": 88.6,
+          "SI": 65.2,
+          "MI": 50.7
+        },
+        "Type": {
+          "SA": 82.4,
+          "MA": 86.8,
+          "MAAcc": 78.9,
+          "FB": 64.1,
+          "OP": 13.3
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 58.6,
+        "Education": {
+          "JuH": 62.4,
+          "SeH": 58.6,
+          "Uni": 47.1,
+          "Driv": 71.7,
+          "AAT": 24.2
+        },
+        "Image": {
+          "NI": 64.9,
+          "SI": 55.0,
+          "MI": 59.4
+        },
+        "Type": {
+          "SA": 59.3,
+          "MA": 65.1,
+          "MAAcc": 53.3,
+          "FB": 42.5
+        }
+      }
+    },
+    {
+      "Model": "QVQ",
+      "Creator": "Alibaba",
+      "Version": "QVQ-72B-Preview",
+      "Url": "https://qwenlm.github.io/zh/blog/qvq-72b-preview/",
+      "VersionUrl": "https://huggingface.co/Qwen/QVQ-72B-Preview",
+      "Date": "2024-12-25",
+      "# Paras": "72B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 45.2,
+        "Education": {
+          "JuH": 38.6,
+          "SeH": 47.3,
+          "Uni": 44.1,
+          "Driv": 65.0,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 53.1,
+          "SI": 43.1,
+          "MI": 31.2
+        },
+        "Type": {
+          "SA": 56.5,
+          "MA": 51.3,
+          "MAAcc": 35.2,
+          "FB": 1.7
+        }
+      }
+    },
+    {
+      "Model": "POINTS-1-5",
+      "Creator": "Tencent",
+      "Version": "POINTS-1-5-Qwen-2-5-7B-Chat",
+      "Url": "https://github.com/WePOINTS/WePOINTS",
+      "VersionUrl": "https://huggingface.co/WePOINTS/POINTS-1-5-Qwen-2-5-7B-Chat",
+      "Date": "2024-12-06",
+      "# Paras": "7B",
+      "Form": "Weight",
+      "Modality": "<u>MI</u>",
+      "MULTI": {
+        "Overall": 65.3,
+        "Education": {
+          "JuH": 51.8,
+          "SeH": 55.9,
+          "Uni": 52.6,
+          "Driv": 85.6,
+          "AAT": 25.9
+        },
+        "Image": {
+          "NI": 77.0,
+          "SI": 47.3,
+          "MI": 30.3
+        },
+        "Type": {
+          "SA": 72.5,
+          "MA": 74.1,
+          "MAAcc": 59,
+          "FB": 16.3,
+          "OP": 11.7
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 32.3,
+        "Education": {
+          "JuH": 26.7,
+          "SeH": 34.0,
+          "Uni": 20.6,
+          "Driv": 60.0,
+          "AAT": 9.1
+        },
+        "Image": {
+          "NI": 36.8,
+          "SI": 30.4,
+          "MI": 28.1
+        },
+        "Type": {
+          "SA": 33.2,
+          "MA": 43.7,
+          "MAAcc": 27.6,
+          "FB": 5.0
+        }
+      }
+    },
+    {
+      "Model": "Qwen2.5-VL-7B",
+      "Creator": "Alibaba",
+      "Version": "Qwen2.5-VL-7B-Instruct",
+      "Url": "https://github.com/QwenLM/Qwen2.5-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct",
+      "Date": "2025-01-26",
+      "# Paras": "7B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 73,
+        "Education": {
+          "JuH": 70.5,
+          "SeH": 67.9,
+          "Uni": 48.5,
+          "Driv": 85.9,
+          "AAT": 30.7
+        },
+        "Image": {
+          "NI": 79.6,
+          "SI": 62.9,
+          "MI": 48.2
+        },
+        "Type": {
+          "SA": 78.1,
+          "MA": 74.7,
+          "MAAcc": 67,
+          "FB": 54.1,
+          "OP": 22
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 46.2,
+        "Education": {
+          "JuH": 46.0,
+          "SeH": 46.3,
+          "Uni": 35.3,
+          "Driv": 68.3,
+          "AAT": 18.2
+        },
+        "Image": {
+          "NI": 43.9,
+          "SI": 46.0,
+          "MI": 56.2
+        },
+        "Type": {
+          "SA": 48.8,
+          "MA": 49.0,
+          "MAAcc": 41,
+          "FB": 33.3
+        }
+      }
+    },
+    {
+      "Model": "Qwen2.5-VL-72B",
+      "Creator": "Alibaba",
+      "Version": "Qwen2.5-VL-72B-Instruct",
+      "Url": "https://github.com/QwenLM/Qwen2.5-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen2.5-VL-72B-Instruct",
+      "Date": "2025-01-26",
+      "# Paras": "72B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 81.9,
+        "Education": {
+          "JuH": 79.9,
+          "SeH": 79.4,
+          "Uni": 70.5,
+          "Driv": 92.8,
+          "AAT": 32.7
+        },
+        "Image": {
+          "NI": 88.3,
+          "SI": 72.2,
+          "MI": 57.1
+        },
+        "Type": {
+          "SA": 84.6,
+          "MA": 87.5,
+          "MAAcc": 81,
+          "FB": 69.9,
+          "OP": 25.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 61.9,
+        "Education": {
+          "JuH": 61.9,
+          "SeH": 66.3,
+          "Uni": 35.3,
+          "Driv": 78.3,
+          "AAT": 9.1
+        },
+        "Image": {
+          "NI": 55.3,
+          "SI": 65.2,
+          "MI": 64.1
+        },
+        "Type": {
+          "SA": 61.8,
+          "MA": 69.0,
+          "MAAcc": 60,
+          "FB": 46.7
+        }
+      }
+    },
+    {
+      "Model": "Qwen2.5-VL-3B",
+      "Creator": "Alibaba",
+      "Version": "Qwen2.5-VL-3B-Instruct",
+      "Url": "https://github.com/QwenLM/Qwen2.5-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen2.5-VL-3B-Instruct",
+      "Date": "2025-01-26",
+      "# Paras": "3B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 70.7,
+        "Education": {
+          "JuH": 68.7,
+          "SeH": 63.9,
+          "Uni": 47.2,
+          "Driv": 84.4,
+          "AAT": 30.2
+        },
+        "Image": {
+          "NI": 78.8,
+          "SI": 58.6,
+          "MI": 35.9
+        },
+        "Type": {
+          "SA": 75.3,
+          "MA": 74.1,
+          "MAAcc": 64.7,
+          "FB": 49.4,
+          "OP": 26.2
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 45.0,
+        "Education": {
+          "JuH": 43.6,
+          "SeH": 45.7,
+          "Uni": 20.6,
+          "Driv": 65.0,
+          "AAT": 33.3
+        },
+        "Image": {
+          "NI": 45.2,
+          "SI": 45.3,
+          "MI": 42.2
+        },
+        "Type": {
+          "SA": 46.9,
+          "MA": 52.5,
+          "MAAcc": 42.9,
+          "FB": 23.3
+        }
+      }
+    },
+    {
+      "Model": "Janus-Pro-1B",
+      "Creator": "DeepSeek",
+      "Version": "Janus-Pro-1B",
+      "Url": "https://github.com/deepseek-ai/Janus",
+      "VersionUrl": "https://huggingface.co/deepseek-ai/Janus-Pro-1B",
+      "Date": "2025-01-27",
+      "# Paras": "1B",
+      "Form": "Weight",
+      "Modality": "<u>MI</u>",
+      "MULTI": {
+        "Overall": 32.3,
+        "Education": {
+          "JuH": 23,
+          "SeH": 24.8,
+          "Uni": 19.9,
+          "Driv": 44.4,
+          "AAT": 24.2
+        },
+        "Image": {
+          "NI": 35.1,
+          "SI": 28.1,
+          "MI": 22.4
+        },
+        "Type": {
+          "SA": 40.8,
+          "MA": 26.7,
+          "MAAcc": 0.7,
+          "FB": 1.9,
+          "OP": 11.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 17.4,
+        "Education": {
+          "JuH": 12.9,
+          "SeH": 16.8,
+          "Uni": 17.6,
+          "Driv": 30.0,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 15.8,
+          "SI": 17.3,
+          "MI": 23.4
+        },
+        "Type": {
+          "SA": 18.9,
+          "MA": 21.8,
+          "MAAcc": 0,
+          "FB": 3.3
+        }
+      }
+    },
+    {
+      "Model": "Janus-Pro-7B",
+      "Creator": "DeepSeek",
+      "Version": "Janus-Pro-7B",
+      "Url": "https://github.com/deepseek-ai/Janus",
+      "VersionUrl": "https://huggingface.co/deepseek-ai/Janus-Pro-7B",
+      "Date": "2025-01-27",
+      "# Paras": "7B",
+      "Form": "Weight",
+      "Modality": "<u>MI</u>",
+      "MULTI": {
+        "Overall": 37.5,
+        "Education": {
+          "JuH": 29.9,
+          "SeH": 31.2,
+          "Uni": 20.3,
+          "Driv": 49,
+          "AAT": 24.3
+        },
+        "Image": {
+          "NI": 41.3,
+          "SI": 31.9,
+          "MI": 21.1
+        },
+        "Type": {
+          "SA": 47.6,
+          "MA": 29.6,
+          "MAAcc": 0.5,
+          "FB": 4.4,
+          "OP": 12.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 18.8,
+        "Education": {
+          "JuH": 14.4,
+          "SeH": 17.1,
+          "Uni": 26.5,
+          "Driv": 35.0,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 20.2,
+          "SI": 18.5,
+          "MI": 15.6
+        },
+        "Type": {
+          "SA": 23.9,
+          "MA": 21.2,
+          "MAAcc": 0,
+          "FB": 0.0
+        }
+      }
+    },
+    {
+      "Model": "DeepSeek-VL2-tiny",
+      "Creator": "DeepSeek",
+      "Version": "deepseek-vl2-tiny",
+      "Url": "https://github.com/deepseek-ai/DeepSeek-VL2",
+      "VersionUrl": "https://huggingface.co/deepseek-ai/deepseek-vl2-tiny",
+      "Date": "2024-12-13",
+      "# Paras": "3B(1B)",
+      "Form": "Weight",
+      "Modality": "<u>MI</u>",
+      "MULTI": {
+        "Overall": 27.5,
+        "Education": {
+          "JuH": 18.3,
+          "SeH": 22.9,
+          "Uni": 20,
+          "Driv": 37.5,
+          "AAT": 16.4
+        },
+        "Image": {
+          "NI": 26.3,
+          "SI": 30,
+          "MI": 16.1
+        },
+        "Type": {
+          "SA": 34.8,
+          "MA": 23.2,
+          "MAAcc": 0.8,
+          "FB": 1.5,
+          "OP": 4.9
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 18.5,
+        "Education": {
+          "JuH": 16.8,
+          "SeH": 16.6,
+          "Uni": 11.8,
+          "Driv": 38.3,
+          "AAT": 21.2
+        },
+        "Image": {
+          "NI": 14.9,
+          "SI": 21.7,
+          "MI": 10.9
+        },
+        "Type": {
+          "SA": 22.4,
+          "MA": 21.5,
+          "MAAcc": 2.9,
+          "FB": 1.7
+        }
+      }
+    },
+    {
+      "Model": "DeepSeek-VL2-small",
+      "Creator": "DeepSeek",
+      "Version": "deepseek-vl2-small",
+      "Url": "https://github.com/deepseek-ai/DeepSeek-VL2",
+      "VersionUrl": "https://huggingface.co/deepseek-ai/deepseek-vl2-small",
+      "Date": "2024-12-13",
+      "# Paras": "16B(2.8B)",
+      "Form": "Weight",
+      "Modality": "<u>MI</u>",
+      "MULTI": {
+        "Overall": 34.6,
+        "Education": {
+          "JuH": 25.6,
+          "SeH": 28.2,
+          "Uni": 24.5,
+          "Driv": 45.2,
+          "AAT": 25.1
+        },
+        "Image": {
+          "NI": 36.8,
+          "SI": 31.3,
+          "MI": 23.2
+        },
+        "Type": {
+          "SA": 43.8,
+          "MA": 28,
+          "MAAcc": 2.4,
+          "FB": 2.2,
+          "OP": 11.3
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 18.9,
+        "Education": {
+          "JuH": 16.3,
+          "SeH": 19.3,
+          "Uni": 14.7,
+          "Driv": 31.7,
+          "AAT": 12.1
+        },
+        "Image": {
+          "NI": 19.3,
+          "SI": 19.5,
+          "MI": 14.1
+        },
+        "Type": {
+          "SA": 20.8,
+          "MA": 23.8,
+          "MAAcc": 4.8,
+          "FB": 3.3
+        }
+      }
+    },
+    {
+      "Model": "DeepSeek-VL2",
+      "Creator": "DeepSeek",
+      "Version": "deepseek-vl2",
+      "Url": "https://github.com/deepseek-ai/DeepSeek-VL2",
+      "VersionUrl": "https://huggingface.co/deepseek-ai/deepseek-vl2",
+      "Date": "2024-12-13",
+      "# Paras": "27B(4.5B)",
+      "Form": "Weight",
+      "Modality": "<u>MI</u>",
+      "MULTI": {
+        "Overall": 43.7,
+        "Education": {
+          "JuH": 22,
+          "SeH": 38.8,
+          "Uni": 24.9,
+          "Driv": 61.1,
+          "AAT": 28.5
+        },
+        "Image": {
+          "NI": 45.5,
+          "SI": 41.2,
+          "MI": 25.3
+        },
+        "Type": {
+          "SA": 56.3,
+          "MA": 32.6,
+          "MAAcc": 5.4,
+          "FB": 5.2,
+          "OP": 12.3
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 19.6,
+        "Education": {
+          "JuH": 15.8,
+          "SeH": 19.3,
+          "Uni": 17.6,
+          "Driv": 40.0,
+          "AAT": 12.1
+        },
+        "Image": {
+          "NI": 15.8,
+          "SI": 22.4,
+          "MI": 15.6
+        },
+        "Type": {
+          "SA": 28.3,
+          "MA": 17.6,
+          "MAAcc": 1.9,
+          "FB": 0.8
+        }
+      }
+    },
+    {
+      "Model": "GPT-4.1",
+      "Creator": "OpenAI",
+      "Version": "gpt-4.1-2025-04-14",
+      "Url": "https://openai.com/index/gpt-4-1/",
+      "VersionUrl": "",
+      "Date": "2025-04-14",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 72.0,
+        "Education": {
+          "JuH": 69.2,
+          "SeH": 61.2,
+          "Uni": 63.5,
+          "Driv": 87.9,
+          "AAT": 31.4
+        },
+        "Image": {
+          "NI": 79.9,
+          "SI": 59.7,
+          "MI": 47.2
+        },
+        "Type": {
+          "SA": 76.0,
+          "MA": 76.0,
+          "MAAcc": 65.7,
+          "FB": 53.9,
+          "OP": 22.1
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 41.1,
+        "Education": {
+          "JuH": 42.1,
+          "SeH": 36.4,
+          "Uni": 35.3,
+          "Driv": 71.7,
+          "AAT": 39.4
+        },
+        "Image": {
+          "NI": 34.6,
+          "SI": 43.6,
+          "MI": 48.4
+        },
+        "Type": {
+          "SA": 47.2,
+          "MA": 39.8,
+          "MAAcc": 24.8,
+          "FB": 27.5
+        }
+      }
+    },
+    {
+      "Model": "GPT-4.1 mini",
+      "Creator": "OpenAI",
+      "Version": "gpt-4.1-mini-2025-04-14",
+      "Url": "https://openai.com/index/gpt-4-1/",
+      "VersionUrl": "",
+      "Date": "2025-04-14",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 53.9,
+        "Education": {
+          "JuH": 46.0,
+          "SeH": 41.6,
+          "Uni": 46.5,
+          "Driv": 71.2,
+          "AAT": 27.0
+        },
+        "Image": {
+          "NI": 63.5,
+          "SI": 38.8,
+          "MI": 26.2
+        },
+        "Type": {
+          "SA": 60.4,
+          "MA": 55.6,
+          "MAAcc": 34.4,
+          "FB": 20.9,
+          "OP": 17.8
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 21.9,
+        "Education": {
+          "JuH": 19.3,
+          "SeH": 20.3,
+          "Uni": 17.6,
+          "Driv": 45.0,
+          "AAT": 18.2
+        },
+        "Image": {
+          "NI": 22.4,
+          "SI": 21.4,
+          "MI": 23.4
+        },
+        "Type": {
+          "SA": 23.0,
+          "MA": 27.2,
+          "MAAcc": 10.5,
+          "FB": 7.5
+        }
+      }
+    },
+    {
+      "Model": "GPT-4.1 nano",
+      "Creator": "OpenAI",
+      "Version": "gpt-4.1-nano-2025-04-14",
+      "Url": "https://openai.com/index/gpt-4-1/",
+      "VersionUrl": "",
+      "Date": "2025-04-14",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 53.7,
+        "Education": {
+          "JuH": 46.3,
+          "SeH": 41.8,
+          "Uni": 46.5,
+          "Driv": 70.6,
+          "AAT": 27.1
+        },
+        "Image": {
+          "NI": 63.7,
+          "SI": 38.2,
+          "MI": 28.3
+        },
+        "Type": {
+          "SA": 60.4,
+          "MA": 54.6,
+          "MAAcc": 32.9,
+          "FB": 22.4,
+          "OP": 17.8
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 20.9,
+        "Education": {
+          "JuH": 16.3,
+          "SeH": 19.0,
+          "Uni": 26.5,
+          "Driv": 46.7,
+          "AAT": 18.2
+        },
+        "Image": {
+          "NI": 21.1,
+          "SI": 19.7,
+          "MI": 28.1
+        },
+        "Type": {
+          "SA": 22.7,
+          "MA": 25.3,
+          "MAAcc": 7.6,
+          "FB": 6.7
+        }
+      }
+    }
+  ]
 }

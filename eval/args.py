@@ -6,7 +6,7 @@ import argparse
 
 model_list = {
     "gpt-4o": {
-        "avail_model": ["gpt-4o-2024-08-06","gpt-4o-2024-05-13", "gpt-4o","gpt-4o-mini","gpt-4o-mini-2024-07-18","o1-preview-2024-09-12","o1-mini-2024-09-12","gpt-4o-2024-11-20"],
+        "avail_model": ["gpt-4o-2024-08-06","gpt-4o-2024-05-13", "gpt-4o","gpt-4o-mini","gpt-4o-mini-2024-07-18","o1-preview-2024-09-12","o1-mini-2024-09-12","gpt-4o-2024-11-20","gpt-4.1","gpt-4.1-mini","gpt-4.1-nano"],
         "model_type": "api",
         "support_input": [0, 1, 2, 3],
         "executor": "gpt",
@@ -209,6 +209,9 @@ model_list = {
 api_price= { # The price of the model per 1k tokens, [input, output], USD
     "gpt-4-vision-preview": [0.01,0.03],
     "gpt-3.5-turbo-0125":[0.0005,0.0015],
+    "gpt-4.1": [0.002,0.008],
+    "gpt-4.1-mini": [0.0004,0.0016],
+    "gpt-4.1-nano": [0.0001,0.0004],
     "gpt-4o": [0.005,0.015],
     "gpt-4o-2024-11-20": [0.0025,0.01],
     "gpt-4o-2024-08-06": [0.0025,0.01],
