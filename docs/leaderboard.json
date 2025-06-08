@@ -2429,6 +2429,114 @@
           "FB": 6.7
         }
       }
+    },
+    {
+      "Model": "Gemini 2.0 Flash",
+      "Creator": "Google",
+      "Version": "gemini-2.0-flash",
+      "Url": "https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/",
+      "VersionUrl": "",
+      "Date": "2025-2-5",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 66.3,
+        "Education": {
+          "JuH": 62.8,
+          "SeH": 58.1,
+          "Uni": 60.7,
+          "Driv": 79.9,
+          "AAT": 30.0
+        },
+        "Image": {
+          "NI": 73.5,
+          "SI": 55.1,
+          "MI": 47.6
+        },
+        "Type": {
+          "SA": 75.5,
+          "MA": 60.5,
+          "MAAcc": 34.9,
+          "FB": 35.6,
+          "OP": 34.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 44.4,
+        "Education": {
+          "JuH": 46.5,
+          "SeH": 43.3,
+          "Uni": 29.4,
+          "Driv": 66.7,
+          "AAT": 18.2
+        },
+        "Image": {
+          "NI": 44.7,
+          "SI": 43.1,
+          "MI": 51.6
+        },
+        "Type": {
+          "SA": 52.5,
+          "MA": 43.3,
+          "MAAcc": 20.0,
+          "FB": 25.0
+        }
+      }
+    },
+    {
+      "Model": "Gemini 2.0 Flash Lite",
+      "Creator": "Google",
+      "Version": "gemini-2.0-flash-lite",
+      "Url": "https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/",
+      "VersionUrl": "",
+      "Date": "2025-2-5",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 69.7,
+        "Education": {
+          "JuH": 68.2,
+          "SeH": 62.1,
+          "Uni": 63.0,
+          "Driv": 82.3,
+          "AAT": 30.0
+        },
+        "Image": {
+          "NI": 77.2,
+          "SI": 58.1,
+          "MI": 45.8
+        },
+        "Type": {
+          "SA": 73.7,
+          "MA": 72.6,
+          "MAAcc": 60.6,
+          "FB": 52.1,
+          "OP": 26.8
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 38.1,
+        "Education": {
+          "JuH": 41.1,
+          "SeH": 34.5,
+          "Uni": 26.5,
+          "Driv": 68.3,
+          "AAT": 18.2
+        },
+        "Image": {
+          "NI": 35.1,
+          "SI": 38.2,
+          "MI": 48.4
+        },
+        "Type": {
+          "SA": 41.0,
+          "MA": 41.0,
+          "MAAcc": 28.6,
+          "FB": 24.2
+        }
+      }
     }
   ]
 }
