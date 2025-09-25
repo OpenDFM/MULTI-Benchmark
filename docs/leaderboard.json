@@ -2436,7 +2436,7 @@
       "Version": "gemini-2.0-flash",
       "Url": "https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/",
       "VersionUrl": "",
-      "Date": "2025-2-5",
+      "Date": "2025-02-05",
       "# Paras": "-",
       "Form": "API",
       "Modality": "MI",
@@ -2490,7 +2490,7 @@
       "Version": "gemini-2.0-flash-lite",
       "Url": "https://blog.google/technology/google-deepmind/gemini-model-updates-february-2025/",
       "VersionUrl": "",
-      "Date": "2025-2-5",
+      "Date": "2025-02-05",
       "# Paras": "-",
       "Form": "API",
       "Modality": "MI",
@@ -2535,6 +2535,384 @@
           "MA": 41.0,
           "MAAcc": 28.6,
           "FB": 24.2
+        }
+      }
+    },
+    {
+      "Model": "GPT-5",
+      "Creator": "OpenAI",
+      "Version": "gpt-5-2025-08-07",
+      "Url": "https://openai.com/index/introducing-gpt-5/",
+      "VersionUrl": "",
+      "Date": "2025-08-07",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 81.8,
+        "Education": {
+          "JuH": 79.1,
+          "SeH": 78.6,
+          "Uni": 91.9,
+          "Driv": 90.8,
+          "AAT": 41.0
+        },
+        "Image": {
+          "NI": 87.7,
+          "SI": 72.5,
+          "MI": 65.5
+        },
+        "Type": {
+          "SA": 85.6,
+          "MA": 85.9,
+          "MAAcc": 78.8,
+          "FB": 69.0,
+          "OP": 20.2
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 71.3,
+        "Education": {
+          "JuH": 67.8,
+          "SeH": 70.9,
+          "Uni": 94.1,
+          "Driv": 88.3,
+          "AAT": 42.4
+        },
+        "Image": {
+          "NI": 70.6,
+          "SI": 72.7,
+          "MI": 64.1
+        },
+        "Type": {
+          "SA": 76.1,
+          "MA": 72.0,
+          "MAAcc": 64.8,
+          "FB": 56.7
+        }
+      }
+    },
+    {
+      "Model": "GPT-5 mini",
+      "Creator": "OpenAI",
+      "Version": "gpt-5-mini-2025-08-07",
+      "Url": "https://openai.com/index/introducing-gpt-5/",
+      "VersionUrl": "",
+      "Date": "2025-08-07",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 76.9,
+        "Education": {
+          "JuH": 73.3,
+          "SeH": 72.9,
+          "Uni": 91.4,
+          "Driv": 86.2,
+          "AAT": 39.2
+        },
+        "Image": {
+          "NI": 83.5,
+          "SI": 66.6,
+          "MI": 58.3
+        },
+        "Type": {
+          "SA": 81.3,
+          "MA": 81.4,
+          "MAAcc": 72.6,
+          "FB": 59.2,
+          "OP": 16.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 59.9,
+        "Education": {
+          "JuH": 54.0,
+          "SeH": 59.9,
+          "Uni": 79.4,
+          "Driv": 78.3,
+          "AAT": 42.4
+        },
+        "Image": {
+          "NI": 50.4,
+          "SI": 63.0,
+          "MI": 73.4
+        },
+        "Type": {
+          "SA": 66.8,
+          "MA": 61.3,
+          "MAAcc": 51.4,
+          "FB": 38.3
+        }
+      }
+    },
+    {
+      "Model": "GPT-5 nano",
+      "Creator": "OpenAI",
+      "Version": "gpt-5-nano-2025-08-07",
+      "Url": "https://openai.com/index/introducing-gpt-5/",
+      "VersionUrl": "",
+      "Date": "2025-08-07",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 70.5,
+        "Education": {
+          "JuH": 67.3,
+          "SeH": 63.6,
+          "Uni": 84.8,
+          "Driv": 81.7,
+          "AAT": 34.2
+        },
+        "Image": {
+          "NI": 78.7,
+          "SI": 57.8,
+          "MI": 48.8
+        },
+        "Type": {
+          "SA": 75.3,
+          "MA": 73.0,
+          "MAAcc": 60.8,
+          "FB": 53.4,
+          "OP": 17.2
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 48.1,
+        "Education": {
+          "JuH": 47.5,
+          "SeH": 45.7,
+          "Uni": 70.6,
+          "Driv": 58.3,
+          "AAT": 36.4
+        },
+        "Image": {
+          "NI": 46.1,
+          "SI": 47.7,
+          "MI": 57.8
+        },
+        "Type": {
+          "SA": 52.5,
+          "MA": 46.7,
+          "MAAcc": 33.3,
+          "FB": 39.2
+        }
+      }
+    },
+    {
+      "Model": "GPT-5 Chat",
+      "Creator": "OpenAI",
+      "Version": "gpt-5-chat-latest",
+      "Url": "https://openai.com/index/introducing-gpt-5/",
+      "VersionUrl": "",
+      "Date": "2025-08-07",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 72.1,
+        "Education": {
+          "JuH": 69.0,
+          "SeH": 62.1,
+          "Uni": 64.2,
+          "Driv": 87.6,
+          "AAT": 30.9
+        },
+        "Image": {
+          "NI": 79.7,
+          "SI": 60.3,
+          "MI": 46.4
+        },
+        "Type": {
+          "SA": 75.9,
+          "MA": 76.4,
+          "MAAcc": 65.5,
+          "FB": 53.2,
+          "OP": 26.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 41.3,
+        "Education": {
+          "JuH": 39.6,
+          "SeH": 38.0,
+          "Uni": 38.2,
+          "Driv": 75.0,
+          "AAT": 30.3
+        },
+        "Image": {
+          "NI": 30.3,
+          "SI": 44.3,
+          "MI": 60.9
+        },
+        "Type": {
+          "SA": 42.5,
+          "MA": 44.4,
+          "MAAcc": 27.6,
+          "FB": 30.8
+        }
+      }
+    },
+    {
+      "Model": "Gemini 2.5 Pro",
+      "Creator": "Google",
+      "Version": "gemini-2.5-pro-preview-03-25",
+      "Url": "https://storage.googleapis.com/model-cards/documents/gemini-2.5-pro.pdf",
+      "VersionUrl": "",
+      "Date": "2025-03-25",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 84.4,
+        "Education": {
+          "JuH": 83.2,
+          "SeH": 82.7,
+          "Uni": 91.5,
+          "Driv": 91.4,
+          "AAT": 45.4
+        },
+        "Image": {
+          "NI": 89.3,
+          "SI": 76.9,
+          "MI": 64.9
+        },
+        "Type": {
+          "SA": 87.9,
+          "MA": 86.7,
+          "MAAcc": 80.4,
+          "FB": 78.9,
+          "OP": 19.9
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 71.8,
+        "Education": {
+          "JuH": 72.8,
+          "SeH": 71.1,
+          "Uni": 73.5,
+          "Driv": 85.0,
+          "AAT": 48.5
+        },
+        "Image": {
+          "NI": 72.4,
+          "SI": 71.8,
+          "MI": 70.3
+        },
+        "Type": {
+          "SA": 79.2,
+          "MA": 67.8,
+          "MAAcc": 60.0,
+          "FB": 60.8
+        }
+      }
+    },
+    {
+      "Model": "Gemini 2.5 Flash",
+      "Creator": "Google",
+      "Version": "gemini-2.5-flash-preview-05-20",
+      "Url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Flash-Model-Card.pdf",
+      "VersionUrl": "",
+      "Date": "2025-05-20",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 78.1,
+        "Education": {
+          "JuH": 77.7,
+          "SeH": 74.6,
+          "Uni": 77.4,
+          "Driv": 87.9,
+          "AAT": 31.2
+        },
+        "Image": {
+          "NI": 84.6,
+          "SI": 67.8,
+          "MI": 61.6
+        },
+        "Type": {
+          "SA": 82.9,
+          "MA": 78.6,
+          "MAAcc": 71.0,
+          "FB": 64.2,
+          "OP": 27.8
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 61.9,
+        "Education": {
+          "JuH": 60.4,
+          "SeH": 61.2,
+          "Uni": 67.6,
+          "Driv": 81.7,
+          "AAT": 36.4
+        },
+        "Image": {
+          "NI": 60.5,
+          "SI": 62.8,
+          "MI": 60.9
+        },
+        "Type": {
+          "SA": 70.8,
+          "MA": 61.7,
+          "MAAcc": 56.2,
+          "FB": 38.3
+        }
+      }
+    },
+    {
+      "Model": "Gemini 2.5 Flash Lite",
+      "Creator": "Google",
+      "Version": "gemini-2.5-flash-lite-preview-06-17",
+      "Url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-2-5-Flash-Lite-Model-Card.pdf",
+      "VersionUrl": "",
+      "Date": "2025-06-17",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 65.1,
+        "Education": {
+          "JuH": 64.6,
+          "SeH": 54.8,
+          "Uni": 52.5,
+          "Driv": 79.6,
+          "AAT": 26.0
+        },
+        "Image": {
+          "NI": 72.9,
+          "SI": 52.9,
+          "MI": 42.6
+        },
+        "Type": {
+          "SA": 71.1,
+          "MA": 61.8,
+          "MAAcc": 43.2,
+          "FB": 49.9,
+          "OP": 26.9
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 36.3,
+        "Education": {
+          "JuH": 41.6,
+          "SeH": 32.9,
+          "Uni": 32.4,
+          "Driv": 46.7,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 33.8,
+          "SI": 34.8,
+          "MI": 54.7
+        },
+        "Type": {
+          "SA": 37.9,
+          "MA": 34.5,
+          "MAAcc": 17.1,
+          "FB": 35.8
         }
       }
     }
