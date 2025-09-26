@@ -1865,7 +1865,7 @@
           "MA": 74.7,
           "MAAcc": 67,
           "FB": 54.1,
-          "OP": 22
+          "OP": 22.0
         }
       },
       "MULTI-Elite": {
@@ -1885,7 +1885,7 @@
         "Type": {
           "SA": 48.8,
           "MA": 49.0,
-          "MAAcc": 41,
+          "MAAcc": 41.0,
           "FB": 33.3
         }
       }
@@ -1917,7 +1917,7 @@
         "Type": {
           "SA": 84.6,
           "MA": 87.5,
-          "MAAcc": 81,
+          "MAAcc": 81.0,
           "FB": 69.9,
           "OP": 25.5
         }
@@ -1939,7 +1939,7 @@
         "Type": {
           "SA": 61.8,
           "MA": 69.0,
-          "MAAcc": 60,
+          "MAAcc": 60.0,
           "FB": 46.7
         }
       }
@@ -2913,6 +2913,60 @@
           "MA": 34.5,
           "MAAcc": 17.1,
           "FB": 35.8
+        }
+      }
+    },
+    {
+      "Model": "Qwen3-VL-235B-A22B-Instruct",
+      "Creator": "Alibaba",
+      "Version": "Qwen3-VL-235B-A22B-Instruct",
+      "Url": "github.com/QwenLM/Qwen3-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen3-VL-235B-A22B-Instruct",
+      "Date": "2025-09-23",
+      "# Paras": "235B(22B)",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 82.5,
+        "Education": {
+          "JuH": 82.7,
+          "SeH": 78.7,
+          "Uni": 77.6,
+          "Driv": 92.9,
+          "AAT": 34.1
+        },
+        "Image": {
+          "NI": 89.9,
+          "SI": 71.0,
+          "MI": 65.4
+        },
+        "Type": {
+          "SA": 84.9,
+          "MA": 87.7,
+          "MAAcc": 80.3,
+          "FB": 72.6,
+          "OP": 30.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 63.7,
+        "Education": {
+          "JuH": 71.3,
+          "SeH": 62.0,
+          "Uni": 47.1,
+          "Driv": 78.3,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 65.4,
+          "SI": 61.6,
+          "MI": 71.9
+        },
+        "Type": {
+          "SA": 65.8,
+          "MA": 65.1,
+          "MAAcc": 54.3,
+          "FB": 55.0
         }
       }
     }
