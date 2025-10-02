@@ -5,8 +5,24 @@ Argparsers for eval and score.
 import argparse
 
 model_list = {
+    "qwen3-vl-api": {
+        "avail_model": ["Qwen/Qwen3-VL-235B-A22B-Instruct","Qwen/Qwen3-VL-235B-A22B-Thinking"],
+        "model_type": "api",
+        "support_input": [0, 1, 2, 3],
+        "executor": "gpt",
+        "evaluator": "GPTEvaluator",
+        "split_sys": True,
+    },
+    "gpt-5": {
+        "avail_model": ["gpt-5-nano-2025-08-07","gpt-5-mini-2025-08-07","gpt-5-nano","gpt-5-mini","gpt-5-2025-08-07","gpt-5"],
+        "model_type": "api",
+        "support_input": [0, 1, 2, 3],
+        "executor": "gpt5",
+        "evaluator": "GPTEvaluator",
+        "split_sys": True,
+    },
     "gpt-4o": {
-        "avail_model": ["gpt-4o-2024-08-06","gpt-4o-2024-05-13", "gpt-4o","gpt-4o-mini","gpt-4o-mini-2024-07-18","o1-preview-2024-09-12","o1-mini-2024-09-12","gpt-4o-2024-11-20","gpt-4.1","gpt-4.1-mini","gpt-4.1-nano"],
+        "avail_model": ["gpt-4o-2024-08-06","gpt-4o-2024-05-13", "gpt-4o","gpt-4o-mini","gpt-4o-mini-2024-07-18","o1-preview-2024-09-12","o1-mini-2024-09-12","gpt-4o-2024-11-20","gpt-4.1","gpt-4.1-mini","gpt-4.1-nano","gpt-5-nano-2025-08-07","gpt-5-mini-2025-08-07","gpt-5-nano","gpt-5-mini","gpt-5-2025-08-07","gpt-5","gpt-5-chat-latest"],
         "model_type": "api",
         "support_input": [0, 1, 2, 3],
         "executor": "gpt",
@@ -38,7 +54,7 @@ model_list = {
         "split_sys": True,
     },
     "gemini-api": {
-        "avail_model": ["gemini-1.5-pro-latest","gemini-1.5-flash-latest","gemini-2.5-pro-preview-03-25","gemini-2.5-pro-preview-05-06","gemini-2.5-flash-preview-05-20","gemini-2.0-flash","gemini-2.0-flash-lite"],
+        "avail_model": ["gemini-1.5-pro-latest","gemini-1.5-flash-latest","gemini-2.5-pro-preview-03-25","gemini-2.5-pro-preview-05-06","gemini-2.5-pro-preview-06-05","gemini-2.5-flash-preview-05-20","gemini-2.0-flash","gemini-2.0-flash-lite","gemini-2.5-flash-lite-preview-06-17"],
         "model_type": "api",
         "support_input": [0, 1, 2, 3],
         "executor": "gpt",
@@ -227,6 +243,13 @@ api_price= { # The price of the model per 1k tokens, [input, output], USD
     "claude-3-5-sonnet-20241022": [0.005,0.010],
     "step-1v-8k": [0.000667,0.0033], # CNY
     "step-1v-32k": [0.002,0.010], # CNY
+    "gpt-5-nano-2025-08-07": [0.00005,0.0002],
+    "gpt-5-mini-2025-08-07": [0.00025,0.002],
+    "gpt-5-nano": [0.00005,0.0002],
+    "gpt-5-mini": [0.00025,0.002],
+    "gpt-5": [0.00125,0.01],
+    "gpt-5-2025-08-07": [0.00125,0.01],
+    "gpt-5-chat-latest": [0.00125,0.01]
 }
 
 def parse_args_for_eval():

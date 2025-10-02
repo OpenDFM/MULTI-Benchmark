@@ -2969,6 +2969,60 @@
           "FB": 55.0
         }
       }
+    },
+    {
+      "Model": "Qwen3-VL-235B-A22B-Thinking",
+      "Creator": "Alibaba",
+      "Version": "Qwen3-VL-235B-A22B-Thinking",
+      "Url": "github.com/QwenLM/Qwen3-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen3-VL-235B-A22B-Thinking",
+      "Date": "2025-09-23",
+      "# Paras": "235B(22B)",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 85.5,
+        "Education": {
+          "JuH": 84.0,
+          "SeH": 85.5,
+          "Uni": 93.7,
+          "Driv": 91.9,
+          "AAT": 44.6
+        },
+        "Image": {
+          "NI": 90.6,
+          "SI": 77.8,
+          "MI": 68.0
+        },
+        "Type": {
+          "SA": 88.3,
+          "MA": 90.1,
+          "MAAcc": 83.1,
+          "FB": 76.6,
+          "OP": 28.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 78.52,
+        "Education": {
+          "JuH": 80.7,
+          "SeH": 78.9,
+          "Uni": 79.4,
+          "Driv": 85.0,
+          "AAT": 48.5
+        },
+        "Image": {
+          "NI": 76.3,
+          "SI": 78.8,
+          "MI": 84.4
+        },
+        "Type": {
+          "SA": 82.3,
+          "MA": 79.3,
+          "MAAcc": 72.4,
+          "FB": 66.7
+        }
+      }
     }
   ]
 }

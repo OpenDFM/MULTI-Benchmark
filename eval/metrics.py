@@ -165,12 +165,15 @@ def evaluate_every_problem(args):
             label = ""
             type = "其他"
         
-        prediction=item['prediction']
+        prediction=item.get("prediction", "").strip()
+        
 
         if re.findall(r'Thought，持续 [0-9]+ 秒', prediction):
             prediction = re.split(r'Thought，持续 [0-9]+ 秒', prediction)[-1].strip()
         if re.findall(r'答案', prediction):
             prediction = re.split(r'答案', prediction)[-1].strip()
+        if re.findall(r'</think>', prediction):
+            prediction = re.split(r'</think>', prediction)[-1].strip()
         prediction=prediction.replace("Assistant:","").replace("assistant:","").replace("answer:","").replace("答案：","").replace("user\n","").replace("我的分析如下：","").strip()
 
         if type in EvaluateFuncDict:
@@ -186,6 +189,8 @@ def evaluate_every_problem(args):
                     ref = re.split(r'Thought，持续 [0-9]+ 秒', ref)[-1].strip()
                 if re.findall(r'答案为：', ref):
                     ref = re.split(r'答案为：', ref)[-1].strip()
+                if re.findall(r'</think>', ref):
+                    ref = re.split(r'</think>', ref)[-1].strip()
                 ref = ref.replace("Assistant:","").replace("assistant:","").replace("answer:","").replace("答案：","").replace("user\n","").strip()
                 if type in EvaluateFuncDict:
                     score_ref, _ = EvaluateFuncDict[type](ref, label)
