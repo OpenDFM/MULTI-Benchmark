@@ -5,7 +5,7 @@
 ![MULTI](./docs/static/images/overview.png)
 
 🌐 [Website](https://OpenDFM.github.io/MULTI-Benchmark/) | 📃 [Paper](https://arxiv.org/abs/2402.03173/) | 🤗 [Dataset](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark) |
-🏆 [Leaderboard](https://opendfm.github.io/MULTI-Benchmark/#leaderboard) | 📮 [Submit](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)
+🏆 [Leaderboard](https://opendfm.github.io/MULTI-Benchmark/#leaderboard) | 📮 [Submit](https://wj.sjtu.edu.cn/q/89UmRAJn)
 
 [简体中文](./README_zh.md) | English
 
@@ -13,9 +13,12 @@
 
 ## 🔥 News
 
+- **[2025.10.16]** We have released ground truth answers for all questions in MULTI as human expert baseline was surpassed by several models. Now you can run evaluation and get the final scores locally.
+- **[2025.9.28]** MULTI is now available online at [https://doi.org/10.1007/s11432-024-4602-x](https://doi.org/10.1007/s11432-024-4602-x).
+- **[2025.6.22]** MULTI is now accepted by Science China Information Sciences (Special Topic on Large Multimodal Models).
 - **[2025.1.7]** We have updated our [leaderboard](https://opendfm.github.io/MULTI-Benchmark/#leaderboard) with the latest results.
 - **[2025.1.2]** We have updated MULTI to v1.3.1.
-- **[2024.3.4]** We have released the [evaluation page](https://OpenDFM.github.io/MULTI-Benchmark/static/pages/submit.html).
+- **[2024.3.4]** We have released the [evaluation page](https://OpenDFM.github.io/MULTI-Benchmark/static/pages/submit.html) (no longer maintained).
 - **[2024.2.19]** We have released the [HuggingFace Page](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/).
 - **[2024.2.6]** We have published our [paper](https://arxiv.org/abs/2402.03173/) on arXiv.
 - **[2023.12.7]** We have released the [code](https://github.com/OpenDFM/MULTI-Benchmark/tree/main/eval) of our benchmark evaluation.
@@ -43,6 +46,7 @@ The structure of `./data` should be something like:
 ```
 ./data
 ├── images                                       # folder containing images
+├── problem_v1.3.1_20241210.json                 # MULTI (with answers)
 ├── problem_v1.3.1_20241210_release.json         # MULTI
 ├── knowledge_v1.2.2_20240212_release.json       # MULTI-Extend
 ├── hard_list_v1.3.0_20241203.json               # MULTI-Elite
@@ -84,8 +88,8 @@ Test GPT-4o model on whole MULTI with multimodal input, using MULTI-Extend as ex
 
 ```shell
 python eval.py \
-  --problem_file ../data/problem_{version}.json \
-  --knowledge_file ../data/knowledge_{version}.json \
+  --problem_file ../data/problem_v1.3.1_20241210_release.json \
+  --knowledge_file ../data/knowledge_v1.2.2_20240212_release.json \
   --questions_type 0,1,2,3 \
   --image_type 0,1,2 \
   --input_type 2 \
@@ -98,9 +102,9 @@ Test Qwen-VL model on MULTI-Elite with image caption input, skip all questions n
 
 ```shell
 python eval.py \
-  --problem_file ../data/problem_{version}.json \
-  --subset ../data/hard_list_{version}.json \
-  --caption_file ../data/captions_{version}.csv \
+  --problem_file ../data/problem_v1.3.1_20241210_release.json \
+  --subset ../data/hard_list_v1.3.0_20241203.json \
+  --caption_file ../data/captions_v1.3.1_20241210_points.csv \
   --questions_type 0,1 \
   --image_type 1,2 \
   --input_type 1 \
@@ -108,24 +112,36 @@ python eval.py \
   --model_dir ../models/Qwen-VL-Chat
 ```
 
-The evaluation script will generate a folder named `results` under the root directory, and the result will be saved in `../results/EXPERIMENT_NAME`. During the evaluation, the script will save
-checkpoints in `../results/EXPERIMENT_NAME/checkpoints`, you can delete them after the evaluation is done. If the evaluation is interrupted, you can continue from the last checkpoint:
+The evaluation script will generate a folder named `results` under the root directory, and the result will be saved in `../results/{EXPERIMENT_NAME}`. During the evaluation, the script will save
+checkpoints in `../results/{EXPERIMENT_NAME}/checkpoints`, you can delete them after the evaluation is done. If the evaluation is interrupted, you can continue from the last checkpoint:
 
 ```shell
 python eval.py \
-  --checkpoint_dir ../results/EXPERIMENT_NAME
+  --checkpoint_dir ../results/{EXPERIMENT_NAME}
 ```
 
-Most of the arguments are saved in `../results/EXPERIMENT_NAME/args.json`, so you can continue the evaluation without specifying all the arguments again. Please note that `--api_key` is not saved in
+Most of the arguments are saved in `../results/{EXPERIMENT_NAME}/args.json`, so you can continue the evaluation without specifying all the arguments again. Please note that `--api_key` is not saved in
 `args.json` for security reasons, so you need to specify it again.
 
 ```shell
 python eval.py \
-  --checkpoint_dir ../results/EXPERIMENT_NAME \
+  --checkpoint_dir ../results/{EXPERIMENT_NAME} \
   --api_key sk-************************************************
 ```
 
 For more details of arguments, please use `python eval.py -h`, and refer to `args.py` and `eval.py`.
+
+You can directly use the standard answers we provide to score the answer sheets:
+
+```shell
+python metrics.py \
+  --label_file ../data/problem_v1.3.1_20241210.json \
+  --detail \
+  --answer_position end \
+  --prediction_file ../results/{EXPERIMENT_NAME}/prediction.json
+```
+
+You will see the final scoring data in `../results/{EXPERIMENT_NAME}`.
 
 ### Add Support for Your Models
 
@@ -157,6 +173,8 @@ We provide two example scripts to generate captions (`image_caption.py`) and OCR
 
 ## 📮 How to Submit
 
+<details>
+<summary>You can do evaluation locally directly</summary>
 You need to first prepare a UTF-8 encoded JSON file with the following format:
 
 ```
@@ -173,30 +191,32 @@ You need to first prepare a UTF-8 encoded JSON file with the following format:
 ```
 
 If you evaluate the model with our official code, you can simply zip the prediction file `prediction.json` and the configuration file `args.json` in the experiment results folder
-`. /results/EXPERIMENT_NAME` in `.zip` format.
+`. /results/{EXPERIMENT_NAME}` in `.zip` format.
 
 Then, you can submit your result to our [evaluation page](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html).
+<details>
 
 You are also welcomed to pull a request and contribute your code to our evaluation code. We will be very grateful for your contribution!
 
-**[Notice]** Thank you for being so interested in the **MULTI** dataset! If you want to add your model in our leaderboard, please fill in [this questionnaire](https://wj.sjtu.edu.cn/q/89UmRAJn), your
-information will be kept strictly confidential, so please feel free to fill it out. 🤗
+**[Notice]** Thank you for being so interested in the **MULTI** dataset! If you want to add your model in our leaderboard, please fill in [this questionnaire](https://wj.sjtu.edu.cn/q/89UmRAJn), your information will be kept strictly confidential, so please feel free to fill it out. 🤗
 
 ## 📑 Citation
 
 If you find our work useful, please cite us!
 
 ```
-@misc{zhu2024multi,
-      title={{MULTI}: Multimodal Understanding Leaderboard with Text and Images}, 
-      author={Zichen Zhu and Yang Xu and Lu Chen and Jingkai Yang and Yichuan Ma and Yiming Sun and Hailin Wen and Jiaqi Liu and Jinyu Cai and Yingzi Ma and Situo Zhang and Zihan Zhao and Liangtai Sun and Kai Yu},
-      year={2024},
-      eprint={2402.03173},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@article{zhu2025multi,
+    title={{MULTI}: Multimodal Understanding Leaderboard with Text and Images}, 
+    author={Zichen Zhu and Yang Xu and Lu Chen and Jingkai Yang and Yichuan Ma and Yiming Sun and Hailin Wen and Jiaqi Liu and Jinyu Cai and Yingzi Ma and Situo Zhang and Zihan Zhao and Liangtai Sun and Kai Yu},
+    journal = "SCIENCE CHINA Information Sciences",
+    year = "2025",
+    volume = "68",
+    number = "10",
+    pages = "200107.1--200107.26",
+    doi = "https://doi.org/10.1007/s11432-024-4602-x"
 }
 ```
 
 ## 📧 Contact Us
 
-If you have any questions, please feel free to contact us via email `JamesZhutheThird@sjtu.edu.cn` and `xuyang0112@sjtu.edu.cn`
+If you have any questions, please feel free to contact us via email `JamesZhutheThird@sjtu.edu.cn`

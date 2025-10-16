@@ -4,7 +4,7 @@
 
 ![MULTI](./docs/static/images/overview.png)
 
-🌐 [网站](https://OpenDFM.github.io/MULTI-Benchmark/) | 📃 [论文](https://arxiv.org/abs/2402.03173/) | 🤗 [数据](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark) | 🏆 [榜单](https://opendfm.github.io/MULTI-Benchmark/#leaderboard) | 📮 [提交](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)
+🌐 [网站](https://OpenDFM.github.io/MULTI-Benchmark/) | 📃 [论文](https://arxiv.org/abs/2402.03173/) | 🤗 [数据](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark) | 🏆 [榜单](https://opendfm.github.io/MULTI-Benchmark/#leaderboard) | 📮 [提交](https://wj.sjtu.edu.cn/q/89UmRAJn)
 
 简体中文 | [English](./README.md) 
 
@@ -12,9 +12,12 @@
 
 ## 🔥 新闻
 
+- **[2025.10.16]** 我们发布了 MULTI 中所有问题的标准答案，因为多个模型已经超越了人类专家的基准。现在您可以在本地运行评测并获得最终分数。
+- **[2025.9.28]** MULTI 现已在线发布，网址为 [https://doi.org/10.1007/s11432-024-4602-x](https://doi.org/10.1007/s11432-024-4602-x)。
+- **[2025.6.22]** MULTI 现已被《中国科学信息科学》多模态大模型专题接收。
 - **[2025.1.7]** 我们更新了最新的[榜单](https://opendfm.github.io/MULTI-Benchmark/#leaderboard)。
 - **[2025.1.2]** 我们更新了MULTI到v1.3.1。
-- **[2024.3.4]** 我们发布了[评测页面](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)。
+- **[2024.3.4]** 我们发布了[评测页面](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html) (不再维护)。
 - **[2024.2.19]** 我们发布了[HuggingFace页面](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/)。
 - **[2024.2.6]** 我们在arXiv上发布了我们的[论文](https://arxiv.org/abs/2402.03173/)。
 - **[2023.12.7]** 我们发布了我们的基准评测[代码](https://github.com/OpenDFM/MULTI-Benchmark/tree/main/eval)。
@@ -38,6 +41,7 @@ python download_data.py
 ```
 ./data   
 ├── images                                       # 包含图片的文件夹
+├── problem_v1.3.1_20241210.json                 # MULTI (含答案)
 ├── problem_v1.3.1_20241210_release.json         # MULTI
 ├── knowledge_v1.2.2_20240212_release.json       # MULTI-Extend
 ├── hard_list_v1.3.0_20241203.json               # MULTI-Elite
@@ -77,8 +81,8 @@ pip install tiktoken tqdm
 
 ```shell
 python eval.py \
-  --problem_file ../data/problem_{version}.json \
-  --knowledge_file ../data/knowledge_{version}.json \
+  --problem_file ../data/problem_v1.3.1_20241210_release.json \
+  --knowledge_file ../data/knowledge_v1.2.2_20240212_release.json \
   --questions_type 0,1,2,3 \
   --image_type 0,1,2 \
   --input_type 2 \
@@ -91,9 +95,9 @@ python eval.py \
 
 ```shell
 python eval.py \
-  --problem_file ../data/problem_{version}.json \
-  --subset ../data/hard_list_{version}.json \
-  --caption_file ../data/captions_{version}.csv \
+  --problem_file ../data/problem_v1.3.1_20241210_release.json \
+  --subset ../data/hard_list_v1.3.0_20241203.json \
+  --caption_file ../data/captions_v1.3.1_20241210_points.csv \
   --questions_type 0,1 \
   --image_type 1,2 \
   --input_type 1 \
@@ -101,22 +105,34 @@ python eval.py \
   --model_dir ../models/Qwen-VL-Chat
 ```
 
-测脚本将在根目录下生成`results`文件夹，结果将保存在`../results/EXPERIMENT_NAME`中。评测过程中，脚本将在`../results/EXPERIMENT_NAME/checkpoints`中保存检查点，评测完成后您可以删除它们。如果评测被中断，您可以从最后一个检查点继续：
+测脚本将在根目录下生成`results`文件夹，结果将保存在`../results/{EXPERIMENT_NAME}`中。评测过程中，脚本将在`../results/{EXPERIMENT_NAME}/checkpoints`中保存检查点，评测完成后您可以删除它们。如果评测被中断，您可以从最后一个检查点继续：
 
 ```shell
 python eval.py \
-  --checkpoint_dir ../results/EXPERIMENT_NAME
+  --checkpoint_dir ../results/{EXPERIMENT_NAME}
 ```
 
-大多数参数都保存在`../results/EXPERIMENT_NAME/args.json`中，因此您可以继续评测而无需再次指定所有参数。请注意，出于安全原因，`--api_key`不会保存在`args.json`中，因此您需要再次指定它。
+大多数参数都保存在`../results/{EXPERIMENT_NAME}/args.json`中，因此您可以继续评测而无需再次指定所有参数。请注意，出于安全原因，`--api_key`不会保存在`args.json`中，因此您需要再次指定它。
 
 ```shell
 python eval.py \
-  --checkpoint_dir ../results/EXPERIMENT_NAME \
+  --checkpoint_dir ../results/{EXPERIMENT_NAME} \
   --api_key sk-************************************************
 ```
 
 有关参数的更多详细信息，请使用`python eval.py -h`并参考`args.py`和`eval.py`。
+
+您可以直接使用我们提供的标准答案对答卷进行评分：
+
+```shell
+python metrics.py \
+  --label_file ../data/problem_v1.3.1_20241210.json \
+  --detail \
+  --answer_position end \
+  --prediction_file ../results/{EXPERIMENT_NAME}/prediction.json
+```
+
+您将会在 `../results/{EXPERIMENT_NAME}` 中看到生成的评分数据。
 
 ### 为您的模型增加支持
 
@@ -146,6 +162,9 @@ python model_tester.py <args> # args 类似于上面的默认设置
 
 ## 📮 如何提交
 
+
+<details>
+<summary>您可以直接在本地进行评测</summary>
 您需要首先准备一个UTF-8编码的JSON文件，格式如下：
 
 ```
@@ -160,9 +179,10 @@ python model_tester.py <args> # args 类似于上面的默认设置
     ...
 }
 ```
-如果您使用我们的官方代码评测模型，可以直接压缩实验结果文件夹`./results/EXPERIMENT_NAME`中的预测文件`prediction.json`和配置文件`args.json`为`.zip`格式。
+如果您使用我们的官方代码评测模型，可以直接压缩实验结果文件夹`./results/{EXPERIMENT_NAME}`中的预测文件`prediction.json`和配置文件`args.json`为`.zip`格式。
 
 然后，您可以将你的结果提交到我们的[评测页面](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html)。
+</details>
 
 欢迎拉取请求（Pull Request）并贡献您的代码到我们的评测代码中。我们感激不尽！
 
@@ -173,16 +193,18 @@ python model_tester.py <args> # args 类似于上面的默认设置
 如果您觉得我们的工作有用，请引用我们！
 
 ```
-@misc{zhu2024multi,
-      title={{MULTI}: Multimodal Understanding Leaderboard with Text and Images}, 
-      author={Zichen Zhu and Yang Xu and Lu Chen and Jingkai Yang and Yichuan Ma and Yiming Sun and Hailin Wen and Jiaqi Liu and Jinyu Cai and Yingzi Ma and Situo Zhang and Zihan Zhao and Liangtai Sun and Kai Yu},
-      year={2024},
-      eprint={2402.03173},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@article{zhu2025multi,
+    title={{MULTI}: Multimodal Understanding Leaderboard with Text and Images}, 
+    author={Zichen Zhu and Yang Xu and Lu Chen and Jingkai Yang and Yichuan Ma and Yiming Sun and Hailin Wen and Jiaqi Liu and Jinyu Cai and Yingzi Ma and Situo Zhang and Zihan Zhao and Liangtai Sun and Kai Yu},
+    journal = "SCIENCE CHINA Information Sciences",
+    year = "2025",
+    volume = "68",
+    number = "10",
+    pages = "200107.1--200107.26",
+    doi = "https://doi.org/10.1007/s11432-024-4602-x"
 }
 ```
 
 ## 📧 联系我们
 
-如果您有任何问题，请随时通过电子邮件与我们联系： `JamesZhutheThird@sjtu.edu.cn` 和 `xuyang0112@sjtu.edu.cn`
+如果您有任何问题，请随时通过电子邮件与我们联系： `JamesZhutheThird@sjtu.edu.cn`

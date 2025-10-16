@@ -22,7 +22,8 @@ class GPTEvaluator():
         self.post_dict = {
             "model": model,
             "messages": None,
-            # "max_tokens": max_tokens,
+            "max_tokens": 32768,
+            
             # "temperature": temperature,
             # "top_p": top_p,
             # "presence_penalty": presence_penalty,
@@ -37,6 +38,11 @@ class GPTEvaluator():
             "completion_tokens": 0
         }
         self.price = api_price.get(model, [0.005, 0.015])
+        self.timeout = 3600
+        self.proxies = {
+            "http": None,
+            "https": None,
+        }
     
     def calculate_usage(self, response):
         prompt_tokens = response["usage"]["prompt_tokens"]
@@ -96,10 +102,10 @@ class GPTEvaluator():
         response = ""
         response_ = None
         i = 0
-        MAX_RETRY = 10
+        MAX_RETRY = 100
         while i < MAX_RETRY:
             try:
-                response_ = requests.post(self.api_url, json=self.post_dict, headers=self.header)
+                response_ = requests.post(self.api_url, json=self.post_dict, headers=self.header, proxies=self.proxies, timeout=self.timeout)
                 response_ = response_.json()
                 response = response_["choices"][0]["message"]["content"]
                 # print(response_)
@@ -120,7 +126,7 @@ class GPTEvaluator():
                 i += 1
                 time.sleep(1 + i / 10)
                 if i == 1 or i % 10 == 0:
-                    if error.startswith("This model's maximum context length") or error.startswith("Your input image may contain"):
+                    if error.startswith("This model's maximum context length") or error.startswith("Your input image may contain") or error.startswith("The response was filtered"):
                         response = ""
                         feedback = error
                         return response, message, feedback
