@@ -41,6 +41,8 @@ cd eval
 python download_data.py
 ```
 
+Or directly download the [zip file](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/blob/main/MULTI_v1.3.1_20251016_release.zip) in the Huggingface repository and unzip it.
+
 The structure of `./data` should be something like:
 
 ```
@@ -194,7 +196,7 @@ If you evaluate the model with our official code, you can simply zip the predict
 `. /results/{EXPERIMENT_NAME}` in `.zip` format.
 
 Then, you can submit your result to our [evaluation page](https://opendfm.github.io/MULTI-Benchmark/static/pages/submit.html).
-<details>
+</details>
 
 You are also welcomed to pull a request and contribute your code to our evaluation code. We will be very grateful for your contribution!
 

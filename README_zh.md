@@ -36,6 +36,8 @@ cd eval
 python download_data.py
 ```
 
+或直接下载 Huggingface 仓库中的[压缩包](https://huggingface.co/datasets/OpenDFM/MULTI-Benchmark/blob/main/MULTI_v1.3.1_20251016_release.zip)并解压。
+
 `./data` 的结构应该如下所示：
 
 ```
