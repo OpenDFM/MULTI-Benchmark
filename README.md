@@ -72,10 +72,10 @@ python eval.py -l # to list all supported models
 Each evaluator requires its unique environment setting, and a universal environment may not work for all evaluators. **Just follow the official guide.** If the corresponding model runs well, then so
 should it fit in our framework.
 
-You just need to install another two packages to run the evaluation code:
+You just need to install several another packages to run the evaluation code:
 
 ```shell
-pip install tiktoken tqdm
+pip install tiktoken tqdm rouge_chinese jieba matplotlib
 ```
 
 If you just want to generate data for a specific setting (using `--debug` argument), this line above is all you need.

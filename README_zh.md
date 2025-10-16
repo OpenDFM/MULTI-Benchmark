@@ -65,10 +65,10 @@ python eval.py -l # 列出所有支持的模型
 
 每个模型都需要其独特的环境设置，通用环境可能不适用于所有模型的评测。**按照官方文档操作即可。** 如果相应的模型运行良好，那么它应该也适合我们的框架。
 
-您只需要安装另外两个包来运行评测代码：
+您只需要安装另外几个包来运行评测代码：
 
 ```shell
-pip install tiktoken tqdm
+pip install tiktoken tqdm rouge_chinese jieba matplotlib
 ```
 
 如果您只是想为特定设置生成数据（使用`--debug`参数），上面这行代码就是您所需要的一切。
