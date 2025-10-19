@@ -3003,7 +3003,7 @@
         }
       },
       "MULTI-Elite": {
-        "Overall": 78.52,
+        "Overall": 78.5,
         "Education": {
           "JuH": 80.7,
           "SeH": 78.9,
@@ -3021,6 +3021,330 @@
           "MA": 79.3,
           "MAAcc": 72.4,
           "FB": 66.7
+        }
+      }
+    },
+    {
+      "Model": "Qwen3-VL-30B-A3B-Instruct",
+      "Creator": "Alibaba",
+      "Version": "Qwen3-VL-30B-A3B-Instruct",
+      "Url": "github.com/QwenLM/Qwen3-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "Date": "2025-09-30",
+      "# Paras": "30B(3B)",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 76.2,
+        "Education": {
+          "JuH": 73.2,
+          "SeH": 70.0,
+          "Uni": 68.2,
+          "Driv": 89.5,
+          "AAT": 31.3
+        },
+        "Image": {
+          "NI": 85.6,
+          "SI": 61.8,
+          "MI": 49.7
+        },
+        "Type": {
+          "SA": 80.8,
+          "MA": 80.0,
+          "MAAcc": 70.0,
+          "FB": 54.0,
+          "OP": 29.9
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 46.0,
+        "Education": {
+          "JuH": 50.0,
+          "SeH": 43.9,
+          "Uni": 26.5,
+          "Driv": 73.3,
+          "AAT": 15.2
+        },
+        "Image": {
+          "NI": 53.5,
+          "SI": 40.6,
+          "MI": 53.1
+        },
+        "Type": {
+          "SA": 53.4,
+          "MA": 45.2,
+          "MAAcc": 34.3,
+          "FB": 27.5
+        }
+      }
+    },
+    {
+      "Model": "Qwen3-VL-30B-A3B-Thinking",
+      "Creator": "Alibaba",
+      "Version": "Qwen3-VL-30B-A3B-Thinking",
+      "Url": "github.com/QwenLM/Qwen3-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen3-VL-30B-A3B-Thinking",
+      "Date": "2025-09-30",
+      "# Paras": "30B(3B)",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 80.5,
+        "Education": {
+          "JuH": 81.1,
+          "SeH": 78.7,
+          "Uni": 86.5,
+          "Driv": 87.2,
+          "AAT": 39.2
+        },
+        "Image": {
+          "NI": 86.2,
+          "SI": 71.5,
+          "MI": 63.7
+        },
+        "Type": {
+          "SA": 83.8,
+          "MA": 83.1,
+          "MAAcc": 73.0,
+          "FB": 71.0,
+          "OP": 28.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 69.6,
+        "Education": {
+          "JuH": 77.2,
+          "SeH": 65.8,
+          "Uni": 70.6,
+          "Driv": 81.7,
+          "AAT": 42.4
+        },
+        "Image": {
+          "NI": 65.4,
+          "SI": 71.8,
+          "MI": 70.3
+        },
+        "Type": {
+          "SA": 72.4,
+          "MA": 68.6,
+          "MAAcc": 58.1,
+          "FB": 64.2
+        }
+      }
+    },
+    {
+      "Model": "Qwen3-VL-8B-Instruct",
+      "Creator": "Alibaba",
+      "Version": "Qwen3-VL-8B-Instruct",
+      "Url": "github.com/QwenLM/Qwen3-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
+      "Date": "2025-10-11",
+      "# Paras": "8B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 73.0,
+        "Education": {
+          "JuH": 71.6,
+          "SeH": 66.2,
+          "Uni": 59.0,
+          "Driv": 86.3,
+          "AAT": 28.9
+        },
+        "Image": {
+          "NI": 81.9,
+          "SI": 59.3,
+          "MI": 45.2
+        },
+        "Type": {
+          "SA": 76.6,
+          "MA": 76.9,
+          "MAAcc": 64.2,
+          "FB": 56.8,
+          "OP": 27.6
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 44.1,
+        "Education": {
+          "JuH": 43.6,
+          "SeH": 44.7,
+          "Uni": 17.6,
+          "Driv": 66.7,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 46.1,
+          "SI": 41.6,
+          "MI": 53.1
+        },
+        "Type": {
+          "SA": 42.5,
+          "MA": 47.5,
+          "MAAcc": 36.2,
+          "FB": 40.8
+        }
+      }
+    },
+    {
+      "Model": "Qwen3-VL-8B-Thinking",
+      "Creator": "Alibaba",
+      "Version": "Qwen3-VL-8B-Thinking",
+      "Url": "github.com/QwenLM/Qwen3-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen3-VL-8B-Thinking",
+      "Date": "2025-10-11",
+      "# Paras": "8B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 78.8,
+        "Education": {
+          "JuH": 79.3,
+          "SeH": 76.9,
+          "Uni": 83.3,
+          "Driv": 86.0,
+          "AAT": 36.7
+        },
+        "Image": {
+          "NI": 85.5,
+          "SI": 68.6,
+          "MI": 57.3
+        },
+        "Type": {
+          "SA": 81.7,
+          "MA": 82.7,
+          "MAAcc": 72.8,
+          "FB": 69.1,
+          "OP": 27.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 61.6,
+        "Education": {
+          "JuH": 61.4,
+          "SeH": 62.3,
+          "Uni": 67.6,
+          "Driv": 68.3,
+          "AAT": 36.4
+        },
+        "Image": {
+          "NI": 57.5,
+          "SI": 64.0,
+          "MI": 60.9
+        },
+        "Type": {
+          "SA": 65.8,
+          "MA": 63.6,
+          "MAAcc": 56.2,
+          "FB": 45.8
+        }
+      }
+    },
+    {
+      "Model": "Qwen3-VL-4B-Instruct",
+      "Creator": "Alibaba",
+      "Version": "Qwen3-VL-4B-Instruct",
+      "Url": "github.com/QwenLM/Qwen3-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct",
+      "Date": "2025-10-11",
+      "# Paras": "4B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 68.6,
+        "Education": {
+          "JuH": 67.3,
+          "SeH": 59.5,
+          "Uni": 51.5,
+          "Driv": 82.8,
+          "AAT": 29.4
+        },
+        "Image": {
+          "NI": 77.7,
+          "SI": 54.3,
+          "MI": 44.9
+        },
+        "Type": {
+          "SA": 72.8,
+          "MA": 71.6,
+          "MAAcc": 61.3,
+          "FB": 50.0,
+          "OP": 23.6
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 37.4,
+        "Education": {
+          "JuH": 36.1,
+          "SeH": 36.1,
+          "Uni": 14.7,
+          "Driv": 71.7,
+          "AAT": 21.2
+        },
+        "Image": {
+          "NI": 35.1,
+          "SI": 36.3,
+          "MI": 53.1
+        },
+        "Type": {
+          "SA": 37.9,
+          "MA": 44.4,
+          "MAAcc": 35.2,
+          "FB": 20.8
+        }
+      }
+    },
+    {
+      "Model": "Qwen3-VL-4B-Thinking",
+      "Creator": "Alibaba",
+      "Version": "Qwen3-VL-4B-Thinking",
+      "Url": "github.com/QwenLM/Qwen3-VL",
+      "VersionUrl": "https://huggingface.co/Qwen/Qwen3-VL-4B-Thinking",
+      "Date": "2025-10-11",
+      "# Paras": "4B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 76.3,
+        "Education": {
+          "JuH": 78.1,
+          "SeH": 74.4,
+          "Uni": 74.6,
+          "Driv": 82.9,
+          "AAT": 36.1
+        },
+        "Image": {
+          "NI": 83.1,
+          "SI": 65.8,
+          "MI": 56.9
+        },
+        "Type": {
+          "SA": 79.4,
+          "MA": 79.2,
+          "MAAcc": 66.8,
+          "FB": 66.7,
+          "OP": 28.3
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 58.2,
+        "Education": {
+          "JuH": 62.4,
+          "SeH": 57.5,
+          "Uni": 50.0,
+          "Driv": 65.0,
+          "AAT": 36.4
+        },
+        "Image": {
+          "NI": 55.7,
+          "SI": 59.1,
+          "MI": 60.9
+        },
+        "Type": {
+          "SA": 60.9,
+          "MA": 58.2,
+          "MAAcc": 45.7,
+          "FB": 50.8
         }
       }
     }

@@ -102,7 +102,7 @@ class GPTEvaluator():
         response = ""
         response_ = None
         i = 0
-        MAX_RETRY = 100
+        MAX_RETRY = 10
         while i < MAX_RETRY:
             try:
                 response_ = requests.post(self.api_url, json=self.post_dict, headers=self.header, proxies=self.proxies, timeout=self.timeout)

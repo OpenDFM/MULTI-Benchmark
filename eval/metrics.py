@@ -197,6 +197,7 @@ def evaluate_every_problem(args):
                     if score_ref > score:
                         ref_score_total += score_ref-score
 
+
         if check_rejection(prediction):
             score = 0
             image_num = item["question_image_number"]
