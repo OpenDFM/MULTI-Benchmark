@@ -1,4 +1,4 @@
-"""OpenAI GPT Evaluator"""
+"""OpenAI Style InternVL3 Evaluator"""
 
 from openai import OpenAI
 import requests
@@ -60,8 +60,9 @@ class GPTEvaluator():
     def prepare_inputs(self, question):
         image_list = question.get("image_list")
         if question["prompted_system_content"]:
+            # WARNING!!! InternVL3 do not support role as SYSTEM use USER instead!!!
             messages = [{
-                "role": "system",
+                "role": "user",
                 "content": question["prompted_system_content"]
             }]
         else:

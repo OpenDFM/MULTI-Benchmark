@@ -3347,6 +3347,600 @@
           "FB": 50.8
         }
       }
+    },
+    {
+      "Model": "InternVL3-8B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL3-8B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL3-8B",
+      "Date": "2025-04-10",
+      "# Paras": "8B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 68.7,
+        "Education": {
+          "JuH": 59.5,
+          "SeH": 59.3,
+          "Uni": 61.2,
+          "Driv": 86.8,
+          "AAT": 27.5
+        },
+        "Image": {
+          "NI": 81.5,
+          "SI": 48.9,
+          "MI": 32.0
+        },
+        "Type": {
+          "SA": 75.0,
+          "MA": 74.7,
+          "MAAcc": 58.8,
+          "FB": 29.4,
+          "OP": 23.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 45.9,
+        "Education": {
+          "JuH": 39.6,
+          "SeH": 48.9,
+          "Uni": 23.5,
+          "Driv": 68.3,
+          "AAT": 33.3
+        },
+        "Image": {
+          "NI": 53.5,
+          "SI": 43.3,
+          "MI": 35.9
+        },
+        "Type": {
+          "SA": 54.3,
+          "MA": 48.7,
+          "MAAcc": 38.1,
+          "FB": 17.5
+        }
+      }
+    },
+    {
+      "Model": "InternVL3-14B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL3-14B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL3-14B",
+      "Date": "2025-04-10",
+      "# Paras": "14B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 72.8,
+        "Education": {
+          "JuH": 65.5,
+          "SeH": 64.7,
+          "Uni": 66.6,
+          "Driv": 89.7,
+          "AAT": 26.4
+        },
+        "Image": {
+          "NI": 84.3,
+          "SI": 55.0,
+          "MI": 40.2
+        },
+        "Type": {
+          "SA": 78.2,
+          "MA": 79.7,
+          "MAAcc": 68.2,
+          "FB": 40.4,
+          "OP": 19.1
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 58.6,
+        "Education": {
+          "JuH": 62.4,
+          "SeH": 58.6,
+          "Uni": 47.1,
+          "Driv": 71.7,
+          "AAT": 24.2
+        },
+        "Image": {
+          "NI": 64.9,
+          "SI": 55.0,
+          "MI": 59.4
+        },
+        "Type": {
+          "SA": 59.3,
+          "MA": 65.1,
+          "MAAcc": 53.3,
+          "FB": 42.5
+        }
+      }
+    },
+    {
+      "Model": "InternVL3-78B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL3-78B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL3-78B",
+      "Date": "2025-04-10",
+      "# Paras": "78B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 75.6,
+        "Education": {
+          "JuH": 68.8,
+          "SeH": 68.5,
+          "Uni": 72.8,
+          "Driv": 91.1,
+          "AAT": 30.4
+        },
+        "Image": {
+          "NI": 85.9,
+          "SI": 59.6,
+          "MI": 45.7
+        },
+        "Type": {
+          "SA": 81.7,
+          "MA": 78.9,
+          "MAAcc": 67.5,
+          "FB": 45.7,
+          "OP": 28.2
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 51.9,
+        "Education": {
+          "JuH": 51.5,
+          "SeH": 52.1,
+          "Uni": 29.4,
+          "Driv": 78.3,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 60.5,
+          "SI": 49.9,
+          "MI": 34.4
+        },
+        "Type": {
+          "SA": 58.1,
+          "MA": 56.3,
+          "MAAcc": 41.0,
+          "FB": 25.8
+        }
+      }
+    },
+    {
+      "Model": "InternVL3.5-1B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL3_5-1B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL3_5-1B",
+      "Date": "2025-08-25",
+      "# Paras": "1B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 43.3,
+        "Education": {
+          "JuH": 37.2,
+          "SeH": 36.2,
+          "Uni": 31.0,
+          "Driv": 55.1,
+          "AAT": 25.6
+        },
+        "Image": {
+          "NI": 49.6,
+          "SI": 33.7,
+          "MI": 25.1
+        },
+        "Type": {
+          "SA": 48.8,
+          "MA": 46.5,
+          "MAAcc": 23.8,
+          "FB": 9.9,
+          "OP": 16.8
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 20.5,
+        "Education": {
+          "JuH": 15.8,
+          "SeH": 20.3,
+          "Uni": 8.8,
+          "Driv": 40.0,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 19.3,
+          "SI": 21.2,
+          "MI": 20.3
+        },
+        "Type": {
+          "SA": 27.0,
+          "MA": 20.3,
+          "MAAcc": 5.7,
+          "FB": 3.3
+        }
+      }
+    },
+    {
+      "Model": "InternVL3.5-2B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL3_5-2B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL3_5-2B",
+      "Date": "2025-08-25",
+      "# Paras": "2B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 51.8,
+        "Education": {
+          "JuH": 41.3,
+          "SeH": 43.0,
+          "Uni": 36.0,
+          "Driv": 68.4,
+          "AAT": 25.3
+        },
+        "Image": {
+          "NI": 60.4,
+          "SI": 38.4,
+          "MI": 28.1
+        },
+        "Type": {
+          "SA": 58.9,
+          "MA": 57.5,
+          "MAAcc": 36.3,
+          "FB": 2.5,
+          "OP": 22.1
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 25.6,
+        "Education": {
+          "JuH": 15.3,
+          "SeH": 28.9,
+          "Uni": 14.7,
+          "Driv": 40.0,
+          "AAT": 36.4
+        },
+        "Image": {
+          "NI": 25.0,
+          "SI": 26.8,
+          "MI": 20.3
+        },
+        "Type": {
+          "SA": 28.3,
+          "MA": 33.3,
+          "MAAcc": 14.3,
+          "FB": 1.7
+        }
+      }
+    },
+    {
+      "Model": "InternVL3.5-4B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL3_5-4B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL3_5-4B",
+      "Date": "2025-08-25",
+      "# Paras": "4B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 64.6,
+        "Education": {
+          "JuH": 61.4,
+          "SeH": 57.0,
+          "Uni": 50.7,
+          "Driv": 78.0,
+          "AAT": 29.5
+        },
+        "Image": {
+          "NI": 74.2,
+          "SI": 49.7,
+          "MI": 40.7
+        },
+        "Type": {
+          "SA": 69.8,
+          "MA": 67.5,
+          "MAAcc": 51.6,
+          "FB": 38.2,
+          "OP": 26.2
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 34.1,
+        "Education": {
+          "JuH": 28.7,
+          "SeH": 34.5,
+          "Uni": 23.5,
+          "Driv": 63.3,
+          "AAT": 21.2
+        },
+        "Image": {
+          "NI": 35.1,
+          "SI": 34.3,
+          "MI": 29.7
+        },
+        "Type": {
+          "SA": 37.0,
+          "MA": 38.7,
+          "MAAcc": 19.0,
+          "FB": 16.7
+        }
+      }
+    },
+    {
+      "Model": "InternVL3.5-8B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL3_5-8B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL3_5-8B",
+      "Date": "2025-08-25",
+      "# Paras": "8B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 69.2,
+        "Education": {
+          "JuH": 66.9,
+          "SeH": 64.1,
+          "Uni": 57.3,
+          "Driv": 80.6,
+          "AAT": 31.0
+        },
+        "Image": {
+          "NI": 77.2,
+          "SI": 56.5,
+          "MI": 50.9
+        },
+        "Type": {
+          "SA": 74.4,
+          "MA": 71.9,
+          "MAAcc": 56.3,
+          "FB": 44.9,
+          "OP": 24.8
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 48.5,
+        "Education": {
+          "JuH": 48.5,
+          "SeH": 48.9,
+          "Uni": 41.2,
+          "Driv": 63.3,
+          "AAT": 24.2
+        },
+        "Image": {
+          "NI": 40.8,
+          "SI": 52.6,
+          "MI": 50.0
+        },
+        "Type": {
+          "SA": 48.4,
+          "MA": 54.4,
+          "MAAcc": 37.1,
+          "FB": 35.8
+        }
+      }
+    },
+    {
+      "Model": "InternVL3.5-14B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL3_5-14B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL3_5-14B",
+      "Date": "2025-08-25",
+      "# Paras": "14B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 74.0,
+        "Education": {
+          "JuH": 72.5,
+          "SeH": 69.6,
+          "Uni": 61.1,
+          "Driv": 85.1,
+          "AAT": 32.2
+        },
+        "Image": {
+          "NI": 82.2,
+          "SI": 61.2,
+          "MI": 51.8
+        },
+        "Type": {
+          "SA": 76.9,
+          "MA": 78.5,
+          "MAAcc": 64.0,
+          "FB": 59.9,
+          "OP": 28.7
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 49.9,
+        "Education": {
+          "JuH": 51.5,
+          "SeH": 49.2,
+          "Uni": 41.2,
+          "Driv": 63.3,
+          "AAT": 33.3
+        },
+        "Image": {
+          "NI": 47.4,
+          "SI": 48.9,
+          "MI": 65.6
+        },
+        "Type": {
+          "SA": 48.8,
+          "MA": 51.7,
+          "MAAcc": 35.2,
+          "FB": 49.2
+        }
+      }
+    },
+    {
+      "Model": "InternVL3.5-30B-A3B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL3_5-30B-A3B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL3_5-30B-A3B",
+      "Date": "2025-08-25",
+      "# Paras": "30B(3B)",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 72.0,
+        "Education": {
+          "JuH": 68.1,
+          "SeH": 65.4,
+          "Uni": 64.6,
+          "Driv": 85.5,
+          "AAT": 29.5
+        },
+        "Image": {
+          "NI": 82.1,
+          "SI": 56.1,
+          "MI": 48.8
+        },
+        "Type": {
+          "SA": 77.5,
+          "MA": 74.5,
+          "MAAcc": 63.2,
+          "FB": 48.1,
+          "OP": 22.9
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 45.0,
+        "Education": {
+          "JuH": 41.6,
+          "SeH": 46.3,
+          "Uni": 29.4,
+          "Driv": 71.7,
+          "AAT": 18.2
+        },
+        "Image": {
+          "NI": 45.2,
+          "SI": 44.3,
+          "MI": 48.4
+        },
+        "Type": {
+          "SA": 50.0,
+          "MA": 50.2,
+          "MAAcc": 39.0,
+          "FB": 20.0
+        }
+      }
+    },
+    {
+      "Model": "InternVL3.5-38B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL3_5-38B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL3_5-38B",
+      "Date": "2025-08-25",
+      "# Paras": "38B",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 73.0,
+        "Education": {
+          "JuH": 68.6,
+          "SeH": 65.0,
+          "Uni": 68.9,
+          "Driv": 88.2,
+          "AAT": 25.9
+        },
+        "Image": {
+          "NI": 82.3,
+          "SI": 58.4,
+          "MI": 46.5
+        },
+        "Type": {
+          "SA": 75.8,
+          "MA": 78.1,
+          "MAAcc": 68.3,
+          "FB": 56.8,
+          "OP": 29.3
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 47.9,
+        "Education": {
+          "JuH": 41.1,
+          "SeH": 50.5,
+          "Uni": 52.9,
+          "Driv": 63.3,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 52.2,
+          "SI": 47.4,
+          "MI": 35.9
+        },
+        "Type": {
+          "SA": 53.7,
+          "MA": 45.2,
+          "MAAcc": 34.3,
+          "FB": 38.3
+        }
+      }
+    },
+    {
+      "Model": "InternVL3.5-241B-A28B",
+      "Creator": "OpenGVLab",
+      "Version": "InternVL3_5-241B-A28B",
+      "Url": "https://github.com/OpenGVLab/InternVL",
+      "VersionUrl": "https://huggingface.co/OpenGVLab/InternVL3_5-241B-A28B",
+      "Date": "2025-08-25",
+      "# Paras": "241B(28B)",
+      "Form": "Weight",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 82.8,
+        "Education": {
+          "JuH": 76.7,
+          "SeH": 80.0,
+          "Uni": 81.8,
+          "Driv": 95.3,
+          "AAT": 33.6
+        },
+        "Image": {
+          "NI": 90.9,
+          "SI": 70.1,
+          "MI": 63.8
+        },
+        "Type": {
+          "SA": 86.6,
+          "MA": 90.9,
+          "MAAcc": 86.2,
+          "FB": 57.4,
+          "OP": 27.3
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 68.0,
+        "Education": {
+          "JuH": 64.4,
+          "SeH": 70.1,
+          "Uni": 50.0,
+          "Driv": 91.7,
+          "AAT": 42.4
+        },
+        "Image": {
+          "NI": 72.8,
+          "SI": 66.7,
+          "MI": 59.4
+        },
+        "Type": {
+          "SA": 71.7,
+          "MA": 75.5,
+          "MAAcc": 65.7,
+          "FB": 41.7
+        }
+      }
     }
   ]
 }

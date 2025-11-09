@@ -175,7 +175,11 @@ def evaluate_every_problem(args):
         if re.findall(r'</think>', prediction):
             prediction = re.split(r'</think>', prediction)[-1].strip()
         prediction=prediction.replace("Assistant:","").replace("assistant:","").replace("answer:","").replace("答案：","").replace("user\n","").replace("我的分析如下：","").strip()
-
+        
+        m = re.search(r'\\boxed\\?\{\\text\\?\{(.+?)\\?\}\\?\}', prediction, flags=re.S)
+        if m:
+            prediction = m.group(1).strip()
+            
         if type in EvaluateFuncDict:
             score, total_score = EvaluateFuncDict[type](prediction, label,args)
         else:
@@ -192,6 +196,11 @@ def evaluate_every_problem(args):
                 if re.findall(r'</think>', ref):
                     ref = re.split(r'</think>', ref)[-1].strip()
                 ref = ref.replace("Assistant:","").replace("assistant:","").replace("answer:","").replace("答案：","").replace("user\n","").strip()
+                # extract if \boxed{\text{BCD一个词或者中文}}
+                # example ref="\n\\boxed{\\text{BCD}}\n"
+                # designed for InternVL3.5
+                
+                
                 if type in EvaluateFuncDict:
                     score_ref, _ = EvaluateFuncDict[type](ref, label)
                     if score_ref > score:
@@ -511,6 +520,54 @@ def generate_summary(args, result):
     plt.tight_layout()
     plt.savefig(args.prediction_file.replace('prediction.json', 'heatmap.png'))
     summary_file.write('\n\n![heatmap](heatmap.png)\n')
+    
+    # 新增：在 Markdown 中追加一个 ```json 代码块，包含三张表与总体分数的汇总
+    def _pct(score, total):
+        return round((score / total * 100.0) if total else 0.0, 1)
+
+    # Overall（直接来自 result 百分比）
+    overall_pct = round(result[2], 1) if len(result) >= 3 else 0.0
+
+    # Education 维度（Driving -> Driv）
+    edu_json = {}
+    for edu, stats in summary_data_by_education.items():
+        if stats["total"] == 0:
+            continue
+        key = "Driv" if edu == "Driving" else edu
+        edu_json[key] = _pct(stats["score"], stats["total"])
+
+    # Image 维度
+    image_json = {}
+    for img, stats in summary_data_by_image.items():
+        if stats["total"] == 0:
+            continue
+        image_json[img] = _pct(stats["score"], stats["total"])
+
+    # Type 维度，额外输出 MAAcc（基于正确题数/题目总数）
+    type_json = {}
+    for t, stats in summary_data_by_type.items():
+        if stats["total"] == 0:
+            continue
+        type_json[t] = _pct(stats["score"], stats["total"])
+        if t=="MA":
+            ma_stats = summary_data_by_type["MA"]
+            ma_acc = round((ma_stats["correct"] / ma_stats["count"] * 100.0) if ma_stats["count"] else 0.0, 1)
+            type_json["MAAcc"] = ma_acc
+
+    summary_obj = {
+        "Overall": overall_pct,
+        "Education": edu_json,
+        "Image": image_json,
+        "Type": type_json
+    }
+
+    summary_file.write('\n\n```json\n')
+    summary_file.write(json.dumps(summary_obj, indent=2, ensure_ascii=False))
+    summary_file.write('\n```\n')
+
+    # 关闭文件句柄
+    summary_file.close()
+    
 
 
 def main(args):

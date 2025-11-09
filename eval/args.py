@@ -5,6 +5,22 @@ Argparsers for eval and score.
 import argparse
 
 model_list = {
+    "internvl-api": {
+        "avail_model": ["internvl","internvl-1b","internvl-2b","internvl-4b","internvl-8b","internvl-14b","internvl-30b-a3b","internvl-38b","internvl-78b"],
+        "model_type": "api",
+        "support_input": [0, 1, 2, 3],
+        "executor": "gpt",
+        "evaluator": "GPTEvaluator",
+        "split_sys": True,
+    },
+    "internvl3-api": {
+        "avail_model": ["internvl-8b","internvl-14b","internvl-78b"],
+        "model_type": "api",
+        "support_input": [0, 1, 2, 3],
+        "executor": "internvl3_api",
+        "evaluator": "GPTEvaluator",
+        "split_sys": True,
+    },
     "qwen3-vl-api": {
         "avail_model": ["Qwen/Qwen3-VL-235B-A22B-Instruct","Qwen/Qwen3-VL-235B-A22B-Thinking","Qwen/Qwen3-VL-30B-A3B-Instruct","Qwen/Qwen3-VL-30B-A3B-Thinking","Qwen/Qwen3-VL-8B-Instruct","Qwen/Qwen3-VL-8B-Thinking","Qwen/Qwen3-VL-4B-Instruct","Qwen/Qwen3-VL-4B-Thinking"],
         "model_type": "api",
