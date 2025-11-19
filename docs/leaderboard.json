@@ -3941,6 +3941,168 @@
           "FB": 41.7
         }
       }
+    },
+    {
+      "Model": "GPT-5.1",
+      "Creator": "OpenAI",
+      "Version": "gpt-5.1-2025-11-13",
+      "Url": "https://openai.com/index/gpt-5-1/",
+      "VersionUrl": "",
+      "Date": "2025-11-13",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 71.9,
+        "Education": {
+          "JuH": 69.0,
+          "SeH": 62.5,
+          "Uni": 63.6,
+          "Driv": 87.2,
+          "AAT": 29.0
+        },
+        "Image": {
+          "NI": 79.5,
+          "SI": 60.1,
+          "MI": 48.6
+        },
+        "Type": {
+          "SA": 75.3,
+          "MA": 76.7,
+          "MAAcc": 66.6,
+          "FB": 56.0,
+          "OP": 19.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 51.4,
+        "Education": {
+          "JuH": 44.1,
+          "SeH": 51.3,
+          "Uni": 64.7,
+          "Driv": 83.3,
+          "AAT": 24.2
+        },
+        "Image": {
+          "NI": 44.7,
+          "SI": 54.0,
+          "MI": 57.8
+        },
+        "Type": {
+          "SA": 52.5,
+          "MA": 55.6,
+          "MAAcc": 42.9,
+          "FB": 39.2
+        }
+      }
+    },
+    {
+      "Model": "GPT-5.1 Chat",
+      "Creator": "OpenAI",
+      "Version": "gpt-5.1-chat-latest",
+      "Url": "https://openai.com/index/gpt-5-1/",
+      "VersionUrl": "",
+      "Date": "2025-11-13",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 78.2,
+        "Education": {
+          "JuH": 75.0,
+          "SeH": 72.9,
+          "Uni": 86.4,
+          "Driv": 89.3,
+          "AAT": 36.7
+        },
+        "Image": {
+          "NI": 85.8,
+          "SI": 66.4,
+          "MI": 56.4
+        },
+        "Type": {
+          "SA": 82.6,
+          "MA": 82.5,
+          "MAAcc": 71.3,
+          "FB": 60.5,
+          "OP": 18.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 60.3,
+        "Education": {
+          "JuH": 54.0,
+          "SeH": 59.9,
+          "Uni": 82.4,
+          "Driv": 78.3,
+          "AAT": 48.5
+        },
+        "Image": {
+          "NI": 55.7,
+          "SI": 61.6,
+          "MI": 68.8
+        },
+        "Type": {
+          "SA": 68.3,
+          "MA": 58.6,
+          "MAAcc": 41.9,
+          "FB": 42.5
+        }
+      }
+    },
+    {
+      "Model": "Gemini 3 Pro",
+      "Creator": "Google",
+      "Version": "gemini-3-pro-preview",
+      "Url": "https://deepmind.google/models/model-cards/gemini-3-pro",
+      "VersionUrl": "",
+      "Date": "2025-11-18",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 82.2,
+        "Education": {
+          "JuH": 81.7,
+          "SeH": 83.2,
+          "Uni": 88.2,
+          "Driv": 86.7,
+          "AAT": 60.6
+        },
+        "Image": {
+          "NI": 82.0,
+          "SI": 83.0,
+          "MI": 78.1
+        },
+        "Type": {
+          "SA": 85.4,
+          "MA": 79.3,
+          "MAAcc": 72.4,
+          "FB": 80.0
+        }
+      }
     }
   ]
 }

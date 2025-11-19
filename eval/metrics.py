@@ -167,11 +167,11 @@ def evaluate_every_problem(args):
         
         prediction=item.get("prediction", "").strip()
         
-
+        prediction = re.split(r'\n\n', prediction)[-1].strip() # for gemini 3
         if re.findall(r'Thought，持续 [0-9]+ 秒', prediction):
             prediction = re.split(r'Thought，持续 [0-9]+ 秒', prediction)[-1].strip()
-        if re.findall(r'答案', prediction):
-            prediction = re.split(r'答案', prediction)[-1].strip()
+        if re.findall(r'答案为：', prediction):
+            prediction = re.split(r'答案为：', prediction)[-1].strip()
         if re.findall(r'</think>', prediction):
             prediction = re.split(r'</think>', prediction)[-1].strip()
         prediction=prediction.replace("Assistant:","").replace("assistant:","").replace("answer:","").replace("答案：","").replace("user\n","").replace("我的分析如下：","").strip()

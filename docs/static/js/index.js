@@ -243,7 +243,7 @@ function getCellValue(row, index) {
 }
 
 function initializeSorting() {
-    var multiOverallHeader = document.querySelector('#multi-table thead tr:last-child th.multi-overall');
+    var multiOverallHeader = document.querySelector('#multi-table thead tr:last-child th.hard-overall');
     console.log('Initializing sorting...', multiOverallHeader);
     sortMultiTable(multiOverallHeader, true);
 }

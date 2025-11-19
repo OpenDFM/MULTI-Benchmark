@@ -22,7 +22,7 @@ class GPTEvaluator():
         self.post_dict = {
             "model": model,
             "messages": None,
-            "max_tokens": 32768/2,
+            "max_tokens": 32768,
             
             # "temperature": temperature,
             # "top_p": top_p,
