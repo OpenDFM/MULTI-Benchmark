@@ -4103,6 +4103,1140 @@
           "FB": 80.0
         }
       }
+    },
+    {
+      "Model": "GPT-5.2",
+      "Creator": "OpenAI",
+      "Version": "gpt-5.2-2025-12-11",
+      "Url": "https://openai.com/index/introducing-gpt-5-2/",
+      "VersionUrl": "https://developers.openai.com/api/docs/models/gpt-5.2",
+      "Date": "2025-12-11",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 72.9,
+        "Education": {
+          "JuH": 70.1,
+          "SeH": 64.3,
+          "Uni": 70.5,
+          "Driv": 87.2,
+          "AAT": 30.8
+        },
+        "Image": {
+          "NI": 82.2,
+          "SI": 58.6,
+          "MI": 46.5
+        },
+        "Type": {
+          "SA": 76.6,
+          "MA": 78.1,
+          "MAAcc": 67.7,
+          "FB": 54.2,
+          "OP": 22.1
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 46.5,
+        "Education": {
+          "JuH": 46.0,
+          "SeH": 44.9,
+          "Uni": 35.3,
+          "Driv": 76.7,
+          "AAT": 24.2
+        },
+        "Image": {
+          "NI": 49.6,
+          "SI": 42.3,
+          "MI": 62.5
+        },
+        "Type": {
+          "SA": 50.0,
+          "MA": 48.3,
+          "MAAcc": 38.1,
+          "FB": 33.3
+        }
+      }
+    },
+    {
+      "Model": "GPT-5.3 Codex",
+      "Creator": "OpenAI",
+      "Version": "gpt-5.3-codex",
+      "Url": "https://openai.com/index/introducing-gpt-5-3-codex/",
+      "VersionUrl": "https://developers.openai.com/api/docs/models/gpt-5.3-codex",
+      "Date": "2026-02-05",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 78.9,
+        "Education": {
+          "JuH": 76.3,
+          "SeH": 74.3,
+          "Uni": 80.5,
+          "Driv": 90.1,
+          "AAT": 34.8
+        },
+        "Image": {
+          "NI": 86.6,
+          "SI": 67.0,
+          "MI": 56.8
+        },
+        "Type": {
+          "SA": 81.9,
+          "MA": 83.9,
+          "MAAcc": 75.8,
+          "FB": 66.7,
+          "OP": 23.6
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 77.8,
+        "Education": {
+          "JuH": 79.2,
+          "SeH": 77.3,
+          "Uni": 88.2,
+          "Driv": 78.3,
+          "AAT": 63.6
+        },
+        "Image": {
+          "NI": 77.2,
+          "SI": 79.1,
+          "MI": 71.9
+        },
+        "Type": {
+          "SA": 81.7,
+          "MA": 74.3,
+          "MAAcc": 68.6,
+          "FB": 75.0
+        }
+      }
+    },
+    {
+      "Model": "GPT-5.4",
+      "Creator": "OpenAI",
+      "Version": "gpt-5.4-2026-03-05",
+      "Url": "https://openai.com/index/introducing-gpt-5-4/",
+      "VersionUrl": "https://developers.openai.com/api/docs/models/gpt-5.4",
+      "Date": "2026-03-05",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 76.3,
+        "Education": {
+          "JuH": 76.3,
+          "SeH": 69.5,
+          "Uni": 74.0,
+          "Driv": 88.0,
+          "AAT": 33.4
+        },
+        "Image": {
+          "NI": 84.6,
+          "SI": 63.5,
+          "MI": 53.6
+        },
+        "Type": {
+          "SA": 78.8,
+          "MA": 80.7,
+          "MAAcc": 70.9,
+          "FB": 66.7,
+          "OP": 26.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 52.6,
+        "Education": {
+          "JuH": 55.9,
+          "SeH": 50.3,
+          "Uni": 47.1,
+          "Driv": 73.3,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 57.0,
+          "SI": 48.2,
+          "MI": 65.6
+        },
+        "Type": {
+          "SA": 56.2,
+          "MA": 48.3,
+          "MAAcc": 37.1,
+          "FB": 52.5
+        }
+      }
+    },
+    {
+      "Model": "GPT-5.4 mini",
+      "Creator": "OpenAI",
+      "Version": "gpt-5.4-mini-2026-03-17",
+      "Url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/",
+      "VersionUrl": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+      "Date": "2026-03-17",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 69.9,
+        "Education": {
+          "JuH": 67.3,
+          "SeH": 60.9,
+          "Uni": 63.1,
+          "Driv": 84.5,
+          "AAT": 28.2
+        },
+        "Image": {
+          "NI": 79.0,
+          "SI": 55.9,
+          "MI": 39.2
+        },
+        "Type": {
+          "SA": 73.1,
+          "MA": 75.0,
+          "MAAcc": 64.6,
+          "FB": 52.7,
+          "OP": 24.0
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 38.7,
+        "Education": {
+          "JuH": 35.1,
+          "SeH": 37.4,
+          "Uni": 44.1,
+          "Driv": 61.7,
+          "AAT": 27.3
+        },
+        "Image": {
+          "NI": 44.7,
+          "SI": 34.5,
+          "MI": 43.8
+        },
+        "Type": {
+          "SA": 42.5,
+          "MA": 41.4,
+          "MAAcc": 26.7,
+          "FB": 22.5
+        }
+      }
+    },
+    {
+      "Model": "GPT-5.4 nano",
+      "Creator": "OpenAI",
+      "Version": "gpt-5.4-nano-2026-03-17",
+      "Url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/",
+      "VersionUrl": "https://developers.openai.com/api/docs/models/gpt-5.4-nano",
+      "Date": "2026-03-17",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 53.0,
+        "Education": {
+          "JuH": 44.3,
+          "SeH": 42.8,
+          "Uni": 42.9,
+          "Driv": 69.3,
+          "AAT": 26.9
+        },
+        "Image": {
+          "NI": 61.5,
+          "SI": 39.7,
+          "MI": 28.4
+        },
+        "Type": {
+          "SA": 60.9,
+          "MA": 53.0,
+          "MAAcc": 38.4,
+          "FB": 16.4,
+          "OP": 17.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 24.3,
+        "Education": {
+          "JuH": 13.4,
+          "SeH": 27.0,
+          "Uni": 23.5,
+          "Driv": 41.7,
+          "AAT": 30.3
+        },
+        "Image": {
+          "NI": 21.5,
+          "SI": 25.5,
+          "MI": 26.6
+        },
+        "Type": {
+          "SA": 29.2,
+          "MA": 28.4,
+          "MAAcc": 12.4,
+          "FB": 2.5
+        }
+      }
+    },
+    {
+      "Model": "GPT-5.5",
+      "Creator": "OpenAI",
+      "Version": "gpt-5.5-2026-04-23",
+      "Url": "https://openai.com/index/introducing-gpt-5-5/",
+      "VersionUrl": "https://developers.openai.com/api/docs/models/gpt-5.5",
+      "Date": "2026-04-23",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 82.7,
+        "Education": {
+          "JuH": 83.0,
+          "SeH": 74.2,
+          "Uni": 94.2,
+          "Driv": 92.9,
+          "AAT": 50.4
+        },
+        "Image": {
+          "NI": 92.0,
+          "SI": 68.3,
+          "MI": 58.9
+        },
+        "Type": {
+          "SA": 87.4,
+          "MA": 85.1,
+          "MAAcc": 80.0,
+          "FB": 67.1,
+          "OP": 26.3
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 75.5,
+        "Education": {
+          "JuH": 75.7,
+          "SeH": 74.9,
+          "Uni": 91.2,
+          "Driv": 83.3,
+          "AAT": 51.5
+        },
+        "Image": {
+          "NI": 78.5,
+          "SI": 75.4,
+          "MI": 65.6
+        },
+        "Type": {
+          "SA": 80.4,
+          "MA": 73.6,
+          "MAAcc": 66.7,
+          "FB": 66.7
+        }
+      }
+    },
+    {
+      "Model": "GPT-5.6 Luna",
+      "Creator": "OpenAI",
+      "Version": "gpt-5.6-luna",
+      "Url": "https://openai.com/index/gpt-5-6/",
+      "VersionUrl": "https://developers.openai.com/api/docs/models/gpt-5.6-luna",
+      "Date": "2026-07-09",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 74.8,
+        "Education": {
+          "JuH": 76.1,
+          "SeH": 60.1,
+          "Uni": 76.7,
+          "Driv": 88.8,
+          "AAT": 48.9
+        },
+        "Image": {
+          "NI": 80.5,
+          "SI": 66.7,
+          "MI": 38.7
+        },
+        "Type": {
+          "SA": 78.3,
+          "MA": 79.2,
+          "MAAcc": 73.3,
+          "FB": 60.5,
+          "OP": 21.4
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 65.1,
+        "Education": {
+          "JuH": 59.9,
+          "SeH": 65.2,
+          "Uni": 76.5,
+          "Driv": 83.3,
+          "AAT": 51.5
+        },
+        "Image": {
+          "NI": 64.0,
+          "SI": 64.2,
+          "MI": 75.0
+        },
+        "Type": {
+          "SA": 69.3,
+          "MA": 70.5,
+          "MAAcc": 64.8,
+          "FB": 42.5
+        }
+      }
+    },
+    {
+      "Model": "GPT-5.6 Sol",
+      "Creator": "OpenAI",
+      "Version": "gpt-5.6-sol",
+      "Url": "https://openai.com/index/gpt-5-6/",
+      "VersionUrl": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+      "Date": "2026-07-09",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 85.6,
+        "Education": {
+          "JuH": 81.9,
+          "SeH": 82.4,
+          "Uni": 76.0,
+          "Driv": 93.8,
+          "AAT": 63.1
+        },
+        "Image": {
+          "NI": 90.4,
+          "SI": 78.3,
+          "MI": 69.5
+        },
+        "Type": {
+          "SA": 89.5,
+          "MA": 88.8,
+          "MAAcc": 84.5,
+          "FB": 73.5,
+          "OP": 28.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 77.2,
+        "Education": {
+          "JuH": 76.7,
+          "SeH": 76.5,
+          "Uni": 88.2,
+          "Driv": 76.7,
+          "AAT": 78.8
+        },
+        "Image": {
+          "NI": 79.8,
+          "SI": 77.1,
+          "MI": 68.8
+        },
+        "Type": {
+          "SA": 80.1,
+          "MA": 75.9,
+          "MAAcc": 71.4,
+          "FB": 72.5
+        }
+      }
+    },
+    {
+      "Model": "GPT-5.6 Terra",
+      "Creator": "OpenAI",
+      "Version": "gpt-5.6-terra",
+      "Url": "https://openai.com/index/gpt-5-6/",
+      "VersionUrl": "https://developers.openai.com/api/docs/models/gpt-5.6-terra",
+      "Date": "2026-07-09",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 76.5,
+        "Education": {
+          "JuH": 55.9,
+          "SeH": 77.1,
+          "Uni": 74.5,
+          "Driv": 90.1,
+          "AAT": 48.4
+        },
+        "Image": {
+          "NI": 82.1,
+          "SI": 67.8,
+          "MI": 55.3
+        },
+        "Type": {
+          "SA": 80.9,
+          "MA": 81.1,
+          "MAAcc": 75.5,
+          "FB": 55.9,
+          "OP": 21.0
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 69.6,
+        "Education": {
+          "JuH": 67.8,
+          "SeH": 69.8,
+          "Uni": 79.4,
+          "Driv": 80.0,
+          "AAT": 48.5
+        },
+        "Image": {
+          "NI": 67.5,
+          "SI": 71.8,
+          "MI": 62.5
+        },
+        "Type": {
+          "SA": 70.2,
+          "MA": 72.4,
+          "MAAcc": 65.7,
+          "FB": 61.7
+        }
+      }
+    },
+    {
+      "Model": "Claude Opus 4.5",
+      "Creator": "Anthropic",
+      "Version": "claude-opus-4-5-20251101",
+      "Url": "https://www.anthropic.com/news/claude-opus-4-5",
+      "VersionUrl": "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions",
+      "Date": "2025-11-24",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 34.0,
+        "Education": {
+          "JuH": 26.7,
+          "SeH": 36.4,
+          "Uni": 38.2,
+          "Driv": 46.7,
+          "AAT": 24.2
+        },
+        "Image": {
+          "NI": 39.5,
+          "SI": 30.7,
+          "MI": 35.9
+        },
+        "Type": {
+          "SA": 32.3,
+          "MA": 37.5,
+          "MAAcc": 32.4,
+          "FB": 30.8
+        }
+      }
+    },
+    {
+      "Model": "Claude Opus 4.6",
+      "Creator": "Anthropic",
+      "Version": "claude-opus-4-6",
+      "Url": "https://www.anthropic.com/news/claude-opus-4-6",
+      "VersionUrl": "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions",
+      "Date": "2026-02-05",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 45.5,
+        "Education": {
+          "JuH": 38.1,
+          "SeH": 47.9,
+          "Uni": 52.9,
+          "Driv": 56.7,
+          "AAT": 36.4
+        },
+        "Image": {
+          "NI": 43.9,
+          "SI": 43.6,
+          "MI": 64.1
+        },
+        "Type": {
+          "SA": 49.7,
+          "MA": 43.7,
+          "MAAcc": 39.0,
+          "FB": 38.3
+        }
+      }
+    },
+    {
+      "Model": "Claude Opus 4.7",
+      "Creator": "Anthropic",
+      "Version": "claude-opus-4-7",
+      "Url": "https://www.anthropic.com/news/claude-opus-4-7",
+      "VersionUrl": "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions",
+      "Date": "2026-04-16",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 69.7,
+        "Education": {
+          "JuH": 71.3,
+          "SeH": 68.7,
+          "Uni": 79.4,
+          "Driv": 80.0,
+          "AAT": 42.4
+        },
+        "Image": {
+          "NI": 73.2,
+          "SI": 68.1,
+          "MI": 67.2
+        },
+        "Type": {
+          "SA": 70.5,
+          "MA": 70.5,
+          "MAAcc": 61.9,
+          "FB": 65.8
+        }
+      }
+    },
+    {
+      "Model": "Claude Opus 4.8",
+      "Creator": "Anthropic",
+      "Version": "claude-opus-4-8",
+      "Url": "https://www.anthropic.com/news/claude-opus-4-8",
+      "VersionUrl": "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions",
+      "Date": "2026-05-28",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 34.0,
+        "Education": {
+          "JuH": 33.2,
+          "SeH": 33.4,
+          "Uni": 47.1,
+          "Driv": 40.0,
+          "AAT": 21.2
+        },
+        "Image": {
+          "NI": 32.0,
+          "SI": 34.8,
+          "MI": 35.9
+        },
+        "Type": {
+          "SA": 39.1,
+          "MA": 29.1,
+          "MAAcc": 26.7,
+          "FB": 30.8
+        }
+      }
+    },
+    {
+      "Model": "Claude Sonnet 4.5",
+      "Creator": "Anthropic",
+      "Version": "claude-sonnet-4-5-20250929",
+      "Url": "https://www.anthropic.com/news/claude-sonnet-4-5",
+      "VersionUrl": "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions",
+      "Date": "2025-09-29",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 26.2,
+        "Education": {
+          "JuH": 26.7,
+          "SeH": 25.9,
+          "Uni": 23.5,
+          "Driv": 31.7,
+          "AAT": 18.2
+        },
+        "Image": {
+          "NI": 29.4,
+          "SI": 26.3,
+          "MI": 14.1
+        },
+        "Type": {
+          "SA": 29.5,
+          "MA": 25.7,
+          "MAAcc": 21.0,
+          "FB": 18.3
+        }
+      }
+    },
+    {
+      "Model": "Claude Sonnet 4.6",
+      "Creator": "Anthropic",
+      "Version": "claude-sonnet-4-6",
+      "Url": "https://www.anthropic.com/news/claude-sonnet-4-6",
+      "VersionUrl": "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions",
+      "Date": "2026-02-17",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 60.7,
+        "Education": {
+          "JuH": 55.4,
+          "SeH": 62.0,
+          "Uni": 61.8,
+          "Driv": 75.0,
+          "AAT": 51.5
+        },
+        "Image": {
+          "NI": 62.7,
+          "SI": 57.7,
+          "MI": 73.4
+        },
+        "Type": {
+          "SA": 64.3,
+          "MA": 64.4,
+          "MAAcc": 55.2,
+          "FB": 43.3
+        }
+      }
+    },
+    {
+      "Model": "Claude Sonnet 5",
+      "Creator": "Anthropic",
+      "Version": "claude-sonnet-5",
+      "Url": "https://www.anthropic.com/news/claude-sonnet-5",
+      "VersionUrl": "https://platform.claude.com/docs/en/about-claude/models/whats-new-sonnet-5",
+      "Date": "2026-06-30",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 34.9,
+        "Education": {
+          "JuH": 38.6,
+          "SeH": 33.2,
+          "Uni": 47.1,
+          "Driv": 35.0,
+          "AAT": 18.2
+        },
+        "Image": {
+          "NI": 36.8,
+          "SI": 34.5,
+          "MI": 29.7
+        },
+        "Type": {
+          "SA": 36.0,
+          "MA": 39.5,
+          "MAAcc": 32.4,
+          "FB": 21.7
+        }
+      }
+    },
+    {
+      "Model": "Claude Haiku 4.5",
+      "Creator": "Anthropic",
+      "Version": "claude-haiku-4-5-20251001",
+      "Url": "https://www.anthropic.com/news/claude-haiku-4-5",
+      "VersionUrl": "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions",
+      "Date": "2025-10-15",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 12.9,
+        "Education": {
+          "JuH": 9.9,
+          "SeH": 11.0,
+          "Uni": 29.4,
+          "Driv": 21.7,
+          "AAT": 21.2
+        },
+        "Image": {
+          "NI": 13.6,
+          "SI": 13.1,
+          "MI": 9.4
+        },
+        "Type": {
+          "SA": 14.9,
+          "MA": 15.3,
+          "MAAcc": 8.6,
+          "FB": 2.5
+        }
+      }
+    },
+    {
+      "Model": "Claude Fable 5",
+      "Creator": "Anthropic",
+      "Version": "claude-fable-5",
+      "Url": "https://www.anthropic.com/news/claude-fable-5-mythos-5",
+      "VersionUrl": "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5",
+      "Date": "2026-06-09",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-",
+          "OP": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 41.8,
+        "Education": {
+          "JuH": 44.6,
+          "SeH": 37.4,
+          "Uni": 58.8,
+          "Driv": 53.3,
+          "AAT": 36.4
+        },
+        "Image": {
+          "NI": 43.4,
+          "SI": 43.8,
+          "MI": 23.4
+        },
+        "Type": {
+          "SA": 48.4,
+          "MA": 33.7,
+          "MAAcc": 30.5,
+          "FB": 41.7
+        }
+      }
+    },
+    {
+      "Model": "Gemini 3.1 Pro",
+      "Creator": "Google",
+      "Version": "gemini-3.1-pro-preview",
+      "Url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
+      "VersionUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview",
+      "Date": "2026-02-19",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 90.5,
+        "Education": {
+          "JuH": 88.6,
+          "SeH": 89.9,
+          "Uni": 97.6,
+          "Driv": 95.3,
+          "AAT": 63.2
+        },
+        "Image": {
+          "NI": 93.5,
+          "SI": 85.9,
+          "MI": 77.1
+        },
+        "Type": {
+          "SA": 92.9,
+          "MA": 93.3,
+          "MAAcc": 88.3,
+          "FB": 86.1,
+          "OP": 39.7
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 86.9,
+        "Education": {
+          "JuH": 87.1,
+          "SeH": 87.7,
+          "Uni": 97.1,
+          "Driv": 91.7,
+          "AAT": 57.6
+        },
+        "Image": {
+          "NI": 86.0,
+          "SI": 88.8,
+          "MI": 78.1
+        },
+        "Type": {
+          "SA": 87.9,
+          "MA": 85.4,
+          "MAAcc": 80.0,
+          "FB": 87.5
+        }
+      }
+    },
+    {
+      "Model": "Gemini 3.5 Flash",
+      "Creator": "Google",
+      "Version": "gemini-3.5-flash",
+      "Url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5/",
+      "VersionUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash",
+      "Date": "2026-05-19",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 89.9,
+        "Education": {
+          "JuH": 87.2,
+          "SeH": 89.3,
+          "Uni": 96.5,
+          "Driv": 95.0,
+          "AAT": 63.7
+        },
+        "Image": {
+          "NI": 92.9,
+          "SI": 85.1,
+          "MI": 82.0
+        },
+        "Type": {
+          "SA": 92.6,
+          "MA": 92.9,
+          "MAAcc": 88.3,
+          "FB": 85.4,
+          "OP": 31.5
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 85.8,
+        "Education": {
+          "JuH": 84.2,
+          "SeH": 85.6,
+          "Uni": 97.1,
+          "Driv": 93.3,
+          "AAT": 72.7
+        },
+        "Image": {
+          "NI": 82.9,
+          "SI": 87.8,
+          "MI": 82.8
+        },
+        "Type": {
+          "SA": 89.4,
+          "MA": 82.0,
+          "MAAcc": 75.2,
+          "FB": 84.2
+        }
+      }
+    },
+    {
+      "Model": "Gemini 3.1 Flash Lite",
+      "Creator": "Google",
+      "Version": "gemini-3.1-flash-lite",
+      "Url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-lite/",
+      "VersionUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite",
+      "Date": "2026-03-03",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "MI",
+      "MULTI": {
+        "Overall": 79.6,
+        "Education": {
+          "JuH": 79.9,
+          "SeH": 75.0,
+          "Uni": 74.0,
+          "Driv": 90.3,
+          "AAT": 31.8
+        },
+        "Image": {
+          "NI": 86.1,
+          "SI": 69.4,
+          "MI": 57.7
+        },
+        "Type": {
+          "SA": 81.9,
+          "MA": 83.3,
+          "MAAcc": 76.2,
+          "FB": 73.3,
+          "OP": 28.9
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 61.5,
+        "Education": {
+          "JuH": 65.8,
+          "SeH": 59.4,
+          "Uni": 47.1,
+          "Driv": 80.0,
+          "AAT": 39.4
+        },
+        "Image": {
+          "NI": 58.8,
+          "SI": 62.8,
+          "MI": 62.5
+        },
+        "Type": {
+          "SA": 61.2,
+          "MA": 62.8,
+          "MAAcc": 50.5,
+          "FB": 59.2
+        }
+      }
     }
   ]
 }

@@ -19,6 +19,30 @@ import tiktoken
 
 os.environ["PYTHONPATH"] = "."
 
+OPENAI_COMPATIBLE_MODEL = "openai-compatible"
+OPENAI_COMPATIBLE_CONFIG = {
+    "model_type": "api",
+    "support_input": [0, 1, 2, 3],
+    "executor": "openai_compatible",
+    "evaluator": "OpenAICompatibleEvaluator",
+    "split_sys": True,
+}
+
+
+def configure_openai_compatible_backend(args):
+    """Use the generic Responses API backend when no registry is selected."""
+    model_name = getattr(args, "model", None)
+    if model_name is None or model_name.lower().replace("_", "-") == OPENAI_COMPATIBLE_MODEL:
+        args.model = OPENAI_COMPATIBLE_MODEL
+        model_list.setdefault(OPENAI_COMPATIBLE_MODEL, OPENAI_COMPATIBLE_CONFIG.copy())
+
+
+def print_args_safely(args):
+    printable_args = vars(args).copy()
+    if printable_args.get("api_key"):
+        printable_args["api_key"] = "[REDACTED]"
+    print(printable_args)
+
 
 def save_checkpoints(args, questions, i):
     os.makedirs(os.path.join(args.output_dir, args.output_name), exist_ok=True)
@@ -129,6 +153,7 @@ def generate_data(args):
 
 
 def get_evaluator(args):
+    configure_openai_compatible_backend(args)
     module_pos = f"models.{model_list[args.model]['executor']}"
     if args.use_modelscope:
         module_pos += '_ms'
@@ -179,7 +204,7 @@ def check_args(args):
     if not args.output_name:
         args.output_name = f"{args.exp_name + '_' if args.exp_name else ''}{args.model if not args.model_version else args.model_version}_input_{args.input_type}_shot_{args.few_shot}{'_it' if args.in_turn else ''}{'_cot' if args.cot else ''}{'_cic' if args.cap_in_cnt else ''}{'_bi' if args.blank_image else ''}{'_kn' if args.knowledge_file else ''}_{time_now}"
     args.prediction_file = os.path.join(args.output_dir, args.output_name, "prediction.json")
-    print(args)
+    print_args_safely(args)
 
 
 def main(args):
@@ -190,13 +215,17 @@ def main(args):
     if args.checkpoint_dir:
         checkpoint_dir = args.checkpoint_dir
         print(f"Continuing evaluation from {args.checkpoint_dir}")
-        print(args)
+        print_args_safely(args)
         # load args from checkpoint
         with open(os.path.join(args.checkpoint_dir, "args.json"), "r", encoding="utf-8") as f:
             args.__dict__.update(json.load(f))
+        configure_openai_compatible_backend(args)
         print(f"Loading args from checkpoint")
         args.checkpoint_dir = checkpoint_dir  # FIXME: args.checkpoint_dir is missing after update
-        print(args)
+        args.output_dir = os.path.dirname(os.path.normpath(checkpoint_dir))
+        args.output_name = os.path.basename(os.path.normpath(checkpoint_dir))
+        args.prediction_file = os.path.join(checkpoint_dir, "prediction.json")
+        print_args_safely(args)
 
         questions = None
         try:
@@ -229,6 +258,7 @@ def main(args):
                     sys.exit(0)
 
     else:
+        configure_openai_compatible_backend(args)
         args.model = args.model.lower()
         if args.model not in model_list:
             print(f"The model name '{args.model}' is not in the model list. Please check the model name.")
@@ -243,6 +273,10 @@ def main(args):
                     print(f"The model version '{args.model_version}' is not in the model list. Please check the model version.")
                     print(f"Available versions: {versions}")
                     sys.exit(0)
+
+        if args.model == OPENAI_COMPATIBLE_MODEL and args.model_version is None:
+            print("The generic OpenAI-compatible evaluator requires --model_version.")
+            sys.exit(2)
 
         if args.input_type not in model_list[args.model]["support_input"]:
             print(f"The input type '{args.input_type}' is not supported by the model '{args.model}'. Please check the input type.")

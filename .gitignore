@@ -3,6 +3,8 @@ data/problem_*.json
 data/images/
 *.bat
 *.sh
+!eval/eval_frontier_sequential.sh
+!eval/eval_frontier_all_commands.sh
 *.sbatch
 .idea/
 .vscode
