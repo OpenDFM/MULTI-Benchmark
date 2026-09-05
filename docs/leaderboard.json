@@ -5237,6 +5237,218 @@
           "FB": 59.2
         }
       }
+    },
+    {
+      "Model": "GPT-6 Astra",
+      "Creator": "OpenAI",
+      "Version": "gpt-6-astra",
+      "Url": "https://openai.com/index/gpt-6-astra/",
+      "VersionUrl": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+      "Date": "2026-09-05",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "Text + Image",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 85.35,
+        "Education": {
+          "JuH": 82.7,
+          "SeH": 84.8,
+          "Uni": 100.0,
+          "Driv": 91.7,
+          "AAT": 81.8
+        },
+        "Image": {
+          "NI": 82.5,
+          "SI": 86.6,
+          "MI": 87.5
+        },
+        "Type": {
+          "SA": 89.8,
+          "MA": 80.8,
+          "MAAcc": 77.1,
+          "FB": 83.3
+        }
+      }
+    },
+    {
+      "Model": "Gemini 3.6 Flash",
+      "Creator": "Google",
+      "Version": "gemini-3.6-flash",
+      "Url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
+      "VersionUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash",
+      "Date": "2026-09-05",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "Text + Image",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 84.78,
+        "Education": {
+          "JuH": 84.2,
+          "SeH": 85.6,
+          "Uni": 97.1,
+          "Driv": 88.3,
+          "AAT": 60.6
+        },
+        "Image": {
+          "NI": 79.4,
+          "SI": 88.1,
+          "MI": 82.8
+        },
+        "Type": {
+          "SA": 86.0,
+          "MA": 82.8,
+          "MAAcc": 80.0,
+          "FB": 85.8
+        }
+      }
+    },
+    {
+      "Model": "Gemini 3.7 Flash",
+      "Creator": "Google",
+      "Version": "gemini-3.7-flash",
+      "Url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
+      "VersionUrl": "https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash",
+      "Date": "2026-09-05",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "Text + Image",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 87.34,
+        "Education": {
+          "JuH": 85.6,
+          "SeH": 87.7,
+          "Uni": 97.1,
+          "Driv": 93.3,
+          "AAT": 72.7
+        },
+        "Image": {
+          "NI": 81.6,
+          "SI": 90.5,
+          "MI": 87.5
+        },
+        "Type": {
+          "SA": 91.6,
+          "MA": 82.0,
+          "MAAcc": 77.1,
+          "FB": 87.5
+        }
+      }
+    },
+    {
+      "Model": "Claude Opus 5",
+      "Creator": "Anthropic",
+      "Version": "claude-opus-5",
+      "Url": "https://www.anthropic.com/news/claude-opus-5",
+      "VersionUrl": "https://www.anthropic.com/claude/opus",
+      "Date": "2026-09-05",
+      "# Paras": "-",
+      "Form": "API",
+      "Modality": "Text + Image",
+      "MULTI": {
+        "Overall": "-",
+        "Education": {
+          "JuH": "-",
+          "SeH": "-",
+          "Uni": "-",
+          "Driv": "-",
+          "AAT": "-"
+        },
+        "Image": {
+          "NI": "-",
+          "SI": "-",
+          "MI": "-"
+        },
+        "Type": {
+          "SA": "-",
+          "MA": "-",
+          "MAAcc": "-",
+          "FB": "-"
+        }
+      },
+      "MULTI-Elite": {
+        "Overall": 27.17,
+        "Education": {
+          "JuH": 28.7,
+          "SeH": 25.4,
+          "Uni": 44.1,
+          "Driv": 25.0,
+          "AAT": 24.2
+        },
+        "Image": {
+          "NI": 30.7,
+          "SI": 22.6,
+          "MI": 43.8
+        },
+        "Type": {
+          "SA": 26.7,
+          "MA": 26.4,
+          "MAAcc": 21.9,
+          "FB": 30.0
+        }
+      }
     }
   ]
 }
