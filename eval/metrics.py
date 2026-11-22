@@ -202,7 +202,7 @@ def evaluate_every_problem(args):
                 
                 
                 if type in EvaluateFuncDict:
-                    score_ref, _ = EvaluateFuncDict[type](ref, label)
+                    score_ref, _ = EvaluateFuncDict[type](ref, label, args)
                     if score_ref > score:
                         ref_score_total += score_ref-score
 
